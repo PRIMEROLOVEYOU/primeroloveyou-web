@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PRIMERO LOVE YOU | Trilogía oficial</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.7"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.26.10/babel.min.js"></script>
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://esm.sh/react@18.3.1",
+      "react/": "https://esm.sh/react@18.3.1/",
+      "react-dom": "https://esm.sh/react-dom@18.3.1",
+      "react-dom/": "https://esm.sh/react-dom@18.3.1/",
+      "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
+      "lucide-react": "https://esm.sh/lucide-react@0.474.0?external=react"
+    }
+  }
+  </script>
+</head>
+<body class="bg-neutral-950">
+  <div id="root"></div>
+
+  <script type="text/babel" data-type="module" data-presets="react">
+    import React, { useState, useMemo } from 'react';
+    import { createRoot } from 'react-dom/client';
+    import { Menu, X, BookOpen, Sparkles, ChevronRight, Crown, MoonStar, Heart, Atom, ShieldCheck, Mail, ArrowUpRight } from 'lucide-react';
+
+    const chapters = [
+      {
+        id: 1,
+        title: 'Capítulo 1',
+        label: 'Apertura',
+        teaser: 'La puerta de entrada al universo emocional de la novela.',
+        content: 'Este bloque está preparado para que sustituyas este texto por el contenido completo del Capítulo 1. El diseño ya está listo para lectura cómoda, con una tipografía amplia y fondo limpio.'
+      },
+      {
+        id: 2,
+        title: 'Capítulo 2',
+        label: 'Continuación',
+        teaser: 'El lector avanza sin fricción y permanece dentro de la historia.',
+        content: 'Aquí podrás pegar el Capítulo 2. Esta estructura está pensada para que cada capítulo se pueda leer fácilmente desde móvil, tablet y ordenador.'
+      },
+      {
+        id: 3,
+        title: 'Capítulo 3',
+        label: 'Tensión',
+        teaser: 'Ideal para dejar al lector con ganas de seguir en Amazon.',
+        content: 'Aquí irá el Capítulo 3. Puedes mantener este sistema para ofrecer lectura gratuita y, al final de cada capítulo, incorporar una llamada a la compra.'
+      },
+      {
+        id: 4,
+        title: 'Capítulo 4',
+        label: 'Desarrollo',
+        teaser: 'Un ritmo pensado para construir vínculo con el lector.',
+        content: 'Espacio reservado para el Capítulo 4. Este módulo puede sustituirse más adelante por una página individual si prefieres separar cada capítulo en URL propia.'
+      },
+      {
+        id: 5,
+        title: 'Capítulo 5',
+        label: 'Profundidad',
+        teaser: 'Más inmersión, más identidad de marca y más tiempo de lectura.',
+        content: 'Aquí irá el Capítulo 5. La web está preparada para crecer con nuevos libros, noticias, reseñas, portada y llamadas a la acción.'
+      },
+      {
+        id: 6,
+        title: 'Capítulo 6',
+        label: 'Gancho final',
+        teaser: 'El punto ideal para invitar a continuar el viaje completo.',
+        content: 'Aquí irá el Capítulo 6. El cierre puede terminar con un botón a Amazon o a la ficha del Libro I cuando tengas el enlace definitivo.'
+      }
+    ];
+
+    const books = [
+      {
+        title: 'Libro I',
+        subtitle: 'El hijo del mañana',
+        status: 'Disponible ahora',
+        active: true,
+        description: 'La puerta de entrada a la trilogía. Romance contemporáneo, ciencia ficción y suspenso emocional en una historia que combina intimidad y misterio.'
+      },
+      {
+        title: 'Libro II',
+        subtitle: 'Próximamente',
+        status: 'En desarrollo',
+        active: false,
+        description: 'La expansión del universo narrativo. Más revelaciones, más resonancia emocional y nuevas preguntas dentro del proyecto.'
+      },
+      {
+        title: 'Libro III',
+        subtitle: 'Próximamente',
+        status: 'Futuro lanzamiento',
+        active: false,
+        description: 'El cierre de la trilogía: culminación temática, resolución y profundidad final de la saga PRIMERO LOVE YOU.'
+      }
+    ];
+
+    function NavLink({ href, children, onClick }) {
+      return (
+        <a href={href} onClick={onClick} className="text-sm text-white/75 transition hover:text-white">
+          {children}
+        </a>
+      );
+    }
+
+    function SectionTitle({ eyebrow, title, description }) {
+      return (
+        <div className="max-w-3xl">
+          <div className="mb-3 inline-flex items-center rounded-full border border-amber-400/25 bg-amber-300/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-amber-200">
+            {eyebrow}
+          </div>
+          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">{title}</h2>
+          <p className="mt-4 text-base leading-7 text-white/70 md:text-lg">{description}</p>
+        </div>
+      );
+    }
+
+    function App() {
+      const [menuOpen, setMenuOpen] = useState(false);
+      const [selectedChapter, setSelectedChapter] = useState(chapters[0]);
+      const [readerOpen, setReaderOpen] = useState(false);
+
+      const features = useMemo(() => [
+        {
+          icon: Heart,
+          title: 'Romance contemporáneo',
+          text: 'Una historia íntima, humana y emocionalmente cercana.'
+        },
+        {
+          icon: Atom,
+          title: 'Ciencia ficción',
+          text: 'Un marco narrativo con misterio, tensión y resonancia futurista.'
+        },
+        {
+          icon: ShieldCheck,
+          title: 'Suspenso emocional',
+          text: 'Capítulos pensados para atrapar, conmover y dejar huella.'
+        }
+      ], []);
+
+      const openReader = (chapter) => {
+        setSelectedChapter(chapter);
+        setReaderOpen(true);
+      };
+
+      return (
+        <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(245,158,11,0.18),_transparent_28%),linear-gradient(180deg,#0a0a0a_0%,#111111_45%,#09090b_100%)] text-white">
+          <header className="sticky top-0 z-40 border-b border-white/8 bg-neutral-950/75 backdrop-blur-xl">
+            <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
+              <a href="#inicio" className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-amber-300/20 bg-amber-200/10 text-amber-200 shadow-[0_0_30px_rgba(251,191,36,0.15)]">
+                  <Crown size={18} />
+                </div>
+                <div>
+                  <div className="text-sm font-semibold tracking-[0.22em] text-white/90">PRIMERO LOVE YOU</div>
+                  <div className="text-xs text-white/45">Trilogía oficial</div>
+                </div>
+              </a>
+
+              <nav className="hidden items-center gap-7 md:flex">
+                <NavLink href="#trilogia">La trilogía</NavLink>
+                <NavLink href="#libro-uno">Libro I</NavLink>
+                <NavLink href="#leer-gratis">Leer gratis</NavLink>
+                <NavLink href="#autor">Autor</NavLink>
+                <NavLink href="#contacto">Contacto</NavLink>
+              </nav>
+
+              <button
+                onClick={() => setMenuOpen((v) => !v)}
+                className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 md:hidden"
+                aria-label="Abrir menú"
+              >
+                {menuOpen ? <X size={20} /> : <Menu size={20} />}
+              </button>
+            </div>
+
+            {menuOpen && (
+              <div className="border-t border-white/8 bg-neutral-950/95 px-5 py-4 md:hidden">
+                <div className="flex flex-col gap-4">
+                  <NavLink href="#trilogia" onClick={() => setMenuOpen(false)}>La trilogía</NavLink>
+                  <NavLink href="#libro-uno" onClick={() => setMenuOpen(false)}>Libro I</NavLink>
+                  <NavLink href="#leer-gratis" onClick={() => setMenuOpen(false)}>Leer gratis</NavLink>
+                  <NavLink href="#autor" onClick={() => setMenuOpen(false)}>Autor</NavLink>
+                  <NavLink href="#contacto" onClick={() => setMenuOpen(false)}>Contacto</NavLink>
+                </div>
+              </div>
+            )}
+          </header>
+
+          <main id="inicio">
+            <section className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+              <div>
+                <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-amber-300/20 bg-amber-300/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.22em] text-amber-100">
+                  <Sparkles size={14} />
+                  Web oficial de la trilogía
+                </div>
+                <h1 className="max-w-4xl text-5xl font-semibold leading-none tracking-tight text-white md:text-7xl">
+                  PRIMERO LOVE YOU
+                </h1>
+                <p className="mt-5 max-w-2xl text-xl leading-8 text-white/72 md:text-2xl">
+                  La trilogía de <span className="font-semibold text-white">Christian C. D'Rosoy</span>. Un universo narrativo donde el romance contemporáneo, la ciencia ficción y el suspenso emocional se entrelazan con una identidad propia.
+                </p>
+                <p className="mt-6 max-w-2xl text-base leading-7 text-white/58 md:text-lg">
+                  Esta web está pensada como base profesional para presentar la saga, destacar el Libro I y ofrecer lectura gratuita de seis capítulos con una experiencia limpia, elegante y preparada para crecer.
+                </p>
+
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <a href="#leer-gratis" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-amber-300 px-6 py-3.5 text-sm font-semibold text-neutral-950 transition hover:bg-amber-200">
+                    Leer gratis
+                    <ChevronRight size={18} />
+                  </a>
+                  <a href="#trilogia" className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/12 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10">
+                    Explorar la trilogía
+                    <ArrowUpRight size={18} />
+                  </a>
+                </div>
+
+                <div className="mt-10 grid gap-4 sm:grid-cols-3">
+                  {features.map((feature) => {
+                    const Icon = feature.icon;
+                    return (
+                      <div key={feature.title} className="rounded-3xl border border-white/10 bg-white/5 p-5 shadow-[0_10px_40px_rgba(0,0,0,0.25)]">
+                        <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-200/10 text-amber-200">
+                          <Icon size={20} />
+                        </div>
+                        <h3 className="text-sm font-semibold text-white">{feature.title}</h3>
+                        <p className="mt-2 text-sm leading-6 text-white/62">{feature.text}</p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="relative">
+                <div className="absolute inset-0 -z-10 blur-3xl" style={{ background: 'radial-gradient(circle, rgba(251,191,36,0.18), transparent 60%)' }} />
+                <div className="rounded-[2rem] border border-white/10 bg-neutral-900/80 p-6 shadow-[0_30px_100px_rgba(0,0,0,0.45)] md:p-8">
+                  <div className="mb-5 flex items-center justify-between">
+                    <span className="rounded-full border border-emerald-400/25 bg-emerald-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-200">
+                      Activo
+                    </span>
+                    <span className="text-xs uppercase tracking-[0.2em] text-white/35">Ediciones 52.1 · Málaga</span>
+                  </div>
+
+                  <div className="rounded-[1.75rem] border border-amber-300/18 bg-[linear-gradient(180deg,rgba(251,191,36,0.16),rgba(255,255,255,0.03))] p-7">
+                    <div className="text-xs uppercase tracking-[0.28em] text-amber-100/90">Libro I</div>
+                    <div className="mt-4 text-3xl font-semibold tracking-tight text-white md:text-4xl">El hijo del mañana</div>
+                    <p className="mt-5 text-base leading-7 text-white/72">
+                      ¿Qué harías si un niño apareciera en tu vida asegurando ser tu hijo... y lo más aterrador fuera descubrir que dice la verdad?
+                    </p>
+                    <div className="mt-7 grid grid-cols-2 gap-3 text-sm text-white/70">
+                      <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                        <div className="text-xs uppercase tracking-[0.18em] text-white/40">Formato</div>
+                        <div className="mt-2 font-medium text-white">eBook · Papel</div>
+                      </div>
+                      <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                        <div className="text-xs uppercase tracking-[0.18em] text-white/40">Lectura</div>
+                        <div className="mt-2 font-medium text-white">6 capítulos gratis</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 rounded-3xl border border-white/10 bg-white/4 p-5">
+                    <div className="flex items-center gap-3 text-sm text-white/72">
+                      <MoonStar size={18} className="text-amber-200" />
+                      Diseñado como escaparate editorial: elegante, limpio y preparado para crecer con la trilogía.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="trilogia" className="mx-auto max-w-7xl px-5 py-18 md:px-8">
+              <SectionTitle
+                eyebrow="La saga"
+                title="Una marca literaria pensada para durar"
+                description="La web se plantea como espacio central de la trilogía. El Libro I lidera el lanzamiento, pero toda la estructura está preparada para incorporar futuras portadas, reseñas, novedades, enlaces de compra y nuevos libros sin rehacer el diseño."
+              />
+
+              <div className="mt-10 grid gap-6 lg:grid-cols-3">
+                {books.map((book) => (
+                  <article key={book.title} className={`rounded-[2rem] border p-7 transition ${book.active ? 'border-amber-300/25 bg-amber-200/8 shadow-[0_0_0_1px_rgba(251,191,36,0.08),0_20px_70px_rgba(0,0,0,0.25)]' : 'border-white/10 bg-white/4'}`}>
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="text-sm font-semibold uppercase tracking-[0.24em] text-white/55">{book.title}</div>
+                      <span className={`rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] ${book.active ? 'bg-emerald-400/10 text-emerald-200' : 'bg-white/8 text-white/55'}`}>
+                        {book.status}
+                      </span>
+                    </div>
+                    <h3 className="mt-5 text-2xl font-semibold tracking-tight text-white">{book.subtitle}</h3>
+                    <p className="mt-4 text-sm leading-7 text-white/68">{book.description}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section id="libro-uno" className="mx-auto max-w-7xl px-5 py-18 md:px-8">
+              <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+                <div className="rounded-[2rem] border border-white/10 bg-white/4 p-7 md:p-9">
+                  <SectionTitle
+                    eyebrow="Libro I"
+                    title="El hijo del mañana"
+                    description="La novela de entrada al universo PRIMERO LOVE YOU. Una propuesta con pulso emocional, misterio narrativo y una identidad de marca que puede convivir con el blog, Amazon, prensa y futuras adaptaciones del proyecto."
+                  />
+                </div>
+
+                <div className="rounded-[2rem] border border-white/10 bg-neutral-900/72 p-7 md:p-9">
+                  <div className="flex items-center gap-3 text-amber-200">
+                    <BookOpen size={18} />
+                    <span className="text-sm font-semibold uppercase tracking-[0.24em]">Sinopsis</span>
+                  </div>
+                  <p className="mt-5 text-lg leading-8 text-white/78">
+                    ¿Qué harías si un niño apareciera en tu vida asegurando ser tu hijo... y lo más aterrador fuera descubrir que dice la verdad?
+                  </p>
+                  <p className="mt-5 text-base leading-8 text-white/65">
+                    PRIMERO LOVE YOU — El hijo del mañana abre una historia donde el amor, el tiempo, la identidad y la elección personal se entrecruzan en una experiencia de lectura intensa, contemporánea y profundamente emocional.
+                  </p>
+                  <div className="mt-7 grid gap-4 sm:grid-cols-2">
+                    <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                      <div className="text-xs uppercase tracking-[0.2em] text-white/42">Géneros</div>
+                      <div className="mt-3 text-sm leading-7 text-white/78">Romance contemporáneo · Ciencia ficción · Suspenso emocional</div>
+                    </div>
+                    <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                      <div className="text-xs uppercase tracking-[0.2em] text-white/42">Objetivo web</div>
+                      <div className="mt-3 text-sm leading-7 text-white/78">Presentar la saga, enamorar al lector y conducirlo a la lectura completa.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="leer-gratis" className="mx-auto max-w-7xl px-5 py-18 md:px-8">
+              <SectionTitle
+                eyebrow="Lectura gratuita"
+                title="Seis capítulos preparados para captar lectores"
+                description="Este bloque está diseñado para ofrecer lectura gratuita sin saturar la página. Cada tarjeta puede convertirse después en una página individual, una entrada de blog o un módulo interno dentro de la propia web."
+              />
+
+              <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                {chapters.map((chapter) => (
+                  <article key={chapter.id} className="group rounded-[1.8rem] border border-white/10 bg-white/4 p-6 transition hover:-translate-y-1 hover:border-amber-300/30 hover:bg-white/6">
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="rounded-full border border-white/10 bg-white/6 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/55">
+                        {chapter.label}
+                      </span>
+                      <span className="text-xs uppercase tracking-[0.18em] text-amber-200">Gratis</span>
+                    </div>
+                    <h3 className="mt-5 text-2xl font-semibold tracking-tight text-white">{chapter.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-white/68">{chapter.teaser}</p>
+                    <button
+                      onClick={() => openReader(chapter)}
+                      className="mt-6 inline-flex items-center gap-2 rounded-2xl border border-amber-300/20 bg-amber-300/10 px-4 py-3 text-sm font-semibold text-amber-100 transition hover:bg-amber-300/18"
+                    >
+                      Abrir vista de lectura
+                      <ChevronRight size={16} />
+                    </button>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section id="autor" className="mx-auto max-w-7xl px-5 py-18 md:px-8">
+              <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+                <div className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.03))] p-7 md:p-9">
+                  <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/6 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-white/60">
+                    <Mail size={14} /> Autor
+                  </div>
+                  <h3 className="text-3xl font-semibold tracking-tight text-white">Christian C. D'Rosoy</h3>
+                  <p className="mt-5 text-base leading-8 text-white/68">
+                    Una firma literaria con identidad propia, orientada a construir un universo narrativo reconocible, emocional y escalable. Esta web está concebida como carta de presentación de la obra y punto de encuentro para lectores, prensa y futuras novedades.
+                  </p>
+                </div>
+
+                <div className="rounded-[2rem] border border-white/10 bg-neutral-900/76 p-7 md:p-9">
+                  <SectionTitle
+                    eyebrow="Posicionamiento"
+                    title="Una presencia editorial más fuerte que un blog tradicional"
+                    description="El objetivo de esta versión en HTML es que PRIMERO LOVE YOU se perciba como una obra con marca, identidad visual y recorrido. La experiencia es más cuidada que la de un blog estándar y se adapta mejor a una trilogía con ambición de crecer."
+                  />
+                  <div className="mt-8 grid gap-4 md:grid-cols-2">
+                    <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-7 text-white/70">
+                      <div className="mb-2 font-semibold text-white">Ideal para añadir después</div>
+                      Portada real, enlace de Amazon, reseñas, noticias, dossier de prensa, ficha del autor y páginas individuales por capítulo.
+                    </div>
+                    <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-7 text-white/70">
+                      <div className="mb-2 font-semibold text-white">Ventaja principal</div>
+                      Da sensación de web oficial, no de blog improvisado. Refuerza la marca de la trilogía y mejora la percepción del proyecto.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="contacto" className="mx-auto max-w-7xl px-5 py-18 md:px-8">
+              <div className="rounded-[2rem] border border-amber-300/20 bg-[linear-gradient(180deg,rgba(251,191,36,0.12),rgba(255,255,255,0.04))] p-8 md:p-10">
+                <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+                  <div>
+                    <div className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-amber-100">Próximo paso recomendado</div>
+                    <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">Listo para incorporar capítulos reales, portada y enlace a Amazon</h2>
+                    <p className="mt-5 max-w-3xl text-base leading-8 text-white/72">
+                      Esta web ya funciona como base profesional. El siguiente paso natural es sustituir los textos de ejemplo por los capítulos definitivos, añadir la portada oficial y conectar el botón de compra cuando tengas la URL final.
+                    </p>
+                  </div>
+                  <div className="rounded-[1.8rem] border border-white/10 bg-neutral-950/50 p-6 text-sm leading-7 text-white/68">
+                    <div className="mb-2 font-semibold text-white">Estructura ya preparada</div>
+                    Inicio · Trilogía · Libro I · 6 capítulos gratis · Autor · Compra / contacto
+                  </div>
+                </div>
+              </div>
+            </section>
+          </main>
+
+          <footer className="border-t border-white/8 px-5 py-8 md:px-8">
+            <div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm text-white/45 md:flex-row md:items-center md:justify-between">
+              <div>PRIMERO LOVE YOU | Trilogía oficial</div>
+              <div>Base web editorial en HTML · preparada para continuar con contenido real</div>
+            </div>
+          </footer>
+
+          {readerOpen && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/72 p-4 backdrop-blur-sm">
+              <div className="relative max-h-[92vh] w-full max-w-3xl overflow-hidden rounded-[2rem] border border-white/10 bg-neutral-950 shadow-[0_30px_120px_rgba(0,0,0,0.65)]">
+                <div className="flex items-center justify-between border-b border-white/8 px-6 py-4">
+                  <div>
+                    <div className="text-xs uppercase tracking-[0.22em] text-amber-200">Vista de lectura</div>
+                    <h3 className="mt-1 text-2xl font-semibold text-white">{selectedChapter.title}</h3>
+                  </div>
+                  <button
+                    onClick={() => setReaderOpen(false)}
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5"
+                    aria-label="Cerrar"
+                  >
+                    <X size={18} />
+                  </button>
+                </div>
+                <div className="max-h-[calc(92vh-84px)] overflow-y-auto px-6 py-7 md:px-10 md:py-10">
+                  <div className="mx-auto max-w-2xl rounded-[1.75rem] border border-white/8 bg-white p-7 text-neutral-900 md:p-10">
+                    <div className="text-xs font-semibold uppercase tracking-[0.24em] text-neutral-500">Lectura gratuita</div>
+                    <h4 className="mt-3 text-3xl font-semibold tracking-tight text-neutral-950">{selectedChapter.title}</h4>
+                    <p className="mt-6 text-lg leading-9 text-neutral-700">{selectedChapter.content}</p>
+                    <div className="mt-8 rounded-2xl bg-neutral-100 p-5 text-sm leading-7 text-neutral-600">
+                      Consejo editorial: cuando pegues aquí el capítulo real, puedes cerrar el texto con una llamada clara a la acción para continuar la lectura completa del libro.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
