@@ -1,309 +1,308 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PRIMERO LOVE YOU | Trilogía oficial</title>
-  <style>
-    :root{--bg:#0b0b0d;--bg2:#141418;--panel:#17171c;--line:rgba(255,255,255,.10);--text:#f5f5f6;--muted:rgba(255,255,255,.70);--soft:rgba(255,255,255,.50);--accent:#e8c067;--accent2:#f6d98b;--paper:#fffdfa;--ink:#1b1b1f;}
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at top, rgba(232,192,103,.16), transparent 20%),linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text)}
-    a{text-decoration:none;color:inherit}
-    .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
-    header{position:sticky;top:0;z-index:20;background:rgba(11,11,13,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-    .topbar{display:flex;justify-content:space-between;align-items:center;padding:16px 0;gap:16px}
-    .brand{font-weight:800;letter-spacing:.18em;font-size:.92rem}.brand small{display:block;color:var(--soft);letter-spacing:.06em;font-weight:500;margin-top:4px}
-    nav{display:flex;gap:22px;flex-wrap:wrap} nav a{color:var(--muted);font-size:.95rem} nav a:hover{color:#fff}
-    .hero{padding:70px 0 48px;display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:center}
-    .eyebrow,.pill{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;border:1px solid rgba(232,192,103,.25);background:rgba(232,192,103,.10);color:var(--accent2);font-size:.75rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
-    h1{font-size:clamp(2.8rem,8vw,5.2rem);line-height:.96;margin:18px 0 0}
-    .lead{font-size:clamp(1.15rem,2vw,1.45rem);line-height:1.6;color:var(--muted);max-width:760px}
-    .hero-card,.panel,.card{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:28px}
-    .hero-card{padding:26px;box-shadow:0 20px 70px rgba(0,0,0,.28)}
-    .bookbox{padding:28px;border-radius:24px;background:linear-gradient(180deg, rgba(232,192,103,.17), rgba(255,255,255,.03));border:1px solid rgba(232,192,103,.20)}
-    .bookbox h2{margin:10px 0 10px;font-size:2rem}
-    .buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 18px;border-radius:16px;background:var(--accent);color:#18130a;font-weight:800;border:1px solid rgba(0,0,0,.08)}
-    .btn.ghost{background:rgba(255,255,255,.05);color:#fff;border:1px solid var(--line)}
-    .grid{display:grid;gap:18px}.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-2{grid-template-columns:repeat(2,1fr)}
-    .section{padding:26px 0 26px}.section h2{font-size:2.2rem;margin:12px 0 0}.section .desc{max-width:820px;color:var(--muted);line-height:1.75}
-    .card{padding:22px}.card h3{margin:10px 0;font-size:1.35rem}.card p{color:var(--muted);line-height:1.7}.meta{font-size:.78rem;color:var(--accent2);text-transform:uppercase;letter-spacing:.18em}
-    .reader-section{padding:26px 0 34px}.reader-head{margin-bottom:18px}.reader-head h2{font-size:2.4rem;margin:14px 0 8px}.sub{color:var(--soft)}
-    .reader-article{background:var(--paper);color:var(--ink);padding:30px;border-radius:28px;max-width:860px;margin:0 auto;box-shadow:0 12px 48px rgba(0,0,0,.18)}
-    .reader-article p{font-size:1.08rem;line-height:1.95;margin:0 0 20px}
-    .reader-nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:22px}
-    .cta-box{margin-top:34px;padding:22px;border-radius:22px;background:#f2ede3}.cta-box p{margin:10px 0 0;font-size:.98rem;line-height:1.8}
-    footer{padding:28px 0 40px;border-top:1px solid var(--line);margin-top:20px;color:var(--soft)}
-    @media (max-width:960px){.hero,.grid.cols-3,.grid.cols-2{grid-template-columns:1fr}.reader-head h2{font-size:2rem}.topbar{align-items:flex-start;flex-direction:column}}
-  </style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PRIMERO LOVE YOU | El hijo del mañana</title>
+
+<meta name="description" content="Thriller emocional ambientado en Málaga. Una historia de suspense, amor y misterio que ya está conquistando a cientos de lectores.">
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
-  <header>
-    <div class="wrap topbar">
-      <div class="brand">PRIMERO LOVE YOU<small>Trilogía oficial</small></div>
-      <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#trilogia">La trilogía</a>
-        <a href="#leer-gratis">Leer gratis</a>
-        <a href="#autor">Autor</a>
-      </nav>
-    </div>
-  </header>
 
-  <main id="inicio" class="wrap">
-    <section class="hero">
-      <div>
-        <div class="eyebrow">Web oficial de la trilogía</div>
-        <h1>PRIMERO LOVE YOU</h1>
-        <p class="lead">La trilogía de <b>Christian C. D'Rosoy</b>. Romance, ciencia ficción y suspenso emocional en una historia de tiempo, amor y destino.</p>
-        <p class="lead">Esta edición web ofrece lectura gratuita desde la dedicatoria hasta el capítulo 6 de <b>El hijo del mañana</b>, con navegación cómoda y experiencia pensada para móvil, tableta y ordenador.</p>
-        <div class="buttons">
-          <a class="btn" href="#leer-gratis">Leer gratis</a>
-          <a class="btn ghost" href="#trilogia">Explorar la trilogía</a>
-        </div>
-      </div>
-      <div class="hero-card">
-        <div class="bookbox">
-          <div class="meta">Libro I</div>
-          <h2>El hijo del mañana</h2>
-          <p class="lead" style="font-size:1.05rem">¿Qué harías si un niño apareciera en tu vida asegurando ser tu hijo… y lo más aterrador fuera descubrir que dice la verdad?</p>
-          <div class="grid cols-2" style="margin-top:18px">
-            <div class="card"><div class="meta">Formato web</div><h3>Lectura narrativa</h3></div>
-            <div class="card"><div class="meta">Disponible ahora</div><h3>Dedicatoria + 6 capítulos</h3></div>
-          </div>
-        </div>
-      </div>
-    </section>
+<header>
 
-    <section id="trilogia" class="section">
-      <div class="eyebrow">La saga</div>
-      <h2>Una marca literaria pensada para crecer</h2>
-      <p class="desc">Esta web funciona como la casa digital de PRIMERO LOVE YOU. El Libro I está disponible en lectura gratuita parcial, mientras la estructura queda preparada para futuros lanzamientos, reseñas, compra y novedades editoriales.</p>
-      <div class="grid cols-3" style="margin-top:24px">
-        <article class="card"><div class="meta">Libro I</div><h3>El hijo del mañana</h3><p>La entrada a la trilogía. Amor, tiempo, identidad y una grieta imposible en la realidad.</p></article>
-        <article class="card"><div class="meta">Libro II</div><h3>Próximamente</h3><p>La expansión del universo narrativo y de las consecuencias del Proyecto C0NT1G0.</p></article>
-        <article class="card"><div class="meta">Libro III</div><h3>Próximamente</h3><p>El cierre de la trilogía y la resolución final del sistema, la sangre y el tiempo.</p></article>
-      </div>
-    </section>
+<nav>
 
-    <section id="leer-gratis" class="section">
-      <div class="eyebrow">Lectura gratuita</div>
-      <h2>Dedicatoria, prólogo y capítulos 1 al 6</h2>
-      <p class="desc">La lectura está organizada dentro de esta misma web para facilitar una experiencia cómoda, limpia y progresiva.</p>
-      <div class="grid cols-3" style="margin-top:24px">
-  <article class="card">
-    <div class="meta">1/8</div>
-    <h3>Dedicatoria</h3>
-    <p>El umbral íntimo desde el que nace toda la novela.</p>
-    <a class="btn ghost" href="#dedicatoria">Leer</a>
-  </article>
+<div class="logo">
 
-  <article class="card">
-    <div class="meta">2/8</div>
-    <h3>Prólogo</h3>
-    <p>La primera herida del tiempo. El inicio invisible de todo.</p>
-    <a class="btn ghost" href="#prologo">Leer</a>
-  </article>
+PRIMERO LOVE YOU
 
-  <article class="card">
-    <div class="meta">3/8</div>
-    <h3>Capítulo 1 · Todavía no ha pasado</h3>
-    <p>El día en que la lógica dejó de servir y apareció un niño imposible.</p>
-    <a class="btn ghost" href="#capitulo-1">Leer</a>
-  </article>
-
-  <article class="card">
-    <div class="meta">4/8</div>
-    <h3>Capítulo 2 · La Grieta</h3>
-    <p>La lógica se resquebraja y la realidad empieza a abrir una puerta.</p>
-    <a class="btn ghost" href="#capitulo-2">Leer</a>
-  </article>
-
-  <article class="card">
-    <div class="meta">5/8</div>
-    <h3>Capítulo 3 · El Código</h3>
-    <p>La herencia del padre empieza a hablar desde la materia y desde la sangre.</p>
-    <a class="btn ghost" href="#capitulo-3">Leer</a>
-  </article>
-
-  <article class="card">
-    <div class="meta">6/8</div>
-    <h3>Capítulo 4 · El Pulso del Pasado</h3>
-    <p>El cuerpo despierta. El tatuaje reclama memoria y se abre otra puerta.</p>
-    <a class="btn ghost" href="#capitulo-4">Leer</a>
-  </article>
-
-  <article class="card">
-    <div class="meta">7/8</div>
-    <h3>Capítulo 5 · El Puente al Ayer</h3>
-    <p>El tiempo se abre, los padres reaparecen y el origen empieza a desvelarse.</p>
-    <a class="btn ghost" href="#capitulo-5">Leer</a>
-  </article>
-
-  <article class="card">
-    <div class="meta">8/8</div>
-    <h3>Capítulo 6 · En una hora</h3>
-    <p>El presente se tensa, el deseo se mezcla con la señal y algo se acerca.</p>
-    <a class="btn ghost" href="#capitulo-6">Leer</a>
-  </article>
 </div>
-    </section>
 
-    
-  <section id="dedicatoria" class="reader-section">
-    <div class="reader-head">
-      <span class="pill">Lectura gratuita</span>
-      <h2>Dedicatoria</h2>
-      <p class="sub">PRIMERO LOVE YOU · Libro I · Trilogía oficial</p>
-    </div>
-    <article class="reader-article"><p>A la memoria de mi padre que me enseñó el valor del tiempo antes de que yo entendiera que podía perderlo.</p>
-      <div class="cta-box">
-        <strong>Próximamente en Amazon</strong>
-        <p>Si esta historia ya te ha atrapado, muy pronto podrás continuar la lectura completa de <b>PRIMERO LOVE YOU — El hijo del mañana</b> en Amazon.</p>
-      </div>
-    </article>
-    <div class="reader-nav">
-      <span></span>
-      <a class="btn ghost" href="#leer-gratis">Índice</a>
-      <a class="btn" href="#prologo">Prólogo →</a>
-    </div>
-  </section>
-  <section id="prologo" class="reader-section">
-    <div class="reader-head">
-      <span class="pill">Lectura gratuita</span>
-      <h2>Prólogo</h2>
-      <p class="sub">PRIMERO LOVE YOU · Libro I · Trilogía oficial</p>
-    </div>
-    <article class="reader-article"><p>«Echar de menos a alguien que no conoces es una forma de locura que no tiene diagnóstico».</p><p>—CC</p><p>Hay ausencias que no dejan fotografías. No tienen fecha ni entierro. Y, sin embargo, pesan más que los muertos con nombre.</p><p>Durante años pensé que lo que me dolía era el pasado. Me equivoqué. Lo que me dolía era algo que aún no había ocurrido.</p><p>El tiempo no es una línea recta. Eso lo dicen los físicos cuando quieren parecer valientes. El tiempo es un animal herido que siempre vuelve al lugar donde sangró.</p><p>Hay nombres que uno aprende a callar antes de que existan. Hay promesas que se rompen antes de ser dichas. Hay personas que reconoces la primera vez que las ves, no porque las hayas visto antes, sino porque las has estado esperando sin saberlo.</p><p>A veces despierto con la sensación de haber perdido algo que nunca sostuve entre las manos. Un latido que no escuché. Una despedida que nadie pronunció.</p><p>Si pudiera volver atrás, diría que todo empezó con un abrazo. Pero la verdad es que empezó mucho antes. Empezó el día que comprendí que el tiempo no siempre se pierde hacia adelante. A veces se pierde hacia alguien.</p><p>Empezó un lunes de febrero, con el café todavía humeando en la taza y un niño de ocho años mirándome desde una silla diminuta con los ojos que eran los míos.</p>
-      <div class="cta-box">
-        <strong>Próximamente en Amazon</strong>
-        <p>Si esta historia ya te ha atrapado, muy pronto podrás continuar la lectura completa de <b>PRIMERO LOVE YOU — El hijo del mañana</b> en Amazon.</p>
-      </div>
-    </article>
-    <div class="reader-nav">
-      <a class="btn ghost" href="#dedicatoria">← Dedicatoria</a>
-      <a class="btn ghost" href="#leer-gratis">Índice</a>
-      <a class="btn" href="#capitulo-1">Capítulo 1 · Todavía no ha pasado →</a>
-    </div>
-  </section>
-  <section id="capitulo-1" class="reader-section">
-    <div class="reader-head">
-      <span class="pill">Lectura gratuita</span>
-      <h2>Capítulo 1 · Todavía no ha pasado</h2>
-      <p class="sub">PRIMERO LOVE YOU · Libro I · Trilogía oficial</p>
-    </div>
-    <article class="reader-article"><p>PARTE I<br>2026</p><p>Hay exactamente dos momentos en la vida de todo hombre en los que el tiempo se detiene de verdad: cuando alguien te dice que vas a ser padre y cuando te lo reclama un niño al que nunca has visto.</p><p>A mí me tocaron los dos el mismo día.<br>Y ninguno era posible.</p><p>Lunes · 08:15 h · Calle La Unión · Málaga · 2026</p><p>El silencio en mi apartamento de la calle La Unión no era simple vacío. Era una entidad viva, pesada como el plomo fundido, instalada en cada rincón con la persistencia de un invitado no deseado. Se acurrucaba junto a mí en el sofá de cuero desgastado por el tiempo y las ausencias. Reclamaba el lado izquierdo de la cama, el lugar abandonado por mi ex hacía ocho meses tras dieciséis años de vida compartida. Nuestra historia empezó en aquella primavera de 2010. Entonces creíamos tenerlo todo por delante; no imaginábamos que lo mejor de nosotros se quedaría tirado en la cuneta. Ahora, ese mutismo se adhería a las paredes blancas del salón como una niebla espesa, impregnada del humo fantasma de cigarrillos ya apagados.</p><p>Eran las ocho y cuarto de un lunes gris de febrero. Al otro lado de la cristalera, Málaga se desperezaba bajo una luz pálida y cortante: un sol incapaz de calentar los huesos, pero clavado en la piel como la hoja de un cuchillo afilado.</p><p>La cafetera italiana, reliquia de mis días más optimistas, emitió su gorgoteo final. El café brotó negro como la brea. Espeso. Amargo. Sin azúcar. El combustible necesario.</p><p>A mis pies, Noa —mi pequeña pomerania negra de ojos brillantes— soltó un bufido impaciente. Su urgencia canina me recordaba que aún había vida en este lugar. Ella también añoraba los desayunos de domingo: el aroma del pan tostado con tomate y aceite de oliva, el zumo de naranja recién exprimido inundando el aire de cítricos y las risas apagadas sin aviso, dejando ecos huecos. Le rasqué detrás de las orejas con dedos distraídos; me miró con esa paciencia infinita propia de los perros y los ancianos sabios. Entendía mi tormenta interna mejor que yo mismo.</p><p>Me serví el café en la taza desconchada, la última superviviente de aquel juego barato comprado en IKEA en una tarde de ilusiones, cuando el amor parecía eterno. Me quedé mirando a través del muro de vidrio, observando el mundo como un espectador distante. Abajo, la calle iniciaba su ritual diario: persianas metálicas ascendiendo con estrépito oxidado, peatones apresurados hacia Juan XXIII con maletines y mochilas al hombro y algún repartidor en patinete eléctrico zigzagueando entre ellos. Yo, con treinta y siete años a mis espaldas, me sentía un actor secundario relegado a la última fila de su propia existencia.</p><p>El equipo de música, un Marantz de los setenta heredado de mi padre, custodiado como un relicario de polvo y memoria, bañaba el rincón con un resplandor ámbar. La aguja vibró en el surco final del vinilo y, de pronto, la guitarra de Triana rasgó la quietud del salón. Era Un nido en mi ventana. La voz de Jesús de la Rosa empezó a elevarse, ese ruego hipnótico suplicando a una blanca paloma su vuelo, que no se perdiera en el vacío para no sucumbir al frío.</p><p>Me quedé quieto mientras el café seguía sin tocar. Noa me observaba desde el suelo, inmóvil. La canción no tenía prisa por terminar y, por un momento, yo tampoco.</p><p>Mi ex siempre tachaba esta canción de ingenua. Nunca entendí por qué le gustaba tanto. Lo entiendo ahora.</p><p>Herrmann Sole, mi tienda online de sneakers de edición limitada, funcionaba con precisión quirúrgica. Algoritmos, drops exclusivos, envíos internacionales sin retrasos. El dinero entraba sin esfuerzo. Podía permitirme el apartamento, las cervezas con la Guardia Pretoriana, los caprichos innecesarios vendidos por la sociedad como éxito. Por fuera, todo era impecable. Por dentro, el vacío absoluto.</p><p>El iPhone vibró sobre la encimera de granito, rompiendo el hechizo. El nombre en pantalla me sacó la primera sonrisa genuina en días: Toni.</p><p>Contesté; mi voz sonó áspera, oxidada por horas de quietud.</p><p>—¿Dime, piloto? —dije, intentando sonar casual.</p><p>—¡Christian! ¿Qué pasa, fiera?</p><p>Su voz llegó cristalina; los seis mil kilómetros entre Málaga y Dubái fueron apenas un susurro. Toni, con su metro noventa y siete de estatura, piel morena y ojos verdes penetrantes, era mi hermano del alma desde los cuatro años. Ahora, piloto comercial, trotamundos profesional capaz de desayunar cruasanes en Londres, almorzar kebabs en Doha y cenar dim sum en Singapur.</p><p>—Acabo de salir del Dubái Mall y, tío, he visto algo capaz de hacer explotar tu stock.</p><p>—¿Más Yeezys? El mercado está saturado. La gente ya no pica con cada drop.</p><p>—No, cansino. Escucha: tres pares de Jordan 1 Retro High «Dior». Las de verdad, liberadas aquí en exclusiva para los VIP de los Emiratos. Las tengo en la mano ahora mismo. Huelen a cuero premium. Si las subes este viernes, pagamos las rondas de la Guardia Pretoriana por un año entero.</p><p>Mi amigo tenía ese don innato: donde otros veían simples zapatillas, él olfateaba oportunidades de oro. Su instinto para los negocios era legendario, afilado por años de vuelos intercontinentales y tratos en aeropuertos remotos.</p><p>—Si son auténticas y traes el certificado, envíame fotos ya. Las marco como «Próximamente» en la web. ¿Cuánto has soltado por ellas?</p><p>—Demasiado, pero recuperamos el triple, fácil —rió, y su carcajada resonó con el bullicio de fondo: idiomas entremezclados, ruedas de maletas y anuncios en árabe—. Mañana hago escala en Madrid y el jueves bajo a Málaga unos días. Quiero a toda la Guardia en Le Grand Café. No acepto excusas.</p><p>—Cuenta con eso. Trae esas joyas y lo celebramos como se merece.</p><p>—Oye, espera —frenó antes de colgar. Su voz bajó un tono, volvió a ser la del crío del Perchel—. ¿Y la rubia? ¿Habéis hablado?</p><p>Hice una pausa demasiado larga, la que dice todo sin abrir la boca.</p><p>—Ocho meses sin hablar, tío.</p><p>Al otro lado no hubo respuesta inmediata. Esa pausa suya, de las que pesan más que cualquier palabra.</p><p>—Joder, macho.</p><p>—Buen vuelo, cabrón.</p><p>Colgué a Toni y el apartamento volvió a quedarse quieto. Me bebí el café de un trago, ignorando que ya estaba frío. El negocio marchaba sobre ruedas… pero el lugar seguía siendo un mausoleo demasiado vasto para mí y un puñado de recuerdos que se negaban a desvanecerse.</p><p>Me detuve frente al espejo del pasillo. Chupa de cuero negra, camiseta blanca de algodón grueso y unas sneakers de mi colección con un valor superior al salario mensual de medio país. Rubio, un metro ochenta y dos, ojos verdes heredados de mi madre. Christian Herrmann: éxito rotundo por fuera, rompecabezas con piezas perdidas por dentro. ¿Cuánto tiempo más podía fingir que esta era la vida que quería?</p><p>Iba a colocarle el arnés a Noa cuando el teléfono volvió a vibrar. Número fijo, prefijo de Málaga. Contesté con un nudo en el estómago.</p><p>—Buenos días, dígame.</p><p>—Buenos días. ¿Es el señor Christian Herrmann?</p><p>La voz era joven, clara, con ese acento malagueño cálido que te desarma sin que te des cuenta, como un abrazo inesperado.</p><p>—Sí, soy yo.</p><p>—Soy Silvia, la tutora de segundo de primaria en el CEIP García Lorca. Necesitamos que venga lo antes posible. Su hijo se ha alterado mucho y no pregunta más que por usted. Dice que no se calmará hasta que llegue su papá.</p><p>—¿Mi… hijo? —balbuceé, sintiendo un vértigo repentino—. Debe de haber un error. No tengo hijos.</p><p>El mundo se detuvo en seco. Hubo murmullos al otro lado, un llanto amortiguado de fondo. La mujer regresó a la línea con tono suave, pero con una certeza que me inquietó.</p><p>—El teléfono registrado es este, Christian. Y el niño insiste. Se llama como usted. Dice que es su «pequeño CC2». ¿Podría venir, aunque sea para aclarar el malentendido? No deja de llorar.</p><p>El apodo que nadie más que los más íntimos usaban: CC. Sentí el corazón golpear contra las costillas como un martillo neumático. Tuve que apoyarme en la encimera para no caer. CC2; el nombre con el que bromeaban mis colegas sobre cómo llamarían a mi hijo si algún día lo tuviera.</p><p>—Mire —conseguí decir con voz extraña— le repito que no tengo hijos. No puedo ser el padre de nadie.</p><p>—El niño no ha parado de llorar desde que llegó —repitió la docente, sin drama, limitándose a sostener los hechos—. Dice «papá». Lo quiere a usted.</p><p>Cogí aire. Había un millar de razones para colgar: error de registro, niño con fantasías, padre con mi nombre. Eran sólidas. Y, sin embargo, esas siglas no se dejaban guardar en ninguno de esos cajones. Era demasiado específico.</p><p>—Está bien —logré decir al fin—. Iré. Pero le aseguro que esto es un error garrafal.</p><p>Colgué. Noa ladró una vez, un sonido corto y agudo.</p><p>—Tranquila, chica —murmuré mientras le ajustaba el arnés con manos temblorosas—. Vamos a dar un paseo antes de sumergirnos en este lío.</p><p>El frío de aquel mes se metía por las costuras de la chupa, pero el sol de la mañana ya empezaba a reclamar su sitio. Noa tiraba de la correa con esa urgencia mecánica que tienen los perros cuando el barrio ya está a pleno rendimiento a las nueve y media. Salimos del recinto. Frente a mi portal, las persianas de los comercios ya habían terminado de tronar y el trasiego era constante, marcando el ritmo de una calle que no sabe lo que es la tregua.</p><p>El barrio se desplegaba ante nosotros: una hilera interminable de bloques, ladrillo visto y fachadas de hormigón que conviven con los edificios nuevos que han ido cerrando el cielo. A esta hora, el sol ya pegaba con ganas, creando una claridad que rebotaba entre los edificios y el asfalto, iluminando los camiones de reparto que descargaban frente a los súper. Había olor a pan recién hecho mezclado con el ruido de los motores diésel.</p><p>Caminamos hacia el pequeño parque donde la perra marcaba su territorio. En mi mente, la conversación se repetía en bucle, como un vinilo rayado que se niega a saltar de surco: «su hijo», «muy nervioso», «CC2». ¿Cómo demonios un niño de segundo de primaria conocía mi apodo, ese mote que manejaban los más íntimos? ¿Por qué el colegio tenía mi número y mi nombre vinculados a ese crío? ¿Era una broma cruel de algún viejo conocido o algo mucho más retorcido, diseñado para sacarme de mi madriguera?</p><p>¿Qué pensaba hacer con el resto de la mañana? ¿Sentarme frente al iMac a revisar pedidos que el sistema ya gestionaba? ¿Perderme otra vez en la galería del móvil, buscando fotos antiguas de la rubia para flagelarme con lo que fuimos? No. Esta vez el aislamiento no iba a ser mi refugio. Había un hilo invisible que tiraba de mí, un cable de alta tensión que me obligaba a moverme. Tenía que ir. Tenía que mirar a ese niño a los ojos y desentrañar aquel absurdo antes de que terminara de volverme loco.</p><p>Lunes · 10:10 h · Colegio García Lorca</p><p>El CEIP García Lorca se erguía en la calle Alemania con dignidad fatigada. Opté por caminar para ordenar el caos. Al entrar en el colegio, el vaho dulzón de la colonia infantil me asaltó como una emboscada. Era un olor a limpieza impostada, a alcohol y cítricos ácidos que intentaban enmascarar el rastro rancio del edificio. Se me pegó a la garganta como un recuerdo que no había pedido recuperar.</p><p>La secretaria me recibió con una sonrisa profesional, pidió mi DNI y me indicó el camino a la primera planta. Subí las escaleras con el pulso acelerado. Era ridículo. Entraría, aclararía el error y volvería a mi rutina. Fin de la historia.</p><p>Pero antes de alcanzar el pomo, mis pies se clavaron en el terrazo. Desde el interior del aula llegaba una melodía tarareada en un hilo de voz. La reconocí al primer acorde mental: Sabor de amor, de Danza Invisible. La profesora estaba allí dentro, acariciando esas notas ochenteras. La tarareaba bajito, con cadencia perezosa. El sonido era frágil, cargado de una intención que me erizó la piel. Me quedé allí, inmóvil, escuchando cómo el «sabor de amor…» moría en un suspiro justo antes de que mi mano empujara la madera.</p><p>La puerta del aula estaba entreabierta; dejaba escapar un llanto suave.</p><p>Silvia me vio primero. Tendría treinta y pocos, llevados con ligereza envidiable. El pelo rubio era lo primero que veías: rizado con fuerza, denso, con vitalidad salvaje. Tenía los ojos marrones y grandes, capaces de leer el estado de una habitación antes de que nadie hablara. Su piel era clara, luminosa bajo aquella luz de invierno terminal. Vestía como quien ha tenido la mente en otra parte al despertar: blusa clara con un botón mal abrochado, vaqueros sencillos y zapatillas de deporte. Exudaba la energía precisa de quien sabe calmar el mundo sin levantar la voz.</p><p>Mi presencia borró el tarareo de golpe.</p><p>—¿Christian, verdad? —dijo con una voz que mezclaba cercanía y profesionalidad—. Gracias por venir tan rápido. Pasa, por favor.</p><p>Ahí estaba él.</p><p>Un crío de unos ocho años, sentado en una sillita de madera junto a la puerta. El sol se colaba por las persianas en rayas de luz polvorienta, iluminando motas flotantes como galaxias en miniatura alrededor de su cabeza. Llevaba la camiseta de la selección, la del Mundial 2010, un par de tallas mayor, y pantalones cortos que dejaban ver sus rodillas curtidas en mil batallas de patio. Su pelo rubio, lacio… y cuando levantó la vista, el suelo bajo mis zapatillas de edición limitada pareció desvanecerse.</p><p>Sus ojos eran como los míos: profundos, enmarcados por pestañas largas que yo conocía bien. Era un espejo desfasado, una fotografía de mi propia infancia cobrando vida para señalarme mis deudas pendientes.</p><p>Me dejó sin aire.</p><p>Al verme, el chavea se levantó de un salto. Corrió hacia mí y se estrelló contra mis piernas, abrazándolas con una fuerza desesperada.</p><p>—Sabía que vendrías, papá —susurró contra mi rodilla.</p><p>Me quedé petrificado. Mis manos quedaron suspendidas en el aire, inertes, atrapadas en un limbo imposible entre el impulso de abrazarlo para detener su temblor y el de huir hasta que el barrio del Perchel quedara reducido a un punto borroso en el retrovisor.</p><p>Silvia se acercó con pasos suaves, rompiendo el vacío. Sus ojos brillaban con una ternura casi insultante por su realismo.</p><p>—Es la primera vez que menciona su nombre —susurró la profesora—. Hasta hoy, se limitaba a dibujar. Mire.</p><p>Me tendió un folio arrugado, marcado por el rastro de ceras de colores. Era un dibujo infantil, pero con un detalle que me heló la sangre: un hombre alto con chupa de cuero y el cuello subido, de la mano de un niño pequeño. Ambos llevaban la camiseta de la selección. Debajo, en letras grandes, torpes y decididas, una palabra que parecía gritar: PAPÁ.</p><p>Un zumbido sordo empezó a pitar en mis oídos, ese tono de frecuencia que precede a un desmayo. Di la vuelta al papel con los dedos entumecidos y sentí que el corazón se me detenía. En el reverso, con una caligrafía infantil temblorosa pero clara, había una dirección escrita: Calle Peregrino, 28.</p><p>La casa de mi infancia. Aquel lugar que había quedado atrás como un capítulo que nunca supe cerrar del todo. Ver esa dirección escrita por la mano de un niño me provocó un vértigo ajeno a la altura; era el pasado reclamando su sitio en un presente que ya no lo esperaba.</p><p>Sus ojos se clavaron en los míos buscando una respuesta inexistente. Inclinó un poco la barbilla, evaluándome, imitándome sin saberlo. No era la mirada de un niño asustado; había en ella una profundidad desconcertante, una sabiduría antigua incapaz de caber en un cuerpo tan frágil.</p><p>—No te preocupes, papá —susurró tan bajo que apenas logré captarlo—. Todavía no ha pasado.</p><p>Sonrió.</p><p>Una sonrisa que no era del todo de niño, sino de alguien que vislumbra el final de un cuento y decide creer en él.</p><p>Silvia alzó una ceja, intrigada por nuestro silencio prolongado, ese duelo de miradas entre dos versiones de un mismo hombre.</p><p>—¿Te sientes bien, Christian? Te has quedado pálido.</p><p>Su mano rozó mi brazo con gesto ligero, casi casual, pero el calor del contacto atravesó la manga de la chupa hasta anclarse en mi piel.</p><p>Allí, frente a aquella docente capaz de ver a través de mis corazas y un niño desafiante ante toda lógica, entendí que mi vida de facturas automáticas y ausencias programadas acababa de estallar. El futuro irrumpía en el aula. Yo no tenía dónde esconderme.</p>
-      <div class="cta-box">
-        <strong>Próximamente en Amazon</strong>
-        <p>Si esta historia ya te ha atrapado, muy pronto podrás continuar la lectura completa de <b>PRIMERO LOVE YOU — El hijo del mañana</b> en Amazon.</p>
-      </div>
-    </article>
-    <div class="reader-nav">
-      <a class="btn ghost" href="#prologo">← Prólogo</a>
-      <a class="btn ghost" href="#leer-gratis">Índice</a>
-      <a class="btn" href="#capitulo-2">Capítulo 2 · La Grieta →</a>
-    </div>
-  </section>
-  <section id="capitulo-2" class="reader-section">
-    <div class="reader-head">
-      <span class="pill">Lectura gratuita</span>
-      <h2>Capítulo 2 · La Grieta</h2>
-      <p class="sub">PRIMERO LOVE YOU · Libro I · Trilogía oficial</p>
-    </div>
-    <article class="reader-article"><p>Lunes · 10:55 h · Colegio García Lorca</p><p>Bajé las escaleras con el dibujo doblado en el bolsillo interior de la chaqueta de piel: una granada a punto de detonar. Cada crujido del papel contra el cuero era un recordatorio punzante: aquello no había salido de mi cabeza. Era real. El niño —ese supuesto hijo mío, con mis ojos y mi remolino en el pelo— se había quedado dentro con la profesora. Su voz suave se filtraba a través de la puerta entreabierta mientras le hablaba bajito, calmándolo con la delicadeza de una madre. Me invadió una envidia sorda, un pinchazo en el pecho que me transportó a mis propios días de infancia: nadie me había secado las lágrimas con tanta ternura. Aprendí a tragármelas a solas, en el baño del instituto, mirando mi reflejo en el espejo empañado con la rabia suficiente para estallarlo.</p><p>El pasillo del García Lorca se abría ante mí como un túnel de hormigón. Fuera, en el patio, el griterío de los niños era un ruido lejano, un eco de juegos que yo ya no sabía descifrar. Mis sneakers golpeaban las baldosas desgastadas con un ritmo seco, rompiendo el silencio. Arriba, un fluorescente agonizante parpadeaba con un zumbido eléctrico, rindiéndose poco a poco. Estaba fuera de lugar. Todo me parecía irreal, como si hubiera irrumpido en una película independiente donde me habían asignado el papel principal sin guion, sin ensayos, sin advertencia alguna. ¿Quién era el director de esta farsa? ¿El destino, con su sentido del humor retorcido? ¿O mi propia mente, fracturándose bajo el peso de la soledad acumulada?</p><p>Necesitaba aire fresco para disipar la opresión en mi pecho, una presión que no sabía si atribuir al pánico puro, a la incredulidad absoluta o a algo peor, como el comienzo de una grieta en mi realidad cuidadosamente construida.</p><p>La docente me acompañó hasta la salida principal. Sus pasos se sincronizaban con los míos en un ritmo involuntario; el pasillo parecía más corto, más íntimo. Fuera, el sol pegaba con suavidad engañosa. El invierno malagueño coqueteaba con la primavera: aire limpio impregnado de salitre y aroma a naranjos. Un murmullo urbano constante rodeaba la escena mientras algún niño salía corriendo del colegio con la mochila a medio cerrar, recordándome una inocencia perdida hace décadas.</p><p>—Christian… —me llamó antes de que pusiera un pie fuera. Su voz me clavó en el sitio—. ¿De verdad no tienes idea de quién es?</p><p>Me giré y la miré; realmente la miré por primera vez. Bajo la luz tenue del vestíbulo, sus ojos marrones brillaban con una chispa de curiosidad que trascendía el mero deber profesional. No era solo la tutora preocupada por un alumno alterado; había algo eléctrico en el aire entre nosotros, un reconocimiento silencioso y profundo, como si el universo —ese gran titiritero caprichoso— hubiera decidido cruzarnos en este preciso momento para que algo se removiera en lo más hondo de mí. Su coleta rubia se deshacía en un mechón rebelde que le rozaba la mejilla. Quise extender la mano y apartarlo. Evité hacerlo.</p><p>—No tengo hijos. Te lo juro por lo que más quieras —respondí, aunque mi voz había perdido contundencia, teñida por una vulnerabilidad difícil de admitir—. Mi vida, hasta hace una hora, consistía en gestionar zapatillas exclusivas, pasear a mi perra y evitar el vacío. Mi última relación terminó hace ocho meses con una discusión grabada a fuego. Lo último que esperaba hoy era un «mini yo» que me llamara papá. ¿Lo entiendes? Esto no encaja en mi mundo.</p><p>Ella encajó las palabras sin retroceder. Al contrario, se acercó lo suficiente para que su perfume me envolviera: frescor terroso, como lluvia sobre tierra seca, mezclado con un toque delicado de vainilla. Me recordó, por un segundo traicionero, los domingos perezosos con mi ex. Pero esto era nuevo, vibrante; la mujer portaba una corriente capaz de reavivar circuitos dormidos.</p><p>—A veces los niños son canales para cosas ajenas a la comprensión adulta —dijo con esa sonrisa ladeada, llena de calidez malagueña—. No ha parado de repetir que «papá siempre viene cuando lo necesito». Y ese dibujo… Christian, captura hasta el detalle del cuello subido. Te ha dibujado por dentro antes de que tú mismo te miraras.</p><p>Sacó un post-it del bolsillo de sus jeans y buscó el bolígrafo que usaba para sujetarse la coleta, desenredándolo con un gesto experto antes de empezar a escribir. Se acercó para entregármelo, y el roce de sus dedos contra los míos fue deliberado, cálido, prolongado solo un instante, pero lo suficiente para que un pulso acelerado reverberara entre nosotros.</p><p>—Toma mi número personal. Por si el niño dice algo más… o por si necesitas hablar con alguien que no te tome por loco. —Hubo una pausa mínima—. O hablar, sin más —añadió antes de girarse.</p><p>Ese «sin más» resonó como una promesa velada, algo que encendía una parte de mí dormida desde la partida de mi ex. Hacía años que no sentía esta urgencia visceral: el deseo de inclinarme, cerrar la distancia y ver qué chispa saltaba.</p><p>Pero no era el momento. No allí, con el dibujo ardiéndome en el bolsillo y el niño esperando en el aula.</p><p>—Gracias —articulé con voz ronca—. Te avisaré si descifro esta broma cósmica.</p><p>Ella sonrió de nuevo, más lenta, más íntima. Retiró los dedos despacio, dejando un rastro de calor que subió por mi brazo hasta el pecho.</p><p>—Hazlo. Y cuídate, Christian. Pareces… perdido. Alguien que ha olvidado el camino de vuelta a sí mismo.</p><p>Salí a la calle. El sol calentaba mi piel, pero no lograba disipar el calor diferente que subía desde el estómago. Caminé de vuelta cruzando el puente de hierro hacia el Perchel. Dejé atrás el centro de salud. El tráfico de Salitre era un fondo sonoro incapaz de ahogar el torbellino mental: mitad obsesionado con el abrazo del niño, mitad atrapado en la forma en que ella pronunció mi nombre.</p><p>Lunes · 11:30 h · Calle La Unión</p><p>Llegué al piso. Noa me recibió con ladridos y saltos, intuyendo mi necesidad de afecto incondicional. La abracé fuerte, inhalando su aroma a hogar.</p><p>—¿Tú sí que me conoces, eh, chica? —murmuré.</p><p>Su presencia era lo único que me mantenía a flote. Decidí sacarla para aclarar la cabeza. Necesitaba que el viento y el salitre me barrieran las ideas.</p><p>Lunes · 12:00 h · Playa de Huelin</p><p>Enfilé hacia Huelin. La playa estaba casi vacía. Noa corría libre por la arena y yo la seguía con los ojos mientras el mar hacía su trabajo eterno. Observé a un hombre con su hijo cerca del paseo. El pequeño tendría seis años; se detuvo porque tenía el cordón desatado. El padre se agachó con gesto automático, y el niño esperó con paciencia absoluta, con la confianza de quien sabe que hay una mano que siempre llega. Al terminar, el crío siguió andando sin mirarlo. Esa certeza no necesitaba confirmación.</p><p>Me paré.</p><p>Esa mañana, un niño al que nunca había visto me había abrazado las piernas con esa misma confianza.</p><p>Noa volvió a mi lado. La cogí en brazos y la achuché con ganas, sin apartar la vista de los dos que se alejaban por el paseo.</p><p>—Vamos —le dije—. A casa.</p><p>Al llegar, me dejé caer en el sofá. Saqué el dibujo y lo desplegué bajo la luz ámbar de la lámpara. El hombre era yo: cuello subido, postura encorvada para ocultar inquietud. Debajo, con letras torpes: «Papá». Detrás, esa dirección que me helaba la sangre. La frase se quedó instalada, sin destinatario, igual que él la había dejado escrita: para que pesara antes de ser entendida.</p><p>Salí al balcón. Observé el cielo de Málaga bajo la luz plana del mediodía. Por un segundo, el tiempo pareció detenerse.</p><p>La profe tampoco se iba de mi mente. No como obsesión, sino como algo más incómodo: como una canción instalada sin nombre. Había estado menos de una hora en ese colegio. Había dicho cuatro frases con peso excesivo. Su número en el bolsillo ardía de una manera ajena al niño. Eso me inquietaba. No era deseo; era algo raro. Era la sensación de que ella sabía algo de mí, y que yo tendría que estar cerca cuando eso saliera a la superficie.</p><p>Sentí el impulso de ir a esa casa, aporrear la puerta y exigir respuestas. Pero me detuvo el eco de su voz infantil. ¿Y qué encontraría allí? ¿Respuestas? ¿Mi vida? ¿Lo ya roto?</p><p>Saqué el móvil. El post-it seguía allí, con el número garabateado en azul. Mis dedos dudaron. No escribí. Aún no. Pero guardé el contacto bajo «Silvia Tutora», como un paso irreversible hacia lo desconocido.</p><p>Noa apoyó la cabeza en mis pies.</p><p>Málaga seguía bullendo, pero yo estaba atrapado en un punto muerto: una calle Peregrino que ya no me pertenecía, un número de teléfono ardiente y el dibujo de un hijo imposible. El papel parecía pesar toneladas. Lo miré.</p><p>Y por primera vez en mucho tiempo, no sentí vacío.</p><p>Sentí algo peor.</p><p>Expectativa.</p>
-      <div class="cta-box">
-        <strong>Próximamente en Amazon</strong>
-        <p>Si esta historia ya te ha atrapado, muy pronto podrás continuar la lectura completa de <b>PRIMERO LOVE YOU — El hijo del mañana</b> en Amazon.</p>
-      </div>
-    </article>
-    <div class="reader-nav">
-      <a class="btn ghost" href="#capitulo-1">← Capítulo 1 · Todavía no ha pasado</a>
-      <a class="btn ghost" href="#leer-gratis">Índice</a>
-      <a class="btn" href="#capitulo-3">Capítulo 3 · El Código →</a>
-    </div>
-  </section>
-  <section id="capitulo-3" class="reader-section">
-    <div class="reader-head">
-      <span class="pill">Lectura gratuita</span>
-      <h2>Capítulo 3 · El Código</h2>
-      <p class="sub">PRIMERO LOVE YOU · Libro I · Trilogía oficial</p>
-    </div>
-    <article class="reader-article"><p>Lunes · 18:30 h · Calle La Unión</p><p>Me apoyé en la barandilla y dejé que el aire frío me golpeara la cara. El aislamiento del piso se me echaba encima como un bloque de hormigón. Tenía que hablar con alguien; no podía guardarme esto a solas.</p><p>Marqué el número de mi madre. Vivía en Pedregalejo, en aquel piso con vistas al mar.</p><p>—¿Christian? ¿Todo bien, hijo?</p><p>—Hola, mamá… No, la verdad es que no. Ha pasado algo muy raro hoy. Fui al García Lorca tras un aviso del centro. Un niño de segundo de primaria… dice que soy su padre. Me abrazó, me llamó papá y conocía mi apodo, CC. Me enseñó un dibujo donde salgo yo y, en el reverso, la dirección de la calle Peregrino, 28.</p><p>Al otro lado, la línea quedó en suspenso. Mi madre soltó una risa nerviosa, apagada al instante.</p><p>—Dios mío… ¿Y qué te dijo exactamente?</p><p>—«Sabía que vendrías, papá» —susurró—. Y luego: «Todavía no ha pasado». Esa frase me ha dejado helado.</p><p>Tardó un segundo en responder. Su voz sonó más baja, como si buscara algo en la memoria.</p><p>—Tu padre siempre decía eso ante cualquier problema: «Todavía no ha pasado». —Hizo una pausa—. Decía que, mientras no hubiera ocurrido del todo, todavía podíamos cambiar el final.</p><p>Cerré los ojos con fuerza mientras el aire se me atascaba en la garganta. Nadie conocía aquello fuera de la familia.</p><p>—Dijo llamarse como yo —añadí—. Y llevaba la camiseta de la selección; la de 2010, como la que papá me regaló.</p><p>Mi madre soltó un suspiro tembloroso al otro lado de la línea.</p><p>—Esa camiseta… tu padre la guardaba como un amuleto. No fui capaz de tirarla. La metí en una de las cajas de tu piso nuevo; debería estar allí. Christian, si ese niño existe y sabe esas cosas… —Hizo una pausa larga, cargada de miedo—. Me da escalofríos pensar que tu padre esté intentando decirnos algo desde donde quiera que esté.</p><p>Colgué con las manos temblorosas. Noa me miraba desde el suelo, quieta. Tenía el dibujo del niño en el bolsillo, la voz de mi madre todavía en el oído y la certeza de que algo había arrancado esa mañana que ya no tenía marcha atrás.</p><p>Me quedé con el teléfono en la mano sin saber cuánto tiempo pasó.</p><p>Mi padre no estaba desde 2010. Años en los que había aprendido a no buscarlo en los objetos, en las voces ni en los gestos propios que lo imitaban sin querer. Y ahora un crío de ocho años lo traía de vuelta con cuatro palabras.</p><p>Me levanté del sofá despacio, con el peso de quien ha recibido un golpe que no duele todavía, pero que sabe que dolerá. Fui al dormitorio y abrí el armario. Al fondo se acumulaban las cajas sin abrir. La encontré tras apartar dos cajas de zapatillas y una bolsa de ropa de invierno, abandonada allí desde la mudanza.</p><p>Cartón marrón con la cinta americana reseca. Mi madre había escrito encima con rotulador negro: «Cosas de papá para Christian». La letra era suya, pero la tinta tenía el color de algo que ya no volvería.</p><p>Tardé más de lo razonable en abrirla.</p><p>Al hacerlo, el olor a naftalina inundó la habitación, mezclado con algo más: madera vieja, cuero y el rastro fantasma de su colonia.</p><p>Dentro había una fotografía de los dos en el pabellón de Ciudad Jardín; él con la bufanda del Unicaja, yo con siete años y cara de no creerme lo que estaba pasando. Lo recuerdo con una claridad que duele: el Unicaja ganaba la serie 2–1. Si metían ese triple, eran campeones de liga por primera vez en su historia y ante su gente. Con 77-79 abajo y el tiempo muriéndose, Mike Ansley decidió jugarse aquel triple frontal en lugar de buscar la prórroga. El balón tocó el aro, pero no quiso entrar y aquella liga del 95 se la llevó el Barça.</p><p>Junto a la foto, encontré el mechero Zippo grabado con sus iniciales y, debajo de todo, el verdadero tesoro: la camiseta de la selección española.</p><p>La saqué con cuidado; una reliquia. Estaba descolorida, pero intacta. Al desplegarla, un papel doblado y amarillento cayó al suelo. Lo recogí con los dedos temblando:</p><p>Para mi Christianito.<br>El futuro es una posibilidad.<br>Recuerda: todavía no ha pasado.</p><p>—Papá —susurré.</p><p>Me senté en el suelo, con la espalda apoyada en la cama y la camiseta apretada contra el pecho. El dibujo del niño en el bolsillo; la nota de mi padre en mi mano. Un puente a través del tiempo que todavía no me atrevía a cruzar.</p><p>Me quedé allí un rato. Quieto. La fotografía entre los dedos, la nota en la otra mano. Mi padre sonreía en la foto con esa anchura de quien todavía no sabe cuánto tiempo le queda. Yo recordaba ese momento: su mano en mi hombro, pesada y cálida, diciéndome algo que no llegué a escuchar por el ruido. Siempre había sido así: llegaba tarde a las cosas importantes. A las palabras de mi padre. A los últimos meses con mi ex. Y quizás, me dije, a algo que llevaba años esperando a que le prestara atención.</p><p>El móvil vibró sobre la moqueta.</p><p>Silvia Tutora · En línea</p><p>20:14 Hola, Christian. El niño se ha quedado mucho más tranquilo después de verte. Me ha preguntado si vas a venir mañana. Dice que «papá tiene que terminar de leer la nota». No sé a qué se refiere.</p><p>20:15 Si necesitas hablar o desahogarte, sigo disponible. Me he quedado pensando mucho en vosotros.</p><p>Miré la nota de mi padre otra vez.</p><p>«Terminar de leer la nota».</p><p>Le di la vuelta al papel. El reverso parecía estar en blanco. Guardé el móvil sin contestar. Todavía no. La frase del niño resonaba con un peso diferente, más grave.</p><p>Doblé la nota con cuidado y la metí junto al dibujo del niño en el bolsillo interior de la Biker. Apoyé la fotografía en la mesilla, mirando hacia arriba. No era capaz de meterla de vuelta en la caja.</p><p>Nada era casualidad. Nada tenía explicación.</p><p>Y, sin embargo, ahí estaba: la camiseta sobre mis rodillas, la letra enérgica en el papel y el nombre de un hijo imposible parpadeando en los mensajes de la tutora.</p><p>Cogí a Noa y la subí conmigo al sofá. Sus ojos negros me devolvían una comprensión muda. Mañana volvería al colegio. No por curiosidad, sino por la certeza de que ese niño conocía secretos imposibles. Y yo no podía mirar hacia otro lado.</p><p>Me quedé mirando el reverso en blanco durante un tiempo que no supe medir. A la luz ámbar de la lámpara, la piel de mi antebrazo brillaba con un tono azulado tenue, casi imperceptible, como tinta bajo la superficie. No era una quemadura. No era un sarpullido. Era el tatuaje que me había hecho años atrás —un trazo abstracto que siempre me había parecido solo eso, un trazo— latiendo vivo.</p><p>Vivo.</p><p>Recordando algo que yo había olvidado.</p><p>El tiempo dejaba de ser una línea recta.</p>
-      <div class="cta-box">
-        <strong>Próximamente en Amazon</strong>
-        <p>Si esta historia ya te ha atrapado, muy pronto podrás continuar la lectura completa de <b>PRIMERO LOVE YOU — El hijo del mañana</b> en Amazon.</p>
-      </div>
-    </article>
-    <div class="reader-nav">
-      <a class="btn ghost" href="#capitulo-2">← Capítulo 2 · La Grieta</a>
-      <a class="btn ghost" href="#leer-gratis">Índice</a>
-      <a class="btn" href="#capitulo-4">Capítulo 4 · El Pulso del Pasado →</a>
-    </div>
-  </section>
-  <section id="capitulo-4" class="reader-section">
-    <div class="reader-head">
-      <span class="pill">Lectura gratuita</span>
-      <h2>Capítulo 4 · El Pulso del Pasado</h2>
-      <p class="sub">PRIMERO LOVE YOU · Libro I · Trilogía oficial</p>
-    </div>
-    <article class="reader-article"><p>Lunes · 20:57 h · Calle La Unión</p><p>El tatuaje seguía picándome. Decidí llamar a Annette, mi tatuadora de Ikigaink Experience; la misma encargada de grabarlo en 2010. Contestó rápido, con esa voz que no había cambiado en quince años.</p><p>—¡Hombre, Christian! Cuánto tiempo.</p><p>Le dije que necesitaba verla urgente, a pesar de las horas —eran casi las nueve de la noche—. Fui al grano: mi tatuaje parecía tener vida.</p><p>El silencio al otro lado duró dos segundos justos.</p><p>—Ven al estudio ahora mismo. No te entretengas. Aquí te espero.</p><p>Colgué y busqué el número de Álex. Mi colega. Mi hermano. Parte de la Guardia. El único capaz de entenderme sin preámbulos ni explicaciones.</p><p>—Alexander, escucha: el brazo izquierdo brilla azul y Annette me espera. ¿Me acompañas?</p><p>—Voy para allá —respondió sin dudar.</p><p>Me puse la chupa despacio, bajé la manga sobre el tatuaje pulsante y salí a la calle. Decidí ir andando; necesitaba el aire de Málaga para despejar la cabeza. La noche se había instalado con esa suavidad traicionera del sur: fresca pero no cruel, con el olor a salitre flotando entre las fachadas en una de esas noches preciosas que esta ciudad te regala antes de morderte.</p><p>Crucé el puente sobre el Guadalmedina, seguí por el Palmeral de las Sorpresas del Muelle 2 y caminé hacia la Malagueta con el paso mecánico de quien camina para no pensar.</p><p>Lunes · 21:45 h · La Malagueta</p><p>Al llegar a Ikigaink Experience, el corazón me golpeó las costillas. El neón violeta proyectaba destellos sobre la acera mojada. Empujé la puerta.</p><p>El aroma a tinta, desinfectante y el rastro de un perfume reconocido antes de ver a quién pertenecía me envolvió de golpe.</p><p>Annette no necesitaba que el espacio le diese la bienvenida; ella lo decidía. De pie bajo el neón, con un mechón oscuro y rizado cayéndole sobre el hombro con voluntad de no obedecer ningún orden, levantó los ojos. Eran grises claros, casi de agua; una mirada imposible de catalogar como bonita: llegaba primero como un desequilibrio y luego como una certeza. Sabía lo que ibas a decir antes de que tu boca lo decidiera. Su forma de detenerse no era calma, sino su contrario: la concentración de quien lleva tiempo esperando que el mundo confirme algo ya sabido. Al escuchar la puerta, no sonrió. Me miró. El resto de la sala dejó de importar.</p><p>Había soltado la máquina y las gafas para sortear el mostrador. Se lanzó a mis brazos con la fuerza de quien regresa de un naufragio.</p><p>—Ven aquí, cuñao —dijo, abrazándome con fuerza de recolocar huesos—. Siempre serás mi cuñao aunque no estés con mi hermana. Sabía que hoy pasaría algo. La aguja se ha atascado hace una hora; la máquina parece estar en huelga. El aire se ha puesto denso. Lo he notado.</p><p>Pero junto a la camilla, con unos bocetos entre las manos y la espalda hacia la puerta, estaba ella.</p><p>Iris.</p><p>No me vio entrar. Con Annette nunca se sabe cuándo algo es casualidad y cuándo es justo lo que parece. Ocho meses sin hablar. Sin atreverme a cruzar la línea dibujada por mí mismo.</p><p>Estaba preciosa. Metro setenta y ocho de elegancia natural. Cabello rubio atrapando la luz ámbar. Vaqueros oscuros. Camisa entallada. Y esa mirada azul que durante dieciséis años fue hogar… y sentencia.</p><p>Al verme, se quedó petrificada. Sus ojos me recorrieron despacio, sin permiso, deteniéndose un segundo de más en mi cara.</p><p>—Christian —dijo, y mi nombre en su boca sonó a herida abierta y a vendaje a la vez—. Sigues igual teniendo esa presencia perturbadora… y las mismas rarezas. ¿Qué te ha pasado en el brazo?</p><p>—Iris —logré responder con voz oxidada—. Tú sigues teniendo el mismo efecto que un trago de whisky sin hielo: me quema, pero no puedo dejar de beber.</p><p>La tatuadora miró a su hermana pequeña con expresión de quien ya sabe el final.</p><p>—Sigues igual —sentenció—. Más roto, pero igual de letal. —Desvió la mirada hacia la rubia—. Y tú sigues loca, hermanita.</p><p>—No empieces —advirtió ella, cruzándose de brazos.</p><p>La puerta volvió a abrirse. Álex entró con su energía de quien llega cuando hace falta. Sus 1,90 de altura, los ojos negros y esa perilla recortada llenaron el espacio de golpe. Cuando sus ojos se encontraron con los de la artista —su ex, la mujer que lo conocía demasiado bien—, se creó una estática insoportable. Me abrazó como abrazan los colegas de verdad y saludó a ambas hermanas.</p><p>El ambiente estaba tan cargado que se podría haber cortado con un cuchillo de carnicero.</p><p>—Mírame esto —dije, descubriendo el antebrazo.</p><p>—Hostia… —murmuró—. No debería estar reaccionando así.</p><p>Annette me cogió el brazo con firmeza, inclinándolo para ver el reflejo azul.</p><p>—Ponte aquí —ordenó, señalando la camilla—. Cierra la puerta. No quiero curiosos.</p><p>Encendió una lámpara de luz fría y acercó la cara tanto que noté su aliento.</p><p>—El diseño es el mismo —susurró—. El que hizo tu padre.</p><p>El olor a tinta y metal me golpeó con una memoria inesperada. Recordé una tarde en el despacho de mi padre. Yo tendría veintiuno o veintidós años. Él soldaba escuchando a Triana, concentrado en construir algo que no debía existir todavía.</p><p>—Hay cosas que no se explican antes de tiempo —dijo sin mirarme—. Se activan cuando toca.</p><p>El punto de soldadura chisporroteó. El humo subió fino hacia el flexo.</p><p>—Si algún día ves que algo despierta… recuerda esto, Chris. El origen siempre manda.</p><p>Aquello me resultó otra de sus frases crípticas. Ahora ya no estaba tan seguro.</p><p>—Pero el pigmento… ha despertado —continuó Annette.</p><p>—¿Despertado de qué? —pregunté—. A mí nadie me dio instrucciones.</p><p>Siguió el trazo azul con la yema de los dedos, sin tocarlo.</p><p>—Esto está impreso en tu carne con la tinta especial que me trajo tu padre. Estaba obsesionado. Decía que la biología era el futuro del almacenamiento de datos. «Nada más seguro que un cuerpo», repetía.</p><p>Iris dio un paso adelante.</p><p>—¿Y por qué no nos contaste nada? —soltó—. Nos dijiste que era una tinta cara.</p><p>La tatuadora apretó los labios.</p><p>—Porque no sabía si funcionaría. Y porque prometí no decir nada hasta que ocurriera algo. —Señaló mi brazo—. Ya ha ocurrido. Está reaccionando a algo.</p><p>—Perfecto —soltó Iris con un suspiro cargado de ironía.</p><p>La hermana mayor la miró con paciencia y cansancio cariñoso.</p><p>—No es un juego, sister. Esto estaba diseñado para permanecer dormido. Para despertarse bajo ciertas condiciones. No sé cuáles; no me las dijo.</p><p>Se levantó y buscó entre la estantería hasta dar con un objeto pequeño y plateado. Cilíndrico. Del tamaño de un rotulador fino. Tenía dos capuchones de seguridad, uno a cada extremo, sellados con un precinto rojo que parecía una advertencia de peligro biológico.</p><p>—Toma —dijo Annette, extendiendo la mano—. Si el tatuaje cambia a blanco… quitas el capuchón y lo apoyas en el antebrazo. Solo tienes que presionar. El mecanismo de disparo lo hace solo.</p><p>Era una pluma de autoinyección, fría y técnica. La giré entre mis dedos, sintiendo el peso del metal. En la pequeña ventana transparente, el émbolo dividía el contenido con una precisión que daba escalofríos.</p><p>—¿Qué es esto? —pregunté, sin apartar la vista del dispositivo.</p><p>—El catalizador —respondió ella con una frialdad que no le conocía—. Es un inyector de doble carga. Hay dos dosis, Christian. No más.</p><p>Iris palideció, mirando el inyector como si fuera la llave de mi propia tumba.</p><p>—¿Te has vuelto tarada, hermana? —le soltó a Annette.</p><p>El aire se tensó.</p><p>—A mí no me gusta tampoco —admitió—, pero tu padre fue claro: si el pigmento se volvía blanco y no te lo ponías, el proceso quedaría a medias. Y eso era mucho peor.</p><p>—¿Qué proceso? —insistí—. Necesito una frase ajena a profecías egipcias.</p><p>Annette suspiró, apartó el flequillo y se apoyó en el taburete.</p><p>—Mira, no sé qué va a pasar. Lo que sí sé es que tu tatuaje se ha activado. —Se inclinó hacia mí—. Ten cuidado.</p><p>Me abrazó de nuevo, esta vez con más calma, apoyando la frente en mi hombro.</p><p>—Fíjate en sueños, en recuerdos raros, en cualquier cosa ajena a la normalidad. Sabía que volverías, Chris. El destino es caprichoso con vosotros.</p><p>—Con nosotros cuatro —corrigió Iris.</p><p>Annette le lanzó una mirada de hermana mayor cansada.</p><p>—Y contigo siempre, drama queen.</p><p>Álex me puso la mano en el hombro con solidez.</p><p>—Te llevo yo, CC —dijo, sacando las llaves.</p><p>—Mejor te llevo yo —decidió Iris con una calma que no admitía réplica.</p><p>Álex soltó una carcajada corta y negó con la cabeza.</p><p>—Sois unos liantes los dos —murmuró.</p><p>Se giró hacia su ex. Una de esas pausas que dicen más que los discursos.</p><p>—¿Nos tomamos algo?</p><p>—Otro día, hoy no puedo —respondió ella—. Pero me ha alegrado verte.</p><p>Salimos bajo la luz azul del neón. El BMW X3 blanco de Iris esperaba fuera. Me subí al coche. El trayecto fue una cápsula sellada. Iris conducía con manos firmes; yo miraba el inyector notando cómo el tatuaje se apagaba despacio, como una brasa sin aire.</p><p>—¿Vas a hacerlo? —preguntó al fin—. Si se pone blanco, digo.</p><p>—Ya veremos si ocurre. No pienso meterme nada raro por deporte.</p><p>—Siempre fuiste un loco metódico —sonrió apenas—. Capaz de lanzarte de un puente, pero con casco.</p><p>—Y tú eras la que me empujaba.</p><p>Se detuvo ante el portal. Apagó la radio y el silencio nos cayó encima como una losa. Se metió en los pulmones, recordándome que ya no tenía ninguna excusa a la que agarrarme. Iris mantenía la vista fija en el volante, con esa tensión en la mandíbula de cuando decidía si algo merecía el coste.</p><p>—Ocho meses —dijo sin girarse.</p><p>—Ocho meses —repetí.</p><p>—Podría haber escrito. Podría haber llamado. No lo hice.</p><p>—Yo tampoco.</p><p>Ahora sí me miró. Ojos azules en la penumbra, los mismos que me vieron a los veintidós años brindar creyendo que el futuro era una autopista sin peajes.</p><p>—¿Estás bien, Christian? De verdad.</p><p>—No lo sé —dije. Fue mi respuesta más honesta.</p><p>Bajó la cabeza despacio. Soltó el volante. Se desabrochó el cinturón y me rodeó con los brazos. Un abrazo largo, de los que no tienen prisa, con la cara enterrada en mi cuello y las manos apretadas en mi espalda. Lo sostuve sin pensar.</p><p>—Sabes que te quiero más de lo que crees —dijo al oído.</p><p>Se separó despacio. Tuve ganas de besarla; las noté subir con claridad y me las tragué.</p><p>—Cuídate, CC.</p><p>Arrancó el motor. Los faros se perdieron entre los edificios mientras yo seguía allí, clavado en la acera. Arriba, los ladridos de Noa daban una bienvenida que no distingue entre horas buenas y malas.</p><p>El apartamento me recibió con lo de siempre: pedidos sin revisar y vitrinas de sneakers indiferentes. Cayó una birra artesanal, bien fría, de un trago, mientras la vista se me iba al cilindro plateado sobre la encimera. Parecía un proyectil esperando ser disparado.</p><p>Acabé en el sofá, todavía con la chaqueta puesta y Noa reclamando su sitio sobre mis pies. El techo se convirtió en una pantalla donde se cruzaban Iris, Silvia y el niño que conocía lo prohibido. El tatuaje estaba apagado. Pero la vibración seguía ahí, latente, bajo la piel.</p>
-      <div class="cta-box">
-        <strong>Próximamente en Amazon</strong>
-        <p>Si esta historia ya te ha atrapado, muy pronto podrás continuar la lectura completa de <b>PRIMERO LOVE YOU — El hijo del mañana</b> en Amazon.</p>
-      </div>
-    </article>
-    <div class="reader-nav">
-      <a class="btn ghost" href="#capitulo-3">← Capítulo 3 · El Código</a>
-      <a class="btn ghost" href="#leer-gratis">Índice</a>
-      <a class="btn" href="#capitulo-5">Capítulo 5 · El Puente al Ayer →</a>
-    </div>
-  </section>
-  <section id="capitulo-5" class="reader-section">
-    <div class="reader-head">
-      <span class="pill">Lectura gratuita</span>
-      <h2>Capítulo 5 · El Puente al Ayer</h2>
-      <p class="sub">PRIMERO LOVE YOU · Libro I · Trilogía oficial</p>
-    </div>
-    <article class="reader-article"><p>Martes · 08:00 h · Calle La Unión</p><p>El martes amaneció con cielo eléctrico sobre Málaga, de esos grises que amenazan lluvia pero nunca cumplen. Puse la radio. Sonaba Sabina: Peces de ciudad. Me detuve un segundo al escuchar la melodía; siempre me había quedado grabada esa idea de que al lugar donde uno ha sido feliz no debiera volver nunca. Es una de esas verdades que las calles de Málaga te escupen en la cara cuando menos te lo esperas.</p><p>Abrí el armario con intención de ponerme lo de siempre: mi armadura contra el mundo. Pero hoy algo me detuvo. Mis ojos recorrieron las perchas. Allí estaban todas mis favoritas; y al fondo, colgada como reliquia sagrada, la réplica exacta de la cazadora roja de cuero que llevaba James Dean en Rebel Without a Cause. La conseguí en una puja histórica de eBay —cremallera YKK, puños elásticos, forro claro—, fiel al windbreaker icónico de Jim Stark. La compré porque, al verla, pensaba en esa frase: «You're tearing me apart!». Y porque, en el fondo, yo también me rompía a pedazos desde hacía años.</p><p>Hoy tocaba rojo.</p><p>Me puse una camiseta Kenzo blanca: algodón pesado, corte oversized con el tigre bordado. Levi's 501 azules, ajustados, con ese fade natural ganado con los años. Y en los pies: las Louis Vuitton Trainer rojas y blancas de drop privado. Vestimenta perfecta: rebelde, con un rojo que gritaba «hoy no me escondo». Para decirle al universo, al niño, a Silvia: si vais a venir a por mí, venid de frente.</p><p>Antes de salir, metí el autoinyector de Annette en el bolsillo interior de la chupa. No quería perderlo de vista.</p><p>Martes · 09:00 h · Colegio García Lorca</p><p>Llegué al García Lorca antes de las nueve. Silvia estaba apoyada en el marco de la puerta, con una taza de café entre las manos. Hoy no llevaba blusa formal. Camiseta negra ajustada, vaqueros negros, cazadora de cuero negra. El pelo suelto, esa melena rizada y rubia, reacia a obedecer. Sus ojos marrones se iluminaron al verme. Se detuvieron un segundo largo en la cazadora roja.</p><p>—Vaya… hoy vienes hecho un incendio —dijo con la sonrisa iniciada por el lado izquierdo, voz baja y ronca, mientras se apartaba el mechón rubio de la cara—. La cazadora roja a lo James Dean… te queda letal. Y las LV a juego… ¿Preparado para quemarlo todo?</p><p>—O para que me quemen a mí —sonreí.</p><p>Entramos al aula. El niño —CC2— estaba en su sitio habitual, concentrado en una hoja nueva. Al verme, dejó la cera y se levantó con una parsimonia que no correspondía a su edad. Se quedó ahí, quieto, mirándome con esos ojos verdes clavados en los míos.</p><p>—Papá —dijo con voz plana y ojos brillantes—. Hoy es el día. La moto del abuelo suena mejor que nunca.</p><p>Antes de que pudiera responder, el fluorescente del techo empezó a parpadear. Primero lento, luego frenético; el tiempo parecía un cortocircuito. Un zumbido bajo subió desde las paredes, vibrando en el suelo, en mis huesos. El aire se espesó, cargado de electricidad estática.</p><p>Silvia me agarró del brazo por instinto, sus dedos clavándose en el cuero rojo de la chupa, justo sobre el tatuaje que ahora brillaba con una intensidad sobrenatural.</p><p>—¿Qué está pasando? —susurró con voz temblorosa.</p><p>No respondí. No podía.</p><p>El aula mutó delante de nuestros ojos. Las paredes se tiñeron de sepia y neón, como una foto vieja iluminada por luces de discoteca ochentera. Las mesas de fórmica se volvieron de madera noble con marcas de tiza antigua. El antebrazo izquierdo empezó a vibrar. No era un temblor muscular; era algo más profundo. Una frecuencia bajo la piel.</p><p>—Respira —dijo, tranquila.</p><p>La miré. En sus ojos no había miedo. Había concentración. Trataba de entender algo que no sabía que sabía.</p><p>El tatuaje latía diferente con el niño cerca. No era como Silvia —esa frecuencia llegaba limpia, directa, como una nota sostenida—. Esta era más compleja: la mía, sí, pero con una capa por debajo no reconocida. Algo heredado. Un segundo pulso encajado dentro del primero con la precisión de quien no lo ha aprendido, sino traído desde el origen. Me pregunté si mi padre diseñó el circuito para distinguir entre la frecuencia propia y una que llevara, además de los ojos verdes, algo más.</p><p>El olor cambió: a goma quemada del patio, a tabaco lejano. Afuera, por la ventana, ya no se veía la calle Alemania con coches modernos. Pasó un SEAT 124 rojo. Un grupo de chavales con litronas y chaquetas de cuero. Septiembre de 1986.</p><p>CC2 nos miraba con calma desde su silla, como quien ha visto esto antes.</p><p>—Mirad —dijo señalando la ventana.</p><p>Instituto de Enseñanza Media · Málaga · Septiembre 1986</p><p>Mi padre —dieciocho años recién cumplidos, tupé rockabilly engominado, chupa de cuero negra con tachuelas, vaqueros pitillo, zapatos Buggies— corría por el pasillo con libros bajo el brazo.</p><p>Y ella: diecisiete años, pelo rubio claro en coleta alta, ojos verdes claros como el mar en verano, ese acento suave con deje alemán aún mantenido. Era Marie, recién llegada de Alemania meses antes, buscando un nuevo comienzo. Carpeta bajo el brazo, falda vaquera, camisa blanca con pañuelo al cuello.</p><p>Llegaba tarde a clase de mates cuando tropezó con mi padre saliendo de un aula. Los libros cayeron al suelo con estrépito. Él se paró en seco, se agachó a recogerlos y, al levantar la vista, sus ojos se encontraron con los de ella por primera vez.</p><p>—Perdona —dijo él con voz ronca y acento malagueño puro—. Llego tarde y… joder, qué torpe soy.</p><p>Ella sonrió, tímida pero con chispa.</p><p>—No pasa nada. Yo también llego tarde. Soy Marie —pronunció su nombre con la «e» abierta, alemana, como una nota musical diferente a todo lo escuchado antes.</p><p>—Christian —respondió él—. No te había visto por aquí antes.</p><p>—Recién llegada de Múnich. Málaga es… muy soleada.</p><p>Él se rió. Esa risa profunda heredada sin pedirlo.</p><p>—Te acostumbrarás. Ven, te acompaño a clase. No quiero que llegues más tarde por mi culpa.</p><p>Caminaron juntos por el pasillo. Desde un aula abierta sonaba una radio portátil con una canción de Triana. Guitarra lenta. Voz rota. Algo sobre frialdad y promesas ignorantes de su futuro dolor.</p><p>Mi padre se detuvo un segundo.</p><p>—Esta canción me gusta —dijo con media sonrisa—. Suena a cosas aún no estropeadas.</p><p>Marie lo miró de reojo.</p><p>—A mí también me parece preciosa —dijo en voz baja.</p><p>El pasillo del instituto comenzó a difuminarse. El olor a tiza y ropa escolar cedió paso a algo más oscuro: madera vieja, humo de tabaco negro, la promesa de una noche que conocía su propia sentencia antes de empezar. El zumbido no cedió; cambió de temperatura.</p><p>Meses más tarde.<br>Año 1987, sábado por la noche.</p><p>El sepia se calentó.</p><p>Estábamos en una calle estrecha del centro histórico. Calle Beatas: farolas anaranjadas y adoquines brillantes de humedad.</p><p>Bar Santa · Calle Beatas · Málaga · Principios de 1987 · Sábado noche</p><p>Un bar rockabilly de los que ya no existen: bombillas desnudas, mesas de madera rayadas por generaciones de vasos, pósteres de James Dean y Eddie Cochran pegados con celo amarillento. Olía a cerveza derramada, tabaco negro y cuero húmedo. Santa, tras la barra, repasaba los cristales sin prisa. La noche vibraba con esa electricidad propia de las citas que terminan en enamoramiento o pelea.</p><p>Mi padre y Marie ocupaban una esquina apartada. Él lucía un tupé menos perfecto que en el instituto; ella, el pelo suelto y unos ojos verdes iluminados desde dentro por un brillo que ya no era tímido ni incierto. Sobre la mesa descansaban dos chupitos de tequila, limón y sal. Su primera cita oficial. O la tercera. El contador había dejado de importar.</p><p>Los altavoces del pub escupieron una melodía: Al calor del amor en un bar, de Gabinete Caligari. El ritmo oscuro y pegadizo llenó el local como humo.</p><p>—Esta canción —susurró Marie, cerrando los ojos—. Es justo aquí. Este sitio. Esta noche.</p><p>Mi padre la miraba sin parpadear. Cogió el vaso, lo dejó intacto y se inclinó sobre el tablero. Ella no respondió con palabras; buscó su mano sobre la madera rayada mientras él acortaba la distancia para besarla. No hubo roces tímidos ni accidentes. Fue un beso decidido, profundo, con sabor a tequila y limón, envuelto en las voces de Gabinete que confirmaban que, desde ese instante, ya no habría más refugio que el uno en el otro. Sus dedos buscaron la nuca de ella; Marie, a cambio, le deshizo el tupé. Jaime y Willy, amigos de él y asiduos al bar, sonrieron desde la barra.</p><p>El bar se desvaneció. Al separarse, mi padre le dijo al oído:</p><p>—Primero Love You, Marie.</p><p>Ella sonrió con la mirada encendida.</p><p>—Primero Love You. También.</p><p>La imagen se disolvió despacio, igual que el azúcar en agua caliente. Pensé que el flashback había terminado, pero el zumbido persistía. El tono sepia regresó, más cálido, dorado como una tarde de sábado.</p><p>Centro histórico · Málaga · 1989 · Sábado 18:00 h</p><p>Mi padre empujaba con cuidado un carrito azul marino por el callejón de Beatas. El traqueteo rítmico sobre el suelo irregular marcaba el paso mientras Marie caminaba a su lado, luciendo una chaqueta vaquera y esa coleta alta de sus tiempos del instituto; su acento alemán casi se había disuelto bajo capas de malagueño aprendido en mercados y tabernas. Las ruedas metálicas protestaban en cada bache, pero el bebé de poco más de un año permanecía ajeno al mundo. Tenía el pelo rubio, los ojos verdes y las manos regordetas apoyadas en el borde del asiento con concentración absoluta.</p><p>Ese pepón era yo.</p><p>Al llegar a la altura del Bar Santa, flanqueado por motos de gran cilindrada que exhalaban aroma a aceite caliente, mi padre reconoció la puerta entornada y sugirió entrar a saludar. Marie, convencida de que no habría multitudes, empujó el cochecito. En cuanto puse un pie dentro, el rugido de una guitarra eléctrica me dio la bienvenida. Mis padres empezaban una etapa nueva allí, entre paredes con olor a madera, tabaco viejo y cerveza agria.</p><p>José Juan, tras la barra, dejó de limpiar vasos y abrió los brazos de par en par al vernos.</p><p>—¡Vaya, mis clientes favoritos! —dijo, secándose las manos en el trapo—. ¡Y el pequeñajo! Qué grande está ya, Marie.</p><p>—Es que come bien —rió ella, sacándome del carrito.</p><p>Mi padre apoyó los codos en la barra; nos puso dos birras sin pedirlas. Amistad de la buena.</p><p>En los altavoces empezó a sonar algo nuevo. Una guitarra. Voz potente. Ritmo con prisa. Te vi correr, de Tennessee.</p><p>Mi padre se quedó quieto, con la birra a medio camino. Se giró despacio hacia Marie, que me tenía en brazos. Sus ojos se encontraron.</p><p>—Esta canción —dijo él muy bajito—. Joder, Marie. Es exactamente como nos conocimos. Tú corriendo por el pasillo del insti. Yo tropezando. Libros por el suelo.</p><p>Ella lo miró. En sus ojos verdes había algo hondo: gratitud o certeza.</p><p>—Te vi correr —repitió Marie en voz baja—. Somos nosotros.</p><p>Nos quedamos quietos en el bar mientras la canción lo llenaba todo.</p><p>—Esta será nuestra canción para siempre —dijo mi padre, y le dio un beso en la sien.</p><p>El zumbido cesó de golpe. Luces estabilizadas. El sepia desapareció con el olor a tabaco viejo y cerveza.</p><p>Volvimos al aula de 2026. CC2 nos observaba desde su silla. Silvia estaba pálida, pero sus ojos brillaban con lágrimas contenidas. Todavía me tenía aferrado del brazo, con los dedos clavados en el cuero rojo.</p><p>—Christian… ¿has visto lo mismo que yo?</p><p>—Ni que lo digas. Se me ha cortado hasta la sangre. Mi padre y mi madre. Septiembre del 86, el tropiezo. 1987, el Bar Santa. Sitio rockabilly de la calle Beatas donde ponían a Loquillo, Gabinete Caligari, La Frontera, Rebeldes… Allí se besaron por primera vez con Al calor del amor en un bar de fondo. Y el 89, en el carrito, escuchando Te vi correr. Era yo en ese carrito.</p><p>Silvia tragó saliva. Habló despacio:</p><p>—¿Y «Primero Love You»?</p><p>—Mi padre daba clases de francés —sonreí—. La primera vez que vio escrito «I Love You», interpretó la «I» como un uno. Lo leyó como «Primero Love You», jugando con el premier francés. Broma tonta. Pero al primer «te quiero» a Marie, lo usó así. Se convirtió en código privado. De ellos dos.</p><p>Silvia se quedó mirando el dibujo de mi antebrazo, con ese azul tenue constante. Al buscar mis ojos, su expresión mutó: el reconocimiento de quien descifra un código sagrado sin saber cómo nombrarlo.</p><p>—Christian —dijo en voz baja—. Ese niño está aquí. El tatuaje brilla. Viajas al pasado de tus padres. Algo pasa con el tiempo y tú estás en el centro. No es coincidencia.</p><p>Llueve en mi corazón… Tennessee sonando desde ningún sitio y todas partes.</p><p>Me giré hacia ella. Caras a centímetros. Sus ojos marrones oscurecidos. Me incliné despacio, sintiendo su respiración acelerarse, sus dedos en mi brazo, su cuerpo hacia mí.</p><p>—Papá.</p><p>Nos giramos al unísono. CC2 permanecía inmóvil en su silla. Las ceras sobre la mesa y esos ojos verdes —espejos de una calma impropia de sus ocho años— nos observaban. Sin urgencia. Esa certeza antigua, nada más, dictada desde otro tiempo.</p><p>—Aún no —susurró—. Déjalo.</p><p>Hizo una pausa breve, midiendo el aire entre Silvia y yo:</p><p>—El abuelo dice que la paciencia es virtud de ganadores. Pero no tardéis mucho. La cena se enfría.</p><p>El brazo se apagó. Despacio, como una brasa privada de oxígeno. Las luces recuperaron su pulso eléctrico y Silvia retiró la mano, dejando un rastro de frío donde antes ardía el cuero rojo. El espacio volvió a ser un aula corriente: olor a ceras, a pan de recreo, a rutina escolar. Todo idéntico; todo roto.</p><p>—Hasta mañana —dije.</p><p>Silvia tardó un segundo en contestar. Buscó el tono exacto para esas dos palabras, ahora cargadas con el peso de lo imposible.</p><p>—Hasta mañana —respondió.</p><p>Se instaló esa pausa espesa de los momentos sabedores de su importancia, pero huérfanos de nombre. Ella me sostuvo la mirada; intentaba reconocer al hombre que acababa de ver en el pasado.</p><p>—Nada todavía —añadió casi sin querer. Un cabo al que agarrarse para no terminar de hundirse.</p><p>Era suficiente.</p><p>Salí al pasillo. El brazo izquierdo, apagado pero no dormido, mantenía un matiz azulado bajo los fluorescentes. Guardaba la temperatura de lo vivido, como un metal recién sacado del fuego que se niega a enfriarse del todo.</p>
-      <div class="cta-box">
-        <strong>Próximamente en Amazon</strong>
-        <p>Si esta historia ya te ha atrapado, muy pronto podrás continuar la lectura completa de <b>PRIMERO LOVE YOU — El hijo del mañana</b> en Amazon.</p>
-      </div>
-    </article>
-    <div class="reader-nav">
-      <a class="btn ghost" href="#capitulo-4">← Capítulo 4 · El Pulso del Pasado</a>
-      <a class="btn ghost" href="#leer-gratis">Índice</a>
-      <a class="btn" href="#capitulo-6">Capítulo 6 · En una hora →</a>
-    </div>
-  </section>
-  <section id="capitulo-6" class="reader-section">
-    <div class="reader-head">
-      <span class="pill">Lectura gratuita</span>
-      <h2>Capítulo 6 · En una hora</h2>
-      <p class="sub">PRIMERO LOVE YOU · Libro I · Trilogía oficial</p>
-    </div>
-    <article class="reader-article"><p>Martes · 12:30 h · GOfit Huelin</p><p>Fui al GOfit Huelin. Me cambié en los vestuarios: guardé mi ropa y me puse el bañador y una camiseta de fútbol. Nadar era mi meditación. Encadené largos hasta que José Ángel, el monitor, apareció en el borde de la piscina.</p><p>—Vaya, Chris. Hoy vienes con ganas de ahogar las penas. Menuda camiseta, ¿es la de Alemania del 74?</p><p>—Me gusta lo que tiene historia. Estas tienen alma.</p><p>—Pues guárdame una de las buenas —señaló su tatuaje del Barça—. Este 2026 los culés mandamos.</p><p>—Apunta lo que te digo —respondí mientras salía del agua, chorreando sobre las baldosas—. Este verano, la segunda estrella para la Selección. Lo presiento.</p><p>—Ya sé que tú siempre has sido más de la selección que de los clubes, pero ojalá tengas razón esta vez.</p><p>No respondí. No hacía falta. Me alejé hacia las duchas dejando un rastro de agua tras de mí. En mi cabeza ya no sonaba el silbato del entrenamiento, sino el eco de la pausa de Silvia y la voz de Iris esperando. Tenía que llamarla. Explicar algo desconocido todavía. Y hacerlo antes de que pasado y futuro terminaran de declararse la guerra en mi propia vida.</p><p>Me vestí despacio. Cuarenta minutos de brazadas no resuelven nada, pero ordenan el ruido. Era suficiente por ahora.</p><p>Saqué el móvil. La llamada perdida de Iris parpadeaba en la pantalla. Toqué el icono y contestó al segundo tono. Sin drama. Sin reproche. Viniendo de ella, resultaba más difícil de soportar que un grito.</p><p>—Hola —dijo, sin más.</p><p>—Necesito verte. Hoy, si puedes.</p><p>—¿Estás bien? —Hubo una pausa corta.</p><p>—No lo sé. Hay cosas que contarte. Cosas increíbles que necesito decirte.</p><p>—¿Dónde?</p><p>—El café de la esquina de Juan XXIII. Sobre las cuatro.</p><p>—A las cuatro.</p><p>Colgó antes de que pudiera añadir nada. No hacía escenas; nunca las había hecho. Aun así, algo seguía intacto entre nosotros.</p><p>Martes · 16:00 h · Avenida Juan XXIII</p><p>El café de la esquina tenía esa luz de tarde malagueña que entra sesgada por los ventanales y lo deja todo color miel. Iris ya estaba dentro cuando llegué, sentada en la mesa del rincón —nuestra mesa, aunque ninguno lo dijéramos—, con un café con leche entre las manos y su porte de siempre: espalda recta, melena rubia libre sobre los hombros y esa mirada azul siguiéndome desde que crucé la puerta. Sin apartar los ojos. Sin fingir indiferencia.</p><p>El camarero me dejó un café irlandés antes incluso de sentarme. Nos conocía lo suficiente.</p><p>—Tienes mala cara —dijo ella, sin preámbulos—. Pero diferente a la de antes. No es cansancio. Es otra cosa.</p><p>—Llevo dos días viviendo en otro mundo. No sé por dónde empezar.</p><p>—Empieza por el principio —apoyó los codos en la mesa—. Y no te saltes nada.</p><p>No omití ningún detalle. Relaté todo en orden: la llamada del lunes del García Lorca, el niño de ojos verdes llamándome papá con una certeza impropia de sus ocho años, el dibujo de la cazadora de cuero y la dirección de la calle Peregrino, 28, escrita por una mano incapaz de conocerla. Hablé de la caja en el dormitorio, la camiseta de la Selección, la nota de mi padre oculta en el tejido y el tatuaje ardiendo en el antebrazo, aguardando el despertar desde hacía años.</p><p>Iris escuchaba sin interrumpir, con los ojos fijos en los míos, sin retirarse del relato aunque este se volviera inverosímil. Era su mayor virtud: esa capacidad de contener, de no desbordarse antes de tiempo.</p><p>Al llegar a los flashbacks —mis padres en el instituto en septiembre del 86, el bar Santa, el carrito de 1989 bajo los acordes de Tennessee—, bajó la mirada al café apenas un instante.</p><p>—¿Y los viste de verdad? ¿No fue un sueño?</p><p>—Silvia los vio también —respondí.</p><p>Algo cambió en su respiración. Fue casi imperceptible, pero llevaba dieciséis años aprendiendo a leerla y ese milímetro de pausa lo decía todo.</p><p>—¿Quién es Silvia?</p><p>—La tutora del niño. La mujer que me llamó el lunes.</p><p>Iris no respondió de inmediato.</p><p>—¿Y qué tiene que ver ella en esto?</p><p>—El tatuaje reacciona con ella y con el niño cerca. Los tres formamos parte del mismo circuito. Cuando ambos están presentes, el tatuaje brilla y el tiempo se abre. No fue una alucinación. Fue real.</p><p>Ella se quedó callada, encajando las piezas.</p><p>En la radio del café empezó a sonar Sabina: Ruido. Una canción sobre el exceso de palabras, sobre finales que llegan cuando ya no queda nada que salvar. El ambiente se llenó de esa sensación incómoda: todo lo importante estaba dicho y, aun así, ninguno se atrevía a levantarse.</p><p>—¿Estás enamorado de ella? —preguntó.</p><p>Lo hizo sin acusación. Su valentía era una marea quieta que siempre me había desarmado.</p><p>—La he visto dos veces en mi vida —respondí.</p><p>—Eso no es lo que te he preguntado.</p><p>Miré el café sin tocarlo. Algo en el antebrazo se removió, inquieto, despertado por la conversación. Iba a decir que no. La respuesta llegó automática, ensayada. Pero al escucharla en mi cabeza, supe que era falsa. Tampoco hallé la versión honesta.</p><p>—No lo sé. Y eso me aterra. No debería ser posible; la he visto dos veces. Pero cerca de ella hay algo inexplicable. El tatuaje brilla con más intensidad. Ella forma parte de algo puesto en marcha por mi padre hace décadas.</p><p>—¿Y yo? —preguntó, con voz más quieta todavía.</p><p>—A ti te quiero —dije. Y era verdad—. Y eso es diferente. No menor. Diferente. Llevamos dieciséis años construyendo algo resistente a ocho meses de distancia. Pero lo de Silvia no es elección ni búsqueda. Me ha caído encima. Como el niño. Como el tatuaje. No sé explicarlo mejor.</p><p>Alargó la mano sobre la mesa y la posó sobre la mía. Fue un gesto antiguo, difícil de nombrar: el de alguien que te conoce demasiado bien para mentirte, y demasiado bien para herirte sin necesidad.</p><p>—Christian. Lo que cuentas de tus padres, el «Primero Love You»… no es casualidad. Tampoco que esa mujer aparezca ahora. —Hizo una pausa—. Llevas años ignorando mensajes del universo. Conmigo lo hiciste. Con tu padre también. Y mira dónde estamos.</p><p>—¿Qué me estás diciendo?</p><p>—Te digo que no pediré elecciones ahora mismo. Pero quiero que seas honesto contigo mismo antes de serlo con nadie más. ¿Puedes hacerlo?</p><p>—Puedo intentarlo.</p><p>Se levantó y recogió el bolso con ese gesto felino, dueño del espacio. Ya en la puerta, se giró apenas un instante y me dedicó aquella media sonrisa indescifrable. Me dio un abrazo largo. De los de comprobación, no de consuelo. Necesitaba asegurarse de que seguía allí.</p><p>—CC… Primero Love You.</p><p>Lo dijo sin teatralidad. Una verdad sin adornos. Se separó apenas un centímetro.</p><p>—Tu padre tenía razón en eso. En que las cosas que importan llegan cuando toca, no cuando uno las busca.</p><p>Salió del café sin mirar atrás.</p><p>Me quedé frente a la taza, intacto. El móvil vibró sobre la mesa antes incluso de procesar su ausencia. Era un mensaje.</p><p>Silvia tutora · 17:43<br>Christian. El niño preguntó algo hoy difícil de interpretar. Me miró y dijo: «Dile a papá que la nota todavía no está entera». ¿Sabes qué significa?</p><p>Silvia tutora · 17:44<br>Llevo toda la tarde dándole vueltas. Hay algo más. Esta mañana dijo muy bajito: «Ya falta menos». No sé menos de qué.</p><p>Miré la pantalla durante un tiempo indefinible. La nota de mi padre, amarillenta y doblada, seguía en el bolsillo de la chupa. El futuro es una posibilidad. Recuerda: todavía no ha pasado. Le había dado la vuelta veinte veces. Siempre en blanco.</p><p>¿Falta menos para qué?</p><p>Dejé el teléfono boca abajo, como quien deposita algo frágil. El café estaba frío. Dejé un billete, me puse la chupa y salí a la tarde de Málaga sin responder.</p><p>El tatuaje pulsó una vez, sin urgencia, y quedó quieto bajo la piel.</p>
-      <div class="cta-box">
-        <strong>Próximamente en Amazon</strong>
-        <p>Si esta historia ya te ha atrapado, muy pronto podrás continuar la lectura completa de <b>PRIMERO LOVE YOU — El hijo del mañana</b> en Amazon.</p>
-      </div>
-    </article>
-    <div class="reader-nav">
-      <a class="btn ghost" href="#capitulo-5">← Capítulo 5 · El Puente al Ayer</a>
-      <a class="btn ghost" href="#leer-gratis">Índice</a>
-      <a class="btn" href="#inicio">Volver al inicio</a>
-    </div>
-  </section>
+<ul>
 
-    <section id="autor" class="section">
-      <div class="grid cols-2">
-        <article class="card"><div class="eyebrow">Autor</div><h2 style="margin-top:14px">Christian C. D'Rosoy</h2><p>Voz literaria de un universo narrativo donde el amor, el tiempo y la memoria se entrecruzan con una identidad propia y una tensión emocional sostenida.</p></article>
-        <article class="card"><div class="eyebrow">Posicionamiento</div><h2 style="margin-top:14px">Una presencia editorial más fuerte que un blog tradicional</h2><p>PRIMERO LOVE YOU está planteado como una trilogía con identidad visual, arquitectura narrativa y capacidad de crecimiento. Esta web prioriza la lectura, la inmersión y el vínculo emocional con el lector.</p></article>
-      </div>
-    </section>
-  </main>
+<li><a href="#novela">La novela</a></li>
 
-  <footer>
-    <div class="wrap">PRIMERO LOVE YOU | Trilogía oficial · Lectura gratuita web · Dedicatoria, prólogo y capítulos 1 al 6</div>
-  </footer>
+<li><a href="#autor">Autor</a></li>
+
+<li><a href="#galeria">Galería</a></li>
+
+<li><a href="#leer">Leer gratis</a></li>
+
+<li><a href="#comprar">Comprar</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-left">
+
+<h1>
+
+PRIMERO LOVE YOU
+
+</h1>
+
+<h2>
+
+EL HIJO DEL MAÑANA
+
+</h2>
+
+<p class="frase">
+
+"ECHAR DE MENOS A ALGUIEN QUE NO CONOCES ES UNA FORMA DE LOCURA QUE NO TIENE DIAGNÓSTICO."
+
+</p>
+
+<p class="descripcion">
+
+Una historia de suspense, amor y misterio ambientada en la Málaga más auténtica.
+
+</p>
+
+<div class="botones">
+
+<a class="btn azul" href="#leer">
+
+LEER LOS 4 PRIMEROS CAPÍTULOS
+
+</a>
+
+<a class="btn blanco"
+
+href="https://amzn.eu/d/068yGty7"
+
+target="_blank">
+
+COMPRAR EN AMAZON
+
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-right">
+
+<img src="img/portada.jpg" alt="Portada PRIMERO LOVE YOU">
+
+</div>
+
+</section>
+
+<section id="novela">
+
+<h2>
+
+LA NOVELA
+
+</h2>
+
+<p>
+
+Christian Herrmann jamás imaginó que un niño pudiera cambiar su vida antes incluso de haber nacido.
+
+Todo comienza con una llamada desde un colegio...
+
+y termina cuestionando el tiempo, el amor y el destino.
+
+</p>
+
+<div class="iconos">
+
+<div>
+
+❤️
+
+<h3>Amor</h3>
+
+</div>
+
+<div>
+
+🕰️
+
+<h3>Tiempo</h3>
+
+</div>
+
+<div>
+
+🔍
+
+<h3>Misterio</h3>
+
+</div>
+
+<div>
+
+📍
+
+<h3>Málaga</h3>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="autor">
+
+<div class="autor">
+
+<img src="img/christian.jpg">
+
+<div>
+
+<h2>
+
+CHRISTIAN C. D'ROSOY
+
+</h2>
+
+<p>
+
+Autor malagueño creador de la trilogía PRIMERO LOVE YOU.
+
+Thriller emocional donde el misterio, el amor y el tiempo se unen para contar una historia imposible de olvidar.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="galeria">
+
+<h2>
+
+PRESENTACIÓN DEL LIBRO
+
+</h2>
+
+<div class="grid">
+
+<img src="img/presentacion1.jpg">
+
+<img src="img/presentacion2.jpg">
+
+<img src="img/presentacion3.jpg">
+
+<img src="img/presentacion4.jpg">
+
+<img src="img/presentacion5.jpg">
+
+<img src="img/presentacion6.jpg">
+
+</div>
+
+</section>
+
+<section id="leer">
+
+<h2>
+
+LEER GRATIS
+
+</h2>
+
+<div class="capitulos">
+
+<a href="capitulos/capitulo1.html">Capítulo 1</a>
+
+<a href="capitulos/capitulo2.html">Capítulo 2</a>
+
+<a href="capitulos/capitulo3.html">Capítulo 3</a>
+
+<a href="capitulos/capitulo4.html">Capítulo 4</a>
+
+</div>
+
+</section>
+
+<section id="comprar">
+
+<h2>
+
+¿TE ATREVES A DESCUBRIR LA VERDAD?
+
+</h2>
+
+<a class="amazon"
+
+href="https://amzn.eu/d/068yGty7"
+
+target="_blank">
+
+COMPRAR AHORA EN AMAZON
+
+</a>
+
+<h3>
+
+También disponible en Málaga
+
+</h3>
+
+<p>
+
+📚 Librería Proteo
+
+<br>
+
+📚 Librería Prometeo
+
+</p>
+
+</section>
+
+<footer>
+
+<h2>
+
+PRIMERO LOVE YOU
+
+</h2>
+
+<p>
+
+Porque a veces...
+
+el pasado no ha terminado.
+
+Y el futuro ya ha comenzado.
+
+</p>
+
+<p>
+
+© Christian C. D'Rosoy
+
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
 </body>
+
 </html>
