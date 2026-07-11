@@ -1,308 +1,571 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>PRIMERO LOVE YOU | El hijo del mañana</title>
-
-<meta name="description" content="Thriller emocional ambientado en Málaga. Una historia de suspense, amor y misterio que ya está conquistando a cientos de lectores.">
-
-<link rel="stylesheet" href="style.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PRIMERO LOVE YOU | Trilogía oficial</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.7"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.26.10/babel.min.js"></script>
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://esm.sh/react@18.3.1",
+      "react/": "https://esm.sh/react@18.3.1/",
+      "react-dom": "https://esm.sh/react-dom@18.3.1",
+      "react-dom/": "https://esm.sh/react-dom@18.3.1/",
+      "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
+      "lucide-react": "https://esm.sh/lucide-react@0.474.0?external=react"
+    }
+  }
+  </script>
 </head>
+<body class="bg-neutral-950">
+  <div id="root"></div>
 
-<body>
+  <script type="text/babel" data-type="module" data-presets="react">
+    import React, { useEffect, useMemo, useState } from 'react';
+    import { createRoot } from 'react-dom/client';
+    import { Menu, X, BookOpen, ChevronLeft, ChevronRight, Home, Crown, Heart, Atom, ShieldCheck } from 'lucide-react';
 
-<header>
+    const readingEntries = [
+      {
+        slug: 'dedicatoria',
+        title: 'Dedicatoria',
+        shortTitle: 'Dedicatoria',
+        label: 'Apertura',
+        teaser: 'El umbral íntimo desde el que nace toda la novela.',
+        content: `A la memoria de mi padre que me enseñó el valor del tiempo antes de que yo entendiera que podía perderlo.`
+      },
+      {
+        slug: 'prologo',
+        title: 'Prólogo',
+        shortTitle: 'Prólogo',
+        label: 'Prólogo',
+        teaser: 'La primera herida del tiempo. El inicio invisible de todo.',
+        content: `«Echar de menos a alguien que no conoces es una forma de locura que no tiene diagnóstico».
 
-<nav>
+—CC
 
-<div class="logo">
+Hay ausencias que no dejan fotografías. No tienen fecha ni entierro. Y, sin embargo, pesan más que los muertos con nombre.
 
-PRIMERO LOVE YOU
+Durante años pensé que lo que me dolía era el pasado. Me equivoqué. Lo que me dolía era algo que aún no había ocurrido.
 
-</div>
+El tiempo no es una línea recta. Eso lo dicen los físicos cuando quieren parecer valientes. El tiempo es un animal herido que siempre vuelve al lugar donde sangró.
 
-<ul>
+Hay nombres que uno aprende a callar antes de que existan. Hay promesas que se rompen antes de ser dichas. Hay personas que reconoces la primera vez que las ves, no porque las hayas visto antes, sino porque las has estado esperando sin saberlo.
 
-<li><a href="#novela">La novela</a></li>
+A veces despierto con la sensación de haber perdido algo que nunca sostuve entre las manos. Un latido que no escuché. Una despedida que nadie pronunció.
 
-<li><a href="#autor">Autor</a></li>
+Si pudiera volver atrás, diría que todo empezó con un abrazo. Pero la verdad es que empezó mucho antes. Empezó el día que comprendí que el tiempo no siempre se pierde hacia adelante. A veces se pierde hacia alguien.
 
-<li><a href="#galeria">Galería</a></li>
+Empezó un lunes de febrero, con el café todavía humeando en la taza y un niño de ocho años mirándome desde una silla diminuta con los ojos que eran los míos.`
+      },
+      {
+        slug: 'capitulo-1',
+        title: 'Capítulo 1 · Todavía no ha pasado',
+        shortTitle: 'Capítulo 1',
+        label: 'Libro I',
+        teaser: 'El día en que la lógica dejó de servir y apareció un niño imposible.',
+        content: `PARTE I
+2026
 
-<li><a href="#leer">Leer gratis</a></li>
+Hay exactamente dos momentos en la vida de todo hombre en los que el tiempo se detiene de verdad: cuando alguien te dice que vas a ser padre y cuando te lo reclama un niño al que nunca has visto.
 
-<li><a href="#comprar">Comprar</a></li>
+A mí me tocaron los dos el mismo día.
+Y ninguno era posible.
 
-</ul>
+Lunes · 08:15 h · Calle La Unión · Málaga · 2026
 
-</nav>
+El silencio en mi apartamento de la calle La Unión no era simple vacío. Era una entidad viva, pesada como el plomo fundido, instalada en cada rincón con la persistencia de un invitado no deseado. Se acurrucaba junto a mí en el sofá de cuero desgastado por el tiempo y las ausencias. Reclamaba el lado izquierdo de la cama, el lugar abandonado por mi ex hacía ocho meses tras dieciséis años de vida compartida. Nuestra historia empezó en aquella primavera de 2010. Entonces creíamos tenerlo todo por delante; no imaginábamos que lo mejor de nosotros se quedaría tirado en la cuneta. Ahora, ese mutismo se adhería a las paredes blancas del salón como una niebla espesa, impregnada del humo fantasma de cigarrillos ya apagados.
 
-</header>
+Eran las ocho y cuarto de un lunes gris de febrero. Al otro lado de la cristalera, Málaga se desperezaba bajo una luz pálida y cortante: un sol incapaz de calentar los huesos, pero clavado en la piel como la hoja de un cuchillo afilado.
 
-<section class="hero">
+La cafetera italiana, reliquia de mis días más optimistas, emitió su gorgoteo final. El café brotó negro como la brea. Espeso. Amargo. Sin azúcar. El combustible necesario.
 
-<div class="hero-left">
+A mis pies, Noa —mi pequeña pomerania negra de ojos brillantes— soltó un bufido impaciente. Su urgencia canina me recordaba que aún había vida en este lugar. Ella también añoraba los desayunos de domingo: el aroma del pan tostado con tomate y aceite de oliva, el zumo de naranja recién exprimido inundando el aire de cítricos y las risas apagadas sin aviso, dejando ecos huecos. Le rasqué detrás de las orejas con dedos distraídos; me miró con esa paciencia infinita propia de los perros y los ancianos sabios. Entendía mi tormenta interna mejor que yo mismo.
 
-<h1>
+Me serví el café en la taza desconchada, la última superviviente de aquel juego barato comprado en IKEA en una tarde de ilusiones, cuando el amor parecía eterno. Me quedé mirando a través del muro de vidrio, observando el mundo como un espectador distante. Abajo, la calle iniciaba su ritual diario: persianas metálicas ascendiendo con estrépito oxidado, peatones apresurados hacia Juan XXIII con maletines y mochilas al hombro y algún repartidor en patinete eléctrico zigzagueando entre ellos. Yo, con treinta y siete años a mis espaldas, me sentía un actor secundario relegado a la última fila de su propia existencia.
 
-PRIMERO LOVE YOU
+El equipo de música, un Marantz de los setenta heredado de mi padre, custodiado como un relicario de polvo y memoria, bañaba el rincón con un resplandor ámbar. La aguja vibró en el surco final del vinilo y, de pronto, la guitarra de Triana rasgó la quietud del salón. Era Un nido en mi ventana. La voz de Jesús de la Rosa empezó a elevarse, ese ruego hipnótico suplicando a una blanca paloma su vuelo, que no se perdiera en el vacío para no sucumbir al frío.
 
-</h1>
+Me quedé quieto mientras el café seguía sin tocar. Noa me observaba desde el suelo, inmóvil. La canción no tenía prisa por terminar y, por un momento, yo tampoco.
 
-<h2>
+Mi ex siempre tachaba esta canción de ingenua. Nunca entendí por qué le gustaba tanto. Lo entiendo ahora.
 
-EL HIJO DEL MAÑANA
+Herrmann Sole, mi tienda online de sneakers de edición limitada, funcionaba con precisión quirúrgica. Algoritmos, drops exclusivos, envíos internacionales sin retrasos. El dinero entraba sin esfuerzo. Podía permitirme el apartamento, las cervezas con la Guardia Pretoriana, los caprichos innecesarios vendidos por la sociedad como éxito. Por fuera, todo era impecable. Por dentro, el vacío absoluto.
 
-</h2>
+El iPhone vibró sobre la encimera de granito, rompiendo el hechizo. El nombre en pantalla me sacó la primera sonrisa genuina en días: Toni.
 
-<p class="frase">
+Contesté; mi voz sonó áspera, oxidada por horas de quietud.
 
-"ECHAR DE MENOS A ALGUIEN QUE NO CONOCES ES UNA FORMA DE LOCURA QUE NO TIENE DIAGNÓSTICO."
+—¿Dime, piloto? —dije, intentando sonar casual.
 
-</p>
+—¡Christian! ¿Qué pasa, fiera?
 
-<p class="descripcion">
+Su voz llegó cristalina; los seis mil kilómetros entre Málaga y Dubái fueron apenas un susurro. Toni, con su metro noventa y siete de estatura, piel morena y ojos verdes penetrantes, era mi hermano del alma desde los cuatro años. Ahora, piloto comercial, trotamundos profesional capaz de desayunar cruasanes en Londres, almorzar kebabs en Doha y cenar dim sum en Singapur.
 
-Una historia de suspense, amor y misterio ambientada en la Málaga más auténtica.
+—Acabo de salir del Dubái Mall y, tío, he visto algo capaz de hacer explotar tu stock.
 
-</p>
+—¿Más Yeezys? El mercado está saturado. La gente ya no pica con cada drop.
 
-<div class="botones">
+—No, cansino. Escucha: tres pares de Jordan 1 Retro High «Dior». Las de verdad, liberadas aquí en exclusiva para los VIP de los Emiratos. Las tengo en la mano ahora mismo. Huelen a cuero premium. Si las subes este viernes, pagamos las rondas de la Guardia Pretoriana por un año entero.
 
-<a class="btn azul" href="#leer">
+Mi amigo tenía ese don innato: donde otros veían simples zapatillas, él olfateaba oportunidades de oro. Su instinto para los negocios era legendario, afilado por años de vuelos intercontinentales y tratos en aeropuertos remotos.
 
-LEER LOS 4 PRIMEROS CAPÍTULOS
+—Si son auténticas y traes el certificado, envíame fotos ya. Las marco como «Próximamente» en la web. ¿Cuánto has soltado por ellas?
 
-</a>
+—Demasiado, pero recuperamos el triple, fácil —rió, y su carcajada resonó con el bullicio de fondo: idiomas entremezclados, ruedas de maletas y anuncios en árabe—. Mañana hago escala en Madrid y el jueves bajo a Málaga unos días. Quiero a toda la Guardia en Le Grand Café. No acepto excusas.
 
-<a class="btn blanco"
+—Cuenta con eso. Trae esas joyas y lo celebramos como se merece.
 
-href="https://amzn.eu/d/068yGty7"
+—Oye, espera —frenó antes de colgar. Su voz bajó un tono, volvió a ser la del crío del Perchel—. ¿Y la rubia? ¿Habéis hablado?
 
-target="_blank">
+Hice una pausa demasiado larga, la que dice todo sin abrir la boca.
 
-COMPRAR EN AMAZON
+—Ocho meses sin hablar, tío.
 
-</a>
+Al otro lado no hubo respuesta inmediata. Esa pausa suya, de las que pesan más que cualquier palabra.
 
-</div>
+—Joder, macho.
 
-</div>
+—Buen vuelo, cabrón.
 
-<div class="hero-right">
+Colgué a Toni y el apartamento volvió a quedarse quieto. Me bebí el café de un trago, ignorando que ya estaba frío. El negocio marchaba sobre ruedas… pero el lugar seguía siendo un mausoleo demasiado vasto para mí y un puñado de recuerdos que se negaban a desvanecerse.
 
-<img src="img/portada.jpg" alt="Portada PRIMERO LOVE YOU">
+Me detuve frente al espejo del pasillo. Chupa de cuero negra, camiseta blanca de algodón grueso y unas sneakers de mi colección con un valor superior al salario mensual de medio país. Rubio, un metro ochenta y dos, ojos verdes heredados de mi madre. Christian Herrmann: éxito rotundo por fuera, rompecabezas con piezas perdidas por dentro. ¿Cuánto tiempo más podía fingir que esta era la vida que quería?
 
-</div>
+Iba a colocarle el arnés a Noa cuando el teléfono volvió a vibrar. Número fijo, prefijo de Málaga. Contesté con un nudo en el estómago.
 
-</section>
+—Buenos días, dígame.
 
-<section id="novela">
+—Buenos días. ¿Es el señor Christian Herrmann?
 
-<h2>
+La voz era joven, clara, con ese acento malagueño cálido que te desarma sin que te des cuenta, como un abrazo inesperado.
 
-LA NOVELA
+—Sí, soy yo.
 
-</h2>
+—Soy Silvia, la tutora de segundo de primaria en el CEIP García Lorca. Necesitamos que venga lo antes posible. Su hijo se ha alterado mucho y no pregunta más que por usted. Dice que no se calmará hasta que llegue su papá.
 
-<p>
+—¿Mi… hijo? —balbuceé, sintiendo un vértigo repentino—. Debe de haber un error. No tengo hijos.
 
-Christian Herrmann jamás imaginó que un niño pudiera cambiar su vida antes incluso de haber nacido.
+El mundo se detuvo en seco. Hubo murmullos al otro lado, un llanto amortiguado de fondo. La mujer regresó a la línea con tono suave, pero con una certeza que me inquietó.
 
-Todo comienza con una llamada desde un colegio...
+—El teléfono registrado es este, Christian. Y el niño insiste. Se llama como usted. Dice que es su «pequeño CC2». ¿Podría venir, aunque sea para aclarar el malentendido? No deja de llorar.
 
-y termina cuestionando el tiempo, el amor y el destino.
+El apodo que nadie más que los más íntimos usaban: CC. Sentí el corazón golpear contra las costillas como un martillo neumático. Tuve que apoyarme en la encimera para no caer. CC2; el nombre con el que bromeaban mis colegas sobre cómo llamarían a mi hijo si algún día lo tuviera.
 
-</p>
+—Mire —conseguí decir con voz extraña— le repito que no tengo hijos. No puedo ser el padre de nadie.
 
-<div class="iconos">
+—El niño no ha parado de llorar desde que llegó —repitió la docente, sin drama, limitándose a sostener los hechos—. Dice «papá». Lo quiere a usted.
 
-<div>
+Cogí aire. Había un millar de razones para colgar: error de registro, niño con fantasías, padre con mi nombre. Eran sólidas. Y, sin embargo, esas siglas no se dejaban guardar en ninguno de esos cajones. Era demasiado específico.
 
-❤️
+—Está bien —logré decir al fin—. Iré. Pero le aseguro que esto es un error garrafal.
 
-<h3>Amor</h3>
+Colgué. Noa ladró una vez, un sonido corto y agudo.
 
-</div>
+—Tranquila, chica —murmuré mientras le ajustaba el arnés con manos temblorosas—. Vamos a dar un paseo antes de sumergirnos en este lío.
 
-<div>
+El frío de aquel mes se metía por las costuras de la chupa, pero el sol de la mañana ya empezaba a reclamar su sitio. Noa tiraba de la correa con esa urgencia mecánica que tienen los perros cuando el barrio ya está a pleno rendimiento a las nueve y media. Salimos del recinto. Frente a mi portal, las persianas de los comercios ya habían terminado de tronar y el trasiego era constante, marcando el ritmo de una calle que no sabe lo que es la tregua.
 
-🕰️
+El barrio se desplegaba ante nosotros: una hilera interminable de bloques, ladrillo visto y fachadas de hormigón que conviven con los edificios nuevos que han ido cerrando el cielo. A esta hora, el sol ya pegaba con ganas, creando una claridad que rebotaba entre los edificios y el asfalto, iluminando los camiones de reparto que descargaban frente a los súper. Había olor a pan recién hecho mezclado con el ruido de los motores diésel.
 
-<h3>Tiempo</h3>
+Caminamos hacia el pequeño parque donde la perra marcaba su territorio. En mi mente, la conversación se repetía en bucle, como un vinilo rayado que se niega a saltar de surco: «su hijo», «muy nervioso», «CC2». ¿Cómo demonios un niño de segundo de primaria conocía mi apodo, ese mote que manejaban los más íntimos? ¿Por qué el colegio tenía mi número y mi nombre vinculados a ese crío? ¿Era una broma cruel de algún viejo conocido o algo mucho más retorcido, diseñado para sacarme de mi madriguera?
 
-</div>
+¿Qué pensaba hacer con el resto de la mañana? ¿Sentarme frente al iMac a revisar pedidos que el sistema ya gestionaba? ¿Perderme otra vez en la galería del móvil, buscando fotos antiguas de la rubia para flagelarme con lo que fuimos? No. Esta vez el aislamiento no iba a ser mi refugio. Había un hilo invisible que tiraba de mí, un cable de alta tensión que me obligaba a moverme. Tenía que ir. Tenía que mirar a ese niño a los ojos y desentrañar aquel absurdo antes de que terminara de volverme loco.
 
-<div>
+Lunes · 10:10 h · Colegio García Lorca
 
-🔍
+El CEIP García Lorca se erguía en la calle Alemania con dignidad fatigada. Opté por caminar para ordenar el caos. Al entrar en el colegio, el vaho dulzón de la colonia infantil me asaltó como una emboscada. Era un olor a limpieza impostada, a alcohol y cítricos ácidos que intentaban enmascarar el rastro rancio del edificio. Se me pegó a la garganta como un recuerdo que no había pedido recuperar.
 
-<h3>Misterio</h3>
+La secretaria me recibió con una sonrisa profesional, pidió mi DNI y me indicó el camino a la primera planta. Subí las escaleras con el pulso acelerado. Era ridículo. Entraría, aclararía el error y volvería a mi rutina. Fin de la historia.
 
-</div>
+Pero antes de alcanzar el pomo, mis pies se clavaron en el terrazo. Desde el interior del aula llegaba una melodía tarareada en un hilo de voz. La reconocí al primer acorde mental: Sabor de amor, de Danza Invisible. La profesora estaba allí dentro, acariciando esas notas ochenteras. La tarareaba bajito, con cadencia perezosa. El sonido era frágil, cargado de una intención que me erizó la piel. Me quedé allí, inmóvil, escuchando cómo el «sabor de amor…» moría en un suspiro justo antes de que mi mano empujara la madera.
 
-<div>
+La puerta del aula estaba entreabierta; dejaba escapar un llanto suave.
 
-📍
+Silvia me vio primero. Tendría treinta y pocos, llevados con ligereza envidiable. El pelo rubio era lo primero que veías: rizado con fuerza, denso, con vitalidad salvaje. Tenía los ojos marrones y grandes, capaces de leer el estado de una habitación antes de que nadie hablara. Su piel era clara, luminosa bajo aquella luz de invierno terminal. Vestía como quien ha tenido la mente en otra parte al despertar: blusa clara con un botón mal abrochado, vaqueros sencillos y zapatillas de deporte. Exudaba la energía precisa de quien sabe calmar el mundo sin levantar la voz.
 
-<h3>Málaga</h3>
+Mi presencia borró el tarareo de golpe.
 
-</div>
+—¿Christian, verdad? —dijo con una voz que mezclaba cercanía y profesionalidad—. Gracias por venir tan rápido. Pasa, por favor.
 
-</div>
+Ahí estaba él.
 
-</section>
+Un crío de unos ocho años, sentado en una sillita de madera junto a la puerta. El sol se colaba por las persianas en rayas de luz polvorienta, iluminando motas flotantes como galaxias en miniatura alrededor de su cabeza. Llevaba la camiseta de la selección, la del Mundial 2010, un par de tallas mayor, y pantalones cortos que dejaban ver sus rodillas curtidas en mil batallas de patio. Su pelo rubio, lacio… y cuando levantó la vista, el suelo bajo mis zapatillas de edición limitada pareció desvanecerse.
 
-<section id="autor">
+Sus ojos eran como los míos: profundos, enmarcados por pestañas largas que yo conocía bien. Era un espejo desfasado, una fotografía de mi propia infancia cobrando vida para señalarme mis deudas pendientes.
 
-<div class="autor">
+Me dejó sin aire.
 
-<img src="img/christian.jpg">
+Al verme, el chavea se levantó de un salto. Corrió hacia mí y se estrelló contra mis piernas, abrazándolas con una fuerza desesperada.
 
-<div>
+—Sabía que vendrías, papá —susurró contra mi rodilla.
 
-<h2>
+Me quedé petrificado. Mis manos quedaron suspendidas en el aire, inertes, atrapadas en un limbo imposible entre el impulso de abrazarlo para detener su temblor y el de huir hasta que el barrio del Perchel quedara reducido a un punto borroso en el retrovisor.
 
-CHRISTIAN C. D'ROSOY
+Silvia se acercó con pasos suaves, rompiendo el vacío. Sus ojos brillaban con una ternura casi insultante por su realismo.
 
-</h2>
+—Es la primera vez que menciona su nombre —susurró la profesora—. Hasta hoy, se limitaba a dibujar. Mire.
 
-<p>
+Me tendió un folio arrugado, marcado por el rastro de ceras de colores. Era un dibujo infantil, pero con un detalle que me heló la sangre: un hombre alto con chupa de cuero y el cuello subido, de la mano de un niño pequeño. Ambos llevaban la camiseta de la selección. Debajo, en letras grandes, torpes y decididas, una palabra que parecía gritar: PAPÁ.
 
-Autor malagueño creador de la trilogía PRIMERO LOVE YOU.
+Un zumbido sordo empezó a pitar en mis oídos, ese tono de frecuencia que precede a un desmayo. Di la vuelta al papel con los dedos entumecidos y sentí que el corazón se me detenía. En el reverso, con una caligrafía infantil temblorosa pero clara, había una dirección escrita: Calle Peregrino, 28.
 
-Thriller emocional donde el misterio, el amor y el tiempo se unen para contar una historia imposible de olvidar.
+La casa de mi infancia. Aquel lugar que había quedado atrás como un capítulo que nunca supe cerrar del todo. Ver esa dirección escrita por la mano de un niño me provocó un vértigo ajeno a la altura; era el pasado reclamando su sitio en un presente que ya no lo esperaba.
 
-</p>
+Sus ojos se clavaron en los míos buscando una respuesta inexistente. Inclinó un poco la barbilla, evaluándome, imitándome sin saberlo. No era la mirada de un niño asustado; había en ella una profundidad desconcertante, una sabiduría antigua incapaz de caber en un cuerpo tan frágil.
 
-</div>
+—No te preocupes, papá —susurró tan bajo que apenas logré captarlo—. Todavía no ha pasado.
 
-</div>
+Sonrió.
 
-</section>
+Una sonrisa que no era del todo de niño, sino de alguien que vislumbra el final de un cuento y decide creer en él.
 
-<section id="galeria">
+Silvia alzó una ceja, intrigada por nuestro silencio prolongado, ese duelo de miradas entre dos versiones de un mismo hombre.
 
-<h2>
+—¿Te sientes bien, Christian? Te has quedado pálido.
 
-PRESENTACIÓN DEL LIBRO
+Su mano rozó mi brazo con gesto ligero, casi casual, pero el calor del contacto atravesó la manga de la chupa hasta anclarse en mi piel.
 
-</h2>
+Allí, frente a aquella docente capaz de ver a través de mis corazas y un niño desafiante ante toda lógica, entendí que mi vida de facturas automáticas y ausencias programadas acababa de estallar. El futuro irrumpía en el aula. Yo no tenía dónde esconderme.`
+      }
+    ];
 
-<div class="grid">
+    const books = [
+      {
+        title: 'Libro I',
+        subtitle: 'El hijo del mañana',
+        status: 'En lectura gratuita',
+        active: true,
+        description: 'La entrada a la trilogía. Amor, tiempo, identidad y una grieta imposible en la realidad.'
+      },
+      {
+        title: 'Libro II',
+        subtitle: 'Próximamente',
+        status: 'En desarrollo',
+        active: false,
+        description: 'La expansión del universo narrativo y de las consecuencias del Proyecto C0NT1G0.'
+      },
+      {
+        title: 'Libro III',
+        subtitle: 'Próximamente',
+        status: 'Futuro lanzamiento',
+        active: false,
+        description: 'El cierre de la trilogía y la resolución final del sistema, la sangre y el tiempo.'
+      }
+    ];
 
-<img src="img/presentacion1.jpg">
+    function slugToHash(slug) {
+      return `#leer/${slug}`;
+    }
 
-<img src="img/presentacion2.jpg">
+    function getCurrentSlug() {
+      const hash = window.location.hash || '';
+      if (hash.startsWith('#leer/')) return hash.replace('#leer/', '');
+      return null;
+    }
 
-<img src="img/presentacion3.jpg">
+    function NavLink({ href, children, onClick }) {
+      return (
+        <a href={href} onClick={onClick} className="text-sm text-white/75 transition hover:text-white">
+          {children}
+        </a>
+      );
+    }
 
-<img src="img/presentacion4.jpg">
+    function SectionTitle({ eyebrow, title, description }) {
+      return (
+        <div className="max-w-3xl">
+          <div className="mb-3 inline-flex items-center rounded-full border border-amber-400/25 bg-amber-300/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-amber-200">
+            {eyebrow}
+          </div>
+          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">{title}</h2>
+          <p className="mt-4 text-base leading-7 text-white/70 md:text-lg">{description}</p>
+        </div>
+      );
+    }
 
-<img src="img/presentacion5.jpg">
+    function ReaderPage({ entry, index, total }) {
+      const prev = index > 0 ? readingEntries[index - 1] : null;
+      const next = index < total - 1 ? readingEntries[index + 1] : null;
+      const paragraphs = entry.content.split('\n\n');
 
-<img src="img/presentacion6.jpg">
+      return (
+        <main className="mx-auto max-w-5xl px-5 py-10 md:px-8 md:py-14">
+          <div className="mb-8 flex flex-wrap items-center gap-3 text-sm">
+            <a href="#inicio" className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-white/80 hover:bg-white/10">
+              <Home size={16} />
+              Inicio
+            </a>
+            <a href="#leer-gratis" className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-white/80 hover:bg-white/10">
+              <BookOpen size={16} />
+              Índice de lectura
+            </a>
+          </div>
 
-</div>
-
-</section>
-
-<section id="leer">
-
-<h2>
-
-LEER GRATIS
-
-</h2>
-
-<div class="capitulos">
-
-<a href="capitulos/capitulo1.html">Capítulo 1</a>
-
-<a href="capitulos/capitulo2.html">Capítulo 2</a>
-
-<a href="capitulos/capitulo3.html">Capítulo 3</a>
-
-<a href="capitulos/capitulo4.html">Capítulo 4</a>
-
-</div>
-
-</section>
-
-<section id="comprar">
-
-<h2>
-
-¿TE ATREVES A DESCUBRIR LA VERDAD?
-
-</h2>
-
-<a class="amazon"
-
-href="https://amzn.eu/d/068yGty7"
-
-target="_blank">
-
-COMPRAR AHORA EN AMAZON
-
-</a>
-
-<h3>
-
-También disponible en Málaga
-
-</h3>
-
-<p>
-
-📚 Librería Proteo
-
-<br>
-
-📚 Librería Prometeo
-
-</p>
-
-</section>
-
-<footer>
-
-<h2>
-
-PRIMERO LOVE YOU
-
-</h2>
-
-<p>
-
-Porque a veces...
-
-el pasado no ha terminado.
-
-Y el futuro ya ha comenzado.
-
-</p>
-
-<p>
-
-© Christian C. D'Rosoy
-
-</p>
-
-</footer>
-
-<script src="script.js"></script>
-
+          <div className="rounded-[2rem] border border-white/10 bg-neutral-900/70 p-6 shadow-[0_20px_80px_rgba(0,0,0,0.35)] md:p-8">
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-4 border-b border-white/8 pb-6">
+              <div>
+                <div className="text-xs uppercase tracking-[0.24em] text-amber-200">Lectura gratuita</div>
+                <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white md:text-5xl">{entry.title}</h1>
+                <p className="mt-3 max-w-2xl text-sm leading-7 text-white/60 md:text-base">PRIMERO LOVE YOU · Libro I · Trilogía oficial</p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/65">
+                {index + 1} de {total}
+              </div>
+            </div>
+
+            <article className="mx-auto max-w-3xl rounded-[1.75rem] bg-white px-5 py-8 text-neutral-900 shadow-[0_10px_60px_rgba(0,0,0,0.12)] md:px-10 md:py-12">
+              <div className="space-y-6 text-[1.05rem] leading-9 md:text-[1.12rem]">
+                {paragraphs.map((p, i) => (
+                  <p key={i} className="whitespace-pre-wrap text-neutral-800">{p}</p>
+                ))}
+              </div>
+
+              <div className="mt-10 rounded-3xl bg-neutral-100 p-6">
+                <div className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">Siguiente paso</div>
+                <h3 className="mt-2 text-2xl font-semibold text-neutral-950">Próximamente en Amazon</h3>
+                <p className="mt-3 text-sm leading-7 text-neutral-700">
+                  Si esta historia ya te ha atrapado, muy pronto podrás continuar la lectura completa de <strong>PRIMERO LOVE YOU — El hijo del mañana</strong> en Amazon.
+                </p>
+              </div>
+            </article>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex gap-3">
+                {prev ? (
+                  <a href={slugToHash(prev.slug)} className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10">
+                    <ChevronLeft size={18} />
+                    {prev.shortTitle}
+                  </a>
+                ) : (
+                  <div className="inline-flex items-center gap-2 rounded-2xl border border-white/8 bg-white/3 px-5 py-3 text-sm font-semibold text-white/35">
+                    <ChevronLeft size={18} />
+                    Inicio de lectura
+                  </div>
+                )}
+
+                {next ? (
+                  <a href={slugToHash(next.slug)} className="inline-flex items-center gap-2 rounded-2xl bg-amber-300 px-5 py-3 text-sm font-semibold text-neutral-950 hover:bg-amber-200">
+                    {next.shortTitle}
+                    <ChevronRight size={18} />
+                  </a>
+                ) : (
+                  <div className="inline-flex items-center gap-2 rounded-2xl border border-amber-300/25 bg-amber-300/10 px-5 py-3 text-sm font-semibold text-amber-100">
+                    Fin de la lectura gratuita
+                  </div>
+                )}
+              </div>
+
+              <a href="#leer-gratis" className="text-sm text-white/70 hover:text-white">Volver al índice de capítulos</a>
+            </div>
+          </div>
+        </main>
+      );
+    }
+
+    function HomePage({ onOpenReader }) {
+      const [selectedImage, setSelectedImage] = useState(null);
+      const heroImage = 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_inicio_con_una_imagen_de_portada_a_pantalla_completa..jpg';
+      const authorImage = 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_autor.jpg';
+      const flyerImage = 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_fyuer_definitivo.png';
+      const amazonUrl = 'https://www.amazon.es/dp/B0H12QX4HW';
+      const facebookUrl = 'https://www.facebook.com/p/Primero-Love-You-Christian-C-DRosoy-61589662337165/';
+
+      const features = useMemo(() => [
+        { icon: Heart, title: 'Amor', text: 'Una historia emocional que se queda dentro del lector.' },
+        { icon: Atom, title: 'Tiempo', text: 'El pasado, el presente y el futuro dejan de obedecer.' },
+        { icon: ShieldCheck, title: 'Misterio', text: 'Un niño imposible, una nota incompleta y un destino en movimiento.' }
+      ], []);
+
+      const galleryImages = useMemo(() => [
+        { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_fotos_3_de_julio_(1).jpg', title: 'Presentación del libro' },
+        { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_fotos_3_de_julio_(2).jpg', title: 'Momento de presentación' },
+        { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_fotos_3_de_julio_(6).jpg', title: 'Encuentro con lectores' },
+        { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_fotos_3_de_julio_(46).jpeg', title: 'Evento y firma' },
+        { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_5785108411715358651.jpg', title: 'Galería del lanzamiento' },
+        { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_5785108411715358669.jpg', title: 'Instante destacado' },
+        { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_5785108411715358663.jpg', title: 'Ambiente del evento' },
+        { src: flyerImage, title: 'Flyer promocional' }
+      ], [flyerImage]);
+
+      return (
+        <main id="inicio">
+          <section className="relative isolate min-h-[92vh] overflow-hidden">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `linear-gradient(90deg, rgba(5,5,5,0.92) 0%, rgba(5,5,5,0.72) 42%, rgba(5,5,5,0.55) 100%), url('${heroImage}')` }}
+            />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(251,191,36,0.22),transparent_28%)]" />
+            <div className="relative mx-auto flex min-h-[92vh] max-w-7xl items-center px-5 py-20 md:px-8">
+              <div className="max-w-4xl">
+                <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-amber-300/20 bg-amber-300/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.22em] text-amber-100">
+                  Web oficial · Trilogía
+                </div>
+                <h1 className="max-w-4xl text-5xl font-semibold leading-none tracking-tight text-white md:text-7xl lg:text-8xl">
+                  PRIMERO LOVE YOU
+                </h1>
+                <p className="mt-6 max-w-3xl text-2xl italic leading-10 text-white/88 md:text-3xl">
+                  «Echar de menos a alguien que no conoces es una forma de locura que no tiene diagnóstico.»
+                </p>
+                <p className="mt-6 max-w-3xl text-base leading-8 text-white/70 md:text-lg">
+                  La trilogía de <span className="font-semibold text-white">Christian C. D'Rosoy</span>. Romance, ciencia ficción y suspenso emocional en una historia que une amor, tiempo, memoria y destino desde Málaga al corazón del lector.
+                </p>
+
+                <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                  <a href="#leer-gratis" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-amber-300 px-6 py-3.5 text-sm font-semibold text-neutral-950 transition hover:bg-amber-200">
+                    📖 Leer los primeros capítulos
+                    <ChevronRight size={18} />
+                  </a>
+                  <a href={amazonUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/12 bg-white/8 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/14">
+                    🛒 Comprar en Amazon
+                  </a>
+                  <a href="#comprar" className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/12 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10">
+                    📍 Dónde comprar en Málaga
+                  </a>
+                </div>
+
+                <div className="mt-10 grid max-w-4xl gap-4 sm:grid-cols-3">
+                  {features.map((feature) => {
+                    const Icon = feature.icon;
+                    return (
+                      <div key={feature.title} className="rounded-3xl border border-white/10 bg-white/6 p-5 shadow-[0_10px_40px_rgba(0,0,0,0.25)] backdrop-blur-sm">
+                        <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-200/10 text-amber-200">
+                          <Icon size={20} />
+                        </div>
+                        <h3 className="text-sm font-semibold text-white">{feature.title}</h3>
+                        <p className="mt-2 text-sm leading-6 text-white/68">{feature.text}</p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="autor" className="mx-auto max-w-7xl px-5 py-18 md:px-8">
+            <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
+              <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-[0_25px_80px_rgba(0,0,0,0.25)]">
+                <img src={authorImage} alt="Christian C. D'Rosoy" className="h-full w-full object-cover" />
+              </div>
+              <div className="rounded-[2rem] border border-white/10 bg-neutral-900/76 p-7 md:p-10">
+                <SectionTitle
+                  eyebrow="Sobre el autor"
+                  title="Christian C. D'Rosoy"
+                  description="Autor de una propuesta narrativa que combina misterio, emoción y viajes temporales con una identidad muy ligada a Málaga, a sus calles y a una sensibilidad literaria marcada por la memoria, el amor y la posibilidad de alterar el destino."
+                />
+                <p className="mt-6 text-base leading-8 text-white/68 md:text-lg">
+                  En <strong>PRIMERO LOVE YOU — El hijo del mañana</strong>, Christian abre una saga donde una sola decisión puede cambiar vidas, unir generaciones separadas por el tiempo y convertir el pasado en una fuerza viva. Esta web reúne la esencia del proyecto: lectura gratuita, imágenes del lanzamiento, acceso directo a compra y una presentación editorial más ambiciosa que un blog tradicional.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section id="trilogia" className="mx-auto max-w-7xl px-5 py-18 md:px-8">
+            <SectionTitle
+              eyebrow="La novela"
+              title="Libro I · El hijo del mañana"
+              description="¿Qué harías si un niño apareciera en tu vida asegurando ser tu hijo… y lo más aterrador fuera descubrir que dice la verdad? Esta es la puerta de entrada a una trilogía donde el amor, el tiempo, el misterio y Málaga forman parte del mismo latido narrativo."
+            />
+          </section>
+
+          <section id="leer-gratis" className="mx-auto max-w-7xl px-5 py-18 md:px-8">
+            <SectionTitle eyebrow="Leer gratis" title="Dedicatoria, prólogo y capítulos 1 al 6" description="La lectura está organizada en páginas separadas dentro de esta misma web para facilitar una experiencia cómoda." />
+          </section>
+
+          <section id="galeria" className="mx-auto max-w-7xl px-5 py-18 md:px-8">
+            <SectionTitle eyebrow="Galería" title="Imágenes de la presentación y del universo del libro" description="Una selección visual del lanzamiento." />
+          </section>
+
+          <section id="video" className="mx-auto max-w-7xl px-5 py-18 md:px-8">
+            <SectionTitle eyebrow="Vídeo" title="Espacio reservado para tráiler, entrevista o presentación" description="Zona preparada para vídeo." />
+          </section>
+
+          <section id="redes" className="mx-auto max-w-7xl px-5 py-18 md:px-8">
+            <SectionTitle eyebrow="Redes sociales" title="Espacios reservados para tus canales" description="Zona preparada para redes sociales." />
+          </section>
+
+          <section id="comprar" className="mx-auto max-w-7xl px-5 py-18 md:px-8">
+            <div className="rounded-[2rem] border border-amber-300/25 bg-[linear-gradient(180deg,rgba(251,191,36,0.15),rgba(255,255,255,0.03))] p-7 md:p-10">
+              <h3 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">Disponible en Amazon</h3>
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <a href={amazonUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3.5 text-sm font-semibold text-neutral-950">Comprar ahora</a>
+                <a href={amazonUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-2xl border border-white/12 bg-white/6 px-6 py-3.5 text-sm font-semibold text-white">Ver reseñas en Amazon</a>
+              </div>
+            </div>
+          </section>
+
+          <section id="contacto" className="mx-auto max-w-7xl px-5 py-18 md:px-8">
+            <div className="rounded-[2rem] border border-white/10 bg-neutral-900/76 p-7 md:p-10">
+              <SectionTitle eyebrow="Contacto" title="Christian C. D'Rosoy" description="Espacio preparado para presencia de autor, prensa y lectores." />
+            </div>
+          </section>
+        </main>
+      );
+    }
+
+    function App() {
+      const [menuOpen, setMenuOpen] = useState(false);
+      const [currentSlug, setCurrentSlug] = useState(getCurrentSlug());
+
+      useEffect(() => {
+        const onHashChange = () => setCurrentSlug(getCurrentSlug());
+        window.addEventListener('hashchange', onHashChange);
+        onHashChange();
+        return () => window.removeEventListener('hashchange', onHashChange);
+      }, []);
+
+      const currentIndex = useMemo(() => readingEntries.findIndex((x) => x.slug === currentSlug), [currentSlug]);
+      const currentEntry = currentIndex >= 0 ? readingEntries[currentIndex] : null;
+
+      const openReader = (e, slug) => {
+        e?.preventDefault?.();
+        window.location.hash = `#leer/${slug}`;
+      };
+
+      return (
+        <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(245,158,11,0.18),_transparent_28%),linear-gradient(180deg,#0a0a0a_0%,#111111_45%,#09090b_100%)] text-white">
+          <header className="sticky top-0 z-40 border-b border-white/8 bg-neutral-950/75 backdrop-blur-xl">
+            <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
+              <a href="#inicio" className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-amber-300/20 bg-amber-200/10 text-amber-200 shadow-[0_0_30px_rgba(251,191,36,0.15)]">
+                  <Crown size={18} />
+                </div>
+                <div>
+                  <div className="text-sm font-semibold tracking-[0.22em] text-white/90">PRIMERO LOVE YOU</div>
+                  <div className="text-xs text-white/45">Trilogía oficial</div>
+                </div>
+              </a>
+
+              <nav className="hidden items-center gap-7 md:flex">
+                <NavLink href="#inicio">Inicio</NavLink>
+                <NavLink href="#autor">Autor</NavLink>
+                <NavLink href="#trilogia">La novela</NavLink>
+                <NavLink href="#leer-gratis">Leer gratis</NavLink>
+                <NavLink href="#galeria">Galería</NavLink>
+                <NavLink href="#video">Vídeo</NavLink>
+                <NavLink href="#redes">Redes</NavLink>
+                <NavLink href="#comprar">Comprar</NavLink>
+              </nav>
+
+              <button onClick={() => setMenuOpen((v) => !v)} className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 md:hidden" aria-label="Abrir menú">
+                {menuOpen ? <X size={20} /> : <Menu size={20} />}
+              </button>
+            </div>
+          </header>
+          {currentEntry ? <ReaderPage entry={currentEntry} index={currentIndex} total={readingEntries.length} /> : <HomePage onOpenReader={openReader} />}
+          <footer className="border-t border-white/8 px-5 py-8 md:px-8">
+            <div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm text-white/45 md:flex-row md:items-center md:justify-between">
+              <div>© Christian C. D'Rosoy · PRIMERO LOVE YOU</div>
+              <div>Libro I · El hijo del mañana · Lectura gratuita web</div>
+            </div>
+          </footer>
+        </div>
+      );
+    }
+
+    createRoot(document.getElementById('root')).render(<App />);
+  </script>
 </body>
-
 </html>
