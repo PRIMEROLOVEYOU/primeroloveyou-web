@@ -39,6 +39,41 @@
       50% { transform: translate3d(0,-25px,0) scale(1.08); }
     }
     .chapter-text p + p { margin-top: 1rem; }
+    .paper-sheet {
+      background: linear-gradient(180deg, #f8f2e7 0%, #efe4d2 100%);
+      color: #201a15;
+      box-shadow: 0 30px 80px rgba(0,0,0,.28);
+    }
+    .paper-rule {
+      background: linear-gradient(90deg, rgba(32,26,21,0) 0%, rgba(32,26,21,.55) 22%, rgba(32,26,21,.55) 78%, rgba(32,26,21,0) 100%);
+      height: 1px;
+    }
+    .chapter-kicker {
+      letter-spacing: .38em;
+      text-transform: uppercase;
+      font-size: 11px;
+      color: rgba(32,26,21,.72);
+    }
+    .chapter-body {
+      font-size: 17px;
+      line-height: 1.95;
+      color: #2a221b;
+    }
+    .chapter-body p:first-child::first-letter {
+      float: left;
+      font-size: 4.2rem;
+      line-height: .9;
+      padding-right: .55rem;
+      padding-top: .38rem;
+      font-weight: 700;
+      color: #8a6737;
+    }
+    .chapter-meta {
+      color: rgba(32,26,21,.62);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
   </style>
 </head>
 <body>
@@ -48,18 +83,18 @@
     import { createRoot } from 'react-dom/client';
     import { Menu, X, ChevronRight, BookOpen, ShoppingCart, MapPin, Instagram, Facebook, Youtube, Mail, Sparkles, Star, Quote, Camera, PlayCircle, ArrowUpRight, Heart, Clock3, Search, BookMarked } from 'lucide-react';
 
-    const heroImg = 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_inicio_con_una_imagen_de_portada_a_pantalla_completa..jpg?token=LtuBe2BUuDi-yvwUCxlvf0QhuVI9O0psqZF58r4AP3Y&exp=1783863903';
-    const authorImg = 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_autor.jpg?token=kbAXrXa3QR51CeeS-zmNKUoDWeNC_ctqGm7a2iYSRC8&exp=1783863903';
-    const proteoLogo = 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_pasted-image-1783859897840-0.png?token=ehsMST8P9dytOBsZFYCVtMjKx7zePXj_ZdcWWigu_GA&exp=1783863903';
+    const heroImg = 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_inicio_con_una_imagen_de_portada_a_pantalla_completa..jpg?token=6VwwSiSxa5cnPgPfXhpe8fp5vqBjMCRhPPfS_CD1Uwo&exp=1783864203';
+    const authorImg = 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_autor.jpg?token=e2w7x5ETWO90QQD3ploo10olWXMCGwG3MVMzp432EKY&exp=1783864203';
+    const proteoLogo = 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_pasted-image-1783859897840-0.png?token=PpT9umQOAeIo8AfMEEYuFm1J8ko9uJhJ-hoKuxyHVLE&exp=1783864203';
 
     const gallery = [
-      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-1.jpg.jpeg?token=z4SlUY47IaPHjFGyWkoSbBgoxUrI6VC_FL7wHrZEegw&exp=1783863903', alt: 'Presentación del libro 1' },
-      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-2.jpg.jpg?token=_l8vmeh606q-OInokzKe5g2cTbYtqsZ5UP979kERBpk&exp=1783863903', alt: 'Presentación del libro 2' },
-      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-3.jpg.jpg?token=VbLHHDGs0Swkh7nOsGz7wFLtc1nONz-lkt4W62Fohmw&exp=1783863903', alt: 'Presentación del libro 3' },
-      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria4_.jpg.jpeg?token=T8Ht1LKdAa8MEYpJ8Zu-kfHpaXXh8RO9WU19kuimDo4&exp=1783863903', alt: 'Presentación del libro 4' },
-      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-5.jpg.jpeg?token=vqeS-3LppxhNdnAZt63cexj1Xxnmi1QZVPHF-k1iI2w&exp=1783863903', alt: 'Presentación del libro 5' },
-      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-6.jpg.jpg?token=vGxcG8a8wYDpB31MuI7WdxpPT8A8Jtnur4m_KWv3ojE&exp=1783863903', alt: 'Presentación del libro 6' },
-      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-7.jpg.jpeg?token=C9h54NkINkx6XL6PJL01akgmngXq-GCsAUk-KdlT0q8&exp=1783863903', alt: 'Presentación del libro 7' }
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-1.jpg.jpeg?token=RlfSc9CCjvaRVLLFz4WCxAfkcLC8RS8zjzJzFX4Q6cY&exp=1783864203', alt: 'Presentación del libro 1' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-2.jpg.jpg?token=oHKCsh0rJJtI7u9Q-Av4Lie4LUOIudQFmaMq7CqZPjg&exp=1783864203', alt: 'Presentación del libro 2' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-3.jpg.jpg?token=lZoglPB9e6eNrhS6QvlgmLoBjUQZrimIw174TSBf-Zw&exp=1783864203', alt: 'Presentación del libro 3' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria4_.jpg.jpeg?token=A_u50U_TK0uEkoIA0PK5ZJzm9JSE9_impEMKyQ6sPzY&exp=1783864203', alt: 'Presentación del libro 4' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-5.jpg.jpeg?token=pUJcMAlkQKu95Ar38ipiFj29oIvTKnyKIkFZIhFYAKs&exp=1783864203', alt: 'Presentación del libro 5' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-6.jpg.jpg?token=DpI8vivfV_goeoubMod9rg4nLt6wjlALuP4a1kIyTrg&exp=1783864203', alt: 'Presentación del libro 6' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-7.jpg.jpeg?token=N0xaxvFVVceO7j_d-INkSdOKmJEu2iVbMx5V6gGtUag&exp=1783864203', alt: 'Presentación del libro 7' }
     ];
 
     const synopsis = '¿Qué harías si un niño apareciera en tu vida asegurando ser tu hijo… y lo más aterrador fuera descubrir que dice la verdad? PRIMERO LOVE YOU abre una historia donde el amor, el tiempo y lo imposible se miran de frente.';
@@ -130,15 +165,26 @@
     function ChapterBlock({ item }) {
       const paragraphs = item.text.split('\n\n');
       return (
-        <article id={item.id} className="scroll-mt-24 rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8">
-          <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-            <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/6 px-3 py-1 text-xs uppercase tracking-[0.25em] text-zinc-300">{item.tag}</span>
-              <h3 className="mt-4 text-2xl md:text-3xl font-semibold text-white">{item.title}</h3>
+        <article id={item.id} className="scroll-mt-24 rounded-[2.2rem] border border-[#c8b28a]/30 paper-sheet p-6 md:p-10 lg:p-12">
+          <div className="flex flex-wrap items-start justify-between gap-4 mb-8">
+            <div className="max-w-3xl">
+              <p className="chapter-kicker">PRIMERO LOVE YOU · EL HIJO DEL MAÑANA</p>
+              <div className="mt-4 flex flex-wrap items-end gap-4">
+                <h3 className="text-3xl md:text-5xl font-semibold leading-tight text-[#1f1914]">{item.title}</h3>
+                <span className="chapter-meta">{item.tag}</span>
+              </div>
             </div>
-            <a href="#leer" className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-zinc-200 hover:bg-white/8">Volver al índice <ChevronRight className="w-4 h-4" /></a>
+            <a href="#leer" className="inline-flex items-center gap-2 rounded-full border border-[#3f3427]/20 bg-white/50 px-4 py-2 text-sm text-[#2a221b] hover:bg-white/75 transition-colors">Volver al índice <ChevronRight className="w-4 h-4" /></a>
           </div>
-          <div className="chapter-text text-zinc-200 leading-8 whitespace-pre-line text-[15px] md:text-base">
+
+          <div className="paper-rule mb-6" />
+
+          <div className="flex items-center justify-between gap-4 mb-8">
+            <p className="chapter-meta">Edición de lectura gratuita · Web oficial</p>
+            <p className="chapter-meta hidden md:block">Christian C. D'Rosoy</p>
+          </div>
+
+          <div className="chapter-body chapter-text whitespace-pre-line max-w-4xl">
             {paragraphs.map((p, idx) => <p key={idx}>{p}</p>)}
           </div>
         </article>
@@ -258,7 +304,7 @@
             </section>
 
             <section id="leer" className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
-              <SectionTitle eyebrow="Leer gratis" title="Dedicatoria, prólogo y capítulos reales" text="Aquí sí está el contenido real de lectura gratuita: dedicatoria, prólogo y capítulos 1 al 6, presentados con lectura cómoda para móvil y escritorio." />
+              <SectionTitle eyebrow="Leer gratis" title="Dedicatoria, prólogo y capítulos reales" text="Aquí sí está el contenido real de lectura gratuita: dedicatoria, prólogo y capítulos 1 al 6, ahora maquetados con una presentación más editorial, limpia y profesional." />
               <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5 mb-10">
                 {reading.map((item) => (
                   <a key={item.id} href={`#${item.id}`} className="rounded-[1.75rem] border border-white/10 bg-gradient-to-br from-white/7 to-white/[0.03] p-6 hover:border-amber-300/30 transition-colors">
