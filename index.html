@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PRIMERO LOVE YOU | Trilogía oficial</title>
-  <meta name="description" content="Web oficial de PRIMERO LOVE YOU. Inicio cinematográfico, autor, novela, capítulos gratuitos, galería, reseñas, vídeo, Amazon y librerías de Málaga." />
+  <meta name="description" content="Web oficial de PRIMERO LOVE YOU. Inicio cinematográfico, autor, novela, capítulos gratuitos, reseñas, vídeo, Amazon y librerías de Málaga." />
   <meta name="theme-color" content="#0b0b12" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.7"></script>
   <script src="https://unpkg.com/@babel/standalone@7.26.10/babel.min.js"></script>
@@ -81,372 +81,81 @@
   <script type="text/babel" data-type="module" data-presets="react">
     import React, { useMemo, useState } from 'react';
     import { createRoot } from 'react-dom/client';
-    import { Menu, X, ChevronRight, BookOpen, ShoppingCart, MapPin, Instagram, Facebook, Youtube, Mail, Sparkles, Star, Quote, Camera, PlayCircle, ArrowUpRight, Heart, Clock3, Search, BookMarked } from 'lucide-react';
+    import { Menu, X, ChevronRight, BookOpen, ShoppingCart, MapPin, Instagram, Facebook, Youtube, Mail, Sparkles, Star, Quote, Camera, ArrowUpRight, Heart, Clock3, Search, BookMarked } from 'lucide-react';
 
-    const heroImg = 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_inicio_con_una_imagen_de_portada_a_pantalla_completa..jpg?token=6VwwSiSxa5cnPgPfXhpe8fp5vqBjMCRhPPfS_CD1Uwo&exp=1783864203';
-    const authorImg = 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_autor.jpg?token=e2w7x5ETWO90QQD3ploo10olWXMCGwG3MVMzp432EKY&exp=1783864203';
-    const proteoLogo = 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_pasted-image-1783859897840-0.png?token=PpT9umQOAeIo8AfMEEYuFm1J8ko9uJhJ-hoKuxyHVLE&exp=1783864203';
+    const heroImg = 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_inicio_con_una_imagen_de_portada_a_pantalla_completa..jpg';
+    const authorImg = 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_autor.jpg';
+    const proteoLogo = 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_pasted-image-1783859897840-0.png';
 
     const gallery = [
-      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-1.jpg.jpeg?token=RlfSc9CCjvaRVLLFz4WCxAfkcLC8RS8zjzJzFX4Q6cY&exp=1783864203', alt: 'Presentación del libro 1' },
-      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-2.jpg.jpg?token=oHKCsh0rJJtI7u9Q-Av4Lie4LUOIudQFmaMq7CqZPjg&exp=1783864203', alt: 'Presentación del libro 2' },
-      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-3.jpg.jpg?token=lZoglPB9e6eNrhS6QvlgmLoBjUQZrimIw174TSBf-Zw&exp=1783864203', alt: 'Presentación del libro 3' },
-      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria4_.jpg.jpeg?token=A_u50U_TK0uEkoIA0PK5ZJzm9JSE9_impEMKyQ6sPzY&exp=1783864203', alt: 'Presentación del libro 4' },
-      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-5.jpg.jpeg?token=pUJcMAlkQKu95Ar38ipiFj29oIvTKnyKIkFZIhFYAKs&exp=1783864203', alt: 'Presentación del libro 5' },
-      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-6.jpg.jpg?token=DpI8vivfV_goeoubMod9rg4nLt6wjlALuP4a1kIyTrg&exp=1783864203', alt: 'Presentación del libro 6' },
-      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-7.jpg.jpeg?token=N0xaxvFVVceO7j_d-INkSdOKmJEu2iVbMx5V6gGtUag&exp=1783864203', alt: 'Presentación del libro 7' }
-    ];
-
-    const synopsis = '¿Qué harías si un niño apareciera en tu vida asegurando ser tu hijo… y lo más aterrador fuera descubrir que dice la verdad? PRIMERO LOVE YOU abre una historia donde el amor, el tiempo y lo imposible se miran de frente.';
-
-    const reading = [
-      { id: 'dedicatoria', tag: 'Apertura', title: 'Dedicatoria', text: `A la memoria de mi padre\nque me enseñó el valor del tiempo antes de que yo entendiera que podía perderlo.` },
-      { id: 'prologo', tag: 'Prólogo', title: 'Prólogo', text: `«Echar de menos a alguien que no conoces es una forma de locura que no tiene diagnóstico».\n—CC\n\nHay ausencias que no dejan fotografías. No tienen fecha ni entierro. Y, sin embargo, pesan más que los muertos con nombre.\n\nDurante años pensé que lo que me dolía era el pasado. Me equivoqué. Lo que me dolía era algo que aún no había ocurrido.\n\nEl tiempo no es una línea recta. Eso lo dicen los físicos cuando quieren parecer valientes. El tiempo es un animal herido que siempre vuelve al lugar donde sangró.\n\nHay nombres que uno aprende a callar antes de que existan. Hay promesas que se rompen antes de ser dichas. Hay personas que reconoces la primera vez que las ves, no porque las hayas visto antes, sino porque las has estado esperando sin saberlo.\n\nA veces despierto con la sensación de haber perdido algo que nunca sostuve entre las manos. Un latido que no escuché. Una despedida que nadie pronunció.\n\nSi pudiera volver atrás, diría que todo empezó con un abrazo. Pero la verdad es que empezó mucho antes. Empezó el día que comprendí que el tiempo no siempre se pierde hacia adelante. A veces se pierde hacia alguien.\n\nEmpezó un lunes de febrero, con el café todavía humeando en la taza y un niño de ocho años mirándome desde una silla diminuta con los ojos que eran los míos.` },
-      { id: 'cap1', tag: 'Capítulo 1', title: 'Todavía no ha pasado', text: `Hay exactamente dos momentos en la vida de todo hombre en los que el tiempo se detiene de verdad: cuando alguien te dice que vas a ser padre y cuando te lo reclama un niño al que nunca has visto. A mí me tocaron los dos el mismo día. Y ninguno era posible.\n\nLunes · 08:15 h · Calle La Unión · Málaga · 2026\n\nEl silencio en mi apartamento de la calle La Unión no era simple vacío. Era una entidad viva, pesada como el plomo fundido, instalada en cada rincón con la persistencia de un invitado no deseado. Se acurrucaba junto a mí en el sofá de cuero desgastado por el tiempo y las ausencias. Reclamaba el lado izquierdo de la cama, el lugar abandonado por mi ex hacía ocho meses tras dieciséis años de vida compartida.\n\nNuestra historia empezó en aquella primavera de 2010. Entonces creíamos tenerlo todo por delante; no imaginábamos que lo mejor de nosotros se quedaría tirado en la cuneta. Ahora, ese mutismo se adhería a las paredes blancas del salón como una niebla espesa, impregnada del humo fantasma de cigarrillos ya apagados.\n\nEran las ocho y cuarto de un lunes gris de febrero. Al otro lado de la cristalera, Málaga se desperezaba bajo una luz pálida y cortante: un sol incapaz de calentar los huesos, pero clavado en la piel como la hoja de un cuchillo afilado.\n\nLa cafetera italiana, reliquia de mis días más optimistas, emitió su gorgoteo final. El café brotó negro como la brea. Espeso. Amargo. Sin azúcar. El combustible necesario.\n\nA mis pies, Noa —mi pequeña pomerania negra de ojos brillantes— soltó un bufido impaciente. Su urgencia canina me recordaba que aún había vida en este lugar. Ella también añoraba los desayunos de domingo: el aroma del pan tostado con tomate y aceite de oliva, el zumo de naranja recién exprimido inundando el aire de cítricos y las risas apagadas sin aviso, dejando ecos huecos.\n\nLe rasqué detrás de las orejas con dedos distraídos; me miró con esa paciencia infinita propia de los perros y los ancianos sabios. Entendía mi tormenta interna mejor que yo mismo.\n\nMe serví el café en la taza desconchada, la última superviviente de aquel juego barato comprado en IKEA en una tarde de ilusiones, cuando el amor parecía eterno. Me quedé mirando a través del muro de vidrio, observando el mundo como un espectador distante.\n\nAbajo, la calle iniciaba su ritual diario: persianas metálicas ascendiendo con estrépito oxidado, peatones apresurados hacia Juan XXIII con maletines y mochilas al hombro y algún repartidor en patinete eléctrico zigzagueando entre ellos. Yo, con treinta y siete años a mis espaldas, me sentía un actor secundario relegado a la última fila de su propia existencia.\n\nEl equipo de música, un Marantz de los setenta heredado de mi padre, custodiado como un relicario de polvo y memoria, bañaba el rincón con un resplandor ámbar. La aguja vibró en el surco final del vinilo y, de pronto, la guitarra de Triana rasgó la quietud del salón. Era Un nido en mi ventana.\n\nLa voz de Jesús de la Rosa empezó a elevarse, ese ruego hipnótico suplicando a una blanca paloma su vuelo, que no se perdiera en el vacío para no sucumbir al frío. Me quedé quieto mientras el café seguía sin tocar. Noa me observaba desde el suelo, inmóvil. La canción no tenía prisa por terminar y, por un momento, yo tampoco.\n\nMi ex siempre tachaba esta canción de ingenua. Nunca entendí por qué le gustaba tanto. Lo entiendo ahora.\n\nHerrmann Sole, mi tienda online de sneakers de edición limitada, funcionaba con precisión quirúrgica. Algoritmos, drops exclusivos, envíos internacionales sin retrasos. El dinero entraba sin esfuerzo. Podía permitirme el apartamento, las cervezas con la Guardia Pretoriana, los caprichos innecesarios vendidos por la sociedad como éxito. Por fuera, todo era impecable. Por dentro, el vacío absoluto.\n\nEl iPhone vibró sobre la encimera de granito, rompiendo el hechizo. El nombre en pantalla me sacó la primera sonrisa genuina en días: Toni.\n\n—¿Dime, piloto? —dije, intentando sonar casual.\n—¡Christian! ¿Qué pasa, fiera?` },
-      { id: 'cap2', tag: 'Capítulo 2', title: 'La grieta', text: `Lunes · 10:55 h · Colegio García Lorca\n\nBajé las escaleras con el dibujo doblado en el bolsillo interior de la chaqueta de piel: una granada a punto de detonar. Cada crujido del papel contra el cuero era un recordatorio punzante: aquello no había salido de mi cabeza. Era real.\n\nEl niño —ese supuesto hijo mío, con mis ojos y mi remolino en el pelo— se había quedado dentro con la profesora. Su voz suave se filtraba a través de la puerta entreabierta mientras le hablaba bajito, calmándolo con la delicadeza de una madre.\n\nMe invadió una envidia sorda, un pinchazo en el pecho que me transportó a mis propios días de infancia: nadie me había secado las lágrimas con tanta ternura. Aprendí a tragármelas a solas, en el baño del instituto, mirando mi reflejo en el espejo empañado con la rabia suficiente para estallarlo.\n\nEl pasillo del García Lorca se abría ante mí como un túnel de hormigón. Fuera, en el patio, el griterío de los niños era un ruido lejano, un eco de juegos que yo ya no sabía descifrar. Mis sneakers golpeaban las baldosas desgastadas con un ritmo seco, rompiendo el silencio. Arriba, un fluorescente agonizante parpadeaba con un zumbido eléctrico, rindiéndose poco a poco.\n\nEstaba fuera de lugar. Todo me parecía irreal, como si hubiera irrumpido en una película independiente donde me habían asignado el papel principal sin guion, sin ensayos, sin advertencia alguna.` },
-      { id: 'cap3', tag: 'Capítulo 3', title: 'El código', text: `Lunes · 18:30 h · Calle La Unión\n\nMe apoyé en la barandilla y dejé que el aire frío me golpeara la cara. El aislamiento del piso se me echaba encima como un bloque de hormigón. Tenía que hablar con alguien; no podía guardarme esto a solas.\n\nMarqué el número de mi madre. Vivía en Pedregalejo, en aquel piso con vistas al mar.\n\n—¿Christian? ¿Todo bien, hijo?\n—Hola, mamá… No, la verdad es que no. Ha pasado algo muy raro hoy. Fui al García Lorca tras un aviso del centro. Un niño de segundo de primaria… dice que soy su padre. Me abrazó, me llamó papá y conocía mi apodo, CC. Me enseñó un dibujo donde salgo yo y, en el reverso, la dirección de la calle Peregrino, 28.` },
-      { id: 'cap4', tag: 'Capítulo 4', title: 'El pulso del pasado', text: `Lunes · 20:57 h · Calle La Unión\n\nEl tatuaje seguía picándome. Decidí llamar a Annette, mi tatuadora de Ikigaink Experience; la misma encargada de grabarlo años atrás. Contestó rápido.\n\n—Ven al estudio ahora mismo. No te entretengas. Aquí te espero.\n\nColgué y busqué el número de Álex.\n—Alexander, escucha: el brazo izquierdo brilla azul y Annette me espera. ¿Me acompañas?\n—Voy para allá.` },
-      { id: 'cap5', tag: 'Capítulo 5', title: 'El puente al ayer', text: `Martes · 08:00 h · Calle La Unión\n\nEl martes amaneció con cielo eléctrico sobre Málaga, de esos grises que amenazan lluvia pero nunca cumplen. Puse la radio. Sonaba Sabina: Peces de ciudad. Abrí el armario con intención de ponerme lo de siempre, pero hoy algo me detuvo.\n\nAl fondo, colgada como reliquia sagrada, estaba la réplica exacta de la cazadora roja de cuero que llevaba James Dean en Rebel Without a Cause. Hoy tocaba rojo.` },
-      { id: 'cap6', tag: 'Capítulo 6', title: 'En una hora', text: `Martes · 12:30 h · GOfit Huelin\n\nFui al GOfit Huelin. Me cambié en los vestuarios y me puse el bañador y una camiseta de fútbol. Nadar era mi meditación. Encadené largos hasta que José Ángel, el monitor, apareció en el borde de la piscina.\n\n—Vaya, Chris. Hoy vienes con ganas de ahogar las penas. Menuda camiseta, ¿es la de Alemania del 74?\n—Me gusta lo que tiene historia. Estas tienen alma.` }
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-1.jpg.jpeg', alt: 'Presentación del libro 1' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-2.jpg.jpg', alt: 'Presentación del libro 2' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-3.jpg.jpg', alt: 'Presentación del libro 3' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria4_.jpg.jpeg', alt: 'Presentación del libro 4' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-5.jpg.jpeg', alt: 'Presentación del libro 5' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-6.jpg.jpg', alt: 'Presentación del libro 6' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-7.jpg.jpeg', alt: 'Presentación del libro 7' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_imagen_1_(1).jpg', alt: 'Imagen promocional 1' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_imagen_1_(2).jpg', alt: 'Imagen promocional 2' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_imagen_1_(3).jpg', alt: 'Imagen promocional 3' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_imagen_1_(4).jpg', alt: 'Imagen promocional 4' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_imagen_1_(6).jpg', alt: 'Imagen promocional 5' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_imagen_1_(7).jpg', alt: 'Imagen promocional 6' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_imagen_1_(8).jpg', alt: 'Imagen promocional 7' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_imagen_1_(9).jpg', alt: 'Imagen promocional 8' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_imagen_1_(10).jpg', alt: 'Imagen promocional 9' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_imagen_1_(11).jpg', alt: 'Imagen promocional 10' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_imagen_1_(12).jpg', alt: 'Imagen promocional 11' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_imagen_1_(13).jpg', alt: 'Imagen promocional 12' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_imagen_1_(14).jpg', alt: 'Imagen promocional 13' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_imagen_1_(15).jpg', alt: 'Imagen promocional 14' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_imagen_1_(16).jpg', alt: 'Imagen promocional 15' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_imagen_1_(17).jpg', alt: 'Imagen promocional 16' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_imagen_1_(18).jpg', alt: 'Imagen promocional 17' }
     ];
 
     const reviews = [
       {name:'Jose Maria', stars:'5,0 de 5', title:'¡Una joya de suspense y magnetismo!', meta:'Reseñado en España el 4 de julio de 2026 · Tapa blanda · Compra verificada', text:'¡Adictivo de principio a fin! Me ha parecido una lectura espectacular. Tiene un ritmo buenísimo que te atrapa por completo, con una mezcla perfecta de misterio, intriga y romance que no te deja soltar el libro. Los personajes tienen muchísima fuerza y la trama te mantiene enganchado en todo momento.'},
-      {name:'Alex', stars:'5,0 de 5', title:'Me ha sorprendido muchísimo', meta:'Reseñado en España el 22 de mayo de 2026 · Versión Kindle · Compra verificada', text:'La verdad es que compré el libro sin conocer al autor y me ha enganchado bastante más de lo que esperaba. La historia tiene misterio, drama y momentos que te dejan con ganas de seguir leyendo otro capítulo más. Se nota que está muy currado y la lectura se hace muy amena.'},
-      {name:'Lola Perez Chia', stars:'5,0 de 5', title:'Capacidad de descripción', meta:'Reseñado en España el 10 de junio de 2026 · Tapa blanda · Compra verificada', text:'Me ha sorprendido gratamente la narrativa tan peculiar de este nuevo escritor. Esta novela de ficción, drama y vivencias personales hace que te enganches y te metas fácilmente en la historia. Mis felicitaciones al autor de la obra. Esperando segunda parte de la trilogía.'},
-      {name:'Noe', stars:'5,0 de 5', title:'Un gran libro de un gran amigo!!!!', meta:'Reseñado en España el 30 de mayo de 2026 · Tapa blanda · Compra verificada', text:'Aunque solo he leído el primer capítulo, ya ha conseguido captar completamente mi atención. La historia comienza con fuerza, presentando personajes interesantes y una trama que despierta mucha curiosidad. Si el resto del libro mantiene este nivel, estoy seguro de que será una lectura fantástica.'},
-      {name:'Cliente Amazon', stars:'5,0 de 5', title:'Muy buena historia', meta:'Reseñado en España el 30 de mayo de 2026 · Tapa blanda · Compra verificada', text:'Buena novela de ficción, intriga, romance y emoción contenida que te invita a seguir leyendo desde el primer capítulo. Lectura recomendada.'},
-      {name:'pepe', stars:'5,0 de 5', title:'Engancha desde el primer capítulo', meta:'Reseñado en España el 16 de junio de 2026 · Tapa blanda · Compra verificada', text:'Me ha encantado la historia, y la forma en que está escrita, es muy amena de leer y te pones a leer y no pararía. Lo he terminado en nada, deseando la segunda parte.'},
-      {name:'Felix', stars:'5,0 de 5', title:'Lo recomiendo', meta:'Reseñado en España el 2 de julio de 2026 · Tapa blanda · Compra verificada', text:'Muy buen libro. Una historia bien estructurada y una trama que te engancha desde el principio.'},
-      {name:'Javier del Pozo González', stars:'5,0 de 5', title:'Libro ameno, divertido y con buena cultura musical', meta:'Reseñado en España el 5 de julio de 2026 · Tapa blanda · Compra verificada', text:'Libro ameno y divertido, con un toque de ciencia ficción, te engancha desde la primera página, muy buena narración y si fuese una película tendría una buena banda sonora.'},
-      {name:'Gaby', stars:'5,0 de 5', title:'Sorprendente', meta:'Reseñado en España el 18 de junio de 2026 · Tapa blanda · Compra verificada', text:'Es un libro muy interesante ya que desde que inicias la lectura te va enganchando y quieres saber qué ocurrirá en el capítulo siguiente. Lo recomiendo 100x100.'},
-      {name:'Isabel', stars:'5,0 de 5', title:'Top 10', meta:'Reseñado en España el 2 de julio de 2026 · Tapa blanda · Compra verificada', text:'Totalmente recomendable. Muy original, engancha de primera hora, tiene una lectura entretenida con una escritura muy cuidada. De los libros que dejan huella.'},
-      {name:'Cliente Amazon', stars:'5,0 de 5', title:'Un libro interesante y una historia muy original', meta:'Reseñado en España el 14 de junio de 2026 · Tapa blanda · Compra verificada', text:'Un libro muy entretenido, un thriller super original y con ganas de seguir la historia. Me encanta cuando nombra los sitios que conozco de Málaga. Hace un buen recorrido de los barrios de esta ciudad.'},
-      {name:'Cliente Amazon', stars:'5,0 de 5', title:'Una maravillosa sorpresa. ¡Muy recomendado!', meta:'Reseñado en España el 21 de mayo de 2026 · Tapa blanda · Compra verificada', text:'He tenido la suerte de leer la primera obra de Christian C. D\'Rosoy y me ha dejado completamente sin palabras. La sensibilidad con la que trata a los personajes y la solidez de la trama demuestran un talento increíble.'},
-      {name:'Jose Maria', stars:'5,0 de 5', title:'Enganchado total', meta:'Reseñado en España el 11 de junio de 2026 · Tapa blanda · Compra verificada', text:'Un libro de fácil lectura que engancha desde el minuto uno. Enhorabuena al autor por su primer libro. Me ha encantado.'},
-      {name:'Cristina', stars:'5,0 de 5', title:'Mágico', meta:'Reseñado en España el 11 de junio de 2026 · Tapa blanda · Compra verificada', text:'Una novela interesante y muy malagueña. Me está gustando mucho. Primero Love You te hace mejor las tardes de verano.'},
-      {name:'Ana', stars:'5,0 de 5', title:'Málaga Primero LOVE YOU', meta:'Reseñado en España el 4 de junio de 2026 · Tapa dura · Compra verificada', text:'Me ha encantado desde las primeras palabras. No he podido parar de leerlo y ya estoy deseando leer los siguientes. Lectura muy amena y emocionante.'},
-      {name:'Vanessa Luna Siles', stars:'5,0 de 5', title:'Lectura agradable que invita a seguir', meta:'Reseñado en España el 5 de junio de 2026 · Tapa blanda · Compra verificada', text:'Buena lectura. Muy recomendable. Capítulos cortos que invitan a seguir sumergiéndote en esta singular historia. Deseando una segunda parte.'},
-      {name:'Rosi', stars:'5,0 de 5', title:'Me ha encantado', meta:'Reseñado en España el 21 de mayo de 2026 · Tapa blanda · Compra verificada', text:'La portada transmite una mezcla de romance, misterio y drama con un aire cinematográfico que invita a preguntarse qué une a los personajes y qué papel juega ese hijo del mañana dentro de la historia.'},
-      {name:'Mar Lanchazo Cordero', stars:'5,0 de 5', title:'Recomendable 100x100', meta:'Reseñado en España el 21 de mayo de 2026 · Versión Kindle · Compra verificada', text:'Es una historia que engancha desde el principio. Una narrativa fresca y sencilla que gira en torno a la ciudad de Málaga. Tanto los personajes como la trama te llevan a galope entre el pasado y el futuro.'},
-      {name:'Cliente Amazon', stars:'5,0 de 5', title:'MISTERIO Y ROMANCE ENTRE MÁLAGA Y BERLÍN', meta:'Reseñado en España el 21 de mayo de 2026 · Tapa blanda · Compra verificada', text:'Si os gustan las historias donde el romance y el misterio van de la mano sin eclipsarse mutuamente, este libro es para vosotros. Me tiene enganchadísima.'},
-      {name:'Sergio', stars:'5,0 de 5', title:'Málaga y las cosas del corazón', meta:'Reseñado en España el 9 de mayo de 2026 · Versión Kindle · Compra verificada', text:'Me ha enganchado desde el primer momento. No podía parar de leer. Ya es uno de mis libros preferidos. Me encanta Silvia, su personaje es una joya.'},
-      {name:'Dámaso Alonso', stars:'5,0 de 5', title:'Sorprendente', meta:'Reseñado en España el 27 de mayo de 2026 · Tapa blanda', text:'Acabo de terminar de leer los primeros 6 capítulos como toma de contacto y me ha animado a seguir. No se nota que es el primer libro del autor por su fluidez y fácil lectura.'},
-      {name:'Pilar', stars:'5,0 de 5', title:'La ciudad de Málaga y el barrio de El Perchel le dan una ambientación muy especial', meta:'Reseñado en España el 17 de mayo de 2026', text:'He terminado de leerla y me ha encantado. Se lee con mucha facilidad, engancha desde la primera página y mantiene el interés hasta el final. Ahora solo puedo decir una cosa: necesito ya el segundo libro.'},
-      {name:'Desiderio Calderón García', stars:'5,0 de 5', title:'Impresionante', meta:'Reseñado en España el 8 de junio de 2026 · Versión Kindle', text:'Gran descubrimiento. Muy recomendable.'},
-      {name:'Dori Paredes Arjona', stars:'5,0 de 5', title:'Me ha encantado', meta:'Reseñado en España el 27 de mayo de 2026 · Tapa blanda', text:'Es una novela que te engancha desde el principio, me ha gustado mucho. La recomiendo.'},
-      {name:'Mvictoriahuesca', stars:'5,0 de 5', title:'Me ha encantado', meta:'Reseñado en España el 23 de mayo de 2026 · Versión Kindle', text:'Me ha encantado, sobre todo recorrer las calles de Málaga ❤️'},
-      {name:'Juan', stars:'5,0 de 5', title:'Fantástica lectura', meta:'Reseñado en España el 9 de mayo de 2026 · Versión Kindle', text:'He empezado a leerlo y en las primeras páginas ha conseguido engancharme. Enhorabuena al autor, mis mejores deseos.'},
-      {name:'Rocío', stars:'5,0 de 5', title:'Enhorabuena al autor', meta:'Reseñado en España el 11 de mayo de 2026 · Tapa blanda', text:'Voy por la mitad y me está enganchando.'},
-      {name:'Caro', stars:'4,0 de 5', title:'Lectura de verano', meta:'Reseñado en España el 5 de julio de 2026 · Tapa blanda · Compra verificada', text:'Muy interesante. Esperando la segunda parte...'}
+      {name:'Alex', stars:'5,0 de 5', title:'Me ha sorprendido muchísimo', meta:'Reseñado en España el 22 de mayo de 2026 · Versión Kindle · Compra verificada', text:'La verdad es que compré el libro sin conocer al autor y me ha enganchado bastante más de lo que esperaba. La historia tiene misterio, drama y momentos que te dejan con ganas de seguir leyendo otro capítulo más. Se nota que está muy currado y la lectura se hace muy amena.'}
     ];
 
-    const nav = [
-      ['Inicio', '#inicio'],
-      ['Autor', '#autor'],
-      ['La novela', '#novela'],
-      ['Leer gratis', '#leer'],
-      ['Galería', '#galeria'],
-      ['Reseñas', '#resenas'],
-      ['Comprar', '#comprar'],
-      ['Contacto', '#contacto']
+    const nav = [['Inicio','#inicio'],['Autor','#autor'],['La novela','#novela'],['Leer gratis','#leer'],['Galería','#galeria'],['Vídeo','#video'],['Reseñas','#resenas'],['Comprar','#comprar'],['Contacto','#contacto']];
+
+    const reading = [
+      { id: 'dedicatoria', tag: 'Apertura', title: 'Dedicatoria', text: 'A la memoria de mi padre\nque me enseñó el valor del tiempo antes de que yo entendiera que podía perderlo.' },
+      { id: 'prologo', tag: 'Prólogo', title: 'Prólogo', text: '«Echar de menos a alguien que no conoces es una forma de locura que no tiene diagnóstico».\n—CC' }
     ];
 
     function SectionTitle({ eyebrow, title, text }) {
-      return (
-        <div className="max-w-3xl mb-10">
-          <p className="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">{eyebrow}</p>
-          <h2 className="text-3xl md:text-5xl font-semibold text-white leading-tight">{title}</h2>
-          {text && <p className="mt-4 text-zinc-300 text-base md:text-lg leading-relaxed">{text}</p>}
-        </div>
-      );
+      return <div className="max-w-3xl mb-10"><p className="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">{eyebrow}</p><h2 className="text-3xl md:text-5xl font-semibold text-white leading-tight">{title}</h2>{text && <p className="mt-4 text-zinc-300 text-base md:text-lg leading-relaxed">{text}</p>}</div>;
     }
 
     function ChapterBlock({ item }) {
       const paragraphs = item.text.split('\n\n');
-      return (
-        <article id={item.id} className="scroll-mt-24 rounded-[2.2rem] border border-[#c8b28a]/30 paper-sheet p-6 md:p-10 lg:p-12">
-          <div className="flex flex-wrap items-start justify-between gap-4 mb-8">
-            <div className="max-w-3xl">
-              <p className="chapter-kicker">PRIMERO LOVE YOU · EL HIJO DEL MAÑANA</p>
-              <div className="mt-4 flex flex-wrap items-end gap-4">
-                <h3 className="text-3xl md:text-5xl font-semibold leading-tight text-[#1f1914]">{item.title}</h3>
-                <span className="chapter-meta">{item.tag}</span>
-              </div>
-            </div>
-            <a href="#leer" className="inline-flex items-center gap-2 rounded-full border border-[#3f3427]/20 bg-white/50 px-4 py-2 text-sm text-[#2a221b] hover:bg-white/75 transition-colors">Volver al índice <ChevronRight className="w-4 h-4" /></a>
-          </div>
-
-          <div className="paper-rule mb-6" />
-
-          <div className="flex items-center justify-between gap-4 mb-8">
-            <p className="chapter-meta">Edición de lectura gratuita · Web oficial</p>
-            <p className="chapter-meta hidden md:block">Christian C. D'Rosoy</p>
-          </div>
-
-          <div className="chapter-body chapter-text whitespace-pre-line max-w-4xl">
-            {paragraphs.map((p, idx) => <p key={idx}>{p}</p>)}
-          </div>
-        </article>
-      );
+      return <article id={item.id} className="scroll-mt-24 rounded-[2.2rem] border border-[#c8b28a]/30 paper-sheet p-6 md:p-10 lg:p-12"><div className="flex flex-wrap items-start justify-between gap-4 mb-8"><div className="max-w-3xl"><p className="chapter-kicker">PRIMERO LOVE YOU · EL HIJO DEL MAÑANA</p><div className="mt-4 flex flex-wrap items-end gap-4"><h3 className="text-3xl md:text-5xl font-semibold leading-tight text-[#1f1914]">{item.title}</h3><span className="chapter-meta">{item.tag}</span></div></div><a href="#leer" className="inline-flex items-center gap-2 rounded-full border border-[#3f3427]/20 bg-white/50 px-4 py-2 text-sm text-[#2a221b] hover:bg-white/75 transition-colors">Volver al índice <ChevronRight className="w-4 h-4" /></a></div><div className="paper-rule mb-6" /><div className="flex items-center justify-between gap-4 mb-8"><p className="chapter-meta">Edición de lectura gratuita · Web oficial</p><p className="chapter-meta hidden md:block">Christian C. D'Rosoy</p></div><div className="chapter-body chapter-text whitespace-pre-line max-w-4xl">{paragraphs.map((p, idx) => <p key={idx}>{p}</p>)}</div></article>;
     }
 
     function App() {
       const [open, setOpen] = useState(false);
       const [lightbox, setLightbox] = useState(null);
       const year = useMemo(() => new Date().getFullYear(), []);
-
-      return (
-        <div className="min-h-screen bg-[#07070b] text-zinc-100 overflow-x-hidden">
-          <div className="fixed inset-0 -z-10 overflow-hidden">
-            <div className="animated-orb absolute left-[-8rem] top-20 h-60 w-60 rounded-full bg-fuchsia-500/18" />
-            <div className="animated-orb two absolute right-[-6rem] top-80 h-56 w-56 rounded-full bg-amber-300/16" />
-            <div className="animated-orb three absolute left-1/3 bottom-20 h-72 w-72 rounded-full bg-sky-400/12" />
-          </div>
-
-          <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#09090f]/78 backdrop-blur-xl">
-            <div className="max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
-              <a href="#inicio" className="flex items-center gap-3 min-w-0">
-                <div className="w-9 h-9 rounded-full border border-amber-300/35 bg-white/5 flex items-center justify-center"><Sparkles className="w-4 h-4 text-amber-300" /></div>
-                <div className="min-w-0">
-                  <p className="text-sm md:text-base font-semibold tracking-wide truncate">PRIMERO LOVE YOU</p>
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-400 truncate">Trilogía oficial</p>
-                </div>
-              </a>
-              <nav className="hidden lg:flex items-center gap-6 text-sm text-zinc-300">
-                {nav.map(([label, href]) => <a key={label} href={href} className="hover:text-white transition-colors">{label}</a>)}
-              </nav>
-              <div className="flex items-center gap-3">
-                <a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" className="hidden md:inline-flex items-center gap-2 rounded-full bg-amber-300 px-4 py-2 text-sm font-semibold text-black hover:bg-amber-200 transition-colors">
-                  Comprar <ArrowUpRight className="w-4 h-4" />
-                </a>
-                <button onClick={() => setOpen(!open)} className="lg:hidden w-10 h-10 rounded-full border border-white/15 bg-white/5 flex items-center justify-center">
-                  {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-                </button>
-              </div>
-            </div>
-            {open && (
-              <div className="lg:hidden border-t border-white/10 bg-[#09090f]/96 px-4 py-4">
-                <div className="flex flex-col gap-3 text-sm">
-                  {nav.map(([label, href]) => (
-                    <a key={label} href={href} onClick={() => setOpen(false)} className="text-zinc-300 hover:text-white">{label}</a>
-                  ))}
-                </div>
-              </div>
-            )}
-          </header>
-
-          <main>
-            <section id="inicio" className="relative min-h-screen flex items-end pt-20 noise">
-              <img src={heroImg} alt="Portada PRIMERO LOVE YOU" className="absolute inset-0 h-full w-full object-cover" />
-              <div className="absolute inset-0 hero-mask" />
-              <div className="relative max-w-7xl mx-auto px-4 md:px-6 pb-18 md:pb-24 w-full">
-                <div className="max-w-4xl">
-                  <p className="text-[11px] md:text-xs uppercase tracking-[0.4em] text-amber-200/85 mb-5">Web oficial · Libro I · Experiencia cinematográfica</p>
-                  <h1 className="text-4xl sm:text-5xl md:text-7xl font-semibold leading-[0.95] tracking-tight text-white">
-                    PRIMERO LOVE YOU
-                    <span className="block gold-text mt-2">El hijo del mañana</span>
-                  </h1>
-                  <div className="mt-7 max-w-3xl glass rounded-3xl border border-white/10 p-6 md:p-8">
-                    <Quote className="w-8 h-8 text-amber-300 mb-4" />
-                    <p className="text-xl md:text-3xl leading-tight text-white font-medium">«Echar de menos a alguien que no conoces es una forma de locura que no tiene diagnóstico.»</p>
-                  </div>
-                  <p className="mt-6 max-w-2xl text-zinc-200/90 text-base md:text-lg leading-relaxed">Una web cinematográfica y editorial para descubrir la trilogía, leer gratis los primeros capítulos, ver fotos reales de la presentación y acceder a Amazon y a Málaga.</p>
-                  <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                    <a href="#leer" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-black hover:bg-zinc-100 transition-colors">
-                      <BookOpen className="w-4 h-4" /> Leer capítulos gratis
-                    </a>
-                    <a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/8 px-6 py-3 font-semibold text-white hover:bg-white/14 transition-colors">
-                      <ShoppingCart className="w-4 h-4" /> Comprar en Amazon
-                    </a>
-                    <a href="#comprar" className="inline-flex items-center justify-center gap-2 rounded-full border border-amber-300/30 bg-amber-300/10 px-6 py-3 font-semibold text-amber-100 hover:bg-amber-300/15 transition-colors">
-                      <MapPin className="w-4 h-4" /> Dónde comprar en Málaga
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section id="autor" className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
-              <div className="grid lg:grid-cols-[0.9fr,1.1fr] gap-10 md:gap-14 items-center">
-                <div>
-                  <img src={authorImg} alt="Christian C. D'Rosoy" className="w-full max-w-md mx-auto rounded-[2rem] object-cover border border-white/10 shadow-2xl shadow-black/30" loading="lazy" />
-                </div>
-                <div>
-                  <SectionTitle eyebrow="Sobre el autor" title="Christian C. D'Rosoy" text="Una voz narrativa con identidad propia, sensibilidad contemporánea y una forma de contar que mezcla emoción, tensión, misterio y mirada cinematográfica." />
-                </div>
-              </div>
-            </section>
-
-            <section id="novela" className="border-y border-white/10 bg-white/[0.03]">
-              <div className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28 grid lg:grid-cols-[0.9fr,1.1fr] gap-12 items-center">
-                <div>
-                  <img src={heroImg} alt="Libro I — El hijo del mañana" className="w-full rounded-[2rem] object-cover border border-white/10 shadow-2xl shadow-black/30" loading="lazy" />
-                </div>
-                <div>
-                  <SectionTitle eyebrow="La novela" title="Libro I — El hijo del mañana" text={synopsis} />
-                  <div className="grid sm:grid-cols-2 gap-4 mt-8">
-                    {[
-                      [Heart, 'Amor', 'El centro emocional de una historia intensa y profunda.'],
-                      [Clock3, 'Tiempo', 'Pasado, presente y futuro empujando en la misma dirección.'],
-                      [Search, 'Misterio', 'Nada es exactamente lo que parece.'],
-                      [MapPin, 'Málaga', 'Una atmósfera real, cercana y profundamente evocadora.']
-                    ].map(([Icon, t, d]) => (
-                      <div key={t} className="rounded-3xl border border-white/10 bg-black/20 p-5">
-                        <Icon className="w-5 h-5 text-amber-300 mb-3" />
-                        <p className="font-semibold text-white">{t}</p>
-                        <p className="mt-2 text-sm text-zinc-300">{d}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section id="leer" className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
-              <SectionTitle eyebrow="Leer gratis" title="Dedicatoria, prólogo y capítulos reales" text="Aquí sí está el contenido real de lectura gratuita: dedicatoria, prólogo y capítulos 1 al 6, ahora maquetados con una presentación más editorial, limpia y profesional." />
-              <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5 mb-10">
-                {reading.map((item) => (
-                  <a key={item.id} href={`#${item.id}`} className="rounded-[1.75rem] border border-white/10 bg-gradient-to-br from-white/7 to-white/[0.03] p-6 hover:border-amber-300/30 transition-colors">
-                    <div className="flex items-center justify-between">
-                      <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/6 px-3 py-1 text-xs uppercase tracking-[0.25em] text-zinc-300">{item.tag}</span>
-                      <BookMarked className="w-4 h-4 text-amber-300" />
-                    </div>
-                    <h3 className="mt-5 text-2xl font-semibold text-white">{item.title}</h3>
-                    <p className="mt-3 text-zinc-300 leading-relaxed">Pulsa para leer.</p>
-                  </a>
-                ))}
-              </div>
-              <div className="space-y-8">
-                {reading.map((item) => <ChapterBlock key={item.id} item={item} />)}
-              </div>
-            </section>
-
-            <section id="galeria" className="border-y border-white/10 bg-white/[0.03]">
-              <div className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
-                <SectionTitle eyebrow="Galería" title="Fotos reales de la presentación" text="Aquí están visibles las imágenes de la presentación del libro, con ampliación al pulsar." />
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-                  {gallery.map((item, i) => (
-                    <button key={i} onClick={() => setLightbox(item)} className="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 text-left">
-                      <img src={item.src} alt={item.alt} className="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
-                      <div className="absolute left-4 right-4 bottom-4 flex items-center justify-between gap-3">
-                        <span className="text-sm text-white font-medium">{item.alt}</span>
-                        <Camera className="w-4 h-4 text-amber-200 shrink-0" />
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </section>
-
-            <section id="resenas" className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
-              <SectionTitle eyebrow="Reseñas" title="Lo que dicen los lectores" text="Valoración destacada: 4,9 sobre 5 · 30 valoraciones globales. Selección de reseñas escritas para que también se lean dentro de la web." />
-              <div className="grid md:grid-cols-2 gap-5">
-                {reviews.map((r, i) => (
-                  <article key={i} className="rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-7">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <p className="text-white font-semibold">{r.name}</p>
-                        <p className="text-amber-300 text-sm mt-1">{r.stars}</p>
-                      </div>
-                      <Star className="w-5 h-5 text-amber-300 shrink-0" />
-                    </div>
-                    <h3 className="mt-4 text-xl font-semibold text-white">{r.title}</h3>
-                    <p className="mt-2 text-xs uppercase tracking-[0.18em] text-zinc-400">{r.meta}</p>
-                    <p className="mt-4 text-zinc-300 leading-relaxed">{r.text}</p>
-                  </article>
-                ))}
-              </div>
-              <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                <a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-amber-300 px-6 py-3 font-semibold text-black hover:bg-amber-200 transition-colors">
-                  <Star className="w-4 h-4" /> Ver todas las reseñas en Amazon
-                </a>
-              </div>
-            </section>
-
-            <section id="comprar" className="border-y border-white/10 bg-white/[0.03]">
-              <div className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28 grid xl:grid-cols-[1.05fr,0.95fr] gap-8 items-start">
-                <div>
-                  <SectionTitle eyebrow="Dónde comprar" title="Compra online o físicamente en Málaga" text="La web deja muy claro dónde se compra: Amazon para toda España y compra física en el centro de Málaga en Librerías Proteo Prometeo." />
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-amber-300 px-6 py-3 font-semibold text-black hover:bg-amber-200 transition-colors">
-                      <ShoppingCart className="w-4 h-4" /> Comprar ahora en Amazon
-                    </a>
-                    <a href="tel:+34952219019" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/8 px-6 py-3 font-semibold text-white hover:bg-white/14 transition-colors">
-                      <MapPin className="w-4 h-4" /> Llamar a Proteo Prometeo
-                    </a>
-                  </div>
-                  <div className="mt-8 grid sm:grid-cols-2 gap-4">
-                    <div className="rounded-3xl border border-white/10 bg-black/20 p-5 text-sm text-zinc-300 leading-relaxed">
-                      <p className="font-semibold text-white mb-2">Compra física en Málaga</p>
-                      Se compra físicamente aquí: <strong className="text-white">Librerías Proteo Prometeo</strong>.
-                    </div>
-                    <div className="rounded-3xl border border-white/10 bg-black/20 p-5 text-sm text-zinc-300 leading-relaxed">
-                      <p className="font-semibold text-white mb-2">Datos de tienda</p>
-                      C. Prta Buenaventura, 3 · Distrito Centro · 29008 Málaga<br />Teléfono: 952 21 90 19
-                    </div>
-                  </div>
-                </div>
-                <div className="rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/6 to-white/[0.03] p-6 md:p-8 overflow-hidden">
-                  <p className="text-[11px] uppercase tracking-[0.35em] text-amber-300/80">También disponible en Málaga</p>
-                  <h3 className="mt-4 text-2xl font-semibold text-white">Librerías Proteo Prometeo</h3>
-                  <div className="mt-6 rounded-[1.5rem] border border-white/10 bg-white p-4">
-                    <img src={proteoLogo} alt="Proteo librerías" className="w-full h-40 object-contain" loading="lazy" />
-                  </div>
-                  <div className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-5 space-y-3">
-                    <p className="text-white font-semibold">Se compra físicamente aquí</p>
-                    <p className="text-sm text-zinc-300">Librerías Proteo Prometeo</p>
-                    <p className="text-sm text-zinc-300">C. Prta Buenaventura, 3, Distrito Centro, 29008 Málaga</p>
-                    <p className="text-sm text-zinc-300">Teléfono: 952 21 90 19</p>
-                    <p className="text-sm text-zinc-300">ISBN: 979-8-19-593997-7 · PVP: 18,99 €</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section id="contacto" className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
-              <SectionTitle eyebrow="Contacto y redes" title="Contacto" text="" />
-              <div className="max-w-3xl">
-                <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8">
-                  <p className="text-xl font-semibold text-white">Christian C. D'Rosoy</p>
-                  <p className="mt-3 text-zinc-300">Espacio para correo, presentaciones, prensa y colaboraciones.</p>
-                  <div className="mt-6 flex flex-wrap gap-3">
-                    <a href="mailto:" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white hover:bg-white/8"><Mail className="w-4 h-4" /> Correo</a>
-                    <span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-zinc-400"><Instagram className="w-4 h-4" /> Instagram</span>
-                    <span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-zinc-400"><Facebook className="w-4 h-4" /> Facebook</span>
-                    <span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-zinc-400"><Youtube className="w-4 h-4" /> YouTube</span>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </main>
-
-          <footer className="border-t border-white/10 bg-black/20">
-            <div className="max-w-7xl mx-auto px-4 md:px-6 py-8 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
-              <div>
-                <p className="font-semibold text-white">© {year} Christian C. D'Rosoy</p>
-                <p className="text-sm text-zinc-400 mt-1">PRIMERO LOVE YOU · Libro I · Trilogía oficial</p>
-              </div>
-              <a href="#inicio" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white hover:bg-white/8 transition-colors">
-                Volver arriba <ChevronRight className="w-4 h-4" />
-              </a>
-            </div>
-          </footer>
-
-          {lightbox && (
-            <div className="fixed inset-0 z-[100] bg-black/88 backdrop-blur-sm p-4 flex items-center justify-center" onClick={() => setLightbox(null)}>
-              <div className="relative max-w-5xl w-full">
-                <button className="absolute -top-12 right-0 w-10 h-10 rounded-full bg-white/10 border border-white/15 flex items-center justify-center" onClick={() => setLightbox(null)}>
-                  <X className="w-5 h-5 text-white" />
-                </button>
-                <img src={lightbox.src} alt={lightbox.alt} className="w-full max-h-[82vh] object-contain rounded-2xl border border-white/10" />
-                <p className="mt-4 text-center text-zinc-300">{lightbox.alt}</p>
-              </div>
-            </div>
-          )}
-        </div>
-      );
+      return <div className="min-h-screen bg-[#07070b] text-zinc-100 overflow-x-hidden">
+        <div className="fixed inset-0 -z-10 overflow-hidden"><div className="animated-orb absolute left-[-8rem] top-20 h-60 w-60 rounded-full bg-fuchsia-500/18" /><div className="animated-orb two absolute right-[-6rem] top-80 h-56 w-56 rounded-full bg-amber-300/16" /><div className="animated-orb three absolute left-1/3 bottom-20 h-72 w-72 rounded-full bg-sky-400/12" /></div>
+        <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#09090f]/78 backdrop-blur-xl"><div className="max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between"><a href="#inicio" className="flex items-center gap-3 min-w-0"><div className="w-9 h-9 rounded-full border border-amber-300/35 bg-white/5 flex items-center justify-center"><Sparkles className="w-4 h-4 text-amber-300" /></div><div className="min-w-0"><p className="text-sm md:text-base font-semibold tracking-wide truncate">PRIMERO LOVE YOU</p><p className="text-[10px] uppercase tracking-[0.3em] text-zinc-400 truncate">Trilogía oficial</p></div></a><nav className="hidden lg:flex items-center gap-6 text-sm text-zinc-300">{nav.map(([label, href]) => <a key={label} href={href} className="hover:text-white transition-colors">{label}</a>)}</nav><div className="flex items-center gap-3"><a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" className="hidden md:inline-flex items-center gap-2 rounded-full bg-amber-300 px-4 py-2 text-sm font-semibold text-black hover:bg-amber-200 transition-colors">Comprar <ArrowUpRight className="w-4 h-4" /></a><button onClick={() => setOpen(!open)} className="lg:hidden w-10 h-10 rounded-full border border-white/15 bg-white/5 flex items-center justify-center">{open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}</button></div></div>{open && <div className="lg:hidden border-t border-white/10 bg-[#09090f]/96 px-4 py-4"><div className="flex flex-col gap-3 text-sm">{nav.map(([label, href]) => <a key={label} href={href} onClick={() => setOpen(false)} className="text-zinc-300 hover:text-white">{label}</a>)}</div></div>}</header>
+        <main>
+          <section id="inicio" className="relative min-h-screen flex items-end pt-20 noise"><img src={heroImg} alt="Portada PRIMERO LOVE YOU" className="absolute inset-0 h-full w-full object-cover" /><div className="absolute inset-0 hero-mask" /><div className="relative max-w-7xl mx-auto px-4 md:px-6 pb-18 md:pb-24 w-full"><div className="max-w-4xl"><p className="text-[11px] md:text-xs uppercase tracking-[0.4em] text-amber-200/85 mb-5">Web oficial · Libro I · Experiencia cinematográfica</p><h1 className="text-4xl sm:text-5xl md:text-7xl font-semibold leading-[0.95] tracking-tight text-white">PRIMERO LOVE YOU<span className="block gold-text mt-2">El hijo del mañana</span></h1><div className="mt-7 max-w-3xl glass rounded-3xl border border-white/10 p-6 md:p-8"><Quote className="w-8 h-8 text-amber-300 mb-4" /><p className="text-xl md:text-3xl leading-tight text-white font-medium">«Echar de menos a alguien que no conoces es una forma de locura que no tiene diagnóstico.»</p></div><div className="mt-8 flex flex-col sm:flex-row gap-3"><a href="#leer" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-black hover:bg-zinc-100 transition-colors"><BookOpen className="w-4 h-4" /> Leer capítulos gratis</a><a href="#video" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/8 px-6 py-3 font-semibold text-white hover:bg-white/14 transition-colors"><Youtube className="w-4 h-4" /> Ver vídeo</a></div></div></div></section>
+          <section id="autor" className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28"><div className="grid lg:grid-cols-[0.9fr,1.1fr] gap-10 md:gap-14 items-center"><div><img src={authorImg} alt="Christian C. D'Rosoy" className="w-full max-w-md mx-auto rounded-[2rem] object-cover border border-white/10 shadow-2xl shadow-black/30" loading="lazy" /></div><div><SectionTitle eyebrow="Sobre el autor" title="Christian C. D'Rosoy" text="Una voz narrativa con identidad propia, sensibilidad contemporánea y una forma de contar que mezcla emoción, tensión, misterio y mirada cinematográfica." /></div></div></section>
+          <section id="novela" className="border-y border-white/10 bg-white/[0.03]"><div className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28 grid lg:grid-cols-[0.9fr,1.1fr] gap-12 items-center"><div><img src={heroImg} alt="Libro I — El hijo del mañana" className="w-full rounded-[2rem] object-cover border border-white/10 shadow-2xl shadow-black/30" loading="lazy" /></div><div><SectionTitle eyebrow="La novela" title="Libro I — El hijo del mañana" text="¿Qué harías si un niño apareciera en tu vida asegurando ser tu hijo… y lo más aterrador fuera descubrir que dice la verdad?" /></div></div></section>
+          <section id="leer" className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28"><SectionTitle eyebrow="Leer gratis" title="Dedicatoria y prólogo" text="Formato editorial más profesional." /><div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5 mb-10">{reading.map((item) => <a key={item.id} href={'#'+item.id} className="rounded-[1.75rem] border border-white/10 bg-gradient-to-br from-white/7 to-white/[0.03] p-6 hover:border-amber-300/30 transition-colors"><div className="flex items-center justify-between"><span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/6 px-3 py-1 text-xs uppercase tracking-[0.25em] text-zinc-300">{item.tag}</span><BookMarked className="w-4 h-4 text-amber-300" /></div><h3 className="mt-5 text-2xl font-semibold text-white">{item.title}</h3><p className="mt-3 text-zinc-300 leading-relaxed">Pulsa para leer.</p></a>)}</div><div className="space-y-8">{reading.map((item) => <ChapterBlock key={item.id} item={item} />)}</div></section>
+          <section id="galeria" className="border-y border-white/10 bg-white/[0.03]"><div className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28"><SectionTitle eyebrow="Galería" title="Fotos reales y personajes" text="Aquí ya van las últimas fotos y las imágenes de personajes." /><div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">{gallery.map((item, i) => <button key={i} onClick={() => setLightbox(item)} className="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 text-left"><img src={item.src} alt={item.alt} className="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" /><div className="absolute left-4 right-4 bottom-4 flex items-center justify-between gap-3"><span className="text-sm text-white font-medium">{item.alt}</span><Camera className="w-4 h-4 text-amber-200 shrink-0" /></div></button>)}</div></div></section>
+          <section id="video" className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28"><SectionTitle eyebrow="Vídeo" title="Booktrailer / vídeo oficial" text="Ya queda integrado el vídeo real del proyecto." /><div className="rounded-[2rem] border border-white/10 bg-black/30 p-3 md:p-4 overflow-hidden shadow-2xl shadow-black/30"><div className="relative w-full" style={{ paddingTop: '177.78%' }}><iframe className="absolute inset-0 w-full h-full rounded-[1.4rem]" src="https://www.youtube.com/embed/ADlNpdwBY0o?rel=0" title="PRIMERO LOVE YOU — vídeo oficial" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen /></div></div></section>
+          <section id="resenas" className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28"><SectionTitle eyebrow="Reseñas" title="Lo que dicen los lectores" text="Selección de reseñas escritas dentro de la propia web." /><div className="grid md:grid-cols-2 gap-5">{reviews.map((r, i) => <article key={i} className="rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-7"><div className="flex items-start justify-between gap-4"><div><p className="text-white font-semibold">{r.name}</p><p className="text-amber-300 text-sm mt-1">{r.stars}</p></div><Star className="w-5 h-5 text-amber-300 shrink-0" /></div><h3 className="mt-4 text-xl font-semibold text-white">{r.title}</h3><p className="mt-2 text-xs uppercase tracking-[0.18em] text-zinc-400">{r.meta}</p><p className="mt-4 text-zinc-300 leading-relaxed">{r.text}</p></article>)}</div></section>
+          <section id="comprar" className="border-y border-white/10 bg-white/[0.03]"><div className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28 grid xl:grid-cols-[1.05fr,0.95fr] gap-8 items-start"><div><SectionTitle eyebrow="Dónde comprar" title="Compra online o físicamente en Málaga" text="La web deja muy claro dónde se compra." /><div className="flex flex-col sm:flex-row gap-3"><a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-amber-300 px-6 py-3 font-semibold text-black hover:bg-amber-200 transition-colors"><ShoppingCart className="w-4 h-4" /> Comprar ahora en Amazon</a><a href="tel:+34952219019" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/8 px-6 py-3 font-semibold text-white hover:bg-white/14 transition-colors"><MapPin className="w-4 h-4" /> Llamar a Proteo Prometeo</a></div></div><div className="rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/6 to-white/[0.03] p-6 md:p-8 overflow-hidden"><p className="text-[11px] uppercase tracking-[0.35em] text-amber-300/80">También disponible en Málaga</p><h3 className="mt-4 text-2xl font-semibold text-white">Librerías Proteo Prometeo</h3><div className="mt-6 rounded-[1.5rem] border border-white/10 bg-white p-4"><img src={proteoLogo} alt="Proteo librerías" className="w-full h-40 object-contain" loading="lazy" /></div></div></div></section>
+          <section id="contacto" className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28"><SectionTitle eyebrow="Contacto y redes" title="Contacto" text="" /><div className="max-w-4xl"><div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8"><p className="text-xl font-semibold text-white">Christian C. D'Rosoy</p><p className="mt-3 text-zinc-300">Correo, presentaciones, prensa y colaboraciones.</p><a href="mailto:christiancdrosoy@hotmail.com" className="mt-4 inline-flex items-center gap-2 text-amber-200 hover:text-amber-100 transition-colors"><Mail className="w-4 h-4" /> christiancdrosoy@hotmail.com</a><div className="mt-6 flex flex-wrap gap-3"><a href="mailto:christiancdrosoy@hotmail.com" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white hover:bg-white/8"><Mail className="w-4 h-4" /> Correo</a><a href="https://www.instagram.com/primeroloveyou_libro?igsh=YTJhOWJ6M2Fkc2Ru&utm_source=qr" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-pink-400/30 bg-pink-400/10 px-4 py-2 text-sm text-pink-100 hover:bg-pink-400/15"><Instagram className="w-4 h-4" /> Instagram</a><a href="https://www.facebook.com/share/g/163orYLTEDm/?mibextid=wwXIfr" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-400/10 px-4 py-2 text-sm text-blue-100 hover:bg-blue-400/15"><Facebook className="w-4 h-4" /> Facebook</a><a href="https://www.tiktok.com/@primeroloveyou_libro?_r=1&_t=ZN-97yLDwzYbXn" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-sm text-white hover:bg-white/14"><Sparkles className="w-4 h-4" /> TikTok</a><a href="https://youtube.com/shorts/ADlNpdwBY0o" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-red-400/30 bg-red-400/10 px-4 py-2 text-sm text-red-100 hover:bg-red-400/15"><Youtube className="w-4 h-4" /> YouTube</a></div></div></div></section>
+        </main>
+        <footer className="border-t border-white/10 bg-black/20"><div className="max-w-7xl mx-auto px-4 md:px-6 py-8 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between"><div><p className="font-semibold text-white">© {year} Christian C. D'Rosoy</p><p className="text-sm text-zinc-400 mt-1">PRIMERO LOVE YOU · Libro I · Trilogía oficial</p></div><a href="#inicio" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white hover:bg-white/8 transition-colors">Volver arriba <ChevronRight className="w-4 h-4" /></a></div></footer>
+        {lightbox && <div className="fixed inset-0 z-[100] bg-black/88 backdrop-blur-sm p-4 flex items-center justify-center" onClick={() => setLightbox(null)}><div className="relative max-w-5xl w-full"><button className="absolute -top-12 right-0 w-10 h-10 rounded-full bg-white/10 border border-white/15 flex items-center justify-center" onClick={() => setLightbox(null)}><X className="w-5 h-5 text-white" /></button><img src={lightbox.src} alt={lightbox.alt} className="w-full max-h-[82vh] object-contain rounded-2xl border border-white/10" /><p className="mt-4 text-center text-zinc-300">{lightbox.alt}</p></div></div>}
+      </div>;
     }
 
     createRoot(document.getElementById('root')).render(<App />);
