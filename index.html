@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PRIMERO LOVE YOU | Trilogía oficial</title>
-  <meta name="description" content="Web oficial de PRIMERO LOVE YOU. Inicio cinematográfico, autor, novela, capítulos gratuitos, galería, vídeo, Amazon y librerías de Málaga." />
+  <meta name="description" content="Web oficial de PRIMERO LOVE YOU. Inicio cinematográfico, autor, novela, capítulos gratuitos, galería, reseñas, vídeo, Amazon y librerías de Málaga." />
   <meta name="theme-color" content="#0b0b12" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.7"></script>
   <script src="https://unpkg.com/@babel/standalone@7.26.10/babel.min.js"></script>
@@ -46,483 +46,64 @@
   <script type="text/babel" data-type="module" data-presets="react">
     import React, { useMemo, useState } from 'react';
     import { createRoot } from 'react-dom/client';
-    import { Menu, X, ChevronRight, BookOpen, ShoppingCart, MapPin, Film, Instagram, Facebook, Youtube, Mail, Sparkles, Star, Quote, Camera, PlayCircle, ArrowUpRight, Heart, Clock3, Search, BookMarked } from 'lucide-react';
+    import { Menu, X, ChevronRight, BookOpen, ShoppingCart, MapPin, Instagram, Facebook, Youtube, Mail, Sparkles, Star, Quote, Camera, PlayCircle, ArrowUpRight, Heart, Clock3, Search, BookMarked } from 'lucide-react';
 
-    const heroImg = 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_inicio_con_una_imagen_de_portada_a_pantalla_completa..jpg?token=GXCtwtnFrwvIFL5zSePVQtQksMi4LLUKbUVmvw2XsPc&exp=1783861842';
-    const authorImg = 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_autor.jpg?token=yNSyVtEnjlNA2ZdtTFMKrE5qyStjDQD0PxnacRKsBYY&exp=1783861842';
+    const heroImg = 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_inicio_con_una_imagen_de_portada_a_pantalla_completa..jpg?token=LtuBe2BUuDi-yvwUCxlvf0QhuVI9O0psqZF58r4AP3Y&exp=1783863903';
+    const authorImg = 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_autor.jpg?token=kbAXrXa3QR51CeeS-zmNKUoDWeNC_ctqGm7a2iYSRC8&exp=1783863903';
+    const proteoLogo = 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_pasted-image-1783859897840-0.png?token=ehsMST8P9dytOBsZFYCVtMjKx7zePXj_ZdcWWigu_GA&exp=1783863903';
 
     const gallery = [
-      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_fotos_3_de_julio_(1?token=bHRWRqCbINN6gLbMhCTWAQPkGw2zrfiYyAJ_qaOjfwM&exp=1783861842).jpeg', alt: 'Presentación del libro 1' },
-      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_fotos_3_de_julio_(3?token=u03X68Qr901A7PqOlkEhSaplb_it5b6f4Wpxe08zEHU&exp=1783861842).jpeg', alt: 'Presentación del libro 2' },
-      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_fotos_3_de_julio_(5?token=2wXxRjppRbBnhpSw0I9hXhbIHjY0E1HiZXinW2HRg1Y&exp=1783861842).jpeg', alt: 'Presentación del libro 3' },
-      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_fotos_3_de_julio_(46?token=IbM2ytB6kn4fQQgbOV0akaR-PEZQwy2rFdXt4sOy1Uw&exp=1783861842).jpeg', alt: 'Presentación del libro 4' },
-      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_5785108411715358676.jpg?token=peboGvritWrSUGdAJh6RBcohuD9ORuNeslkgcG2qXTE&exp=1783861842', alt: 'Presentación del libro 5' },
-      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_5785108411715358677.jpg?token=HBX_vsJzHBf-lrEMcY6pnCcD9fiybMRIrBuSAOeMAys&exp=1783861842', alt: 'Presentación del libro 6' },
-      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_5785108411715358660.jpg?token=3VCX49qnB6HER5XuvqXzDvGkdL1FgkaDCTx11ODVHmI&exp=1783861842', alt: 'Presentación del libro 7' },
-      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_5785108411715358664.jpg?token=jqntBqpP0NOMHT2oy-O3P1B9cgOhGbqCpDfUVd628AA&exp=1783861842', alt: 'Presentación del libro 8' }
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-1.jpg.jpeg?token=z4SlUY47IaPHjFGyWkoSbBgoxUrI6VC_FL7wHrZEegw&exp=1783863903', alt: 'Presentación del libro 1' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-2.jpg.jpg?token=_l8vmeh606q-OInokzKe5g2cTbYtqsZ5UP979kERBpk&exp=1783863903', alt: 'Presentación del libro 2' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-3.jpg.jpg?token=VbLHHDGs0Swkh7nOsGz7wFLtc1nONz-lkt4W62Fohmw&exp=1783863903', alt: 'Presentación del libro 3' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria4_.jpg.jpeg?token=T8Ht1LKdAa8MEYpJ8Zu-kfHpaXXh8RO9WU19kuimDo4&exp=1783863903', alt: 'Presentación del libro 4' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-5.jpg.jpeg?token=vqeS-3LppxhNdnAZt63cexj1Xxnmi1QZVPHF-k1iI2w&exp=1783863903', alt: 'Presentación del libro 5' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-6.jpg.jpg?token=vGxcG8a8wYDpB31MuI7WdxpPT8A8Jtnur4m_KWv3ojE&exp=1783863903', alt: 'Presentación del libro 6' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-7.jpg.jpeg?token=C9h54NkINkx6XL6PJL01akgmngXq-GCsAUk-KdlT0q8&exp=1783863903', alt: 'Presentación del libro 7' }
     ];
 
     const synopsis = '¿Qué harías si un niño apareciera en tu vida asegurando ser tu hijo… y lo más aterrador fuera descubrir que dice la verdad? PRIMERO LOVE YOU abre una historia donde el amor, el tiempo y lo imposible se miran de frente.';
 
     const reading = [
-      {
-        id: 'dedicatoria',
-        tag: 'Apertura',
-        title: 'Dedicatoria',
-        text: `A la memoria de mi padre
-que me enseñó el valor del tiempo antes de que yo entendiera que podía perderlo.`
-      },
-      {
-        id: 'prologo',
-        tag: 'Prólogo',
-        title: 'Prólogo',
-        text: `«Echar de menos a alguien que no conoces es una forma de locura que no tiene diagnóstico».
-—CC
-
-Hay ausencias que no dejan fotografías. No tienen fecha ni entierro. Y, sin embargo, pesan más que los muertos con nombre.
-
-Durante años pensé que lo que me dolía era el pasado. Me equivoqué. Lo que me dolía era algo que aún no había ocurrido.
-
-El tiempo no es una línea recta. Eso lo dicen los físicos cuando quieren parecer valientes. El tiempo es un animal herido que siempre vuelve al lugar donde sangró.
-
-Hay nombres que uno aprende a callar antes de que existan. Hay promesas que se rompen antes de ser dichas. Hay personas que reconoces la primera vez que las ves, no porque las hayas visto antes, sino porque las has estado esperando sin saberlo.
-
-A veces despierto con la sensación de haber perdido algo que nunca sostuve entre las manos. Un latido que no escuché. Una despedida que nadie pronunció.
-
-Si pudiera volver atrás, diría que todo empezó con un abrazo. Pero la verdad es que empezó mucho antes. Empezó el día que comprendí que el tiempo no siempre se pierde hacia adelante. A veces se pierde hacia alguien.
-
-Empezó un lunes de febrero, con el café todavía humeando en la taza y un niño de ocho años mirándome desde una silla diminuta con los ojos que eran los míos.`
-      },
-      {
-        id: 'cap1',
-        tag: 'Capítulo 1',
-        title: 'Todavía no ha pasado',
-        text: `Hay exactamente dos momentos en la vida de todo hombre en los que el tiempo se detiene de verdad: cuando alguien te dice que vas a ser padre y cuando te lo reclama un niño al que nunca has visto. A mí me tocaron los dos el mismo día. Y ninguno era posible.
-
-Lunes · 08:15 h · Calle La Unión · Málaga · 2026
-
-El silencio en mi apartamento de la calle La Unión no era simple vacío. Era una entidad viva, pesada como el plomo fundido, instalada en cada rincón con la persistencia de un invitado no deseado. Se acurrucaba junto a mí en el sofá de cuero desgastado por el tiempo y las ausencias. Reclamaba el lado izquierdo de la cama, el lugar abandonado por mi ex hacía ocho meses tras dieciséis años de vida compartida.
-
-Nuestra historia empezó en aquella primavera de 2010. Entonces creíamos tenerlo todo por delante; no imaginábamos que lo mejor de nosotros se quedaría tirado en la cuneta. Ahora, ese mutismo se adhería a las paredes blancas del salón como una niebla espesa, impregnada del humo fantasma de cigarrillos ya apagados.
-
-Eran las ocho y cuarto de un lunes gris de febrero. Al otro lado de la cristalera, Málaga se desperezaba bajo una luz pálida y cortante: un sol incapaz de calentar los huesos, pero clavado en la piel como la hoja de un cuchillo afilado.
-
-La cafetera italiana, reliquia de mis días más optimistas, emitió su gorgoteo final. El café brotó negro como la brea. Espeso. Amargo. Sin azúcar. El combustible necesario.
-
-A mis pies, Noa —mi pequeña pomerania negra de ojos brillantes— soltó un bufido impaciente. Su urgencia canina me recordaba que aún había vida en este lugar. Ella también añoraba los desayunos de domingo: el aroma del pan tostado con tomate y aceite de oliva, el zumo de naranja recién exprimido inundando el aire de cítricos y las risas apagadas sin aviso, dejando ecos huecos.
-
-Le rasqué detrás de las orejas con dedos distraídos; me miró con esa paciencia infinita propia de los perros y los ancianos sabios. Entendía mi tormenta interna mejor que yo mismo.
-
-Me serví el café en la taza desconchada, la última superviviente de aquel juego barato comprado en IKEA en una tarde de ilusiones, cuando el amor parecía eterno. Me quedé mirando a través del muro de vidrio, observando el mundo como un espectador distante.
-
-Abajo, la calle iniciaba su ritual diario: persianas metálicas ascendiendo con estrépito oxidado, peatones apresurados hacia Juan XXIII con maletines y mochilas al hombro y algún repartidor en patinete eléctrico zigzagueando entre ellos. Yo, con treinta y siete años a mis espaldas, me sentía un actor secundario relegado a la última fila de su propia existencia.
-
-El equipo de música, un Marantz de los setenta heredado de mi padre, custodiado como un relicario de polvo y memoria, bañaba el rincón con un resplandor ámbar. La aguja vibró en el surco final del vinilo y, de pronto, la guitarra de Triana rasgó la quietud del salón. Era Un nido en mi ventana.
-
-La voz de Jesús de la Rosa empezó a elevarse, ese ruego hipnótico suplicando a una blanca paloma su vuelo, que no se perdiera en el vacío para no sucumbir al frío. Me quedé quieto mientras el café seguía sin tocar. Noa me observaba desde el suelo, inmóvil. La canción no tenía prisa por terminar y, por un momento, yo tampoco.
-
-Mi ex siempre tachaba esta canción de ingenua. Nunca entendí por qué le gustaba tanto. Lo entiendo ahora.
-
-Herrmann Sole, mi tienda online de sneakers de edición limitada, funcionaba con precisión quirúrgica. Algoritmos, drops exclusivos, envíos internacionales sin retrasos. El dinero entraba sin esfuerzo. Podía permitirme el apartamento, las cervezas con la Guardia Pretoriana, los caprichos innecesarios vendidos por la sociedad como éxito. Por fuera, todo era impecable. Por dentro, el vacío absoluto.
-
-El iPhone vibró sobre la encimera de granito, rompiendo el hechizo. El nombre en pantalla me sacó la primera sonrisa genuina en días: Toni.
-
-—¿Dime, piloto? —dije, intentando sonar casual.
-—¡Christian! ¿Qué pasa, fiera?
-
-Su voz llegó cristalina; los seis mil kilómetros entre Málaga y Dubái fueron apenas un susurro. Toni, con su metro noventa y siete de estatura, piel morena y ojos verdes penetrantes, era mi hermano del alma desde los cuatro años. Ahora, piloto comercial, trotamundos profesional capaz de desayunar cruasanes en Londres, almorzar kebabs en Doha y cenar dim sum en Singapur.
-
-—Acabo de salir del Dubái Mall y, tío, he visto algo capaz de hacer explotar tu stock.
-—¿Más Yeezys? El mercado está saturado. La gente ya no pica con cada drop.
-—No, cansino. Escucha: tres pares de Jordan 1 Retro High «Dior». Las de verdad, liberadas aquí en exclusiva para los VIP de los Emiratos. Las tengo en la mano ahora mismo. Huelen a cuero premium. Si las subes este viernes, pagamos las rondas de la Guardia Pretoriana por un año entero.
-
-Mi amigo tenía ese don innato: donde otros veían simples zapatillas, él olfateaba oportunidades de oro. Su instinto para los negocios era legendario, afilado por años de vuelos intercontinentales y tratos en aeropuertos remotos.
-
-—Si son auténticas y traes el certificado, envíame fotos ya. Las marco como “Próximamente” en la web. ¿Cuánto has soltado por ellas?
-—Demasiado, pero recuperamos el triple, fácil.
-
-Antes de colgar, su voz bajó:
-—Oye, espera… ¿y la rubia? ¿Habéis hablado?
-
-Hice una pausa demasiado larga, la que dice todo sin abrir la boca.
-—Ocho meses sin hablar, tío.
-
-Colgué a Toni y el apartamento volvió a quedarse quieto. Me bebí el café de un trago, ignorando que ya estaba frío. El negocio marchaba sobre ruedas… pero el lugar seguía siendo un mausoleo demasiado vasto para mí y un puñado de recuerdos que se negaban a desvanecerse.
-
-Me detuve frente al espejo del pasillo. Chupa de cuero negra, camiseta blanca de algodón grueso y unas sneakers de mi colección con un valor superior al salario mensual de medio país. Rubio, un metro ochenta y dos, ojos verdes heredados de mi madre. Christian Herrmann: éxito rotundo por fuera, rompecabezas con piezas perdidas por dentro. ¿Cuánto tiempo más podía fingir que esta era la vida que quería?
-
-Iba a colocarle el arnés a Noa cuando el teléfono volvió a vibrar. Número fijo, prefijo de Málaga.
-
-—Buenos días, dígame.
-—Buenos días. ¿Es el señor Christian Herrmann?
-—Sí, soy yo.
-—Soy Silvia, la tutora de segundo de primaria en el CEIP García Lorca. Necesitamos que venga lo antes posible. Su hijo se ha alterado mucho y no pregunta más que por usted. Dice que no se calmará hasta que llegue su papá.
-
-—¿Mi… hijo? —balbuceé, sintiendo un vértigo repentino—. Debe de haber un error. No tengo hijos.
-
-El mundo se detuvo en seco. Hubo murmullos al otro lado, un llanto amortiguado de fondo. La mujer regresó a la línea con tono suave, pero con una certeza que me inquietó.
-
-—El teléfono registrado es este, Christian. Y el niño insiste. Se llama como usted. Dice que es su “pequeño CC2”. ¿Podría venir, aunque sea para aclarar el malentendido? No deja de llorar.
-
-El apodo que nadie más que los más íntimos usaban: CC. Sentí el corazón golpear contra las costillas como un martillo neumático. Tuve que apoyarme en la encimera para no caer.
-
-—Está bien —logré decir al fin—. Iré. Pero le aseguro que esto es un error garrafal.`
-      },
-      {
-        id: 'cap2',
-        tag: 'Capítulo 2',
-        title: 'La grieta',
-        text: `Lunes · 10:55 h · Colegio García Lorca
-
-Bajé las escaleras con el dibujo doblado en el bolsillo interior de la chaqueta de piel: una granada a punto de detonar. Cada crujido del papel contra el cuero era un recordatorio punzante: aquello no había salido de mi cabeza. Era real.
-
-El niño —ese supuesto hijo mío, con mis ojos y mi remolino en el pelo— se había quedado dentro con la profesora. Su voz suave se filtraba a través de la puerta entreabierta mientras le hablaba bajito, calmándolo con la delicadeza de una madre.
-
-Me invadió una envidia sorda, un pinchazo en el pecho que me transportó a mis propios días de infancia: nadie me había secado las lágrimas con tanta ternura. Aprendí a tragármelas a solas, en el baño del instituto, mirando mi reflejo en el espejo empañado con la rabia suficiente para estallarlo.
-
-El pasillo del García Lorca se abría ante mí como un túnel de hormigón. Fuera, en el patio, el griterío de los niños era un ruido lejano, un eco de juegos que yo ya no sabía descifrar. Mis sneakers golpeaban las baldosas desgastadas con un ritmo seco, rompiendo el silencio. Arriba, un fluorescente agonizante parpadeaba con un zumbido eléctrico, rindiéndose poco a poco.
-
-Estaba fuera de lugar. Todo me parecía irreal, como si hubiera irrumpido en una película independiente donde me habían asignado el papel principal sin guion, sin ensayos, sin advertencia alguna. ¿Quién era el director de esta farsa? ¿El destino, con su sentido del humor retorcido? ¿O mi propia mente, fracturándose bajo el peso de la soledad acumulada?
-
-Necesitaba aire fresco para disipar la opresión en mi pecho, una presión que no sabía si atribuir al pánico puro, a la incredulidad absoluta o a algo peor, como el comienzo de una grieta en mi realidad cuidadosamente construida.
-
-La docente me acompañó hasta la salida principal. Sus pasos se sincronizaban con los míos en un ritmo involuntario; el pasillo parecía más corto, más íntimo.
-
-—Christian… —me llamó antes de que pusiera un pie fuera—. ¿De verdad no tienes idea de quién es?
-
-Me giré y la miré; realmente la miré por primera vez. Bajo la luz tenue del vestíbulo, sus ojos marrones brillaban con una chispa de curiosidad que trascendía el mero deber profesional. No era solo la tutora preocupada por un alumno alterado; había algo eléctrico en el aire entre nosotros, un reconocimiento silencioso y profundo.
-
-—No tengo hijos. Te lo juro por lo que más quieras —respondí—. Mi vida, hasta hace una hora, consistía en gestionar zapatillas exclusivas, pasear a mi perra y evitar el vacío. Mi última relación terminó hace ocho meses con una discusión grabada a fuego. Lo último que esperaba hoy era un “mini yo” que me llamara papá. ¿Lo entiendes? Esto no encaja en mi mundo.
-
-Ella encajó las palabras sin retroceder. Al contrario, se acercó lo suficiente para que su perfume me envolviera: frescor terroso, como lluvia sobre tierra seca, mezclado con un toque delicado de vainilla.
-
-—A veces los niños son canales para cosas ajenas a la comprensión adulta —dijo con una sonrisa ladeada, llena de calidez malagueña—. No ha parado de repetir que “papá siempre viene cuando lo necesito”. Y ese dibujo… Christian, captura hasta el detalle del cuello subido. Te ha dibujado por dentro antes de que tú mismo te miraras.
-
-Sacó un post-it del bolsillo de sus jeans, escribió algo y me lo tendió con un roce de dedos que me dejó un rastro de calor en el brazo.
-
-—Toma mi número personal. Por si el niño dice algo más… o por si necesitas hablar con alguien que no te tome por loco.
-
-Salí a la calle. El sol calentaba mi piel, pero no lograba disipar el calor diferente que subía desde el estómago. Caminé de vuelta cruzando el puente de hierro hacia el Perchel. El tráfico de Salitre era un fondo sonoro incapaz de ahogar el torbellino mental: mitad obsesionado con el abrazo del niño, mitad atrapado en la forma en que ella pronunciaba mi nombre.
-
-Llegué al piso. Noa me recibió con ladridos y saltos, intuyendo mi necesidad de afecto incondicional. La abracé fuerte.
-
-—¿Tú sí que me conoces, eh, chica?
-
-Decidí sacarla para aclarar la cabeza. En Huelin observé a un padre agacharse para atar el cordón a su hijo pequeño. Esa naturalidad me golpeó. El niño del colegio me había abrazado con esa misma confianza.
-
-Volví a casa. Extendí el dibujo bajo la luz ámbar de la lámpara. Debajo, en letras torpes: PAPÁ. Detrás, esa dirección que me helaba la sangre: Calle Peregrino, 28.
-
-Saqué el móvil. El post-it de Silvia seguía allí. Mis dedos dudaron. No escribí. Aún no.
-
-Noa apoyó la cabeza en mis pies. Málaga seguía bullendo, pero yo estaba atrapado en un punto muerto: una calle Peregrino que ya no me pertenecía, un número de teléfono ardiente y el dibujo de un hijo imposible.
-
-Por primera vez en mucho tiempo, no sentí vacío. Sentí algo peor.
-
-Expectativa.`
-      },
-      {
-        id: 'cap3',
-        tag: 'Capítulo 3',
-        title: 'El código',
-        text: `Lunes · 18:30 h · Calle La Unión
-
-Me apoyé en la barandilla y dejé que el aire frío me golpeara la cara. El aislamiento del piso se me echaba encima como un bloque de hormigón. Tenía que hablar con alguien; no podía guardarme esto a solas.
-
-Marqué el número de mi madre. Vivía en Pedregalejo, en aquel piso con vistas al mar.
-
-—¿Christian? ¿Todo bien, hijo?
-—Hola, mamá… No, la verdad es que no. Ha pasado algo muy raro hoy. Fui al García Lorca tras un aviso del centro. Un niño de segundo de primaria… dice que soy su padre. Me abrazó, me llamó papá y conocía mi apodo, CC. Me enseñó un dibujo donde salgo yo y, en el reverso, la dirección de la calle Peregrino, 28.
-
-Al otro lado, la línea quedó en suspenso.
-
-—Dios mío… ¿Y qué te dijo exactamente?
-—“Sabía que vendrías, papá”. Y luego: “Todavía no ha pasado”.
-
-Mi madre tardó un segundo en responder. Su voz sonó más baja, como si buscara algo en la memoria.
-
-—Tu padre siempre decía eso ante cualquier problema: “Todavía no ha pasado”. Decía que, mientras no hubiera ocurrido del todo, todavía podíamos cambiar el final.
-
-Cerré los ojos con fuerza mientras el aire se me atascaba en la garganta. Nadie conocía aquello fuera de la familia.
-
-—Dijo llamarse como yo. Y llevaba la camiseta de la selección; la de 2010, como la que papá me regaló.
-
-Mi madre soltó un suspiro tembloroso.
-
-—Esa camiseta… tu padre la guardaba como un amuleto. No fui capaz de tirarla. La metí en una de las cajas de tu piso nuevo; debería estar allí. Christian, si ese niño existe y sabe esas cosas… me da escalofríos pensar que tu padre esté intentando decirnos algo desde donde quiera que esté.
-
-Colgué con las manos temblorosas. Noa me miraba desde el suelo, quieta. Tenía el dibujo del niño en el bolsillo, la voz de mi madre todavía en el oído y la certeza de que algo había arrancado esa mañana que ya no tenía marcha atrás.
-
-Busqué una caja en el armario: “Cosas de papá para Christian”. El olor a naftalina y cuero viejo me golpeó al abrirla. Dentro estaba la foto del Unicaja en Ciudad Jardín, el mechero Zippo grabado con sus iniciales y, debajo de todo, la camiseta de la selección española.
-
-Al desplegarla, un papel doblado y amarillento cayó al suelo.
-
-Para mi Christianito.
-El futuro es una posibilidad.
-Recuerda: todavía no ha pasado.
-
-Me senté en el suelo, con la espalda apoyada en la cama y la camiseta apretada contra el pecho. El dibujo del niño en el bolsillo; la nota de mi padre en mi mano. Un puente a través del tiempo que todavía no me atrevía a cruzar.
-
-El móvil vibró sobre la moqueta.
-
-Silvia Tutora · En línea
-Hola, Christian. El niño se ha quedado mucho más tranquilo después de verte. Me ha preguntado si vas a venir mañana. Dice que “papá tiene que terminar de leer la nota”. No sé a qué se refiere.
-
-Si necesitas hablar o desahogarte, sigo disponible. Me he quedado pensando mucho en vosotros.
-
-Miré la nota de mi padre otra vez. “Terminar de leer la nota”. Le di la vuelta al papel. El reverso parecía estar en blanco.
-
-Guardé el móvil sin contestar. Todavía no. La frase del niño resonaba con un peso diferente, más grave.
-
-Doblé la nota con cuidado y la metí junto al dibujo del niño en el bolsillo interior de la biker. Apoyé la fotografía en la mesilla, mirando hacia arriba. No era capaz de meterla de vuelta en la caja.
-
-Nada era casualidad. Nada tenía explicación. Y, sin embargo, ahí estaba: la camiseta sobre mis rodillas, la letra de mi padre en el papel y el nombre de un hijo imposible parpadeando en los mensajes de la tutora.
-
-Cogí a Noa y la subí conmigo al sofá. Sus ojos negros me devolvían una comprensión muda.
-
-Mañana volvería al colegio. No por curiosidad, sino por la certeza de que ese niño conocía secretos imposibles. Y yo no podía mirar hacia otro lado.
-
-A la luz ámbar de la lámpara, la piel de mi antebrazo brillaba con un tono azulado tenue, casi imperceptible, como tinta bajo la superficie.
-
-El tiempo dejaba de ser una línea recta.`
-      },
-      {
-        id: 'cap4',
-        tag: 'Capítulo 4',
-        title: 'El pulso del pasado',
-        text: `Lunes · 20:57 h · Calle La Unión
-
-El tatuaje seguía picándome. Decidí llamar a Annette, mi tatuadora de Ikigaink Experience; la misma encargada de grabarlo años atrás. Contestó rápido.
-
-—Ven al estudio ahora mismo. No te entretengas. Aquí te espero.
-
-Colgué y busqué el número de Álex.
-—Alexander, escucha: el brazo izquierdo brilla azul y Annette me espera. ¿Me acompañas?
-—Voy para allá.
-
-Me puse la chupa, bajé la manga sobre el tatuaje pulsante y salí a la calle. Caminé por el Palmeral de las Sorpresas del Muelle 2, hacia la Malagueta, con el paso mecánico de quien camina para no pensar.
-
-En Ikigaink Experience, el neón violeta proyectaba destellos sobre la acera mojada. Empujé la puerta. El aroma a tinta, desinfectante y el rastro de un perfume reconocido antes de ver a quién pertenecía me envolvió de golpe.
-
-Annette no necesitaba que el espacio le diese la bienvenida; ella lo decidía. Al escuchar la puerta, levantó los ojos grises, casi de agua. Era la misma mirada imposible de catalogar como bonita: llegaba primero como un desequilibrio y luego como una certeza.
-
-Se lanzó a mis brazos.
-
-—Ven aquí, cuñao. Siempre serás mi cuñao aunque no estés con mi hermana. Sabía que hoy pasaría algo.
-
-Y allí estaba ella. Iris. La hermana pequeña. Mi ex. Ocho meses sin hablar. Seguía preciosa.
-
-—Christian —dijo—. Sigues igual teniendo esa presencia perturbadora… y las mismas rarezas. ¿Qué te ha pasado en el brazo?
-
-Álex llegó detrás. Saludó. El ambiente estaba tan cargado que se podría haber cortado con un cuchillo.
-
-Annette me cogió el brazo con firmeza, inclinándolo bajo una lámpara de luz fría.
-
-—El diseño es el mismo —susurró—. El que hizo tu padre.
-
-El olor a tinta y metal me golpeó con una memoria inesperada: una tarde en el despacho de mi padre, soldando, hablando de cosas que “se activan cuando toca”.
-
-—Pero el pigmento… ha despertado —continuó Annette.
-—¿Despertado de qué? —pregunté.
-
-Siguió el trazo azul con la yema de los dedos, sin tocarlo.
-
-—Esto está impreso en tu carne con la tinta especial que me trajo tu padre. Estaba obsesionado. Decía que la biología era el futuro del almacenamiento de datos. “Nada más seguro que un cuerpo”, repetía.
-
-Buscó entre la estantería y sacó un objeto pequeño y plateado. Cilíndrico. Del tamaño de un rotulador fino. Tenía dos capuchones de seguridad, uno a cada extremo, sellados con un precinto rojo que parecía una advertencia de peligro biológico.
-
-—Toma. Si el tatuaje cambia a blanco… quitas el capuchón y lo apoyas en el antebrazo. Solo tienes que presionar. El mecanismo de disparo lo hace solo.
-
-—¿Qué es esto?
-—El catalizador. Es un inyector de doble carga. Hay dos dosis, Christian. No más.
-
-Iris palideció, mirando el inyector como si fuera la llave de mi propia tumba.
-
-—No me gusta tampoco —admitió Annette—, pero tu padre fue claro: si el pigmento se volvía blanco y no te lo ponías, el proceso quedaría a medias. Y eso era mucho peor.
-
-Me abrazó de nuevo. Esta vez con la frente apoyada en mi hombro.
-
-—Fíjate en sueños, en recuerdos raros, en cualquier cosa ajena a la normalidad. Sabía que volverías, Chris.
-
-Álex me puso la mano en el hombro.
-
-—Te llevo yo, CC.
-—Mejor te llevo yo —decidió Iris.
-
-Nos subimos a su coche. El trayecto fue una cápsula sellada. Iris conducía con manos firmes; yo miraba el inyector notando cómo el tatuaje se apagaba despacio, como una brasa sin aire.
-
-—¿Vas a hacerlo? —preguntó al fin.
-—Ya veremos si ocurre. No pienso meterme nada raro por deporte.
-
-Se detuvo ante mi portal. Apagó la radio y el silencio nos cayó encima como una losa.
-
-—Ocho meses —dijo.
-—Ocho meses.
-—Podría haber escrito. Podría haber llamado. No lo hice.
-—Yo tampoco.
-
-Me miró. Ojos azules en la penumbra. Se desabrochó el cinturón y me rodeó con los brazos. Un abrazo largo, de los que no tienen prisa.
-
-—Sabes que te quiero más de lo que crees —dijo al oído.
-
-Se separó despacio. Tuve ganas de besarla; me las tragué.
-
-—Cuídate, CC.
-
-Arrancó el motor. Los faros se perdieron entre los edificios mientras yo seguía allí, clavado en la acera.
-
-Acabé en el sofá, todavía con la chaqueta puesta y Noa reclamando su sitio sobre mis pies. El techo se convirtió en una pantalla donde se cruzaban Iris, Silvia y el niño que conocía lo prohibido.
-
-El tatuaje estaba apagado.
-
-Pero la vibración seguía ahí, latente, bajo la piel.`
-      },
-      {
-        id: 'cap5',
-        tag: 'Capítulo 5',
-        title: 'El puente al ayer',
-        text: `Martes · 08:00 h · Calle La Unión
-
-El martes amaneció con cielo eléctrico sobre Málaga, de esos grises que amenazan lluvia pero nunca cumplen. Puse la radio. Sonaba Sabina: Peces de ciudad. Abrí el armario con intención de ponerme lo de siempre, pero hoy algo me detuvo.
-
-Al fondo, colgada como reliquia sagrada, estaba la réplica exacta de la cazadora roja de cuero que llevaba James Dean en Rebel Without a Cause. Hoy tocaba rojo.
-
-Me puse una camiseta Kenzo blanca, unos Levi’s 501 y las Louis Vuitton Trainer rojas y blancas. Vestimenta perfecta: rebelde, con un rojo que gritaba “hoy no me escondo”. Para decirle al universo, al niño y a Silvia: si vais a venir a por mí, venid de frente.
-
-Metí el autoinyector de Annette en el bolsillo interior de la chupa. No quería perderlo de vista.
-
-Llegué al García Lorca antes de las nueve. Silvia estaba apoyada en el marco de la puerta, con una taza de café entre las manos. Hoy no llevaba blusa formal. Camiseta negra ajustada, vaqueros negros, cazadora de cuero negra. El pelo suelto. Sus ojos marrones se iluminaron al verme.
-
-—Vaya… hoy vienes hecho un incendio. La cazadora roja a lo James Dean… te queda letal. ¿Preparado para quemarlo todo?
-—O para que me quemen a mí.
-
-Entramos al aula. El niño —CC2— estaba en su sitio habitual, concentrado en una hoja nueva. Al verme, dejó la cera y se levantó con una parsimonia que no correspondía a su edad.
-
-—Papá —dijo con voz plana y ojos brillantes—. Hoy es el día. La moto del abuelo suena mejor que nunca.
-
-Antes de que pudiera responder, el fluorescente del techo empezó a parpadear. Primero lento, luego frenético; el tiempo parecía un cortocircuito. Un zumbido bajo subió desde las paredes, vibrando en el suelo, en mis huesos. El aire se espesó, cargado de electricidad estática.
-
-Silvia me agarró del brazo por instinto.
-
-—¿Qué está pasando?
-
-No respondí. No podía.
-
-El aula mutó delante de nuestros ojos. Las paredes se tiñeron de sepia y neón, como una foto vieja iluminada por luces de discoteca ochentera. Las mesas de fórmica se volvieron de madera noble con marcas de tiza antigua.
-
-El antebrazo izquierdo empezó a vibrar. No era un temblor muscular; era algo más profundo. Una frecuencia bajo la piel.
-
-El tatuaje latía diferente con el niño cerca. No era como con Silvia. Esta era más compleja: la mía, sí, pero con una capa por debajo no reconocida. Algo heredado. Un segundo pulso encajado dentro del primero con la precisión de quien no lo ha aprendido, sino traído desde el origen.
-
-Afuera, por la ventana, ya no se veía la calle Alemania con coches modernos. Pasó un SEAT 124 rojo. Un grupo de chavales con litronas y chaquetas de cuero. Septiembre de 1986.
-
-—Mirad —dijo CC2 señalando la ventana.
-
-Vi a mi padre con dieciocho años, tupé engominado, chupa de cuero negra y libros bajo el brazo. Y a mi madre, Marie, recién llegada de Alemania, con la coleta alta, la falda vaquera y la camisa blanca. Tropezaron en el pasillo del instituto. Los libros cayeron. Él la ayudó a recogerlos. Sus ojos se encontraron por primera vez.
-
-Todo cambió. El pasillo se disolvió y apareció el Bar Santa, en Calle Beatas, a finales de los ochenta. Mi padre y Marie besándose por primera vez con Gabinete Caligari sonando de fondo. Luego, otro salto: 1989. Un carrito. Yo de bebé. Mis padres entrando juntos al bar y escuchando Te vi correr.
-
-El zumbido cesó de golpe.
-
-Volvimos al aula de 2026. CC2 nos observaba desde su silla. Silvia estaba pálida, pero sus ojos brillaban con lágrimas contenidas.
-
-—Christian… ¿has visto lo mismo que yo?
-—Ni que lo digas. Mi padre y mi madre. Septiembre del 86, el tropiezo. 1987, el Bar Santa. 1989, yo en el carrito.
-
-Silvia tragó saliva.
-
-—¿Y “Primero Love You”?
-—Mi padre daba clases de francés. La primera vez que vio escrito “I Love You”, interpretó la I como un uno. Lo leyó como “Primero Love You”. Se convirtió en código privado. De ellos dos.
-
-Silvia se quedó mirando el dibujo de mi antebrazo.
-
-—Ese niño está aquí. El tatuaje brilla. Viajas al pasado de tus padres. Algo pasa con el tiempo y tú estás en el centro. No es coincidencia.
-
-Nos giramos a la vez cuando el niño volvió a hablar.
-
-—Aún no —susurró—. Déjalo. El abuelo dice que la paciencia es virtud de ganadores. Pero no tardéis mucho. La cena se enfría.
-
-El brazo se apagó. Las luces recuperaron su pulso eléctrico. El espacio volvió a ser un aula corriente: olor a ceras, a pan de recreo, a rutina escolar.
-
-—Hasta mañana —dije.
-—Hasta mañana —respondió Silvia.
-
-Y salí al pasillo con el azul del tatuaje todavía latiendo como un metal recién sacado del fuego.`
-      },
-      {
-        id: 'cap6',
-        tag: 'Capítulo 6',
-        title: 'En una hora',
-        text: `Martes · 12:30 h · GOfit Huelin
-
-Fui al GOfit Huelin. Me cambié en los vestuarios y me puse el bañador y una camiseta de fútbol. Nadar era mi meditación. Encadené largos hasta que José Ángel, el monitor, apareció en el borde de la piscina.
-
-—Vaya, Chris. Hoy vienes con ganas de ahogar las penas. Menuda camiseta, ¿es la de Alemania del 74?
-—Me gusta lo que tiene historia. Estas tienen alma.
-
-Cuarenta minutos de brazadas no resuelven nada, pero ordenan el ruido. Era suficiente por ahora.
-
-Cuando salí del agua, pensé en Silvia. En el niño. En el aula. En mis padres besándose en el Bar Santa. Tenía que llamar a Iris. Explicar algo desconocido todavía.
-
-La llamada perdida seguía en pantalla. Contestó al segundo tono.
-
-—Hola.
-—Necesito verte. Hoy, si puedes.
-—¿Estás bien?
-—No lo sé. Hay cosas que contarte. Cosas increíbles que necesito decirte.
-—¿Dónde?
-—El café de la esquina de Juan XXIII. Sobre las cuatro.
-—A las cuatro.
-
-El café tenía esa luz de tarde malagueña que entra sesgada por los ventanales y lo deja todo color miel. Iris ya estaba dentro, sentada en la mesa del rincón. Me esperaba con un café con leche entre las manos y esa mirada azul siguiéndome desde que crucé la puerta.
-
-—Tienes mala cara —dijo—. Pero diferente a la de antes. No es cansancio. Es otra cosa.
-
-No omití ningún detalle. Le conté todo: la llamada del colegio, el niño de ojos verdes llamándome papá, el dibujo, la dirección de Peregrino, la caja de mi padre, la nota escondida en la camiseta, el tatuaje ardiendo y los flashbacks imposibles.
-
-Escuchó sin interrumpir. Era su mayor virtud: esa capacidad de contener, de no desbordarse antes de tiempo.
-
-—¿Y los viste de verdad? —preguntó—. ¿No fue un sueño?
-—Silvia los vio también.
-
-Algo cambió en su respiración.
-
-—¿Quién es Silvia?
-—La tutora del niño. La mujer que me llamó el lunes.
-
-Silencio. Luego la pregunta inevitable:
-
-—¿Estás enamorado de ella?
-
-Iba a decir que no. La respuesta llegó automática. Pero en cuanto la oí dentro de mi cabeza, supe que era falsa.
-
-—No lo sé. Y eso me aterra. No debería ser posible; la he visto dos veces. Pero cerca de ella hay algo inexplicable. El tatuaje brilla con más intensidad. Ella forma parte de algo puesto en marcha por mi padre hace décadas.
-
-Iris alargó la mano y la posó sobre la mía.
-
-—Christian. Lo que cuentas de tus padres, el “Primero Love You”… no es casualidad. Tampoco que esa mujer aparezca ahora. Llevas años ignorando mensajes del universo. Conmigo lo hiciste. Con tu padre también. Y mira dónde estamos.
-
-La miré, sin saber si quería que siguiera hablando o que me salvara.
-
-—No pediré elecciones ahora mismo —dijo—. Pero quiero que seas honesto contigo mismo antes de serlo con nadie más.
-
-Se levantó al final, con su elegancia de siempre.
-
-—CC… Primero Love You.
-
-Y se fue.
-
-El móvil vibró antes incluso de que pudiera procesar su ausencia.
-
-Silvia tutora:
-Christian. El niño preguntó algo hoy difícil de interpretar. Me miró y dijo: “Dile a papá que la nota todavía no está entera”. ¿Sabes qué significa?
-
-Otra línea:
-Llevo toda la tarde dándole vueltas. Hay algo más. Esta mañana dijo muy bajito: “Ya falta menos”. No sé menos de qué.
-
-El café se había quedado frío. Dejé un billete sobre la mesa. Salí a la tarde de Málaga sin responder.
-
-El tatuaje pulsó una vez, sin urgencia, y quedó quieto bajo la piel.`
-      }
+      { id: 'dedicatoria', tag: 'Apertura', title: 'Dedicatoria', text: `A la memoria de mi padre\nque me enseñó el valor del tiempo antes de que yo entendiera que podía perderlo.` },
+      { id: 'prologo', tag: 'Prólogo', title: 'Prólogo', text: `«Echar de menos a alguien que no conoces es una forma de locura que no tiene diagnóstico».\n—CC\n\nHay ausencias que no dejan fotografías. No tienen fecha ni entierro. Y, sin embargo, pesan más que los muertos con nombre.\n\nDurante años pensé que lo que me dolía era el pasado. Me equivoqué. Lo que me dolía era algo que aún no había ocurrido.\n\nEl tiempo no es una línea recta. Eso lo dicen los físicos cuando quieren parecer valientes. El tiempo es un animal herido que siempre vuelve al lugar donde sangró.\n\nHay nombres que uno aprende a callar antes de que existan. Hay promesas que se rompen antes de ser dichas. Hay personas que reconoces la primera vez que las ves, no porque las hayas visto antes, sino porque las has estado esperando sin saberlo.\n\nA veces despierto con la sensación de haber perdido algo que nunca sostuve entre las manos. Un latido que no escuché. Una despedida que nadie pronunció.\n\nSi pudiera volver atrás, diría que todo empezó con un abrazo. Pero la verdad es que empezó mucho antes. Empezó el día que comprendí que el tiempo no siempre se pierde hacia adelante. A veces se pierde hacia alguien.\n\nEmpezó un lunes de febrero, con el café todavía humeando en la taza y un niño de ocho años mirándome desde una silla diminuta con los ojos que eran los míos.` },
+      { id: 'cap1', tag: 'Capítulo 1', title: 'Todavía no ha pasado', text: `Hay exactamente dos momentos en la vida de todo hombre en los que el tiempo se detiene de verdad: cuando alguien te dice que vas a ser padre y cuando te lo reclama un niño al que nunca has visto. A mí me tocaron los dos el mismo día. Y ninguno era posible.\n\nLunes · 08:15 h · Calle La Unión · Málaga · 2026\n\nEl silencio en mi apartamento de la calle La Unión no era simple vacío. Era una entidad viva, pesada como el plomo fundido, instalada en cada rincón con la persistencia de un invitado no deseado. Se acurrucaba junto a mí en el sofá de cuero desgastado por el tiempo y las ausencias. Reclamaba el lado izquierdo de la cama, el lugar abandonado por mi ex hacía ocho meses tras dieciséis años de vida compartida.\n\nNuestra historia empezó en aquella primavera de 2010. Entonces creíamos tenerlo todo por delante; no imaginábamos que lo mejor de nosotros se quedaría tirado en la cuneta. Ahora, ese mutismo se adhería a las paredes blancas del salón como una niebla espesa, impregnada del humo fantasma de cigarrillos ya apagados.\n\nEran las ocho y cuarto de un lunes gris de febrero. Al otro lado de la cristalera, Málaga se desperezaba bajo una luz pálida y cortante: un sol incapaz de calentar los huesos, pero clavado en la piel como la hoja de un cuchillo afilado.\n\nLa cafetera italiana, reliquia de mis días más optimistas, emitió su gorgoteo final. El café brotó negro como la brea. Espeso. Amargo. Sin azúcar. El combustible necesario.\n\nA mis pies, Noa —mi pequeña pomerania negra de ojos brillantes— soltó un bufido impaciente. Su urgencia canina me recordaba que aún había vida en este lugar. Ella también añoraba los desayunos de domingo: el aroma del pan tostado con tomate y aceite de oliva, el zumo de naranja recién exprimido inundando el aire de cítricos y las risas apagadas sin aviso, dejando ecos huecos.\n\nLe rasqué detrás de las orejas con dedos distraídos; me miró con esa paciencia infinita propia de los perros y los ancianos sabios. Entendía mi tormenta interna mejor que yo mismo.\n\nMe serví el café en la taza desconchada, la última superviviente de aquel juego barato comprado en IKEA en una tarde de ilusiones, cuando el amor parecía eterno. Me quedé mirando a través del muro de vidrio, observando el mundo como un espectador distante.\n\nAbajo, la calle iniciaba su ritual diario: persianas metálicas ascendiendo con estrépito oxidado, peatones apresurados hacia Juan XXIII con maletines y mochilas al hombro y algún repartidor en patinete eléctrico zigzagueando entre ellos. Yo, con treinta y siete años a mis espaldas, me sentía un actor secundario relegado a la última fila de su propia existencia.\n\nEl equipo de música, un Marantz de los setenta heredado de mi padre, custodiado como un relicario de polvo y memoria, bañaba el rincón con un resplandor ámbar. La aguja vibró en el surco final del vinilo y, de pronto, la guitarra de Triana rasgó la quietud del salón. Era Un nido en mi ventana.\n\nLa voz de Jesús de la Rosa empezó a elevarse, ese ruego hipnótico suplicando a una blanca paloma su vuelo, que no se perdiera en el vacío para no sucumbir al frío. Me quedé quieto mientras el café seguía sin tocar. Noa me observaba desde el suelo, inmóvil. La canción no tenía prisa por terminar y, por un momento, yo tampoco.\n\nMi ex siempre tachaba esta canción de ingenua. Nunca entendí por qué le gustaba tanto. Lo entiendo ahora.\n\nHerrmann Sole, mi tienda online de sneakers de edición limitada, funcionaba con precisión quirúrgica. Algoritmos, drops exclusivos, envíos internacionales sin retrasos. El dinero entraba sin esfuerzo. Podía permitirme el apartamento, las cervezas con la Guardia Pretoriana, los caprichos innecesarios vendidos por la sociedad como éxito. Por fuera, todo era impecable. Por dentro, el vacío absoluto.\n\nEl iPhone vibró sobre la encimera de granito, rompiendo el hechizo. El nombre en pantalla me sacó la primera sonrisa genuina en días: Toni.\n\n—¿Dime, piloto? —dije, intentando sonar casual.\n—¡Christian! ¿Qué pasa, fiera?` },
+      { id: 'cap2', tag: 'Capítulo 2', title: 'La grieta', text: `Lunes · 10:55 h · Colegio García Lorca\n\nBajé las escaleras con el dibujo doblado en el bolsillo interior de la chaqueta de piel: una granada a punto de detonar. Cada crujido del papel contra el cuero era un recordatorio punzante: aquello no había salido de mi cabeza. Era real.\n\nEl niño —ese supuesto hijo mío, con mis ojos y mi remolino en el pelo— se había quedado dentro con la profesora. Su voz suave se filtraba a través de la puerta entreabierta mientras le hablaba bajito, calmándolo con la delicadeza de una madre.\n\nMe invadió una envidia sorda, un pinchazo en el pecho que me transportó a mis propios días de infancia: nadie me había secado las lágrimas con tanta ternura. Aprendí a tragármelas a solas, en el baño del instituto, mirando mi reflejo en el espejo empañado con la rabia suficiente para estallarlo.\n\nEl pasillo del García Lorca se abría ante mí como un túnel de hormigón. Fuera, en el patio, el griterío de los niños era un ruido lejano, un eco de juegos que yo ya no sabía descifrar. Mis sneakers golpeaban las baldosas desgastadas con un ritmo seco, rompiendo el silencio. Arriba, un fluorescente agonizante parpadeaba con un zumbido eléctrico, rindiéndose poco a poco.\n\nEstaba fuera de lugar. Todo me parecía irreal, como si hubiera irrumpido en una película independiente donde me habían asignado el papel principal sin guion, sin ensayos, sin advertencia alguna.` },
+      { id: 'cap3', tag: 'Capítulo 3', title: 'El código', text: `Lunes · 18:30 h · Calle La Unión\n\nMe apoyé en la barandilla y dejé que el aire frío me golpeara la cara. El aislamiento del piso se me echaba encima como un bloque de hormigón. Tenía que hablar con alguien; no podía guardarme esto a solas.\n\nMarqué el número de mi madre. Vivía en Pedregalejo, en aquel piso con vistas al mar.\n\n—¿Christian? ¿Todo bien, hijo?\n—Hola, mamá… No, la verdad es que no. Ha pasado algo muy raro hoy. Fui al García Lorca tras un aviso del centro. Un niño de segundo de primaria… dice que soy su padre. Me abrazó, me llamó papá y conocía mi apodo, CC. Me enseñó un dibujo donde salgo yo y, en el reverso, la dirección de la calle Peregrino, 28.` },
+      { id: 'cap4', tag: 'Capítulo 4', title: 'El pulso del pasado', text: `Lunes · 20:57 h · Calle La Unión\n\nEl tatuaje seguía picándome. Decidí llamar a Annette, mi tatuadora de Ikigaink Experience; la misma encargada de grabarlo años atrás. Contestó rápido.\n\n—Ven al estudio ahora mismo. No te entretengas. Aquí te espero.\n\nColgué y busqué el número de Álex.\n—Alexander, escucha: el brazo izquierdo brilla azul y Annette me espera. ¿Me acompañas?\n—Voy para allá.` },
+      { id: 'cap5', tag: 'Capítulo 5', title: 'El puente al ayer', text: `Martes · 08:00 h · Calle La Unión\n\nEl martes amaneció con cielo eléctrico sobre Málaga, de esos grises que amenazan lluvia pero nunca cumplen. Puse la radio. Sonaba Sabina: Peces de ciudad. Abrí el armario con intención de ponerme lo de siempre, pero hoy algo me detuvo.\n\nAl fondo, colgada como reliquia sagrada, estaba la réplica exacta de la cazadora roja de cuero que llevaba James Dean en Rebel Without a Cause. Hoy tocaba rojo.` },
+      { id: 'cap6', tag: 'Capítulo 6', title: 'En una hora', text: `Martes · 12:30 h · GOfit Huelin\n\nFui al GOfit Huelin. Me cambié en los vestuarios y me puse el bañador y una camiseta de fútbol. Nadar era mi meditación. Encadené largos hasta que José Ángel, el monitor, apareció en el borde de la piscina.\n\n—Vaya, Chris. Hoy vienes con ganas de ahogar las penas. Menuda camiseta, ¿es la de Alemania del 74?\n—Me gusta lo que tiene historia. Estas tienen alma.` }
+    ];
+
+    const reviews = [
+      {name:'Jose Maria', stars:'5,0 de 5', title:'¡Una joya de suspense y magnetismo!', meta:'Reseñado en España el 4 de julio de 2026 · Tapa blanda · Compra verificada', text:'¡Adictivo de principio a fin! Me ha parecido una lectura espectacular. Tiene un ritmo buenísimo que te atrapa por completo, con una mezcla perfecta de misterio, intriga y romance que no te deja soltar el libro. Los personajes tienen muchísima fuerza y la trama te mantiene enganchado en todo momento.'},
+      {name:'Alex', stars:'5,0 de 5', title:'Me ha sorprendido muchísimo', meta:'Reseñado en España el 22 de mayo de 2026 · Versión Kindle · Compra verificada', text:'La verdad es que compré el libro sin conocer al autor y me ha enganchado bastante más de lo que esperaba. La historia tiene misterio, drama y momentos que te dejan con ganas de seguir leyendo otro capítulo más. Se nota que está muy currado y la lectura se hace muy amena.'},
+      {name:'Lola Perez Chia', stars:'5,0 de 5', title:'Capacidad de descripción', meta:'Reseñado en España el 10 de junio de 2026 · Tapa blanda · Compra verificada', text:'Me ha sorprendido gratamente la narrativa tan peculiar de este nuevo escritor. Esta novela de ficción, drama y vivencias personales hace que te enganches y te metas fácilmente en la historia. Mis felicitaciones al autor de la obra. Esperando segunda parte de la trilogía.'},
+      {name:'Noe', stars:'5,0 de 5', title:'Un gran libro de un gran amigo!!!!', meta:'Reseñado en España el 30 de mayo de 2026 · Tapa blanda · Compra verificada', text:'Aunque solo he leído el primer capítulo, ya ha conseguido captar completamente mi atención. La historia comienza con fuerza, presentando personajes interesantes y una trama que despierta mucha curiosidad. Si el resto del libro mantiene este nivel, estoy seguro de que será una lectura fantástica.'},
+      {name:'Cliente Amazon', stars:'5,0 de 5', title:'Muy buena historia', meta:'Reseñado en España el 30 de mayo de 2026 · Tapa blanda · Compra verificada', text:'Buena novela de ficción, intriga, romance y emoción contenida que te invita a seguir leyendo desde el primer capítulo. Lectura recomendada.'},
+      {name:'pepe', stars:'5,0 de 5', title:'Engancha desde el primer capítulo', meta:'Reseñado en España el 16 de junio de 2026 · Tapa blanda · Compra verificada', text:'Me ha encantado la historia, y la forma en que está escrita, es muy amena de leer y te pones a leer y no pararía. Lo he terminado en nada, deseando la segunda parte.'},
+      {name:'Felix', stars:'5,0 de 5', title:'Lo recomiendo', meta:'Reseñado en España el 2 de julio de 2026 · Tapa blanda · Compra verificada', text:'Muy buen libro. Una historia bien estructurada y una trama que te engancha desde el principio.'},
+      {name:'Javier del Pozo González', stars:'5,0 de 5', title:'Libro ameno, divertido y con buena cultura musical', meta:'Reseñado en España el 5 de julio de 2026 · Tapa blanda · Compra verificada', text:'Libro ameno y divertido, con un toque de ciencia ficción, te engancha desde la primera página, muy buena narración y si fuese una película tendría una buena banda sonora.'},
+      {name:'Gaby', stars:'5,0 de 5', title:'Sorprendente', meta:'Reseñado en España el 18 de junio de 2026 · Tapa blanda · Compra verificada', text:'Es un libro muy interesante ya que desde que inicias la lectura te va enganchando y quieres saber qué ocurrirá en el capítulo siguiente. Lo recomiendo 100x100.'},
+      {name:'Isabel', stars:'5,0 de 5', title:'Top 10', meta:'Reseñado en España el 2 de julio de 2026 · Tapa blanda · Compra verificada', text:'Totalmente recomendable. Muy original, engancha de primera hora, tiene una lectura entretenida con una escritura muy cuidada. De los libros que dejan huella.'},
+      {name:'Cliente Amazon', stars:'5,0 de 5', title:'Un libro interesante y una historia muy original', meta:'Reseñado en España el 14 de junio de 2026 · Tapa blanda · Compra verificada', text:'Un libro muy entretenido, un thriller super original y con ganas de seguir la historia. Me encanta cuando nombra los sitios que conozco de Málaga. Hace un buen recorrido de los barrios de esta ciudad.'},
+      {name:'Cliente Amazon', stars:'5,0 de 5', title:'Una maravillosa sorpresa. ¡Muy recomendado!', meta:'Reseñado en España el 21 de mayo de 2026 · Tapa blanda · Compra verificada', text:'He tenido la suerte de leer la primera obra de Christian C. D\'Rosoy y me ha dejado completamente sin palabras. La sensibilidad con la que trata a los personajes y la solidez de la trama demuestran un talento increíble.'},
+      {name:'Jose Maria', stars:'5,0 de 5', title:'Enganchado total', meta:'Reseñado en España el 11 de junio de 2026 · Tapa blanda · Compra verificada', text:'Un libro de fácil lectura que engancha desde el minuto uno. Enhorabuena al autor por su primer libro. Me ha encantado.'},
+      {name:'Cristina', stars:'5,0 de 5', title:'Mágico', meta:'Reseñado en España el 11 de junio de 2026 · Tapa blanda · Compra verificada', text:'Una novela interesante y muy malagueña. Me está gustando mucho. Primero Love You te hace mejor las tardes de verano.'},
+      {name:'Ana', stars:'5,0 de 5', title:'Málaga Primero LOVE YOU', meta:'Reseñado en España el 4 de junio de 2026 · Tapa dura · Compra verificada', text:'Me ha encantado desde las primeras palabras. No he podido parar de leerlo y ya estoy deseando leer los siguientes. Lectura muy amena y emocionante.'},
+      {name:'Vanessa Luna Siles', stars:'5,0 de 5', title:'Lectura agradable que invita a seguir', meta:'Reseñado en España el 5 de junio de 2026 · Tapa blanda · Compra verificada', text:'Buena lectura. Muy recomendable. Capítulos cortos que invitan a seguir sumergiéndote en esta singular historia. Deseando una segunda parte.'},
+      {name:'Rosi', stars:'5,0 de 5', title:'Me ha encantado', meta:'Reseñado en España el 21 de mayo de 2026 · Tapa blanda · Compra verificada', text:'La portada transmite una mezcla de romance, misterio y drama con un aire cinematográfico que invita a preguntarse qué une a los personajes y qué papel juega ese hijo del mañana dentro de la historia.'},
+      {name:'Mar Lanchazo Cordero', stars:'5,0 de 5', title:'Recomendable 100x100', meta:'Reseñado en España el 21 de mayo de 2026 · Versión Kindle · Compra verificada', text:'Es una historia que engancha desde el principio. Una narrativa fresca y sencilla que gira en torno a la ciudad de Málaga. Tanto los personajes como la trama te llevan a galope entre el pasado y el futuro.'},
+      {name:'Cliente Amazon', stars:'5,0 de 5', title:'MISTERIO Y ROMANCE ENTRE MÁLAGA Y BERLÍN', meta:'Reseñado en España el 21 de mayo de 2026 · Tapa blanda · Compra verificada', text:'Si os gustan las historias donde el romance y el misterio van de la mano sin eclipsarse mutuamente, este libro es para vosotros. Me tiene enganchadísima.'},
+      {name:'Sergio', stars:'5,0 de 5', title:'Málaga y las cosas del corazón', meta:'Reseñado en España el 9 de mayo de 2026 · Versión Kindle · Compra verificada', text:'Me ha enganchado desde el primer momento. No podía parar de leer. Ya es uno de mis libros preferidos. Me encanta Silvia, su personaje es una joya.'},
+      {name:'Dámaso Alonso', stars:'5,0 de 5', title:'Sorprendente', meta:'Reseñado en España el 27 de mayo de 2026 · Tapa blanda', text:'Acabo de terminar de leer los primeros 6 capítulos como toma de contacto y me ha animado a seguir. No se nota que es el primer libro del autor por su fluidez y fácil lectura.'},
+      {name:'Pilar', stars:'5,0 de 5', title:'La ciudad de Málaga y el barrio de El Perchel le dan una ambientación muy especial', meta:'Reseñado en España el 17 de mayo de 2026', text:'He terminado de leerla y me ha encantado. Se lee con mucha facilidad, engancha desde la primera página y mantiene el interés hasta el final. Ahora solo puedo decir una cosa: necesito ya el segundo libro.'},
+      {name:'Desiderio Calderón García', stars:'5,0 de 5', title:'Impresionante', meta:'Reseñado en España el 8 de junio de 2026 · Versión Kindle', text:'Gran descubrimiento. Muy recomendable.'},
+      {name:'Dori Paredes Arjona', stars:'5,0 de 5', title:'Me ha encantado', meta:'Reseñado en España el 27 de mayo de 2026 · Tapa blanda', text:'Es una novela que te engancha desde el principio, me ha gustado mucho. La recomiendo.'},
+      {name:'Mvictoriahuesca', stars:'5,0 de 5', title:'Me ha encantado', meta:'Reseñado en España el 23 de mayo de 2026 · Versión Kindle', text:'Me ha encantado, sobre todo recorrer las calles de Málaga ❤️'},
+      {name:'Juan', stars:'5,0 de 5', title:'Fantástica lectura', meta:'Reseñado en España el 9 de mayo de 2026 · Versión Kindle', text:'He empezado a leerlo y en las primeras páginas ha conseguido engancharme. Enhorabuena al autor, mis mejores deseos.'},
+      {name:'Rocío', stars:'5,0 de 5', title:'Enhorabuena al autor', meta:'Reseñado en España el 11 de mayo de 2026 · Tapa blanda', text:'Voy por la mitad y me está enganchando.'},
+      {name:'Caro', stars:'4,0 de 5', title:'Lectura de verano', meta:'Reseñado en España el 5 de julio de 2026 · Tapa blanda · Compra verificada', text:'Muy interesante. Esperando la segunda parte...'}
     ];
 
     const nav = [
@@ -531,7 +112,7 @@ El tatuaje pulsó una vez, sin urgencia, y quedó quieto bajo la piel.`
       ['La novela', '#novela'],
       ['Leer gratis', '#leer'],
       ['Galería', '#galeria'],
-      ['Vídeo', '#video'],
+      ['Reseñas', '#resenas'],
       ['Comprar', '#comprar'],
       ['Contacto', '#contacto']
     ];
@@ -647,19 +228,6 @@ El tatuaje pulsó una vez, sin urgencia, y quedó quieto bajo la piel.`
                 </div>
                 <div>
                   <SectionTitle eyebrow="Sobre el autor" title="Christian C. D'Rosoy" text="Una voz narrativa con identidad propia, sensibilidad contemporánea y una forma de contar que mezcla emoción, tensión, misterio y mirada cinematográfica." />
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    {[
-                      ['Romance emocional', 'Historias que conectan desde la herida, la memoria y la esperanza.'],
-                      ['Mirada cinematográfica', 'Ritmo visual, escenas potentes y una atmósfera muy marcada.'],
-                      ['Málaga como latido', 'La ciudad no es decorado: es parte del alma del relato.'],
-                      ['Proyecto en expansión', 'Web preparada para libro, galería, vídeo, redes y nuevos lanzamientos.']
-                    ].map(([t, d]) => (
-                      <div key={t} className="rounded-3xl border border-white/10 bg-white/5 p-5">
-                        <p className="font-semibold text-white">{t}</p>
-                        <p className="mt-2 text-sm text-zinc-300 leading-relaxed">{d}</p>
-                      </div>
-                    ))}
-                  </div>
                 </div>
               </div>
             </section>
@@ -726,75 +294,83 @@ El tatuaje pulsó una vez, sin urgencia, y quedó quieto bajo la piel.`
               </div>
             </section>
 
-            <section id="video" className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
-              <SectionTitle eyebrow="Vídeo" title="Espacio preparado para booktrailer o presentación" text="La web ya queda lista para añadir un vídeo de YouTube, reel, teaser o presentación cuando quieras." />
-              <div className="rounded-[2rem] border border-dashed border-white/20 bg-gradient-to-br from-white/5 to-white/[0.02] p-8 md:p-14 text-center">
-                <PlayCircle className="w-16 h-16 text-amber-300 mx-auto" />
-                <h3 className="mt-5 text-2xl md:text-3xl font-semibold text-white">Aquí irá el vídeo</h3>
-                <p className="mt-3 text-zinc-300 max-w-2xl mx-auto">Booktrailer, presentación, entrevista o vídeo promocional. Este bloque se sustituye fácilmente cuando tengas la URL final.</p>
+            <section id="resenas" className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
+              <SectionTitle eyebrow="Reseñas" title="Lo que dicen los lectores" text="Valoración destacada: 4,9 sobre 5 · 30 valoraciones globales. Selección de reseñas escritas para que también se lean dentro de la web." />
+              <div className="grid md:grid-cols-2 gap-5">
+                {reviews.map((r, i) => (
+                  <article key={i} className="rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-7">
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="text-white font-semibold">{r.name}</p>
+                        <p className="text-amber-300 text-sm mt-1">{r.stars}</p>
+                      </div>
+                      <Star className="w-5 h-5 text-amber-300 shrink-0" />
+                    </div>
+                    <h3 className="mt-4 text-xl font-semibold text-white">{r.title}</h3>
+                    <p className="mt-2 text-xs uppercase tracking-[0.18em] text-zinc-400">{r.meta}</p>
+                    <p className="mt-4 text-zinc-300 leading-relaxed">{r.text}</p>
+                  </article>
+                ))}
+              </div>
+              <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                <a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-amber-300 px-6 py-3 font-semibold text-black hover:bg-amber-200 transition-colors">
+                  <Star className="w-4 h-4" /> Ver todas las reseñas en Amazon
+                </a>
               </div>
             </section>
 
             <section id="comprar" className="border-y border-white/10 bg-white/[0.03]">
-              <div className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28 grid xl:grid-cols-[1.15fr,0.85fr] gap-8">
+              <div className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28 grid xl:grid-cols-[1.05fr,0.95fr] gap-8 items-start">
                 <div>
-                  <SectionTitle eyebrow="Dónde comprar" title="Compra el libro o consulta reseñas" text="Salida comercial directa, elegante y clara para Amazon y para la disponibilidad en Málaga." />
+                  <SectionTitle eyebrow="Dónde comprar" title="Compra online o físicamente en Málaga" text="La web deja muy claro dónde se compra: Amazon para toda España y compra física en el centro de Málaga en Librerías Proteo Prometeo." />
                   <div className="flex flex-col sm:flex-row gap-3">
                     <a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-amber-300 px-6 py-3 font-semibold text-black hover:bg-amber-200 transition-colors">
-                      <ShoppingCart className="w-4 h-4" /> Comprar ahora
+                      <ShoppingCart className="w-4 h-4" /> Comprar ahora en Amazon
                     </a>
-                    <a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/8 px-6 py-3 font-semibold text-white hover:bg-white/14 transition-colors">
-                      <Star className="w-4 h-4" /> Ver ficha y reseñas
+                    <a href="tel:+34952219019" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/8 px-6 py-3 font-semibold text-white hover:bg-white/14 transition-colors">
+                      <MapPin className="w-4 h-4" /> Llamar a Proteo Prometeo
                     </a>
                   </div>
-                  <div className="mt-8 grid sm:grid-cols-3 gap-4">
-                    {[
-                      'Acceso directo al libro en Amazon desde la web oficial.',
-                      'Zona lista para destacar reseñas reales cuando quieras añadirlas.',
-                      'Diseño enfocado a conversión y lectura desde móvil.'
-                    ].map((item) => (
-                      <div key={item} className="rounded-3xl border border-white/10 bg-black/20 p-5 text-sm text-zinc-300 leading-relaxed">{item}</div>
-                    ))}
+                  <div className="mt-8 grid sm:grid-cols-2 gap-4">
+                    <div className="rounded-3xl border border-white/10 bg-black/20 p-5 text-sm text-zinc-300 leading-relaxed">
+                      <p className="font-semibold text-white mb-2">Compra física en Málaga</p>
+                      Se compra físicamente aquí: <strong className="text-white">Librerías Proteo Prometeo</strong>.
+                    </div>
+                    <div className="rounded-3xl border border-white/10 bg-black/20 p-5 text-sm text-zinc-300 leading-relaxed">
+                      <p className="font-semibold text-white mb-2">Datos de tienda</p>
+                      C. Prta Buenaventura, 3 · Distrito Centro · 29008 Málaga<br />Teléfono: 952 21 90 19
+                    </div>
                   </div>
                 </div>
-                <div className="rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/6 to-white/[0.03] p-6 md:p-8">
+                <div className="rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/6 to-white/[0.03] p-6 md:p-8 overflow-hidden">
                   <p className="text-[11px] uppercase tracking-[0.35em] text-amber-300/80">También disponible en Málaga</p>
-                  <h3 className="mt-4 text-2xl font-semibold text-white">Librerías Proteo y Prometeo</h3>
-                  <div className="mt-6 space-y-4">
-                    <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                      <p className="font-semibold text-white">Librería Proteo</p>
-                      <p className="text-sm text-zinc-300 mt-1">Consulta disponibilidad en tienda · ISBN 979-8-19-593997-7 · PVP 18,99 €</p>
-                    </div>
-                    <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                      <p className="font-semibold text-white">Librería Prometeo</p>
-                      <p className="text-sm text-zinc-300 mt-1">Consulta disponibilidad en tienda en Málaga.</p>
-                    </div>
+                  <h3 className="mt-4 text-2xl font-semibold text-white">Librerías Proteo Prometeo</h3>
+                  <div className="mt-6 rounded-[1.5rem] border border-white/10 bg-white p-4">
+                    <img src={proteoLogo} alt="Proteo librerías" className="w-full h-40 object-contain" loading="lazy" />
+                  </div>
+                  <div className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-5 space-y-3">
+                    <p className="text-white font-semibold">Se compra físicamente aquí</p>
+                    <p className="text-sm text-zinc-300">Librerías Proteo Prometeo</p>
+                    <p className="text-sm text-zinc-300">C. Prta Buenaventura, 3, Distrito Centro, 29008 Málaga</p>
+                    <p className="text-sm text-zinc-300">Teléfono: 952 21 90 19</p>
+                    <p className="text-sm text-zinc-300">ISBN: 979-8-19-593997-7 · PVP: 18,99 €</p>
                   </div>
                 </div>
               </div>
             </section>
 
             <section id="contacto" className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
-              <SectionTitle eyebrow="Contacto y redes" title="La web queda lista para crecer" text="Queda preparada para añadir tus redes, el vídeo real, prensa, newsletter o próximos libros sin perder velocidad ni estilo." />
-              <div className="grid lg:grid-cols-2 gap-6">
+              <SectionTitle eyebrow="Contacto y redes" title="Contacto" text="" />
+              <div className="max-w-3xl">
                 <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8">
                   <p className="text-xl font-semibold text-white">Christian C. D'Rosoy</p>
-                  <p className="mt-3 text-zinc-300">Espacio preparado para correo, presentaciones, prensa y colaboraciones.</p>
+                  <p className="mt-3 text-zinc-300">Espacio para correo, presentaciones, prensa y colaboraciones.</p>
                   <div className="mt-6 flex flex-wrap gap-3">
                     <a href="mailto:" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white hover:bg-white/8"><Mail className="w-4 h-4" /> Correo</a>
                     <span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-zinc-400"><Instagram className="w-4 h-4" /> Instagram</span>
                     <span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-zinc-400"><Facebook className="w-4 h-4" /> Facebook</span>
                     <span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-zinc-400"><Youtube className="w-4 h-4" /> YouTube</span>
                   </div>
-                </div>
-                <div className="rounded-[2rem] border border-amber-300/20 bg-amber-300/8 p-6 md:p-8">
-                  <p className="text-xl font-semibold text-white">Qué incorpora esta versión</p>
-                  <ul className="mt-5 space-y-3 text-sm md:text-base text-amber-50/90">
-                    <li>• Aspecto cinematográfico y fondo animado elegante.</li>
-                    <li>• Fotos visibles de la presentación y autor.</li>
-                    <li>• Dedicatoria, prólogo y capítulos 1 al 6 reales.</li>
-                    <li>• Amazon, Málaga, reseñas y huecos para vídeo/redes.</li>
-                  </ul>
                 </div>
               </div>
             </section>
