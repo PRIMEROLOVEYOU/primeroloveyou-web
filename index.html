@@ -10,9 +10,10 @@
   <meta property="og:title" content="PRIMERO LOVE YOU | El hijo del mañana" />
   <meta property="og:description" content="Romance, ciencia ficción y suspenso emocional. Lee los primeros capítulos gratis." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://cms.aikit.es/api/tools/threads/6a54aeff08286dfa352113fc/file/6a54aeff08286dfa352113fc_inicio.jpg?token=h43Pqh4-8KkxGS-twNMiLoUfkNyiYKI1RcHakiQ3MXA&exp=1783943791" />
+  <meta property="og:image" content="https://cms.aikit.es/api/tools/threads/6a54aeff08286dfa352113fc/file/6a54aeff08286dfa352113fc_inicio.jpg?token=oaYUARlTnqLCnA1ubmbSF7YiSlFHDqZFroQfA_ldt04&exp=1783945799" />
   <meta name="twitter:card" content="summary_large_image" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.7"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     html { scroll-behavior: smooth; }
     body { background: #07070b; color: #f4f4f5; }
@@ -29,6 +30,10 @@
     .loc { font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:#a1a1aa; border-left:2px solid #d9b96e; padding-left:.75rem; margin-bottom:1.85rem; }
     .sep { text-align:center; color:#d9b96e; margin:1.8rem 0; letter-spacing:.4em; font-size:.88rem; }
     .ring { box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 16px 60px rgba(0,0,0,.35); }
+    #malaga-map { min-height: 420px; }
+    .map-card { transition: transform .18s ease, border-color .18s ease, background .18s ease; }
+    .map-card:hover { transform: translateY(-2px); }
+    .map-card.active { border-color: rgba(251,191,36,.7); background: rgba(251,191,36,.08); }
     #mobile-menu { display:none; }
     #mobile-menu.open { display:flex; }
   </style>
@@ -54,6 +59,7 @@
         <a href="#autor" class="hover:text-white transition-colors">Autor</a>
         <a href="#sinopsis" class="hover:text-white transition-colors">Sinopsis</a>
         <a href="#novela" class="hover:text-white transition-colors">La novela</a>
+        <a href="#malaga-en-la-novela" class="hover:text-white transition-colors">Málaga en la novela</a>
         <a href="#leer" class="hover:text-white transition-colors">Leer gratis</a>
         <a href="#galeria" class="hover:text-white transition-colors">Galería</a>
         <a href="#personajes" class="hover:text-white transition-colors">Personajes</a>
@@ -71,6 +77,7 @@
       <a href="#autor" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">Autor</a>
       <a href="#sinopsis" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">Sinopsis</a>
       <a href="#novela" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">La novela</a>
+      <a href="#malaga-en-la-novela" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">Málaga en la novela</a>
       <a href="#leer" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">Leer gratis</a>
       <a href="#galeria" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">Galería</a>
       <a href="#personajes" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">Personajes</a>
@@ -84,7 +91,7 @@
   <main class="pt-16">
 
     <section id="inicio" class="relative min-h-[100svh] flex items-end">
-      <img src="https://cms.aikit.es/api/tools/threads/6a54aeff08286dfa352113fc/file/6a54aeff08286dfa352113fc_inicio.jpg?token=h43Pqh4-8KkxGS-twNMiLoUfkNyiYKI1RcHakiQ3MXA&exp=1783943791" alt="Portada PRIMERO LOVE YOU" class="absolute inset-0 h-full w-full object-cover" />
+      <img src="https://cms.aikit.es/api/tools/threads/6a54aeff08286dfa352113fc/file/6a54aeff08286dfa352113fc_inicio.jpg?token=oaYUARlTnqLCnA1ubmbSF7YiSlFHDqZFroQfA_ldt04&exp=1783945799" alt="Portada PRIMERO LOVE YOU" class="absolute inset-0 h-full w-full object-cover" />
       <div class="absolute inset-0 hero-mask"></div>
       <div class="relative max-w-7xl mx-auto w-full px-4 md:px-6 py-20 md:py-24">
         <div class="max-w-4xl">
@@ -105,7 +112,7 @@
 
     <section id="autor" class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
       <div class="grid lg:grid-cols-[0.9fr,1.1fr] gap-10 md:gap-14 items-center">
-        <div><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_autor.jpg?v=20260713&token=Zk_rJQD3dW56jLhNmSGVBW84-42KCSFahGeQu44Bp6g&exp=1783943791" alt="Christian C. D'Rosoy" class="w-full max-w-md mx-auto rounded-[2rem] object-cover border border-white/10 shadow-2xl shadow-black/30" loading="lazy" /></div>
+        <div><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_autor.jpg?v=20260713&token=bIVi_DYA-a8SlUxMuiFif-kzQb6qs8xBdJ0KCyEpf8M&exp=1783945799" alt="Christian C. D'Rosoy" class="w-full max-w-md mx-auto rounded-[2rem] object-cover border border-white/10 shadow-2xl shadow-black/30" loading="lazy" /></div>
         <div>
           <p class="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">Sobre el autor</p>
           <h2 class="text-3xl md:text-5xl font-semibold text-white leading-tight">Christian C. D'Rosoy</h2>
@@ -123,17 +130,15 @@
     <section id="sinopsis" class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28 scroll-mt-24 relative">
       <div class="max-w-4xl mx-auto text-center">
         <p class="text-[11px] tracking-[0.42em] uppercase text-amber-300/80 mb-3">Sinopsis</p>
-        <h2 class="text-3xl md:text-5xl font-semibold text-white leading-tight">¿Por qué se llama PRIMERO LOVE YOU?</h2>
-        <p class="mt-4 text-zinc-300 text-base md:text-lg leading-relaxed max-w-3xl mx-auto">Una presentación editorial limpia, más íntima y con una lectura más elegante en móvil y escritorio.</p>
       </div>
 
       <div class="mt-8 grid md:grid-cols-2 gap-5 items-start">
         <figure class="overflow-hidden rounded-[1.9rem] border border-white/10 bg-black/20 shadow-2xl shadow-black/25 ring">
-          <img src="https://cms.aikit.es/api/tools/threads/6a54aeff08286dfa352113fc/file/6a54aeff08286dfa352113fc_sipnosis_%281%29.png?token=IMFyFmbaOC1i1TlphwJPYcmjnbuNWBbIn-GYEq8B-tI&exp=1783943791" alt="Málaga también es ficción" class="block w-full h-[22rem] md:h-[26rem] object-cover" loading="eager" decoding="async" />
+          <img src="https://cms.aikit.es/api/tools/threads/6a54aeff08286dfa352113fc/file/6a54aeff08286dfa352113fc_sipnosis_%281%29.png?token=cSenBueQo60iF8Ov-AizIXRR-gy3_Db-6Zet6H8m-6A&exp=1783945799" alt="Málaga también es ficción" class="block w-full h-[22rem] md:h-[26rem] object-cover" loading="eager" decoding="async" />
           <figcaption class="px-5 py-4 text-sm tracking-wide uppercase text-amber-200/90 border-t border-white/10 bg-black/35">Málaga también es ficción</figcaption>
         </figure>
         <figure class="overflow-hidden rounded-[1.9rem] border border-white/10 bg-black/20 shadow-2xl shadow-black/25 ring">
-          <img src="https://cms.aikit.es/api/tools/threads/6a54aeff08286dfa352113fc/file/6a54aeff08286dfa352113fc_sipnosis_%282%29.png?token=Ix-Isdz4YQ6RRG88coUhGIs9d3-9xt2TM73aR-9Ft6c&exp=1783943791" alt="¿Quién es CC2?" class="block w-full h-[22rem] md:h-[26rem] object-cover" loading="eager" decoding="async" />
+          <img src="https://cms.aikit.es/api/tools/threads/6a54aeff08286dfa352113fc/file/6a54aeff08286dfa352113fc_sipnosis_%282%29.png?token=go7aLP1XppB9yuDl7MUCQRgfQ7MtAfg_ba9LXoLQt1E&exp=1783945799" alt="¿Quién es CC2?" class="block w-full h-[22rem] md:h-[26rem] object-cover" loading="eager" decoding="async" />
           <figcaption class="px-5 py-4 text-sm tracking-wide uppercase text-amber-200/90 border-t border-white/10 bg-black/35">¿Quién es CC2?</figcaption>
         </figure>
       </div>
@@ -174,9 +179,34 @@
       </div>
     </section>
 
+    <section id="malaga-en-la-novela" class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28 scroll-mt-24">
+      <p class="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">Mapa interactivo</p>
+      <h2 class="text-3xl md:text-5xl font-semibold text-white leading-tight">Málaga en la novela</h2>
+      <p class="mt-4 text-zinc-300 text-base md:text-lg leading-relaxed max-w-3xl">Lugares confirmados por el manuscrito y puntos aproximados para recorrer el universo de <strong>PRIMERO LOVE YOU</strong>. Pulsa cualquier tarjeta para centrar el mapa y abrir su marcador.</p>
+
+      <div class="mt-10 grid xl:grid-cols-[1.3fr,0.7fr] gap-6 items-start">
+        <div class="rounded-[2rem] overflow-hidden border border-white/10 bg-black/30 ring shadow-2xl shadow-black/30">
+          <div id="malaga-map" class="h-[420px] md:h-[560px]"></div>
+        </div>
+        <aside class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-5 md:p-6 ring">
+          <div class="flex items-center justify-between gap-3 mb-4">
+            <div>
+              <p class="text-[11px] tracking-[0.35em] uppercase text-amber-200/80">Lugares destacados</p>
+              <h3 class="mt-2 text-2xl font-semibold text-white">Pincha y explora</h3>
+            </div>
+            <span class="inline-flex items-center gap-2 rounded-full border border-amber-300/30 bg-amber-300/10 px-3 py-1 text-xs text-amber-100"><span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-amber-200 text-[10px] font-black text-black">P</span> novela</span>
+          </div>
+          <div id="malaga-places" class="grid gap-3"></div>
+          <div class="mt-4 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm text-zinc-300 leading-relaxed">
+            Algunos puntos están situados de forma <strong>aproximada</strong> cuando el manuscrito no da una ubicación exacta. Si quieres, después puedo afinar la lista y dejarla al milímetro.
+          </div>
+        </aside>
+      </div>
+    </section>
+
     <section id="novela" class="border-y border-white/10 bg-white/[0.03]">
       <div class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28 grid lg:grid-cols-[0.9fr,1.1fr] gap-12 items-center">
-        <div><img src="https://cms.aikit.es/api/tools/threads/6a54aeff08286dfa352113fc/file/6a54aeff08286dfa352113fc_inicio_con_una_imagen_de_portada_a_pantalla_completa..jpg.jpg?token=Crdm1S_ugyvvly0dtknmQz09PpOhIHn-ILRIcM5TTpg&exp=1783943791" alt="Libro I" class="w-full rounded-[2rem] object-cover border border-white/10 shadow-2xl shadow-black/30" loading="lazy" /></div>
+        <div><img src="https://cms.aikit.es/api/tools/threads/6a54aeff08286dfa352113fc/file/6a54aeff08286dfa352113fc_inicio_con_una_imagen_de_portada_a_pantalla_completa..jpg.jpg?token=_pd3setJU8JxcTaSvcP7xkWRpKFELVSicVBXB2xJ9Lw&exp=1783945799" alt="Libro I" class="w-full rounded-[2rem] object-cover border border-white/10 shadow-2xl shadow-black/30" loading="lazy" /></div>
         <div>
           <p class="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">La novela</p>
           <h2 class="text-3xl md:text-5xl font-semibold text-white leading-tight">Libro I — El hijo del mañana</h2>
@@ -576,13 +606,13 @@
         <h2 class="text-3xl md:text-5xl font-semibold text-white leading-tight">Presentación del libro</h2>
         <p class="mt-4 text-zinc-300 text-base md:text-lg leading-relaxed max-w-3xl">Fotos reales del evento de presentación.</p>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mt-12">
-          <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-1.jpg.jpeg?v=20260713&token=ybj53Bs1E2V-y6_j9i9a7ZY89SDqPYtaUpr83lsE4DM&exp=1783943791" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-1.jpg.jpeg?v=20260713&token=ybj53Bs1E2V-y6_j9i9a7ZY89SDqPYtaUpr83lsE4DM&exp=1783943791" alt="Presentación 1" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Presentación 1</span></div></a>
-          <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-2.jpg.jpg?v=20260713&token=Tyu9WZNifCGrUVNEkIeALTr7vkt2Vj5SIcDjksYNYj0&exp=1783943791" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-2.jpg.jpg?v=20260713&token=Tyu9WZNifCGrUVNEkIeALTr7vkt2Vj5SIcDjksYNYj0&exp=1783943791" alt="Presentación 2" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Presentación 2</span></div></a>
-          <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-3.jpg.jpg?v=20260713&token=sCUc3CBbLMkywpvsmgZ9dSwr89Ej-8tjs9C_VXJRi3s&exp=1783943791" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-3.jpg.jpg?v=20260713&token=sCUc3CBbLMkywpvsmgZ9dSwr89Ej-8tjs9C_VXJRi3s&exp=1783943791" alt="Presentación 3" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Presentación 3</span></div></a>
-          <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria4_.jpg.jpeg?v=20260713&token=SEyKmKNdG581LfVC56d7XDN9ZfBtId6XK_VUknop29k&exp=1783943791" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria4_.jpg.jpeg?v=20260713&token=SEyKmKNdG581LfVC56d7XDN9ZfBtId6XK_VUknop29k&exp=1783943791" alt="Presentación 4" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Presentación 4</span></div></a>
-          <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-5.jpg.jpeg?v=20260713&token=Dp5894dmlQ-NOQPgBKxyeHWo26MVkCLmZPZkPEVxpzE&exp=1783943791" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-5.jpg.jpeg?v=20260713&token=Dp5894dmlQ-NOQPgBKxyeHWo26MVkCLmZPZkPEVxpzE&exp=1783943791" alt="Presentación 5" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Presentación 5</span></div></a>
-          <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-6.jpg.jpg?v=20260713&token=nel9zNqVRXj0qoZhyRVHUDcVCo8Oc7B6zwCu5a-aFgM&exp=1783943791" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-6.jpg.jpg?v=20260713&token=nel9zNqVRXj0qoZhyRVHUDcVCo8Oc7B6zwCu5a-aFgM&exp=1783943791" alt="Presentación 6" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Presentación 6</span></div></a>
-          <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-7.jpg.jpeg?v=20260713&token=QUJccxOW7gcJpFfAJxAOWWu5oejFkNU2DbsoBmiHmeQ&exp=1783943791" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-7.jpg.jpeg?v=20260713&token=QUJccxOW7gcJpFfAJxAOWWu5oejFkNU2DbsoBmiHmeQ&exp=1783943791" alt="Presentación 7" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Presentación 7</span></div></a>
+          <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-1.jpg.jpeg?v=20260713&token=UVia2CVmbadjYhOck4WCpeXRK2ZyE4tnGFxChmmcn_w&exp=1783945799" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-1.jpg.jpeg?v=20260713&token=UVia2CVmbadjYhOck4WCpeXRK2ZyE4tnGFxChmmcn_w&exp=1783945799" alt="Presentación 1" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Presentación 1</span></div></a>
+          <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-2.jpg.jpg?v=20260713&token=UKnDg8To3OMn26Hr7f4A4xM28kPnSikNmAFBOdW1dwM&exp=1783945799" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-2.jpg.jpg?v=20260713&token=UKnDg8To3OMn26Hr7f4A4xM28kPnSikNmAFBOdW1dwM&exp=1783945799" alt="Presentación 2" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Presentación 2</span></div></a>
+          <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-3.jpg.jpg?v=20260713&token=dSnYiWMYDAVgAOGttBFNKX7fhPdznLvJdnoWw7PjWww&exp=1783945799" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-3.jpg.jpg?v=20260713&token=dSnYiWMYDAVgAOGttBFNKX7fhPdznLvJdnoWw7PjWww&exp=1783945799" alt="Presentación 3" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Presentación 3</span></div></a>
+          <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria4_.jpg.jpeg?v=20260713&token=16T3MGxnktqLEWRxwz0MlvmXmZRzhfvVP0nXDCV00Nc&exp=1783945799" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria4_.jpg.jpeg?v=20260713&token=16T3MGxnktqLEWRxwz0MlvmXmZRzhfvVP0nXDCV00Nc&exp=1783945799" alt="Presentación 4" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Presentación 4</span></div></a>
+          <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-5.jpg.jpeg?v=20260713&token=vV8DzMVdAfkPtb5BrZFW2poyO6mz0CYNgA0zhzJyj2g&exp=1783945799" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-5.jpg.jpeg?v=20260713&token=vV8DzMVdAfkPtb5BrZFW2poyO6mz0CYNgA0zhzJyj2g&exp=1783945799" alt="Presentación 5" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Presentación 5</span></div></a>
+          <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-6.jpg.jpg?v=20260713&token=_Mqxg-5TsaCsPfA5aprAqtMTiuPap-SNHuBwniHI7bI&exp=1783945799" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-6.jpg.jpg?v=20260713&token=_Mqxg-5TsaCsPfA5aprAqtMTiuPap-SNHuBwniHI7bI&exp=1783945799" alt="Presentación 6" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Presentación 6</span></div></a>
+          <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-7.jpg.jpeg?v=20260713&token=SSo3hkEX4ofR3yFcTn3B1_tzuVH7GToyCF5uwrprX18&exp=1783945799" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_galeria-7.jpg.jpeg?v=20260713&token=SSo3hkEX4ofR3yFcTn3B1_tzuVH7GToyCF5uwrprX18&exp=1783945799" alt="Presentación 7" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Presentación 7</span></div></a>
         </div>
       </div>
     </section>
@@ -592,18 +622,18 @@
       <h2 class="text-3xl md:text-5xl font-semibold text-white leading-tight">Así podría verse el universo humano de la novela</h2>
       <p class="mt-4 text-zinc-300 text-base md:text-lg leading-relaxed max-w-3xl">Una galería visual inspirada en los personajes de PRIMERO LOVE YOU.</p>
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mt-12">
-        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-01.jpg?v=20260713&token=q7aWS84oZP1N8jNXCCbjvw9-GHsY3O8RESlHzfBHX6s&exp=1783943791" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-01.jpg?v=20260713&token=q7aWS84oZP1N8jNXCCbjvw9-GHsY3O8RESlHzfBHX6s&exp=1783943791" alt="Personaje 1" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 1</span></div></a>
-        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-1.jpg.jpg?v=20260713&token=DbLat7qotGPKrKX7lv7xjJCqjcjBc-zSLnsrCH1WN_M&exp=1783943791" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-1.jpg.jpg?v=20260713&token=DbLat7qotGPKrKX7lv7xjJCqjcjBc-zSLnsrCH1WN_M&exp=1783943791" alt="Personaje 2" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 2</span></div></a>
-        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-2.jpg.jpg?v=20260713&token=LHXCwVGCEP0G0PoaW7plFC6yNpCNFdem8EUV89krWHo&exp=1783943791" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-2.jpg.jpg?v=20260713&token=LHXCwVGCEP0G0PoaW7plFC6yNpCNFdem8EUV89krWHo&exp=1783943791" alt="Personaje 3" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 3</span></div></a>
-        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-3.jpg.jpg?v=20260713&token=uYA_XEvME0jtJTFVXW00fDnhiVAn8idpDJ1fm8ShJL8&exp=1783943791" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-3.jpg.jpg?v=20260713&token=uYA_XEvME0jtJTFVXW00fDnhiVAn8idpDJ1fm8ShJL8&exp=1783943791" alt="Personaje 4" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 4</span></div></a>
-        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-4.jpg.jpg?v=20260713&token=STiIhmrcYuIuaoTLnvJakF2zHnW1Vp8yvR5rM4cb1GA&exp=1783943791" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-4.jpg.jpg?v=20260713&token=STiIhmrcYuIuaoTLnvJakF2zHnW1Vp8yvR5rM4cb1GA&exp=1783943791" alt="Personaje 5" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 5</span></div></a>
-        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-5.jpg.jpg?v=20260713&token=2xrjcd-Pog1-mkANe1lY65lxFdcdR7UF3wpsgQVV6Gg&exp=1783943791" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-5.jpg.jpg?v=20260713&token=2xrjcd-Pog1-mkANe1lY65lxFdcdR7UF3wpsgQVV6Gg&exp=1783943791" alt="Personaje 6" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 6</span></div></a>
-        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-6.jpg.png?v=20260713&token=Kruq0eQCXeC-C8LV6y21S8yHsaYufZu3aBHyjpvs87A&exp=1783943791" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-6.jpg.png?v=20260713&token=Kruq0eQCXeC-C8LV6y21S8yHsaYufZu3aBHyjpvs87A&exp=1783943791" alt="Personaje 7" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 7</span></div></a>
-        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-7.jpg.png?v=20260713&token=acJidoFI2DHkrjjHWnaqStBerhOw6lmT4loh3fmQs_g&exp=1783943791" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-7.jpg.png?v=20260713&token=acJidoFI2DHkrjjHWnaqStBerhOw6lmT4loh3fmQs_g&exp=1783943791" alt="Personaje 8" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 8</span></div></a>
-        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-8.jpg.jpg?v=20260713&token=Vi7bzxvAlMUGp6crikyggCfa_Xljw5OjoDZ9K7Cc_Cw&exp=1783943791" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-8.jpg.jpg?v=20260713&token=Vi7bzxvAlMUGp6crikyggCfa_Xljw5OjoDZ9K7Cc_Cw&exp=1783943791" alt="Personaje 9" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 9</span></div></a>
-        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-9.jpg.jpg?v=20260713&token=JOS5Jywf1miECdUCQ1ad0V2TC_yo2-Ue5bt6Ednyerk&exp=1783943791" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-9.jpg.jpg?v=20260713&token=JOS5Jywf1miECdUCQ1ad0V2TC_yo2-Ue5bt6Ednyerk&exp=1783943791" alt="Personaje 10" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 10</span></div></a>
-        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-11.jpg?v=20260713&token=1S2RLxwn5WkY3efHtiqaubBgYX5hrl0lSnMvBKJNiP8&exp=1783943791" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-11.jpg?v=20260713&token=1S2RLxwn5WkY3efHtiqaubBgYX5hrl0lSnMvBKJNiP8&exp=1783943791" alt="Personaje 11" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 11</span></div></a>
-        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-12.jpg?v=20260713&token=Nbv2fYLKFJ3R5lUSIVoQFyX2HR5NCXgW1bYdebUaO7g&exp=1783943791" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-12.jpg?v=20260713&token=Nbv2fYLKFJ3R5lUSIVoQFyX2HR5NCXgW1bYdebUaO7g&exp=1783943791" alt="Personaje 12" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 12</span></div></a>
+        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-01.jpg?v=20260713&token=MWEn5kkqCJv31nMW-TlmtPeAksJbJ__HXLPKZC4Uu6k&exp=1783945799" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-01.jpg?v=20260713&token=MWEn5kkqCJv31nMW-TlmtPeAksJbJ__HXLPKZC4Uu6k&exp=1783945799" alt="Personaje 1" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 1</span></div></a>
+        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-1.jpg.jpg?v=20260713&token=VqEp1CExO0Q68Kyz2gCAp3Rvph5KJVbey-ksdTbbaxo&exp=1783945799" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-1.jpg.jpg?v=20260713&token=VqEp1CExO0Q68Kyz2gCAp3Rvph5KJVbey-ksdTbbaxo&exp=1783945799" alt="Personaje 2" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 2</span></div></a>
+        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-2.jpg.jpg?v=20260713&token=gBgmV_b1DChmWMQtgrG68HXQuRAnPApSt11wg3fyvyc&exp=1783945799" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-2.jpg.jpg?v=20260713&token=gBgmV_b1DChmWMQtgrG68HXQuRAnPApSt11wg3fyvyc&exp=1783945799" alt="Personaje 3" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 3</span></div></a>
+        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-3.jpg.jpg?v=20260713&token=-J0bkNrUlcKDg8DuFcyeaehHRGL41HFMmaN92n6HwwU&exp=1783945799" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-3.jpg.jpg?v=20260713&token=-J0bkNrUlcKDg8DuFcyeaehHRGL41HFMmaN92n6HwwU&exp=1783945799" alt="Personaje 4" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 4</span></div></a>
+        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-4.jpg.jpg?v=20260713&token=9QVLWy2sQWnP9kLrdXmJTz1r83wOSEBP3ZRyxTBFMkI&exp=1783945799" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-4.jpg.jpg?v=20260713&token=9QVLWy2sQWnP9kLrdXmJTz1r83wOSEBP3ZRyxTBFMkI&exp=1783945799" alt="Personaje 5" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 5</span></div></a>
+        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-5.jpg.jpg?v=20260713&token=IZc86_leAka5XSKKRfICyIpGMprdW_fxgo8tuM0coqk&exp=1783945799" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-5.jpg.jpg?v=20260713&token=IZc86_leAka5XSKKRfICyIpGMprdW_fxgo8tuM0coqk&exp=1783945799" alt="Personaje 6" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 6</span></div></a>
+        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-6.jpg.png?v=20260713&token=jycazn3Qaq0wcvJoE1T_5t5KMTVqf9vLhSOlsIe7E5E&exp=1783945799" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-6.jpg.png?v=20260713&token=jycazn3Qaq0wcvJoE1T_5t5KMTVqf9vLhSOlsIe7E5E&exp=1783945799" alt="Personaje 7" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 7</span></div></a>
+        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-7.jpg.png?v=20260713&token=j7LX7wYTk7F_HRG7JscR_okj-PxKOCbhPjmu-7Jj5ps&exp=1783945799" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-7.jpg.png?v=20260713&token=j7LX7wYTk7F_HRG7JscR_okj-PxKOCbhPjmu-7Jj5ps&exp=1783945799" alt="Personaje 8" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 8</span></div></a>
+        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-8.jpg.jpg?v=20260713&token=ZDdqf-XB-a9tOr9dpGjOnjgQ7QBnW8M8Mlx2S52W6a0&exp=1783945799" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-8.jpg.jpg?v=20260713&token=ZDdqf-XB-a9tOr9dpGjOnjgQ7QBnW8M8Mlx2S52W6a0&exp=1783945799" alt="Personaje 9" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 9</span></div></a>
+        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-9.jpg.jpg?v=20260713&token=k5Bt0km_MKUX5i0yLbjC45edns_DW1ny9kENUJgj4SU&exp=1783945799" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-9.jpg.jpg?v=20260713&token=k5Bt0km_MKUX5i0yLbjC45edns_DW1ny9kENUJgj4SU&exp=1783945799" alt="Personaje 10" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 10</span></div></a>
+        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-11.jpg?v=20260713&token=s4wuXfxNbet5RW4-E7PkcjCoY-xIAbEU3y9dETZaB9M&exp=1783945799" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-11.jpg?v=20260713&token=s4wuXfxNbet5RW4-E7PkcjCoY-xIAbEU3y9dETZaB9M&exp=1783945799" alt="Personaje 11" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 11</span></div></a>
+        <a href="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-12.jpg?v=20260713&token=rgK5ElOnsaXePTslfUvWXMBPlMrV9urJNU1Hk2nnsj4&exp=1783945799" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a5242418d05750f337bac49/file/6a5242418d05750f337bac49_personaje-12.jpg?v=20260713&token=rgK5ElOnsaXePTslfUvWXMBPlMrV9urJNU1Hk2nnsj4&exp=1783945799" alt="Personaje 12" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 12</span></div></a>
       </div>
     </section>
 
@@ -689,5 +719,97 @@
     </section>
 
   </main>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const places = [
+        { name: 'Cafetería Los Valle', zone: 'Perchel Sur', address: 'C. Cuarteles, 54', lat: 36.7130199, lon: -4.4290695, note: 'Desayunos, café y arranque de la historia.', approx: false },
+        { name: "Tano\'s", zone: 'Huelin', address: 'C. Río Rocío, 18', lat: 36.7037455, lon: -4.43365, note: 'Bar de barrio ligado al paisaje de Huelin.', approx: false },
+        { name: 'Le Grand Café Centro', zone: 'Perchel Norte', address: 'Pasillo Guimbarda', lat: 36.7205867, lon: -4.4257911, note: 'Refugio de la Guardia Pretoriana.', approx: false },
+        { name: 'Bar Indiana', zone: 'Centro Histórico', address: 'C. Nosquera, 12', lat: 36.7231608, lon: -4.4222651, note: 'Punto nocturno del centro.', approx: false },
+        { name: 'Colegio García Lorca', zone: 'Soho / Centro', address: 'C. Alemania, 14', lat: 36.7129362, lon: -4.4249044, note: 'El primer gran giro de la novela.', approx: false },
+        { name: 'Calle Peregrino', zone: 'El Perchel', address: 'Calle Peregrino', lat: 36.7145073, lon: -4.428058, note: 'Casa de infancia y nodo familiar.', approx: false },
+        { name: 'Calle La Unión', zone: 'Cruz de Humilladero', address: 'Calle La Unión', lat: 36.70979, lon: -4.4418457, note: 'La casa de Christian en 2026.', approx: false },
+        { name: 'Sacaba Beach', zone: 'Carretera de Cádiz', address: 'Sacaba Beach', lat: 36.6795841, lon: -4.4482431, note: 'Verano, costa y memoria.', approx: false },
+        { name: 'Playa de Huelin', zone: 'Huelin', address: 'Paseo Marítimo de Huelin', lat: 36.7010, lon: -4.4390, note: 'Paseo y reflexión frente al mar.', approx: true },
+        { name: 'GOfit Huelin', zone: 'Huelin', address: 'GOfit Huelin', lat: 36.7029, lon: -4.4368, note: 'Piscina y reset mental.', approx: true },
+        { name: 'Avenida Juan XXIII', zone: 'Perchel Norte', address: 'Avenida Juan XXIII', lat: 36.7180, lon: -4.4270, note: 'Café con Silvia.', approx: true },
+        { name: 'Ciudad Jardín', zone: 'Ciudad Jardín', address: 'Ciudad Jardín', lat: 36.7310, lon: -4.4270, note: 'Territorio de Curro y el taller.', approx: true },
+        { name: 'Bar Santa', zone: 'Beatas', address: 'Calle Beatas', lat: 36.7238, lon: -4.4200, note: 'Flashback ochentero.', approx: true },
+        { name: 'Ikigaink Experience', zone: 'La Malagueta / Centro', address: 'Estudio de tatuaje', lat: 36.7210, lon: -4.4125, note: 'Estudio de Annette. Ubicación aproximada.', approx: true }
+      ];
+
+      const pinIcon = L.divIcon({
+        className: '',
+        iconSize: [30, 42],
+        iconAnchor: [15, 41],
+        popupAnchor: [0, -38],
+        html: `
+          <div style="position:relative;width:30px;height:42px;filter:drop-shadow(0 10px 18px rgba(0,0,0,.45));">
+            <svg viewBox="0 0 30 42" width="30" height="42" aria-hidden="true" style="display:block;">
+              <path d="M15 1C8.37 1 3 6.37 3 13c0 8.1 9.1 19.55 11.9 22.83.6.7 1.7.7 2.3 0C20.9 32.55 30 21.1 30 13 30 6.37 24.63 1 15 1Z" fill="#0f172a" stroke="rgba(251,191,36,.85)" stroke-width="1.3"/>
+              <circle cx="15" cy="13" r="4.6" fill="#fbbf24"/>
+              <circle cx="15" cy="13" r="2.15" fill="#111827"/>
+            </svg>
+          </div>
+        `
+      });
+      const map = L.map('malaga-map', { scrollWheelZoom: false, zoomControl: true, zoomSnap: 0.25 }).setView([36.7163, -4.4268], 13.2);
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        subdomains: 'abcd',
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+      }).addTo(map);
+
+      const markers = [];
+      const bounds = [];
+      places.forEach((place, i) => {
+        const marker = L.marker([place.lat, place.lon], { icon: pinIcon }).addTo(map);
+        markers.push(marker);
+        bounds.push([place.lat, place.lon]);
+        const approxBadge = place.approx ? '<span style="display:inline-block;padding:2px 8px;border-radius:999px;background:rgba(251,191,36,.15);color:#fcd34d;font-size:11px;letter-spacing:.12em;text-transform:uppercase;">Aprox.</span>' : '';
+        marker.bindPopup(`
+          <div style="min-width:220px;max-width:280px;font-family:Inter,system-ui,sans-serif;color:#111827;">
+            <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:8px;">
+              <strong style="font-size:14px;line-height:1.2;">${place.name}</strong>
+              ${approxBadge}
+            </div>
+            <div style="font-size:12px;color:#374151;margin-bottom:4px;">${place.address} · ${place.zone}</div>
+            <div style="font-size:12px;color:#6b7280;line-height:1.4;">${place.note}</div>
+          </div>
+        `);
+      });
+
+      if (bounds.length) map.fitBounds(bounds, { padding: [40, 40] });
+
+      const list = document.getElementById('malaga-places');
+      const escapeHtml = (s) => String(s).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
+      list.innerHTML = places.map((place, i) => `
+        <button type="button" data-place-index="${i}" class="map-card text-left w-full rounded-2xl border border-white/10 bg-black/20 p-4 hover:border-amber-300/40 hover:bg-amber-300/8 transition-all">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <p class="text-sm font-semibold text-white">${escapeHtml(place.name)}</p>
+              <p class="mt-1 text-xs uppercase tracking-[0.24em] text-amber-200/70">${escapeHtml(place.zone)}</p>
+            </div>
+            ${place.approx ? '<span class="inline-flex items-center rounded-full border border-amber-300/25 bg-amber-300/10 px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] text-amber-100">Aprox.</span>' : ''}
+          </div>
+          <p class="mt-3 text-sm text-zinc-300 leading-relaxed">${escapeHtml(place.address)}</p>
+          <p class="mt-2 text-sm text-zinc-400 leading-relaxed">${escapeHtml(place.note)}</p>
+        </button>
+      `).join('');
+
+      const cards = [...list.querySelectorAll('[data-place-index]')];
+      const activate = (idx) => {
+        const place = places[idx];
+        map.setView([place.lat, place.lon], Math.max(map.getZoom(), 15), { animate: true });
+        markers[idx].openPopup();
+        cards.forEach((el) => el.classList.remove('active'));
+        cards[idx]?.classList.add('active');
+      };
+
+      cards.forEach((card) => card.addEventListener('click', () => activate(Number(card.dataset.placeIndex))));
+      if (cards[0]) cards[0].classList.add('active');
+    });
+  </script>
 </body>
 </html>
