@@ -3,254 +3,337 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PRIMERO LOVE YOU | Trilogía oficial</title>
-  <meta name="description" content="Web oficial de PRIMERO LOVE YOU de Christian C. D'Rosoy. Capítulos gratuitos, galería, personajes, vídeo, reseñas y compra en Amazon y Málaga." />
+  <title>PRIMERO LOVE YOU | El hijo del mañana</title>
+  <meta name="description" content="Web oficial de PRIMERO LOVE YOU de Christian C. D'Rosoy. Sinopsis, autor, galería, personajes, vídeo, reseñas y compra en Amazon." />
   <meta name="author" content="Christian C. D'Rosoy" />
   <meta name="theme-color" content="#0b0b12" />
-  <meta property="og:title" content="PRIMERO LOVE YOU | El hijo del mañana" />
-  <meta property="og:description" content="Romance, ciencia ficción y suspenso emocional. Lee los primeros capítulos gratis." />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.7"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: Inter, system-ui, sans-serif; background: #07070b; color: #f4f4f5; }
-    .glass { backdrop-filter: blur(16px); background: rgba(255,255,255,.06); }
-    .hero-mask { background: linear-gradient(180deg, rgba(7,7,11,.10) 0%, rgba(7,7,11,.68) 50%, rgba(7,7,11,1) 100%); }
-    .gold-text { background: linear-gradient(90deg,#f7e6a1,#d9b96e,#f9efd1); -webkit-background-clip:text; background-clip:text; color: transparent; }
-    .chapter { font-family: Georgia, 'Times New Roman', serif; font-size: 1.04rem; line-height: 1.96; color: #d4d4d8; text-align: justify; hyphens: auto; }
-    .chapter p + p { margin-top: 1rem; }
-    .loc { font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:#a1a1aa; border-left:2px solid #d9b96e; padding-left:.75rem; margin-bottom:1.2rem; }
-    .ring { box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 16px 60px rgba(0,0,0,.35); }
-    #mobile-menu { display:none; }
-    #mobile-menu.open { display:flex; }
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#07070b;color:#f4f4f5;font-family:Inter,system-ui,sans-serif}
+    .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+    .glass{backdrop-filter:blur(16px);background:rgba(255,255,255,.06)}
+    .hero-mask{background:linear-gradient(180deg,rgba(7,7,11,.10) 0%,rgba(7,7,11,.68) 50%,rgba(7,7,11,1) 100%)}
+    .gold-text{background:linear-gradient(90deg,#f7e6a1,#d9b96e,#f9efd1);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .orb{filter:blur(70px);animation:floaty 14s ease-in-out infinite}
+    .orb.b{animation-delay:-5s}.orb.c{animation-delay:-10s}
+    @keyframes floaty{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(0,-20px,0) scale(1.06)}}
+    .chapter{font-family:Georgia,'Times New Roman',serif;font-size:1.05rem;line-height:2;color:#d4d4d8;text-align:justify;hyphens:auto}
+    .chapter p+p{margin-top:1.1rem}
+    .loc{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#a1a1aa;border-left:2px solid #d9b96e;padding-left:.75rem;margin:0 0 1.2rem}
+    .ring{box-shadow:0 0 0 1px rgba(255,255,255,.08),0 16px 60px rgba(0,0,0,.35)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;text-decoration:none;border-radius:999px;padding:12px 18px;font-weight:700;transition:all .2s ease}
+    .btn-primary{background:#fcd34d;color:#111827}
+    .btn-primary:hover{background:#fde68a}
+    .btn-outline{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.15);color:#fff}
+    .btn-outline:hover{background:rgba(255,255,255,.1)}
+    .section{padding:90px 0}
+    .card{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);border-radius:28px;overflow:hidden}
+    .grid{display:grid;gap:24px}
+    .grid-2{grid-template-columns:1fr 1fr}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-4{grid-template-columns:repeat(4,1fr)}
+    .muted{color:#d4d4d8}
+    .small{font-size:14px;color:#a1a1aa}
+    .tag{display:inline-block;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);padding:10px 14px;border-radius:999px;text-decoration:none;color:#f4f4f5}
+    .tag:hover{background:rgba(255,255,255,.08)}
+    .chapter-card{overflow:hidden;border:1px solid rgba(255,255,255,.1);border-radius:28px;background:#0d0d15}
+    .chapter-head{padding:24px 26px;background:linear-gradient(90deg,rgba(0,0,0,.8),rgba(24,24,27,.8));border-bottom:1px solid rgba(255,255,255,.1)}
+    .chapter-body{padding:32px 26px}
+    .chapter-foot{padding:18px 26px;border-top:1px solid rgba(255,255,255,.1);display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap;background:rgba(0,0,0,.26)}
+    details{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);border-radius:20px;padding:16px 18px}
+    summary{cursor:pointer;font-weight:700;color:#fff}
+    summary::-webkit-details-marker{display:none}
+    .img{width:100%;display:block;object-fit:cover}
+    .cover{min-height:100svh;display:flex;align-items:flex-end;position:relative}
+    .hero-copy{padding:24px 0 72px;position:relative;z-index:1}
+    .hero-title{font-size:clamp(2.7rem,7vw,5rem);line-height:.95;letter-spacing:-.03em;margin:0;color:#fff}
+    .subhero{font-size:clamp(1.2rem,2vw,1.8rem);line-height:1.25;color:#fff}
+    .menu{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+    .topbar{position:fixed;top:0;left:0;right:0;z-index:40;border-bottom:1px solid rgba(255,255,255,.1);background:rgba(9,9,15,.82);backdrop-filter:blur(18px)}
+    .topbar-inner{height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+    .nav a{color:#d4d4d8;text-decoration:none;font-size:14px}
+    .nav a:hover{color:#fff}
+    .badge{display:inline-flex;align-items:center;gap:8px;border-radius:999px;border:1px solid rgba(251,191,36,.3);background:rgba(251,191,36,.1);padding:7px 12px;color:#fef3c7;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+    .footer{padding:34px 0 52px;border-top:1px solid rgba(255,255,255,.1)}
+    @media (max-width: 960px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr 1fr}}
+    @media (max-width: 680px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}.topbar{position:sticky}.nav{display:none}.hero-copy{padding-bottom:48px}.section{padding:72px 0}}
   </style>
 </head>
-<body class="selection:bg-amber-300 selection:text-black">
-
-  <header class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#09090f]/82 backdrop-blur-xl">
-    <div class="max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between gap-4">
-      <a href="#inicio" class="flex items-center gap-3 shrink-0">
-        <div class="w-9 h-9 rounded-full border border-amber-300/35 bg-white/5 flex items-center justify-center text-amber-300 text-lg">✦</div>
-        <div class="hidden sm:block">
-          <p class="text-sm font-semibold tracking-wide">PRIMERO LOVE YOU</p>
-          <p class="text-[10px] uppercase tracking-[0.3em] text-zinc-400">Trilogía oficial</p>
+<body>
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <a href="#inicio" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff">
+        <div style="width:38px;height:38px;border-radius:999px;border:1px solid rgba(251,191,36,.35);background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;color:#fcd34d">✦</div>
+        <div>
+          <div style="font-size:14px;font-weight:700;letter-spacing:.02em">PRIMERO LOVE YOU</div>
+          <div style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#a1a1aa">Trilogía oficial</div>
         </div>
       </a>
-      <nav class="hidden lg:flex items-center gap-4 text-sm text-zinc-300">
-        <a href="#autor" class="hover:text-white transition-colors">Autor</a>
-        <a href="#sinopsis" class="hover:text-white transition-colors">Sinopsis</a>
-        <a href="#novela" class="hover:text-white transition-colors">La novela</a>
-        <a href="#leer" class="hover:text-white transition-colors">Leer gratis</a>
-        <a href="#galeria" class="hover:text-white transition-colors">Galería</a>
-        <a href="#personajes" class="hover:text-white transition-colors">Personajes</a>
-        <a href="#video" class="hover:text-white transition-colors">Vídeo</a>
-        <a href="#resenas" class="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-zinc-100 hover:bg-white/10 transition-colors">✦ Reseñas</a>
-        <a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
-      </nav>
-      <div class="flex items-center gap-3">
-        <a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" class="hidden md:inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-300 to-amber-200 px-4 py-2 text-sm font-semibold text-black hover:from-amber-200 hover:to-amber-100 transition-colors">Comprar</a>
-        <button id="menu-btn" class="lg:hidden w-10 h-10 rounded-full border border-white/15 bg-white/5 flex items-center justify-center text-white" onclick="document.getElementById('mobile-menu').classList.toggle('open')">☰</button>
+      <div class="nav">
+        <a href="#autor">Autor</a><a href="#novela">La novela</a><a href="#leer">Leer gratis</a><a href="#galeria">Galería</a><a href="#personajes">Personajes</a><a href="#video">Vídeo</a><a href="#resenas">Reseñas</a><a href="#comprar">Comprar físico</a><a href="#contacto">Contacto</a>
       </div>
+      <a class="btn btn-primary" href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer">Comprar</a>
     </div>
-    <div id="mobile-menu" class="lg:hidden flex-col border-t border-white/10 bg-[#09090f]/96 px-4 py-4 gap-3 text-sm text-zinc-300">
-      <a href="#autor" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">Autor</a>
-      <a href="#sinopsis" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">Sinopsis</a>
-      <a href="#novela" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">La novela</a>
-      <a href="#leer" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">Leer gratis</a>
-      <a href="#galeria" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">Galería</a>
-      <a href="#personajes" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">Personajes</a>
-      <a href="#video" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">Vídeo</a>
-      <a href="#resenas" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">✦ Reseñas</a>
-      <a href="#contacto" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">Contacto</a>
-    </div>
-  </header>
+  </div>
 
-  <main class="pt-16">
-    <section id="inicio" class="relative min-h-[100svh] flex items-end">
-      <img src="./assets/portada.png" alt="Portada PRIMERO LOVE YOU" class="absolute inset-0 h-full w-full object-cover" />
-      <div class="absolute inset-0 hero-mask"></div>
-      <div class="relative max-w-7xl mx-auto w-full px-4 md:px-6 py-20 md:py-24">
-        <div class="max-w-4xl">
-          <p class="text-[11px] md:text-xs uppercase tracking-[0.4em] text-amber-200/85 mb-5">Web oficial · Libro I · Experiencia cinematográfica</p>
-          <h1 class="text-4xl sm:text-5xl md:text-7xl font-semibold leading-[0.95] tracking-tight text-white">PRIMERO LOVE YOU<span class="block gold-text mt-2">El hijo del mañana</span></h1>
-          <div class="mt-7 max-w-3xl glass rounded-3xl border border-white/10 p-6 md:p-8 ring">
-            <p class="text-xl md:text-3xl leading-tight text-white font-medium">«Echar de menos a alguien que no conoces es una forma de locura que no tiene diagnóstico.»</p>
-          </div>
-          <div class="mt-8 flex flex-col sm:flex-row gap-3">
-            <a href="#leer" class="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-black hover:bg-zinc-100 transition-colors">Leer capítulos gratis</a>
-            <a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/8 px-6 py-3 font-semibold text-white hover:bg-white/14 transition-colors">Comprar en Amazon</a>
-          </div>
+  <main style="padding-top:64px">
+    <section id="inicio" class="cover">
+      <img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_inicio.jpg?token=qOvcGgusDyvGf-CC_2JhP4gm2P4G1chYeddx8Wc29Fg&exp=1784024298" alt="Portada PRIMERO LOVE YOU" class="img" style="position:absolute;inset:0;height:100%;width:100%" />
+      <div class="hero-mask" style="position:absolute;inset:0"></div>
+      <div class="wrap hero-copy">
+        <p style="font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:#fde68a;margin:0 0 18px">Web oficial · Libro I · Experiencia cinematográfica</p>
+        <h1 class="hero-title">PRIMERO LOVE YOU<span class="gold-text" style="display:block;margin-top:10px">El hijo del mañana</span></h1>
+        <div class="glass ring" style="margin-top:26px;max-width:740px;border-radius:28px;padding:22px 24px">
+          <p class="subhero" style="margin:0">«Echar de menos a alguien que no conoces es una forma de locura que no tiene diagnóstico.»</p>
+        </div>
+        <div class="menu" style="margin-top:26px">
+          <a class="btn btn-outline" href="#leer">Leer capítulos gratis</a>
+          <a class="btn btn-outline" href="#resenas">Ver reseñas</a>
+          <a class="btn btn-primary" href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer">Comprar en Amazon</a>
+          <a class="btn btn-outline" href="#comprar">📍 Librerías Proteo Prometeo</a>
         </div>
       </div>
+      <div class="orb" style="position:absolute;left:-96px;top:64px;height:256px;width:256px;border-radius:999px;background:rgba(217,70,239,.14)"></div>
+      <div class="orb b" style="position:absolute;right:-64px;top:250px;height:224px;width:224px;border-radius:999px;background:rgba(251,191,36,.12)"></div>
+      <div class="orb c" style="position:absolute;left:32%;bottom:64px;height:288px;width:288px;border-radius:999px;background:rgba(56,189,248,.1)"></div>
     </section>
 
-    <section id="autor" class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
-      <div class="grid lg:grid-cols-[0.9fr,1.1fr] gap-10 md:gap-14 items-center">
-        <div><img src="./assets/autor.jpg" alt="Christian C. D'Rosoy" class="w-full max-w-md mx-auto rounded-[2rem] object-cover border border-white/10 shadow-2xl shadow-black/30" loading="lazy" /></div>
+    <section id="autor" class="section">
+      <div class="wrap grid grid-2" style="align-items:center">
+        <div class="card" style="max-width:360px">
+          <img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_AUTOR.jpg?token=YrcpCK6NVGQcD6Qs4cS67jnsxygd4CExCisngoJBDAg&exp=1784024298" alt="Christian C. D'Rosoy" class="img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+          <div style="display:none;padding:24px;background:linear-gradient(135deg,#111827,#0b0b12);color:#d4d4d8">Foto del autor no disponible temporalmente.</div>
+        </div>
         <div>
-          <p class="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">Sobre el autor</p>
-          <h2 class="text-3xl md:text-5xl font-semibold text-white leading-tight">Christian C. D'Rosoy</h2>
-          <p class="mt-4 text-zinc-300 text-base md:text-lg leading-relaxed">Una voz narrativa con identidad propia, sensibilidad contemporánea y una forma de contar que mezcla emoción, tensión, misterio y mirada cinematográfica.</p>
+          <p style="font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:#fde68a;margin:0 0 10px">Sobre el autor</p>
+          <h2 style="font-size:clamp(2rem,4vw,3.5rem);line-height:1.02;margin:0;color:#fff">Christian C. D'Rosoy</h2>
+          <p class="muted" style="margin-top:18px;font-size:17px;line-height:1.8">Una voz narrativa con identidad propia, sensibilidad contemporánea y una forma de contar que mezcla emoción, tensión, misterio y mirada cinematográfica.</p>
+          <div class="grid grid-2" style="margin-top:28px;gap:14px">
+            <div class="card" style="padding:18px"><strong>Romance emocional</strong><p class="small" style="margin:8px 0 0">Historias que conectan desde la herida.</p></div>
+            <div class="card" style="padding:18px"><strong>Mirada cinematográfica</strong><p class="small" style="margin:8px 0 0">Ritmo visual y escenas potentes.</p></div>
+            <div class="card" style="padding:18px"><strong>Málaga como latido</strong><p class="small" style="margin:8px 0 0">La ciudad es parte del alma del relato.</p></div>
+            <div class="card" style="padding:18px"><strong>Proyecto en expansión</strong><p class="small" style="margin:8px 0 0">Web preparada para libro, vídeo y redes.</p></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="sinopsis" class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28 scroll-mt-24 relative">
-      <div class="max-w-4xl mx-auto text-center">
-        <p class="text-[11px] tracking-[0.42em] uppercase text-amber-300/80 mb-3">Sinopsis</p>
-      </div>
-
-      <div class="mt-8 grid md:grid-cols-2 gap-5 items-start">
-        <figure class="overflow-hidden rounded-[1.9rem] border border-white/10 bg-black/20 shadow-2xl shadow-black/25 ring">
-          <img src="./assets/malaga-tambien-es-ficcion.png" alt="Málaga también es ficción" class="block w-full h-[22rem] md:h-[26rem] object-cover" loading="eager" decoding="async" />
-          <figcaption class="px-5 py-4 text-sm tracking-wide uppercase text-amber-200/90 border-t border-white/10 bg-black/35">Málaga también es ficción</figcaption>
-        </figure>
-        <figure class="overflow-hidden rounded-[1.9rem] border border-white/10 bg-black/20 shadow-2xl shadow-black/25 ring">
-          <img src="./assets/quien-es-cc2.png" alt="¿Quién es CC2?" class="block w-full h-[22rem] md:h-[26rem] object-cover" loading="eager" decoding="async" />
-          <figcaption class="px-5 py-4 text-sm tracking-wide uppercase text-amber-200/90 border-t border-white/10 bg-black/35">¿Quién es CC2?</figcaption>
-        </figure>
-      </div>
-
-      <div class="mt-8 rounded-[2.15rem] border border-amber-300/18 bg-[linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.03))] p-6 md:p-10 ring shadow-2xl shadow-black/20">
-        <div class="mx-auto max-w-3xl chapter text-left text-zinc-300">
-          <p class="text-xl md:text-2xl font-semibold leading-tight text-white mb-6">¿Qué harías si un niño desconocido te abrazara llorando... y te llamara papá?</p>
-          <p class="text-xl md:text-2xl font-semibold leading-tight text-white mb-6">¿Y si supiera cosas sobre tu vida que todavía no han ocurrido?</p>
-          <p class="text-xl md:text-2xl font-semibold leading-tight text-white mb-6">¿Y si el amor de tu vida ya hubiera vivido esta historia antes que tú?</p>
+    <section id="novela" class="section" style="background:rgba(255,255,255,.03);border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1)">
+      <div class="wrap grid grid-2" style="align-items:center">
+        <div class="card">
+          <img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_inicio.jpg?token=qOvcGgusDyvGf-CC_2JhP4gm2P4G1chYeddx8Wc29Fg&exp=1784024298" alt="Libro I" class="img" />
         </div>
-      </div>
-    </section>
-
-    <section id="novela" class="border-y border-white/10 bg-white/[0.03]">
-      <div class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28 grid lg:grid-cols-[0.9fr,1.1fr] gap-12 items-center">
-        <div><img src="./assets/inicio-portada.jpg" alt="Libro I" class="w-full rounded-[2rem] object-cover border border-white/10 shadow-2xl shadow-black/30" loading="lazy" /></div>
         <div>
-          <p class="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">La novela</p>
-          <h2 class="text-3xl md:text-5xl font-semibold text-white leading-tight">Libro I — El hijo del mañana</h2>
-          <p class="mt-4 text-zinc-300 text-base md:text-lg leading-relaxed">¿Qué harías si un niño apareciera en tu vida asegurando ser tu hijo… y lo más aterrador fuera descubrir que dice la verdad?</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="leer" class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
-      <p class="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">Leer gratis</p>
-      <h2 class="text-3xl md:text-5xl font-semibold text-white leading-tight">Dedicatoria, prólogo y capítulos 1 al 6</h2>
-      <p class="mt-4 text-zinc-300 text-base md:text-lg leading-relaxed max-w-3xl">Formato editorial completo. Lee los primeros capítulos de la novela directamente aquí.</p>
-
-      <div class="space-y-10 mt-10">
-        <article id="prologo" class="scroll-mt-24 rounded-[2rem] overflow-hidden border border-white/10 ring">
-          <div class="px-6 md:px-10 py-6 bg-gradient-to-r from-black/70 to-zinc-900/70 border-b border-white/10">
-            <span class="inline-flex rounded-full border border-amber-300/30 bg-amber-300/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-amber-200">Prólogo</span>
-            <h3 class="mt-3 text-2xl md:text-3xl font-semibold text-white">Prólogo</h3>
-          </div>
-          <div class="bg-[#0d0d15] px-6 md:px-14 py-12 md:py-16">
-            <div class="max-w-2xl mx-auto chapter">
-              <p>«Echar de menos a alguien que no conoces es una forma de locura que no tiene diagnóstico». —CC</p>
-              <p>Hay ausencias que no dejan fotografías. No tienen fecha ni entierro. Y, sin embargo, pesan más que los muertos con nombre.</p>
-            </div>
-          </div>
-        </article>
-
-        <article id="cap1" class="scroll-mt-24 rounded-[2rem] overflow-hidden border border-white/10 ring">
-          <div class="px-6 md:px-10 py-6 bg-gradient-to-r from-black/70 to-zinc-900/70 border-b border-white/10">
-            <span class="inline-flex rounded-full border border-amber-300/30 bg-amber-300/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-amber-200">Capítulo 1</span>
-            <h3 class="mt-3 text-2xl md:text-3xl font-semibold text-white">Todavía no ha pasado</h3>
-            <p class="mt-2 loc">Lunes · 08:15 h · Calle La Unión · Málaga · 2026</p>
-          </div>
-          <div class="bg-[#0d0d15] px-6 md:px-14 py-12 md:py-16">
-            <div class="max-w-2xl mx-auto chapter">
-              <p>Hay exactamente dos momentos en la vida de todo hombre en los que el tiempo se detiene de verdad: cuando alguien te dice que vas a ser padre y cuando te lo reclama un niño al que nunca has visto.</p>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="galeria" class="border-y border-white/10 bg-white/[0.03]">
-      <div class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
-        <p class="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">Galería</p>
-        <h2 class="text-3xl md:text-5xl font-semibold text-white leading-tight">Presentación del libro</h2>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mt-12">
-          <a href="./assets/galeria-1.jpg.jpeg" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="./assets/galeria-1.jpg.jpeg" alt="Presentación 1" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></a>
-          <a href="./assets/galeria-2.jpg.jpg" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="./assets/galeria-2.jpg.jpg" alt="Presentación 2" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></a>
-          <a href="./assets/galeria-3.jpg.jpg" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="./assets/galeria-3.jpg.jpg" alt="Presentación 3" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></a>
-          <a href="./assets/galeria4 .jpg.jpeg" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="./assets/galeria4 .jpg.jpeg" alt="Presentación 4" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></a>
-          <a href="./assets/galeria-5.jpg.jpeg" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="./assets/galeria-5.jpg.jpeg" alt="Presentación 5" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></a>
-          <a href="./assets/galeria-6.jpg.jpg" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="./assets/galeria-6.jpg.jpg" alt="Presentación 6" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></a>
-          <a href="./assets/galeria-7.jpg.jpeg" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="./assets/galeria-7.jpg.jpeg" alt="Presentación 7" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></a>
-        </div>
-      </div>
-    </section>
-
-    <section id="personajes" class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
-      <p class="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">Personajes</p>
-      <h2 class="text-3xl md:text-5xl font-semibold text-white leading-tight">Así podría verse el universo humano de la novela</h2>
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mt-12">
-        <a href="./assets/personaje-01.jpg" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="./assets/personaje-01.jpg" alt="Personaje 1" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></a>
-        <a href="./assets/personaje-1.jpg.jpg" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="./assets/personaje-1.jpg.jpg" alt="Personaje 2" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></a>
-        <a href="./assets/personaje-2.jpg.jpg" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="./assets/personaje-2.jpg.jpg" alt="Personaje 3" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></a>
-        <a href="./assets/personaje-3.jpg.jpg" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="./assets/personaje-3.jpg.jpg" alt="Personaje 4" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></a>
-        <a href="./assets/personaje-4.jpg.jpg" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="./assets/personaje-4.jpg.jpg" alt="Personaje 5" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></a>
-        <a href="./assets/personaje-5.jpg.jpg" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="./assets/personaje-5.jpg.jpg" alt="Personaje 6" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></a>
-        <a href="./assets/personaje-6.jpg.png" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="./assets/personaje-6.jpg.png" alt="Personaje 7" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></a>
-        <a href="./assets/personaje-8.jpg.jpg" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="./assets/personaje-8.jpg.jpg" alt="Personaje 8" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></a>
-        <a href="./assets/personaje-9.jpg.jpg" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="./assets/personaje-9.jpg.jpg" alt="Personaje 9" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></a>
-        <a href="./assets/personaje-10.png" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="./assets/personaje-10.png" alt="Personaje 10" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></a>
-        <a href="./assets/personaje-11.jpg" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="./assets/personaje-11.jpg" alt="Personaje 11" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></a>
-        <a href="./assets/personaje-12.png" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="./assets/personaje-12.png" alt="Personaje 12" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></a>
-        <a href="./assets/personaje-13.png" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="./assets/personaje-13.png" alt="Personaje 13" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></a>
-      </div>
-    </section>
-
-    <section id="video" class="border-y border-white/10 bg-white/[0.03]">
-      <div class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
-        <p class="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">Vídeo</p>
-        <h2 class="text-3xl md:text-5xl font-semibold text-white leading-tight">Booktrailer / presentación</h2>
-        <div class="mt-12 rounded-[2rem] overflow-hidden border border-white/10 bg-black/30 shadow-2xl shadow-black/30">
-          <div class="aspect-video w-full">
-            <iframe class="w-full h-full" src="https://www.youtube.com/embed/ADlNpdwBY0o" title="Vídeo PRIMERO LOVE YOU" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <p style="font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:#fde68a;margin:0 0 10px">La novela</p>
+          <h2 style="font-size:clamp(2rem,4vw,3.5rem);line-height:1.02;margin:0;color:#fff">Libro I — El hijo del mañana</h2>
+          <p class="muted" style="margin-top:18px;font-size:17px;line-height:1.8">¿Qué harías si un niño apareciera en tu vida asegurando ser tu hijo… y lo más aterrador fuera descubrir que dice la verdad? <strong>PRIMERO LOVE YOU</strong> abre una historia donde el amor, el tiempo y lo imposible se miran de frente.</p>
+          <div class="grid grid-2" style="margin-top:28px;gap:14px">
+            <div class="card" style="padding:18px;background:rgba(0,0,0,.18)"><strong>Amor</strong><p class="small" style="margin:8px 0 0">El centro emocional de una historia intensa.</p></div>
+            <div class="card" style="padding:18px;background:rgba(0,0,0,.18)"><strong>Tiempo</strong><p class="small" style="margin:8px 0 0">Pasado, presente y futuro empujando juntos.</p></div>
+            <div class="card" style="padding:18px;background:rgba(0,0,0,.18)"><strong>Misterio</strong><p class="small" style="margin:8px 0 0">Nada es exactamente lo que parece.</p></div>
+            <div class="card" style="padding:18px;background:rgba(0,0,0,.18)"><strong>Málaga</strong><p class="small" style="margin:8px 0 0">Una atmósfera real y evocadora.</p></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="comprar" class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
-      <div class="grid xl:grid-cols-[1.3fr,0.7fr] gap-10">
-        <div id="resenas">
-          <p class="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">Opiniones de lectores</p>
-          <h2 class="text-3xl md:text-5xl font-semibold text-white leading-tight">Lo que dicen quienes lo han leído</h2>
-          <p class="mt-4 text-zinc-300 text-base md:text-lg leading-relaxed max-w-3xl">Reseñas verificadas de Amazon.</p>
+    <section id="leer" class="section">
+      <div class="wrap">
+        <p style="font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:#fde68a;margin:0 0 10px">Leer gratis</p>
+        <h2 style="font-size:clamp(2rem,4vw,3.5rem);line-height:1.02;margin:0;color:#fff">Dedicatoria, prólogo y capítulos 1 al 6</h2>
+        <p class="muted" style="margin-top:16px;max-width:760px;font-size:17px;line-height:1.8">Formato editorial completo. Lee los primeros capítulos de la novela directamente aquí.</p>
+
+        <details style="margin-top:28px">
+          <summary>Menú rápido de capítulos</summary>
+          <div class="grid grid-3" style="margin-top:16px">
+            <a class="tag" href="#dedicatoria">✦ Dedicatoria</a>
+            <a class="tag" href="#prologo">✦ Prólogo</a>
+            <a class="tag" href="#cap1">Cap. 1 · Todavía no ha pasado</a>
+            <a class="tag" href="#cap2">Cap. 2 · La Grieta</a>
+            <a class="tag" href="#cap3">Cap. 3 · El Código</a>
+            <a class="tag" href="#cap4">Cap. 4 · El Pulso del Pasado</a>
+            <a class="tag" href="#cap5">Cap. 5 · El Puente al Ayer</a>
+            <a class="tag" href="#cap6">Cap. 6 · En una hora</a>
+          </div>
+        </details>
+
+        <div style="margin-top:24px" class="grid">
+          <article id="dedicatoria" class="chapter-card">
+            <div class="chapter-head"><span class="badge">Apertura</span><h3 style="margin:12px 0 0;font-size:28px;color:#fff">Dedicatoria</h3></div>
+            <div class="chapter-body"><div class="chapter" style="max-width:760px;margin:0 auto;text-align:center;font-style:italic"><p>A la memoria de mi padre,</p><p>que me enseñó el valor del tiempo</p><p>antes de que yo entendiera que podía perderlo.</p></div></div>
+            <div class="chapter-foot"><a class="btn btn-outline" href="#prologo">Prólogo →</a></div>
+          </article>
+
+          <article id="prologo" class="chapter-card">
+            <div class="chapter-head"><span class="badge">Prólogo</span><h3 style="margin:12px 0 0;font-size:28px;color:#fff">Prólogo</h3></div>
+            <div class="chapter-body"><div class="chapter" style="max-width:760px;margin:0 auto"><p>«Echar de menos a alguien que no conoces es una forma de locura que no tiene diagnóstico». —CC</p><p>Hay ausencias que no dejan fotografías. No tienen fecha ni entierro. Y, sin embargo, pesan más que los muertos con nombre.</p><p>Durante años pensé que lo que me dolía era el pasado. Me equivoqué. Lo que me dolía era algo que aún no había ocurrido.</p><p>El tiempo no es una línea recta. Eso lo dicen los físicos cuando quieren parecer valientes. El tiempo es un animal herido que siempre vuelve al lugar donde sangró.</p><p>Empezó un lunes de febrero, con el café todavía humeando en la taza y un niño de ocho años mirándome desde una silla diminuta con los ojos que eran los míos.</p></div></div>
+            <div class="chapter-foot"><a class="btn btn-outline" href="#dedicatoria">← Dedicatoria</a><a class="btn btn-primary" href="#cap1">Capítulo 1 →</a></div>
+          </article>
+
+          <article id="cap1" class="chapter-card">
+            <div class="chapter-head"><span class="badge">Capítulo 1</span><h3 style="margin:12px 0 0;font-size:28px;color:#fff">Todavía no ha pasado</h3><p class="loc">Lunes · 08:15 h · Calle La Unión · Málaga · 2026</p></div>
+            <div class="chapter-body"><div class="chapter" style="max-width:760px;margin:0 auto"><p>Hay exactamente dos momentos en la vida de todo hombre en los que el tiempo se detiene de verdad: cuando alguien te dice que vas a ser padre y cuando te lo reclama un niño al que nunca has visto. A mí me tocaron los dos el mismo día. Y ninguno era posible.</p><p>El silencio en mi apartamento de la calle La Unión no era simple vacío. Era una entidad viva, pesada como el plomo fundido, instalada en cada rincón con la persistencia de un invitado no deseado.</p><p>La cafetera italiana emitió su gorgoteo final. El café brotó negro como la brea. Espeso. Amargo. Sin azúcar. El combustible necesario.</p><p>El iPhone vibró sobre la encimera de granito. El nombre en pantalla me sacó la primera sonrisa genuina en días: Toni.</p><p>—Buenos días. ¿Es el señor Christian Herrmann? —La voz era joven, clara, con ese acento malagueño cálido que te desarma sin que te des cuenta.</p><p>—Soy yo.</p><p>—Soy Silvia, la tutora de segundo de primaria en el CEIP García Lorca. Necesitamos que venga lo antes posible. Su hijo se ha alterado mucho y no pregunta más que por usted. Dice que no se calmará hasta que llegue su papá.</p><p>—¿Mi… hijo? —balbuceé—. Debe haber un error. No tengo hijos.</p><p>—El teléfono registrado es este, Christian. Y el niño insiste. Se llama como usted. Dice que es su «pequeño CC2». ¿Podría venir, aunque sea para aclarar el malentendido?</p></div></div>
+            <div class="chapter-foot"><a class="btn btn-outline" href="#prologo">← Prólogo</a><a class="btn btn-primary" href="#cap2">Capítulo 2 →</a></div>
+          </article>
+
+          <article id="cap2" class="chapter-card">
+            <div class="chapter-head"><span class="badge">Capítulo 2</span><h3 style="margin:12px 0 0;font-size:28px;color:#fff">La Grieta</h3><p class="loc">Lunes · 10:55 h · Colegio García Lorca</p></div>
+            <div class="chapter-body"><div class="chapter" style="max-width:760px;margin:0 auto"><p>Bajé las escaleras con el dibujo doblado en el bolsillo interior de la chaqueta de piel: una granada a punto de detonar. Cada crujido del papel contra el cuero era un recordatorio punzante: aquello no había salido de mi cabeza. Era real.</p><p>La docente me acompañó hasta la salida principal. Su voz me clavó en el sitio.</p><p>—Christian… ¿De verdad no tienes idea de quién es?</p><p>—No tengo hijos. Te lo juro por lo que más quieras —respondí, aunque mi voz había perdido contundencia.</p><p>Ese «sin más» resonó como una promesa velada. —Gracias —articulé con voz ronca—. Te avisaré si descifro esta broma cósmica.</p><p>Enfilé hacia Huelin. La playa estaba casi vacía. Noa corría libre por la arena y yo la seguía con los ojos mientras el mar hacía su trabajo eterno.</p></div></div>
+            <div class="chapter-foot"><a class="btn btn-outline" href="#cap1">← Cap. 1</a><a class="btn btn-primary" href="#cap3">Capítulo 3 →</a></div>
+          </article>
+
+          <article id="cap3" class="chapter-card">
+            <div class="chapter-head"><span class="badge">Capítulo 3</span><h3 style="margin:12px 0 0;font-size:28px;color:#fff">El Código</h3><p class="loc">Lunes · 18:30 h · Calle La Unión</p></div>
+            <div class="chapter-body"><div class="chapter" style="max-width:760px;margin:0 auto"><p>Me apoyé en la barandilla y dejé que el aire frío me golpeara la cara. Tenía que hablar con alguien; no podía guardarme esto a solas. Marqué el número de mi madre.</p><p>—¿Christian? ¿Todo bien, hijo?</p><p>—No, la verdad es que no. Ha pasado algo muy raro hoy.</p><p>—Tu padre siempre decía eso ante cualquier problema: «Todavía no ha pasado». Decía que, mientras no hubiera ocurrido del todo, todavía podíamos cambiar el final.</p><p>En el dormitorio abrí una caja marcada como «Cosas de papá para Christian».</p><p>Al recoger una nota doblada, leí: <em>Para mi Christianito. El futuro es una posibilidad. Recuerda: todavía no ha pasado.</em></p></div></div>
+            <div class="chapter-foot"><a class="btn btn-outline" href="#cap2">← Cap. 2</a><a class="btn btn-primary" href="#cap4">Capítulo 4 →</a></div>
+          </article>
+
+          <article id="cap4" class="chapter-card">
+            <div class="chapter-head"><span class="badge">Capítulo 4</span><h3 style="margin:12px 0 0;font-size:28px;color:#fff">El Pulso del Pasado</h3><p class="loc">Lunes · 20:57 h · Calle La Unión</p></div>
+            <div class="chapter-body"><div class="chapter" style="max-width:760px;margin:0 auto"><p>El tatuaje seguía picándome. Decidí llamar a Annette, mi tatuadora de <em>Ikigaink Experience</em>. Contestó rápido.</p><p>—Ven al estudio ahora mismo. No te entretengas. Aquí te espero.</p><p>Annette no necesitaba que el espacio le diese la bienvenida; ella lo decidía.</p><p>Pero junto a la camilla, con unos bocetos entre las manos y la espalda hacia la puerta, estaba ella. Iris. Ocho meses sin hablar.</p><p>—Christian —dijo, y mi nombre en su boca sonó a herida abierta y a vendaje a la vez—. Sigues igual teniendo esa presencia perturbadora… ¿Qué te ha pasado en el brazo?</p></div></div>
+            <div class="chapter-foot"><a class="btn btn-outline" href="#cap3">← Cap. 3</a><a class="btn btn-primary" href="#cap5">Capítulo 5 →</a></div>
+          </article>
+
+          <article id="cap5" class="chapter-card">
+            <div class="chapter-head"><span class="badge">Capítulo 5</span><h3 style="margin:12px 0 0;font-size:28px;color:#fff">El Puente al Ayer</h3><p class="loc">Martes · 08:00 h · Calle La Unión</p></div>
+            <div class="chapter-body"><div class="chapter" style="max-width:760px;margin:0 auto"><p>El martes amaneció con cielo eléctrico sobre Málaga. Puse la radio. Sonaba Sabina: <em>Peces de ciudad</em>. Hoy tocaba rojo.</p><p>El niño —CC2— estaba en su sitio habitual, concentrado en un folio nuevo. Al verme, se levantó con una parsimonia que no correspondía a su edad.</p><p>—Papá —dijo con voz plana y ojos brillantes—. Hoy es el día.</p><p>Antes de que pudiera responder, el fluorescente del techo empezó a parpadear.</p><p>El aula mutó delante de nuestros ojos. Las paredes se tiñeron de sepia y neón. Afuera, por la ventana, ya no se veía la calle Alemania con coches modernos. Pasó un SEAT 124 rojo.</p><p>Septiembre de 1986.</p><p>Mi padre y Marie se miraron por primera vez.</p><p>—<em>Primero Love You</em>, Marie —dijo él.</p><p>—<em>Primero Love You</em>. También —respondió ella.</p></div></div>
+            <div class="chapter-foot"><a class="btn btn-outline" href="#cap4">← Cap. 4</a><a class="btn btn-primary" href="#cap6">Capítulo 6 →</a></div>
+          </article>
+
+          <article id="cap6" class="chapter-card">
+            <div class="chapter-head"><span class="badge">Capítulo 6</span><h3 style="margin:12px 0 0;font-size:28px;color:#fff">En una hora</h3><p class="loc">Martes · 12:30 h · GOfit Huelin</p></div>
+            <div class="chapter-body"><div class="chapter" style="max-width:760px;margin:0 auto"><p>Fui al GOfit Huelin. Cuarenta minutos de brazadas no resuelven nada, pero ordenan el ruido. Era suficiente por ahora.</p><p>Saqué el móvil. La llamada perdida de Iris parpadeaba en la pantalla. Contestó al segundo tono. Sin drama. Sin reproche.</p><p>—Hola —dijo, sin más.</p><p>—Necesito verte. Hoy, si puedes.</p><p>—A las 16:00 horas. El café de la esquina de Juan XXIII.</p><p>Iris escuchaba sin interrumpir, con los ojos fijos en los míos.</p><p>—¿Estás enamorado de ella? —preguntó.</p><p>—No lo sé. Y eso me aterra.</p><p>Silvia tutora · 17:43 — Christian. El niño preguntó algo hoy difícil de interpretar. Me miró y dijo: «Dile a papá que la nota todavía no está entera».</p></div></div>
+            <div class="chapter-foot"><a class="btn btn-outline" href="#cap5">← Cap. 5</a><a class="btn btn-primary" href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer">Comprar libro completo</a></div>
+          </article>
+
         </div>
-        <aside class="rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/6 to-white/[0.03] p-6 md:p-8 h-fit ring">
-          <div class="inline-flex items-center gap-2 rounded-full border border-amber-300/30 bg-amber-300/10 px-4 py-1.5 text-[11px] uppercase tracking-[0.35em] text-amber-100">Compra física en Málaga</div>
-          <h3 class="mt-4 flex items-center gap-2 text-2xl font-semibold text-white">Librerías Proteo Prometeo</h3>
-          <p class="mt-2 text-sm text-zinc-300">Tu ejemplar también puede comprarse físicamente en uno de los puntos libreros más reconocidos de Málaga.</p>
+
+        <div class="card" style="margin-top:26px;padding:22px;background:linear-gradient(90deg,rgba(251,191,36,.12),rgba(255,255,255,.04),rgba(255,255,255,.03))">
+          <p style="font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:#fde68a;margin:0 0 10px">¿Quieres seguir leyendo?</p>
+          <h3 style="font-size:clamp(1.5rem,3vw,2.25rem);margin:0;color:#fff">Si te está gustando la historia, llévate el libro completo</h3>
+          <p class="muted" style="margin:12px 0 0;max-width:800px">Después de estos capítulos de muestra, puedes continuar la lectura completa comprando en Amazon o localizar un ejemplar físico en Málaga.</p>
+          <div class="menu" style="margin-top:18px">
+            <a class="btn btn-primary" href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer">Comprar en Amazon</a>
+            <a class="btn btn-outline" href="#comprar">📍 Ver compra física en Málaga</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria" class="section" style="background:rgba(255,255,255,.03);border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1)">
+      <div class="wrap">
+        <p style="font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:#fde68a;margin:0 0 10px">Galería</p>
+        <h2 style="font-size:clamp(2rem,4vw,3.5rem);line-height:1.02;margin:0;color:#fff">Presentación del libro</h2>
+        <p class="muted" style="margin-top:14px;max-width:760px;font-size:17px;line-height:1.8">Fotos reales del evento de presentación.</p>
+        <div class="grid grid-4" style="margin-top:26px">
+          <a class="card" href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-1.jpg.jpeg?token=EBzDHYgJElrUMVV59rso12meEHKx7lv-DRug5WSIksg&exp=1784024298" target="_blank" rel="noreferrer"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-1.jpg.jpeg?token=EBzDHYgJElrUMVV59rso12meEHKx7lv-DRug5WSIksg&exp=1784024298" alt="Presentación 1" class="img" /></a>
+          <a class="card" href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-2.jpg.jpg?token=VvzJ1NPX070_Kf0-Zf5od1cUwwQo8jicStlLROsOaQU&exp=1784024298" target="_blank" rel="noreferrer"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-2.jpg.jpg?token=VvzJ1NPX070_Kf0-Zf5od1cUwwQo8jicStlLROsOaQU&exp=1784024298" alt="Presentación 2" class="img" /></a>
+          <a class="card" href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-3.jpg.jpg?token=rEcecPUH2HYGXXM5d5UfFMBUyTw6KjiS1_fcWYkZ3T0&exp=1784024298" target="_blank" rel="noreferrer"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-3.jpg.jpg?token=rEcecPUH2HYGXXM5d5UfFMBUyTw6KjiS1_fcWYkZ3T0&exp=1784024298" alt="Presentación 3" class="img" /></a>
+          <a class="card" href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria4_.jpg.jpeg?token=HTsr0YLSyxscTJSeg-LHFn_-gR1tZJxeAmCy43JMKlw&exp=1784024298" target="_blank" rel="noreferrer"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria4_.jpg.jpeg?token=HTsr0YLSyxscTJSeg-LHFn_-gR1tZJxeAmCy43JMKlw&exp=1784024298" alt="Presentación 4" class="img" /></a>
+          <a class="card" href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-5.jpg.jpeg?token=lT5Ag8rg5AkpUBTLcLUIc0S9DHcbWAb0xf46djl03nY&exp=1784024298" target="_blank" rel="noreferrer"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-5.jpg.jpeg?token=lT5Ag8rg5AkpUBTLcLUIc0S9DHcbWAb0xf46djl03nY&exp=1784024298" alt="Presentación 5" class="img" /></a>
+          <a class="card" href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-6.jpg.jpg?token=TfEwsd8RCLYZn0wcYgYEND_34_fxwruMf6m50y6UBnk&exp=1784024298" target="_blank" rel="noreferrer"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-6.jpg.jpg?token=TfEwsd8RCLYZn0wcYgYEND_34_fxwruMf6m50y6UBnk&exp=1784024298" alt="Presentación 6" class="img" /></a>
+          <a class="card" href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-7.jpg.jpeg?token=y59ZbJnM2fvrO3P8e7BDBoEk9Q4WY6iKO6erdOtiq1A&exp=1784024298" target="_blank" rel="noreferrer"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-7.jpg.jpeg?token=y59ZbJnM2fvrO3P8e7BDBoEk9Q4WY6iKO6erdOtiq1A&exp=1784024298" alt="Presentación 7" class="img" /></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="personajes" class="section">
+      <div class="wrap">
+        <p style="font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:#fde68a;margin:0 0 10px">Personajes imaginados</p>
+        <h2 style="font-size:clamp(2rem,4vw,3.5rem);line-height:1.02;margin:0;color:#fff">Así podría verse el universo humano de la novela</h2>
+        <p class="muted" style="margin-top:14px;max-width:760px;font-size:17px;line-height:1.8">Una galería visual inspirada en los personajes de PRIMERO LOVE YOU.</p>
+        <div class="grid grid-4" style="margin-top:26px">
+          <img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-01.jpg?token=QNZNUZXKqgACAZauI6inxMrrxEkk0XxNAejxXtupYPU&exp=1784024298" alt="Personaje 1" class="card img" />
+          <img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-1.jpg.jpg?token=702Efn3ydTc9e-CXyj6Pg2Wl8VNzuICIcOQ1bljWf88&exp=1784024298" alt="Personaje 2" class="card img" />
+          <img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-2.jpg.jpg?token=uTw3_qfWRShWu_5h51dX4Y_7aDON4ogCR2x4Q4SYP6A&exp=1784024298" alt="Personaje 3" class="card img" />
+          <img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-3.jpg.jpg?token=1EqFqj4BfxvTmmJgpCD1ZnxF9KRjyRBhSaAgelyxPFI&exp=1784024298" alt="Personaje 4" class="card img" />
+          <img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-4.jpg.jpg?token=DqCvVy_3Y6v7Wo2ula3iyKnP7rxHoS2D9pIPy84vVk8&exp=1784024298" alt="Personaje 5" class="card img" />
+          <img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-5.jpg.jpg?token=JkyfyK9FSD2HxSdBIi-g1waEt4RfxB0pzvIGNpgS1ck&exp=1784024298" alt="Personaje 6" class="card img" />
+          <img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-6.jpg.png?token=KZ4opZXQ2kvR9bkKM9LI5_274V3htyz9zO_TATQRUac&exp=1784024298" alt="Personaje 7" class="card img" />
+          <img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-8.jpg.jpg?token=p0V237QnUAIWMQrQXTDIaoB78JYfIKh5uiXt3IUYRns&exp=1784024298" alt="Personaje 8" class="card img" />
+          <img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-9.jpg.jpg?token=43AMuXIZ-KzGWSfEubmHjiu1jvIEEY2KmMAnIv4t9hI&exp=1784024298" alt="Personaje 9" class="card img" />
+          <img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-10.png?token=dL4sXIeIsT5HqSaPpjIdJ9DYtN4oajw9V6DV_H8rhKI&exp=1784024298" alt="Personaje 10" class="card img" />
+          <img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-11.jpg?token=m-gAjKeBBkFX4Cw4HAPBsI-J_B8qq_3YaSb8zaszxoc&exp=1784024298" alt="Personaje 11" class="card img" />
+          <img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-12.png?token=M2GrhanCsFm9KV2bQPgE5v2LDhcClHRNllgOnkTJ4vw&exp=1784024298" alt="Personaje 12" class="card img" />
+          <img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-13.png?token=10FOoFtCbTislXboi4P4cW37BDAmwqyJtaAJYCzzAm8&exp=1784024298" alt="Personaje 13" class="card img" />
+        </div>
+      </div>
+    </section>
+
+    <section id="video" class="section" style="background:rgba(255,255,255,.03);border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1)">
+      <div class="wrap">
+        <p style="font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:#fde68a;margin:0 0 10px">Vídeo</p>
+        <h2 style="font-size:clamp(2rem,4vw,3.5rem);line-height:1.02;margin:0;color:#fff">Booktrailer / presentación</h2>
+        <p class="muted" style="margin-top:14px;max-width:760px;font-size:17px;line-height:1.8">Descubre el universo visual de PRIMERO LOVE YOU.</p>
+        <div class="card" style="margin-top:26px;overflow:hidden">
+          <div style="position:relative;width:100%;padding-top:56.25%"><iframe src="https://www.youtube.com/embed/ADlNpdwBY0o" title="Vídeo PRIMERO LOVE YOU" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe></div>
+        </div>
+        <div style="margin-top:18px"><a class="btn btn-outline" href="https://youtube.com/shorts/ADlNpdwBY0o" target="_blank" rel="noreferrer">▶ Abrir vídeo en YouTube</a></div>
+      </div>
+    </section>
+
+    <section id="resenas" class="section">
+      <div class="wrap grid grid-2">
+        <div>
+          <p style="font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:#fde68a;margin:0 0 10px">Opiniones de lectores</p>
+          <h2 style="font-size:clamp(2rem,4vw,3.5rem);line-height:1.02;margin:0;color:#fff">Lo que dicen quienes lo han leído</h2>
+          <p class="muted" style="margin-top:14px;max-width:760px;font-size:17px;line-height:1.8">Reseñas verificadas de Amazon.</p>
+          <div class="grid grid-2" style="margin-top:24px">
+            <div class="card" style="padding:18px"><div>★★★★★</div><p style="color:#fde68a;font-weight:700;margin:8px 0 4px">Jose Maria</p><p class="small">4 jul 2026</p><p style="font-weight:700;color:#fff">¡Una joya de suspense y magnetismo!</p><p class="small" style="color:#d4d4d8">Adictivo de principio a fin.</p></div>
+            <div class="card" style="padding:18px"><div>★★★★★</div><p style="color:#fde68a;font-weight:700;margin:8px 0 4px">Alex</p><p class="small">22 may 2026</p><p style="font-weight:700;color:#fff">Me ha sorprendido muchísimo</p><p class="small" style="color:#d4d4d8">La historia tiene misterio, drama y ganas de seguir leyendo.</p></div>
+            <div class="card" style="padding:18px"><div>★★★★★</div><p style="color:#fde68a;font-weight:700;margin:8px 0 4px">Lola Perez Chia</p><p class="small">10 jun 2026</p><p style="font-weight:700;color:#fff">Capacidad de descripción</p><p class="small" style="color:#d4d4d8">Narrativa muy peculiar. Esperando segunda parte.</p></div>
+            <div class="card" style="padding:18px"><div>★★★★★</div><p style="color:#fde68a;font-weight:700;margin:8px 0 4px">Noe</p><p class="small">30 may 2026</p><p style="font-weight:700;color:#fff">Un gran libro de un gran amigo</p><p class="small" style="color:#d4d4d8">La historia comienza con fuerza.</p></div>
+            <div class="card" style="padding:18px"><div>★★★★★</div><p style="color:#fde68a;font-weight:700;margin:8px 0 4px">pepe</p><p class="small">16 jun 2026</p><p style="font-weight:700;color:#fff">Engancha desde el primer capítulo</p><p class="small" style="color:#d4d4d8">Lo he terminado en nada, deseando la segunda parte.</p></div>
+            <div class="card" style="padding:18px"><div>★★★★★</div><p style="color:#fde68a;font-weight:700;margin:8px 0 4px">Pilar</p><p class="small">17 may 2026</p><p style="font-weight:700;color:#fff">La ciudad de Málaga y El Perchel le dan una ambientación muy especial</p><p class="small" style="color:#d4d4d8">Se lee con mucha facilidad.</p></div>
+          </div>
+          <div class="menu" style="margin-top:18px">
+            <a class="btn btn-primary" href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer">Comprar ahora en Amazon</a>
+            <a class="btn btn-outline" href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer">Ver todas las reseñas</a>
+          </div>
+        </div>
+        <aside class="card" style="padding:24px;background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03))">
+          <div class="badge" style="margin-bottom:12px">📍 Compra física en Málaga</div>
+          <h3 style="font-size:2rem;margin:8px 0 12px;color:#fff">Librerías Proteo Prometeo</h3>
+          <p class="muted">Tu ejemplar también puede comprarse físicamente en uno de los puntos libreros más reconocidos de Málaga.</p>
+          <div class="card" style="margin-top:18px;padding:18px;background:rgba(0,0,0,.18)">
+            <strong>Dirección</strong>
+            <p class="small" style="margin:8px 0 0;color:#d4d4d8">C. Prta Buenaventura, 3<br/>Distrito Centro, 29008 Málaga</p>
+            <p class="small" style="margin:12px 0 0">Teléfono: <a href="tel:+34952219019" style="color:#fde68a">952 21 90 19</a></p>
+          </div>
+          <div class="menu" style="margin-top:18px">
+            <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Librerias+Proteo+Prometeo+Malaga" target="_blank" rel="noreferrer">📍 Ver en Google Maps</a>
+            <a class="btn btn-outline" href="tel:+34952219019">📞 Llamar ahora</a>
+          </div>
         </aside>
       </div>
     </section>
 
-    <section id="contacto" class="border-t border-white/10 bg-black/20">
-      <div class="max-w-7xl mx-auto px-4 md:px-6 py-14">
-        <p class="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">Contacto y redes</p>
-        <h2 class="text-3xl md:text-5xl font-semibold text-white leading-tight">Christian C. D'Rosoy</h2>
-        <p class="mt-4 text-zinc-300 text-base md:text-lg leading-relaxed max-w-3xl">Correo y redes sociales oficiales del proyecto.</p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="mailto:christiancdrosoy@hotmail.com" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white hover:bg-white/8 transition-colors">✉ Correo</a>
-          <a href="https://www.instagram.com/primeroloveyou_libro?igsh=YTJhOWJ6M2Fkc2Ru&utm_source=qr" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white hover:bg-white/8 transition-colors">Instagram</a>
-          <a href="https://www.facebook.com/share/g/163orYLTEDm/?mibextid=wwXIfr" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white hover:bg-white/8 transition-colors">Facebook</a>
-          <a href="https://www.tiktok.com/@primeroloveyou_libro?_r=1&_t=ZN-97yLDwzYbXn" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white hover:bg-white/8 transition-colors">TikTok</a>
-          <a href="https://youtube.com/shorts/ADlNpdwBY0o" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white hover:bg-white/8 transition-colors">YouTube</a>
+    <section id="comprar" class="section" style="background:rgba(255,255,255,.03);border-top:1px solid rgba(255,255,255,.1)">
+      <div class="wrap">
+        <div class="card" style="padding:24px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03))">
+          <h2 style="font-size:2rem;margin:0 0 12px;color:#fff">Compra física en Málaga</h2>
+          <p class="muted" style="margin:0 0 14px">Tu ejemplar también puede comprarse físicamente en uno de los puntos libreros más reconocidos de Málaga.</p>
+          <p style="margin:0 0 8px"><strong>Librerías Proteo Prometeo</strong></p>
+          <p class="muted" style="margin:0 0 14px">C. Prta Buenaventura, 3<br/>Distrito Centro, 29008 Málaga</p>
+          <a class="btn btn-primary" href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer">Comprar ahora en Amazon</a>
         </div>
-        <div class="mt-10 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
-          <div>
-            <p class="font-semibold text-white">© 2026 Christian C. D'Rosoy</p>
-            <p class="text-sm text-zinc-400 mt-1">PRIMERO LOVE YOU · Libro I · Trilogía oficial · Ediciones 52.1 · Málaga, España</p>
-          </div>
-          <a href="#inicio" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white hover:bg-white/8 transition-colors">↑ Volver arriba</a>
+      </div>
+    </section>
+
+    <section id="contacto" class="footer">
+      <div class="wrap">
+        <p style="font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:#fde68a;margin:0 0 10px">Contacto y redes</p>
+        <h2 style="font-size:clamp(2rem,4vw,3.5rem);line-height:1.02;margin:0;color:#fff">Christian C. D'Rosoy</h2>
+        <p class="muted" style="margin-top:14px;max-width:760px;font-size:17px;line-height:1.8">Correo y redes sociales oficiales del proyecto.</p>
+        <div class="menu" style="margin-top:18px">
+          <a class="tag" href="mailto:christiancdrosoy@hotmail.com">✉ Correo</a>
+          <a class="tag" href="https://www.instagram.com/primeroloveyou_libro?igsh=YTJhOWJ6M2Fkc2Ru&utm_source=qr" target="_blank" rel="noreferrer">Instagram</a>
+          <a class="tag" href="https://www.facebook.com/share/g/163orYLTEDm/?mibextid=wwXIfr" target="_blank" rel="noreferrer">Facebook</a>
+          <a class="tag" href="https://www.tiktok.com/@primeroloveyou_libro?_r=1&_t=ZN-97yLDwzYbXn" target="_blank" rel="noreferrer">TikTok</a>
+          <a class="tag" href="https://youtube.com/shorts/ADlNpdwBY0o" target="_blank" rel="noreferrer">YouTube</a>
         </div>
+        <p class="small" style="margin-top:18px">© 2026 Christian C. D'Rosoy · PRIMERO LOVE YOU · Libro I · Trilogía oficial · Ediciones 52.1 · Málaga, España</p>
       </div>
     </section>
   </main>
