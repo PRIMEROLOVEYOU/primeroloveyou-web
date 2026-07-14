@@ -3,832 +3,472 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PRIMERO LOVE YOU | Trilogía oficial</title>
-  <meta name="description" content="Web oficial de PRIMERO LOVE YOU de Christian C. D'Rosoy. Capítulos gratuitos, galería, personajes, vídeo, reseñas y compra en Amazon y Málaga." />
-  <meta name="author" content="Christian C. D'Rosoy" />
+  <title>PRIMERO LOVE YOU | El hijo del mañana</title>
+  <meta name="description" content="Web oficial de PRIMERO LOVE YOU: El hijo del mañana. Romance contemporáneo, ciencia ficción y suspense emocional ambientado en Málaga." />
   <meta name="theme-color" content="#0b0b12" />
-  <meta property="og:title" content="PRIMERO LOVE YOU | El hijo del mañana" />
-  <meta property="og:description" content="Romance, ciencia ficción y suspenso emocional. Lee los primeros capítulos gratis." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_portada.png?token=xLb6PKp12qBDNWC5TGQUvqhvzA4I0KuCOhSYoek4o5g&exp=1783976268" />
-  <meta name="twitter:card" content="summary_large_image" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.7"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/@babel/standalone@7.26.10/babel.min.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.3.1",
+        "react/": "https://esm.sh/react@18.3.1/",
+        "react-dom": "https://esm.sh/react-dom@18.3.1",
+        "react-dom/": "https://esm.sh/react-dom@18.3.1/",
+        "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
+        "lucide-react": "https://esm.sh/lucide-react@0.474.0?external=react"
+      }
+    }
+  </script>
   <style>
     html { scroll-behavior: smooth; }
     body { background: #07070b; color: #f4f4f5; }
     .glass { backdrop-filter: blur(16px); background: rgba(255,255,255,.06); }
-    .hero-mask { background: linear-gradient(180deg, rgba(7,7,11,.10) 0%, rgba(7,7,11,.68) 50%, rgba(7,7,11,1) 100%); }
+    .hero-mask { background: linear-gradient(180deg, rgba(7,7,11,.15) 0%, rgba(7,7,11,.62) 55%, rgba(7,7,11,1) 100%); }
     .gold-text { background: linear-gradient(90deg,#f7e6a1,#d9b96e,#f9efd1); -webkit-background-clip:text; background-clip:text; color: transparent; }
-    .orb { filter: blur(70px); animation: floaty 14s ease-in-out infinite; }
-    .orb.b { animation-delay:-5s; } .orb.c { animation-delay:-10s; }
-    @keyframes floaty { 0%,100%{transform:translate3d(0,0,0) scale(1);} 50%{transform:translate3d(0,-20px,0) scale(1.06);} }
-    .chapter { font-family: Georgia, 'Times New Roman', serif; font-size: 1.04rem; line-height: 1.96; color: #d4d4d8; text-align: justify; hyphens: auto; }
-    .chapter p + p { margin-top: 1.45rem; }
-    .chapter p:first-of-type::first-letter { float: left; font-size: 4.2rem; line-height: .82; padding-right: .13em; padding-top: .06em; color: #d9b96e; font-weight: 700; font-family: Georgia, serif; }
-    .no-drop::first-letter { float: none !important; font-size: inherit !important; padding: 0 !important; color: inherit !important; }
-    .loc { font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:#a1a1aa; border-left:2px solid #d9b96e; padding-left:.75rem; margin-bottom:1.85rem; }
-    .sep { text-align:center; color:#d9b96e; margin:1.8rem 0; letter-spacing:.4em; font-size:.88rem; }
     .ring { box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 16px 60px rgba(0,0,0,.35); }
-    #malaga-map { min-height: 420px; }
-    .map-card { transition: transform .18s ease, border-color .18s ease, background .18s ease; }
-    .map-card:hover { transform: translateY(-2px); }
-    .map-card.active { border-color: rgba(251,191,36,.7); background: rgba(251,191,36,.08); }
-    #mobile-menu { display:none; }
-    #mobile-menu.open { display:flex; }
+    .chapter { font-family: Georgia, 'Times New Roman', serif; font-size: 1.05rem; line-height: 2; color: #d4d4d8; text-align: justify; hyphens: auto; }
+    .chapter p + p { margin-top: 1.1rem; }
+    .loc { font-size:.76rem; letter-spacing:.14em; text-transform:uppercase; color:#a1a1aa; border-left:2px solid #d9b96e; padding-left:.75rem; margin-bottom:1rem; }
+    .tag { display:inline-flex; align-items:center; gap:.45rem; border:1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.04); border-radius:9999px; padding:.5rem .85rem; font-size:.875rem; color:#e4e4e7; }
+    .img-card { overflow:hidden; border-radius: 1.5rem; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.04); }
+    .img-card img { width:100%; height:100%; object-fit:cover; display:block; }
+    .mobile-menu { display:none; }
+    .mobile-menu.open { display:flex; }
   </style>
 </head>
-<body class="selection:bg-amber-300 selection:text-black">
+<body>
+  <div id="root"></div>
 
-  <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-    <div class="orb absolute left-[-6rem] top-16 h-64 w-64 rounded-full bg-fuchsia-500/14"></div>
-    <div class="orb b absolute right-[-4rem] top-72 h-56 w-56 rounded-full bg-amber-300/12"></div>
-    <div class="orb c absolute left-1/3 bottom-24 h-72 w-72 rounded-full bg-sky-400/10"></div>
-  </div>
+  <script type="text/babel" data-type="module" data-presets="react">
+    import React, { useMemo, useState } from 'react';
+    import { createRoot } from 'react-dom/client';
+    import {
+      Menu,
+      X,
+      ArrowRight,
+      BookOpen,
+      Star,
+      Play,
+      MapPin,
+      Mail,
+      Instagram,
+      Facebook,
+      Youtube,
+      Music2,
+      Quote,
+      Sparkles,
+      ChevronDown,
+    } from 'lucide-react';
 
-  <header class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#09090f]/82 backdrop-blur-xl">
-    <div class="max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between gap-4">
-      <a href="#inicio" class="flex items-center gap-3 shrink-0">
-        <div class="w-9 h-9 rounded-full border border-amber-300/35 bg-white/5 flex items-center justify-center text-amber-300 text-lg">✦</div>
-        <div class="hidden sm:block">
-          <p class="text-sm font-semibold tracking-wide">PRIMERO LOVE YOU</p>
-          <p class="text-[10px] uppercase tracking-[0.3em] text-zinc-400">Trilogía oficial</p>
+    const heroImg = 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_inicio.jpg?token=V7tcyg8Rxq5kmpom6O28PL_v1VIZU0gRk4uw9fNIBRw&exp=1784030892';
+    const authorImg = 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_autor.jpg?token=19M3SOGHj58XSKMnI55rARaWdvon7ya_eMbp5Y6JZjU&exp=1784030892';
+    const synopsisLeft = 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_sipnosis_(1?token=52qOiEVylO0_sZDrLRU5D2-kQJSBP5w6_JvNiT9d1Jo&exp=1784030892).png';
+    const synopsisRight = 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_sipnosis_(2?token=qz_QQZAbpnAeVZZzKagLhC9bp1_qw1FK2j6PmbrBm6M&exp=1784030892).png';
+    const bookImg = heroImg;
+
+    const gallery = [
+      { src: 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-1.jpg.jpeg?token=_WXruXG0QvpbZKAVkK8jjk3fgoYURKbcD3Tq0SU-XIM&exp=1784030892', alt: 'Presentación 1' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-2.jpg.jpg?token=NLkh7Aue8p83gU6jjrS_26iNvyvLZ5boymt3tjbesJs&exp=1784030892', alt: 'Presentación 2' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-3.jpg.jpg?token=Z33Vj4NB-EyZclJO7mGaxzWm_FF8z04KZeBaPztZScE&exp=1784030892', alt: 'Presentación 3' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria4_.jpg.jpeg?token=CA3C3nTl-JzItWDhFElLOBRgeiPKA4zOfxnGcreR5vs&exp=1784030892', alt: 'Presentación 4' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-5.jpg.jpeg?token=6WCc5xy3EzxwclXASnjcynMqTJ8arnLPrwferaV6bYM&exp=1784030892', alt: 'Presentación 5' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-6.jpg.jpg?token=RlsZaFZwRUQkHNIbDNxI0FYbBd2iN-m5CgsvciSIuYU&exp=1784030892', alt: 'Presentación 6' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-7.jpg.jpeg?token=9G9ec567OzmAJUE2Wnas8IrEdKsHwr5lXovFrUfL1Fw&exp=1784030892', alt: 'Presentación 7' },
+    ];
+
+    const characters = [
+      { src: 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-01.jpg?token=9w9i5BmIYwoYb7RB1RmVGY-2BFwfxB1m16UMF7V9Vss&exp=1784030892', alt: 'Personaje 1' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-1.jpg.jpg?token=hROf1lo5E86flt72a7OZuul6RSAULKp2KVi5ep3owOU&exp=1784030892', alt: 'Personaje 2' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-2.jpg.jpg?token=Gu-ILvKm_oLfAaaD2ZN87qrH3PCLTNiTjEUjOpxW4Oc&exp=1784030892', alt: 'Personaje 3' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-3.jpg.jpg?token=XtDokeUXSB4VVfRpXPbVWyXdpqgzbCnAMMpxHHBEEU8&exp=1784030892', alt: 'Personaje 4' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-4.jpg.jpg?token=LWrVvVkX8eLkcbrNd8qUdcXivC3Z6mSbw8DBDgmOXM8&exp=1784030892', alt: 'Personaje 5' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-5.jpg.jpg?token=fO0jTOHFApm_KZnY1lgxLjX6godQyA8KsRyGosvOTHk&exp=1784030892', alt: 'Personaje 6' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-6.jpg.png?token=W2nffABj03OgvbryYm0fuL38LJoesWXZuiYmWCy0V_w&exp=1784030892', alt: 'Personaje 7' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-8.jpg.jpg?token=bECVcvOwoDxPpeXgsft76Iw6Yppjs7JGQDYc1IEGDz0&exp=1784030892', alt: 'Personaje 8' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-9.jpg.jpg?token=W9uScOAEOYAgwnCJvr_I4xynApdzt7-nyyd_Vq1OYLI&exp=1784030892', alt: 'Personaje 9' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-10.png?token=9t1Z-BrWzIM0cGN3yya8Z7vixvTFYfLdP3noW1vaBo8&exp=1784030892', alt: 'Personaje 10' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-11.jpg?token=aep65_JBpVLMMXHgKzBY_8X87xeLG8_SH4neCdAWC1E&exp=1784030892', alt: 'Personaje 11' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-12.png?token=W6aMoDZsbD1QVdtGkuAv_2zgDHV78qS0Y-Ro7ehEppY&exp=1784030892', alt: 'Personaje 12' },
+      { src: 'https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-13.png?token=g4StDEdQk7EqdcihapGryqwaNgtVAlL6K2CCDR3JnfU&exp=1784030892', alt: 'Personaje 13' },
+    ];
+
+    function SectionTitle({ eyebrow, title, subtitle, align = 'left' }) {
+      return (
+        <div className={align === 'center' ? 'text-center max-w-3xl mx-auto' : 'max-w-3xl'}>
+          <p className="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">{eyebrow}</p>
+          <h2 className="text-3xl md:text-5xl font-semibold text-white leading-tight">{title}</h2>
+          {subtitle && <p className="mt-4 text-zinc-300 text-base md:text-lg leading-relaxed">{subtitle}</p>}
         </div>
-      </a>
-      <nav class="hidden lg:flex items-center gap-4 text-sm text-zinc-300">
-        <a href="#autor" class="hover:text-white transition-colors">Autor</a>
-        <a href="#sinopsis" class="hover:text-white transition-colors">Sinopsis</a>
-        <a href="#novela" class="hover:text-white transition-colors">La novela</a>
-        <a href="#malaga-en-la-novela" class="hover:text-white transition-colors">Málaga en la novela</a>
-        <a href="#leer" class="hover:text-white transition-colors">Leer gratis</a>
-        <a href="#galeria" class="hover:text-white transition-colors">Galería</a>
-        <a href="#personajes" class="hover:text-white transition-colors">Personajes</a>
-        <a href="#video" class="hover:text-white transition-colors">Vídeo</a>
-        <a href="#resenas" class="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-zinc-100 hover:bg-white/10 transition-colors">✦ Reseñas</a>
-        <a href="#libreria-proteo" class="inline-flex items-center gap-1.5 rounded-full border border-amber-300/30 bg-amber-300/10 px-3 py-1.5 text-amber-100 hover:bg-amber-300/15 transition-colors"><span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-amber-200 text-[10px] font-black text-black">P</span> Málaga físico</a>
-        <a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
-      </nav>
-      <div class="flex items-center gap-3">
-        <a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" class="hidden md:inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-300 to-amber-200 px-4 py-2 text-sm font-semibold text-black hover:from-amber-200 hover:to-amber-100 transition-colors">Comprar</a>
-        <button id="menu-btn" class="lg:hidden w-10 h-10 rounded-full border border-white/15 bg-white/5 flex items-center justify-center text-white" onclick="document.getElementById('mobile-menu').classList.toggle('open')">☰</button>
-      </div>
-    </div>
-    <div id="mobile-menu" class="lg:hidden flex-col border-t border-white/10 bg-[#09090f]/96 px-4 py-4 gap-3 text-sm text-zinc-300">
-      <a href="#autor" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">Autor</a>
-      <a href="#sinopsis" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">Sinopsis</a>
-      <a href="#novela" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">La novela</a>
-      <a href="#malaga-en-la-novela" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">Málaga en la novela</a>
-      <a href="#leer" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">Leer gratis</a>
-      <a href="#galeria" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">Galería</a>
-      <a href="#personajes" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">Personajes</a>
-      <a href="#video" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">Vídeo</a>
-      <a href="#resenas" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">✦ Reseñas</a>
-      <a href="#libreria-proteo" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="text-amber-200 flex items-center gap-2"><span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-amber-200 text-[10px] font-black text-black">P</span> Málaga físico</a>
-      <a href="#contacto" onclick="document.getElementById('mobile-menu').classList.remove('open')" class="hover:text-white">Contacto</a>
-    </div>
-  </header>
+      );
+    }
 
-  <main class="pt-16">
+    function App() {
+      const [menuOpen, setMenuOpen] = useState(false);
+      const [tab, setTab] = useState('dedicatoria');
 
-    <section id="inicio" class="relative min-h-[100svh] flex items-end">
-      <img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_portada.png?token=xLb6PKp12qBDNWC5TGQUvqhvzA4I0KuCOhSYoek4o5g&exp=1783976268" alt="Portada PRIMERO LOVE YOU" class="absolute inset-0 h-full w-full object-cover" />
-      <div class="absolute inset-0 hero-mask"></div>
-      <div class="relative max-w-7xl mx-auto w-full px-4 md:px-6 py-20 md:py-24">
-        <div class="max-w-4xl">
-          <p class="text-[11px] md:text-xs uppercase tracking-[0.4em] text-amber-200/85 mb-5">Web oficial · Libro I · Experiencia cinematográfica</p>
-          <h1 class="text-4xl sm:text-5xl md:text-7xl font-semibold leading-[0.95] tracking-tight text-white">PRIMERO LOVE YOU<span class="block gold-text mt-2">El hijo del mañana</span></h1>
-          <div class="mt-7 max-w-3xl glass rounded-3xl border border-white/10 p-6 md:p-8 ring">
-            <p class="text-xl md:text-3xl leading-tight text-white font-medium">«Echar de menos a alguien que no conoces es una forma de locura que no tiene diagnóstico.»</p>
-          </div>
-          <div class="mt-8 flex flex-col sm:flex-row gap-3">
-            <a href="#leer" class="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-black hover:bg-zinc-100 transition-colors">Leer capítulos gratis</a>
-            <a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/8 px-6 py-3 font-semibold text-white hover:bg-white/14 transition-colors"><span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/90 text-[11px] font-black text-black">a</span> Comprar en Amazon</a>
-            <a href="#libreria-proteo" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 font-semibold text-zinc-100 hover:bg-white/10 transition-colors"><span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-amber-200 text-[11px] font-black text-black">P</span> Ver compra física</a>
-            <a href="#libreria-proteo" class="inline-flex items-center justify-center gap-2 rounded-full border border-amber-300/30 bg-amber-300/10 px-6 py-3 font-semibold text-amber-100 hover:bg-amber-300/15 transition-colors"><span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-amber-200 text-[11px] font-black text-black">P</span> Librerías Proteo Prometeo</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="autor" class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
-      <div class="grid lg:grid-cols-[0.9fr,1.1fr] gap-10 md:gap-14 items-center">
-        <div><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_autor.jpg?token=UdErJklmGra4e4mbtQnhfAsdWCzYU4mcvDh9Mj-JNTE&exp=1783976268" alt="Christian C. D'Rosoy" class="w-full max-w-md mx-auto rounded-[2rem] object-cover border border-white/10 shadow-2xl shadow-black/30" loading="lazy" /></div>
-        <div>
-          <p class="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">Sobre el autor</p>
-          <h2 class="text-3xl md:text-5xl font-semibold text-white leading-tight">Christian C. D'Rosoy</h2>
-          <p class="mt-4 text-zinc-300 text-base md:text-lg leading-relaxed">Una voz narrativa con identidad propia, sensibilidad contemporánea y una forma de contar que mezcla emoción, tensión, misterio y mirada cinematográfica.</p>
-          <div class="grid sm:grid-cols-2 gap-4 mt-8">
-            <div class="rounded-3xl border border-white/10 bg-white/5 p-5"><p class="font-semibold text-white">Romance emocional</p><p class="mt-2 text-sm text-zinc-300 leading-relaxed">Historias que conectan desde la herida.</p></div>
-            <div class="rounded-3xl border border-white/10 bg-white/5 p-5"><p class="font-semibold text-white">Mirada cinematográfica</p><p class="mt-2 text-sm text-zinc-300 leading-relaxed">Ritmo visual y escenas potentes.</p></div>
-            <div class="rounded-3xl border border-white/10 bg-white/5 p-5"><p class="font-semibold text-white">Málaga como latido</p><p class="mt-2 text-sm text-zinc-300 leading-relaxed">La ciudad es parte del alma del relato.</p></div>
-            <div class="rounded-3xl border border-white/10 bg-white/5 p-5"><p class="font-semibold text-white">Proyecto en expansión</p><p class="mt-2 text-sm text-zinc-300 leading-relaxed">Web preparada para libro, vídeo, redes y nuevos lanzamientos.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="sinopsis" class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28 scroll-mt-24 relative">
-      <div class="max-w-4xl mx-auto text-center">
-        <p class="text-[11px] tracking-[0.42em] uppercase text-amber-300/80 mb-3">Sinopsis</p>
-      </div>
-
-      <div class="mt-8 grid md:grid-cols-2 gap-5 items-start">
-        <figure class="overflow-hidden rounded-[1.9rem] border border-white/10 bg-black/20 shadow-2xl shadow-black/25 ring">
-          <img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_malaga_tambien_es_ficcion.png?token=Ov1HPnXAUea3X4cdY65gQE3iNttOAeb4hlYTkpgPiiE&exp=1783976268" alt="Málaga también es ficción" class="block w-full h-[22rem] md:h-[26rem] object-cover" loading="eager" decoding="async" />
-          <figcaption class="px-5 py-4 text-sm tracking-wide uppercase text-amber-200/90 border-t border-white/10 bg-black/35">Málaga también es ficción</figcaption>
-        </figure>
-        <figure class="overflow-hidden rounded-[1.9rem] border border-white/10 bg-black/20 shadow-2xl shadow-black/25 ring">
-          <img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_quien_es_cc2.png?token=b5Ax6h4nONsW70_YxDymSF12HPbn4PQLVVRxW10qDkA&exp=1783976268" alt="¿Quién es CC2?" class="block w-full h-[22rem] md:h-[26rem] object-cover" loading="eager" decoding="async" />
-          <figcaption class="px-5 py-4 text-sm tracking-wide uppercase text-amber-200/90 border-t border-white/10 bg-black/35">¿Quién es CC2?</figcaption>
-        </figure>
-      </div>
-
-      <div class="mt-8 rounded-[2.15rem] border border-amber-300/18 bg-[linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.03))] p-6 md:p-10 ring shadow-2xl shadow-black/20">
-        <div class="mx-auto max-w-3xl chapter no-drop text-left text-zinc-300">
-          <p class="text-xl md:text-2xl font-semibold leading-tight text-white mb-6">¿Qué harías si un niño desconocido te abrazara llorando... y te llamara papá?</p>
-          <p class="text-xl md:text-2xl font-semibold leading-tight text-white mb-6">¿Y si supiera cosas sobre tu vida que todavía no han ocurrido?</p>
-          <p class="text-xl md:text-2xl font-semibold leading-tight text-white mb-6">¿Y si el amor de tu vida ya hubiera vivido esta historia antes que tú?</p>
-          <div class="my-8 flex items-center gap-4 text-amber-200/80">
-            <span class="h-px flex-1 bg-gradient-to-r from-transparent via-amber-300/50 to-transparent"></span>
-            <span class="text-[11px] tracking-[0.35em] uppercase">Excerpt</span>
-            <span class="h-px flex-1 bg-gradient-to-r from-transparent via-amber-300/50 to-transparent"></span>
-          </div>
-          <p><strong>«Echar de menos a alguien que no conoces es una forma de locura que no tiene diagnóstico.» —CC</strong></p>
-          <p>Christian Herrmann jamás imaginó que una simple llamada pudiera cambiar su vida para siempre.</p>
-          <p>En un colegio, un niño de ocho años no deja de llorar. Solo quiere ver a su padre.</p>
-          <p>Cuando Christian llega, el niño corre hacia él, lo abraza con una desesperación imposible de fingir y pronuncia unas palabras que desafían toda lógica.</p>
-          <p><strong>—Papá...</strong></p>
-          <p>Christian intenta apartarlo.</p>
-          <p>Está convencido de que se ha equivocado de persona.</p>
-          <p>Entonces el niño levanta la cabeza, lo mira a los ojos y pronuncia unas palabras que cambiarán su vida para siempre.</p>
-          <p><strong>—No te preocupes, papá... todavía no ha pasado.</strong></p>
-          <p>Christian nunca ha tenido hijos.</p>
-          <p>Lo que parece un error imposible se convierte en un misterio capaz de romper todas las reglas del tiempo. Personas destinadas a encontrarse antes de conocerse. Recuerdos que llegan desde un futuro que aún no existe. Decisiones capaces de cambiar una vida... o el destino de toda una familia.</p>
-          <p>Mientras lucha por descubrir la verdad, Christian comprenderá que hay historias que empiezan mucho antes del primer encuentro. Historias donde el amor desafía al tiempo y donde el futuro puede depender de una sola decisión.</p>
-          <p>Ambientada en una Málaga tan real que caminarás por sus calles junto a los protagonistas, <strong>PRIMERO LOVE YOU</strong> mezcla misterio, suspense, emoción, humor y una inolvidable historia de amor en una novela que atrapa desde la primera página y permanece contigo mucho después de terminarla.</p>
-          <p>Pero aún queda un último misterio.</p>
-          <p><strong>¿Por qué se llama PRIMERO LOVE YOU?</strong></p>
-          <p>No es un error.</p>
-          <p>No está escrito así por casualidad.</p>
-          <p>Es uno de los secretos más emotivos de la novela.</p>
-          <p>Y cuando descubras su verdadero significado... comprenderás que ese título no podía ser ningún otro.</p>
-          <p class="mt-8 text-white/90"><strong>Algunos de sus primeros lectores ya la describen como un «Outlander malagueño»: una historia donde el amor desafía al tiempo, los destinos se cruzan de forma imposible y cada decisión puede cambiar el futuro.</strong></p>
-          <p class="mt-8 text-lg text-white"><strong>Abre la primera página.</strong></p>
-          <p class="text-lg text-white"><strong>El resto... ya estaba escrito.</strong></p>
-        </div>
-      </div>
-    </section>
-
-    <section id="malaga-en-la-novela" class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28 scroll-mt-24">
-      <p class="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">Mapa interactivo</p>
-      <h2 class="text-3xl md:text-5xl font-semibold text-white leading-tight">Málaga en la novela</h2>
-      <p class="mt-4 text-zinc-300 text-base md:text-lg leading-relaxed max-w-3xl">Lugares confirmados por el manuscrito y puntos aproximados para recorrer el universo de <strong>PRIMERO LOVE YOU</strong>. Pulsa cualquier tarjeta para centrar el mapa y abrir su marcador.</p>
-
-      <div class="mt-10 grid xl:grid-cols-[1.3fr,0.7fr] gap-6 items-start">
-        <div class="rounded-[2rem] overflow-hidden border border-white/10 bg-black/30 ring shadow-2xl shadow-black/30">
-          <div id="malaga-map" class="h-[420px] md:h-[560px]"></div>
-        </div>
-        <aside class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-5 md:p-6 ring">
-          <div class="flex items-center justify-between gap-3 mb-4">
-            <div>
-              <p class="text-[11px] tracking-[0.35em] uppercase text-amber-200/80">Lugares destacados</p>
-              <h3 class="mt-2 text-2xl font-semibold text-white">Pincha y explora</h3>
-            </div>
-            <span class="inline-flex items-center gap-2 rounded-full border border-amber-300/30 bg-amber-300/10 px-3 py-1 text-xs text-amber-100"><span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-amber-200 text-[10px] font-black text-black">P</span> novela</span>
-          </div>
-          <div id="malaga-places" class="grid gap-3"></div>
-          <div class="mt-4 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm text-zinc-300 leading-relaxed"></div>
-        </aside>
-      </div>
-    </section>
-
-    <section id="novela" class="border-y border-white/10 bg-white/[0.03]">
-      <div class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28 grid lg:grid-cols-[0.9fr,1.1fr] gap-12 items-center">
-        <div><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_inicio_con_una_imagen_de_portada_a_pantalla_completa..jpg.jpg?token=4OKjNHQus552cR_754PNohBirEjb2re--E4rLOtLmPo&exp=1783976268" alt="Libro I" class="w-full rounded-[2rem] object-cover border border-white/10 shadow-2xl shadow-black/30" loading="lazy" /></div>
-        <div>
-          <p class="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">La novela</p>
-          <h2 class="text-3xl md:text-5xl font-semibold text-white leading-tight">Libro I — El hijo del mañana</h2>
-          <p class="mt-4 text-zinc-300 text-base md:text-lg leading-relaxed">¿Qué harías si un niño apareciera en tu vida asegurando ser tu hijo… y lo más aterrador fuera descubrir que dice la verdad? PRIMERO LOVE YOU abre una historia donde el amor, el tiempo y lo imposible se miran de frente.</p>
-          <div class="grid sm:grid-cols-2 gap-4 mt-8">
-            <div class="rounded-3xl border border-white/10 bg-black/20 p-5"><p class="font-semibold text-white">Amor</p><p class="mt-2 text-sm text-zinc-300">El centro emocional de una historia intensa.</p></div>
-            <div class="rounded-3xl border border-white/10 bg-black/20 p-5"><p class="font-semibold text-white">Tiempo</p><p class="mt-2 text-sm text-zinc-300">Pasado, presente y futuro empujando en la misma dirección.</p></div>
-            <div class="rounded-3xl border border-white/10 bg-black/20 p-5"><p class="font-semibold text-white">Misterio</p><p class="mt-2 text-sm text-zinc-300">Nada es exactamente lo que parece.</p></div>
-            <div class="rounded-3xl border border-white/10 bg-black/20 p-5"><p class="font-semibold text-white">Málaga</p><p class="mt-2 text-sm text-zinc-300">Una atmósfera real y evocadora.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="leer" class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
-      <p class="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">Leer gratis</p>
-      <h2 class="text-3xl md:text-5xl font-semibold text-white leading-tight">Dedicatoria, prólogo y capítulos 1 al 6</h2>
-      <p class="mt-4 text-zinc-300 text-base md:text-lg leading-relaxed max-w-3xl">Formato editorial completo. Lee los primeros capítulos de la novela directamente aquí.</p>
-
-      <details class="mt-10 mb-10 rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-5 md:p-6 group">
-        <summary class="cursor-pointer list-none flex items-center justify-between gap-4 text-white font-semibold select-none">
-          <span>Menú rápido de capítulos</span>
-          <span class="text-amber-300 transition-transform duration-300 group-open:rotate-180 text-lg">⌄</span>
-        </summary>
-        <div class="mt-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          <a href="#dedicatoria" class="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-zinc-200 hover:bg-white/8 transition-colors">✦ Dedicatoria</a>
-          <a href="#prologo" class="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-zinc-200 hover:bg-white/8 transition-colors">✦ Prólogo</a>
-          <a href="#cap1" class="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-zinc-200 hover:bg-white/8 transition-colors">Cap. 1 · Todavía no ha pasado</a>
-          <a href="#cap2" class="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-zinc-200 hover:bg-white/8 transition-colors">Cap. 2 · La grieta</a>
-          <a href="#cap3" class="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-zinc-200 hover:bg-white/8 transition-colors">Cap. 3 · El código</a>
-          <a href="#cap4" class="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-zinc-200 hover:bg-white/8 transition-colors">Cap. 4 · El pulso del pasado</a>
-          <a href="#cap5" class="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-zinc-200 hover:bg-white/8 transition-colors">Cap. 5 · El puente al ayer</a>
-          <a href="#cap6" class="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-zinc-200 hover:bg-white/8 transition-colors">Cap. 6 · En una hora</a>
-        </div>
-      </details>
-
-      <div class="space-y-10">
-
-        <article id="dedicatoria" class="scroll-mt-24 rounded-[2rem] overflow-hidden border border-white/10 ring">
-          <div class="px-6 md:px-10 py-6 bg-gradient-to-r from-black/70 to-zinc-900/70 border-b border-white/10">
-            <span class="inline-flex rounded-full border border-amber-300/30 bg-amber-300/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-amber-200">Apertura</span>
-            <h3 class="mt-3 text-2xl md:text-3xl font-semibold text-white">Dedicatoria</h3>
-          </div>
-          <div class="bg-[#0d0d15] px-6 md:px-14 py-12 md:py-16">
-            <div class="max-w-2xl mx-auto chapter no-drop text-center italic">
-              <p>A la memoria de mi padre,</p>
-              <p>que me enseñó el valor del tiempo</p>
-              <p>antes de que yo entendiera que podía perderlo.</p>
-            </div>
-          </div>
-          <div class="bg-black/30 border-t border-white/10 px-6 md:px-10 py-4 flex justify-end">
-            <a href="#prologo" class="inline-flex items-center gap-2 rounded-full bg-amber-300/15 border border-amber-300/30 px-4 py-2 text-sm text-amber-100 hover:bg-amber-300/25 transition-colors">Prólogo →</a>
-          </div>
-        </article>
-
-        <article id="prologo" class="scroll-mt-24 rounded-[2rem] overflow-hidden border border-white/10 ring">
-          <div class="px-6 md:px-10 py-6 bg-gradient-to-r from-black/70 to-zinc-900/70 border-b border-white/10">
-            <span class="inline-flex rounded-full border border-amber-300/30 bg-amber-300/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-amber-200">Prólogo</span>
-            <h3 class="mt-3 text-2xl md:text-3xl font-semibold text-white">Prólogo</h3>
-          </div>
-          <div class="bg-[#0d0d15] px-6 md:px-14 py-12 md:py-16">
-            <div class="max-w-2xl mx-auto chapter">
-              <p>«Echar de menos a alguien que no conoces es una forma de locura que no tiene diagnóstico». —CC</p>
-              <p>Hay ausencias que no dejan fotografías. No tienen fecha ni entierro. Y, sin embargo, pesan más que los muertos con nombre.</p>
-              <p>Durante años pensé que lo que me dolía era el pasado. Me equivoqué. Lo que me dolía era algo que aún no había ocurrido.</p>
-              <p>El tiempo no es una línea recta. Eso lo dicen los físicos cuando quieren parecer valientes. El tiempo es un animal herido que siempre vuelve al lugar donde sangró.</p>
-              <p>Hay nombres que uno aprende a callar antes de que existan. Hay promesas que se rompen antes de ser dichas. Hay personas que reconoces la primera vez que las ves, no porque las hayas visto antes, sino porque las has estado esperando sin saberlo.</p>
-              <p>A veces despierto con la sensación de haber perdido algo que nunca sostuve entre las manos. Un latido que no escuché. Una despedida que nadie pronunció.</p>
-              <p>Si pudiera volver atrás, diría que todo empezó con un abrazo. Pero la verdad es que empezó mucho antes. Empezó el día que comprendí que el tiempo no siempre se pierde hacia adelante. A veces se pierde hacia alguien.</p>
-              <p>Empezó un lunes de febrero, con el café todavía humeando en la taza y un niño de ocho años mirándome desde una silla diminuta con los ojos que eran los míos.</p>
-            </div>
-          </div>
-          <div class="bg-black/30 border-t border-white/10 px-6 md:px-10 py-4 flex justify-between items-center">
-            <a href="#dedicatoria" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-zinc-300 hover:bg-white/8 transition-colors">← Dedicatoria</a>
-            <a href="#cap1" class="inline-flex items-center gap-2 rounded-full bg-amber-300/15 border border-amber-300/30 px-4 py-2 text-sm text-amber-100 hover:bg-amber-300/25 transition-colors">Capítulo 1 →</a>
-          </div>
-        </article>
-
-        <article id="cap1" class="scroll-mt-24 rounded-[2rem] overflow-hidden border border-white/10 ring">
-          <div class="px-6 md:px-10 py-6 bg-gradient-to-r from-black/70 to-zinc-900/70 border-b border-white/10">
-            <span class="inline-flex rounded-full border border-amber-300/30 bg-amber-300/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-amber-200">Capítulo 1</span>
-            <h3 class="mt-3 text-2xl md:text-3xl font-semibold text-white">Todavía no ha pasado</h3>
-            <p class="mt-2 loc">Lunes · 08:15 h · Calle La Unión · Málaga · 2026</p>
-          </div>
-          <div class="bg-[#0d0d15] px-6 md:px-14 py-12 md:py-16">
-            <div class="max-w-2xl mx-auto chapter">
-              <p>Hay exactamente dos momentos en la vida de todo hombre en los que el tiempo se detiene de verdad: cuando alguien te dice que vas a ser padre y cuando te lo reclama un niño al que nunca has visto. A mí me tocaron los dos el mismo día. Y ninguno era posible.</p>
-              <p>El silencio en mi apartamento de la calle La Unión no era simple vacío. Era una entidad viva, pesada como el plomo fundido, instalada en cada rincón con la persistencia de un invitado no deseado. Se acurrucaba junto a mí en el sofá de cuero desgastado por el tiempo y las ausencias. Reclamaba el lado izquierdo de la cama, el lugar abandonado por mi ex hacía ocho meses tras dieciséis años de vida compartida.</p>
-              <p>Nuestra historia empezó en aquella primavera de 2010. Entonces creíamos tenerlo todo por delante; no imaginábamos que lo mejor de nosotros se quedaría tirado en la cuneta. Ahora, ese mutismo se adhería a las paredes blancas del salón como una niebla espesa, impregnada del humo fantasma de cigarrillos ya apagados.</p>
-              <p>Eran las ocho y cuarto de un lunes gris de febrero. Al otro lado de la cristalera, Málaga se desperezaba bajo una luz pálida y cortante: un sol incapaz de calentar los huesos, pero clavado en la piel como la hoja de un cuchillo afilado. La cafetera italiana, reliquia de mis días más optimistas, emitió su gorgoteo final. El café brotó negro como la brea. Espeso. Amargo. Sin azúcar. El combustible necesario.</p>
-              <p>A mis pies, Noa —mi pequeña Pomerania negra de ojos brillantes— soltó un bufido impaciente. Su urgencia canina me recordaba que aún había vida en este lugar. Ella también añoraba los desayunos de domingo: el aroma del pan tostado con tomate y aceite de oliva, el zumo de naranja recién exprimido inundando el aire de cítricos y las risas mudadas sin aviso. Le rasqué detrás de las orejas con dedos distraídos; me miró con esa paciencia infinita propia de los perros y los ancianos sabios.</p>
-              <p>Me serví el café en la taza desconchada, la última superviviente de aquel juego barato comprado en IKEA en una tarde de ilusiones. Me quedé mirando a través del muro de vidrio, observando el mundo como un espectador distante. Abajo, la calle iniciaba su ritual diario: persianas metálicas ascendiendo con estrépito oxidado, peatones apresurados hacia Juan XXIII con maletines y mochilas al hombro.</p>
-              <p>El equipo de música, un Marantz de los setenta heredado de mi padre, bañaba el rincón con un resplandor ámbar. La aguja vibró en el surco final del vinilo y, de pronto, la guitarra de Triana rasgó la quietud del salón. Era <em>Un nido en mi ventana</em>. La voz de Jesús de la Rosa empezó a elevarse, ese ruego hipnótico suplicando a una blanca paloma su vuelo, que no se perdiera en el vacío. El café seguía sin tocar. Noa me observaba desde el suelo, inmóvil.</p>
-              <p><em>Herrmann Sole</em>, mi tienda online de sneakers de edición limitada, funcionaba con precisión quirúrgica. Algoritmos, drops exclusivos, envíos internacionales sin retrasos. El dinero entraba sin esfuerzo. Por fuera, todo era impecable. Por dentro, el vacío absoluto.</p>
-              <p>El iPhone vibró sobre la encimera de granito. El nombre en pantalla me sacó la primera sonrisa genuina en días: Toni. Contesté; mi voz sonó áspera, oxidada por horas de quietud.</p>
-              <p>—¿Dime, piloto? —dije, intentando sonar casual.</p>
-              <p>—¡Christian! ¿Qué pasa, fiera? Acabo de salir del Dubái Mall y, tío, he visto algo capaz de hacer explotar tu stock. Tres pares de Jordan 1 Retro High «Dior». Las de verdad, liberadas aquí en exclusiva para los VIP de los Emiratos. Si las subes este viernes, pagamos las rondas de la Guardia Pretoriana por un año entero.</p>
-              <p>—Si son auténticas y traes el certificado, envíame fotos ya. Las marco como «Próximamente» en la web.</p>
-              <p>—Mañana hago escala en Madrid y el jueves bajo a Málaga. Quiero a toda la Guardia en Le Grand Café. No acepto excusas.</p>
-              <p>—Oye, espera —frenó antes de colgar. Su voz bajó un tono, volvió a ser la del crío del Perchel—. ¿Y la rubia? ¿Habéis hablado?</p>
-              <p>Hice una pausa demasiado larga. —Ocho meses sin hablar, tío. —Joder, macho. —Buen vuelo, cabrón.</p>
-              <p>Colgué a Toni y el apartamento volvió a quedarse quieto. Iba a colocarle el arnés a Noa cuando el teléfono volvió a vibrar. Número fijo, prefijo de Málaga.</p>
-              <p>—Buenos días. ¿Es el señor Christian Herrmann? —La voz era joven, clara, con ese acento malagueño cálido que te desarma sin que te des cuenta.</p>
-              <p>—Soy yo.</p>
-              <p>—Soy Silvia, la tutora de segundo de primaria en el CEIP García Lorca. Necesitamos que venga lo antes posible. Su hijo se ha alterado mucho y no pregunta más que por usted. Dice que no se calmará hasta que llegue su papá.</p>
-              <p>—¿Mi… hijo? —balbuceé, sintiendo un vértigo repentino—. Debe haber un error. No tengo hijos.</p>
-              <p>El mundo se detuvo en seco. La mujer regresó a la línea con tono suave, pero con una certeza que me inquietó.</p>
-              <p>—El teléfono registrado es este, Christian. Y el niño insiste. Se llama como usted. Dice que es su «pequeño CC2». ¿Podría venir, aunque sea para aclarar el malentendido?</p>
-              <p>El apodo que nadie más que los más íntimos usaban: CC. Sentí el corazón golpear contra las costillas como un martillo neumático.</p>
-              <div class="loc mt-6">Lunes · 10:10 h · Colegio García Lorca</div>
-              <p>El CEIP García Lorca se erguía en la calle Alemania con dignidad fatigada. Opté por caminar para ordenar el caos. Al entrar, la secretaria me recibió con una sonrisa profesional, pidió mi DNI y me indicó el camino a la primera planta.</p>
-              <p>Pero antes de alcanzar el pomo, mis pies se clavaron en el terrazo. Desde el interior del aula llegaba una melodía tarareada en un hilo de voz. La reconocí al primer acorde mental: <em>Sabor de amor</em>, de Danza Invisible.</p>
-              <p>Silvia me vio primero. Tendría treinta y pocos, llevados con ligereza envidiable. El pelo rubio era lo primero que veías: rizado con fuerza, denso, con vitalidad salvaje. Exudaba la energía precisa de quien sabe calmar el mundo sin levantar la voz.</p>
-              <p>—¿Christian, verdad? Gracias por venir tan rápido. Pasa, por favor.</p>
-              <p>Ahí estaba él. Un crío de unos ocho años, sentado en una sillita de madera junto a la ventana. Llevaba la camiseta de la selección, la del Mundial 2010. Su pelo rubio, lacio… y cuando levantó la vista, el suelo bajo mis zapatillas de edición limitada pareció desvanecerse. Sus ojos eran como los míos: profundos, enmarcados por pestañas largas que yo conocía bien. Era un espejo desfasado en el tiempo, una fotografía de mi propia infancia cobrando vida.</p>
-              <p>Al verme, el chavea se levantó de un salto. Corrió hacia mí y se estrelló contra mis piernas, abrazándolas con una fuerza desesperada.</p>
-              <p>—Sabía que vendrías, papá —susurró contra mi rodilla.</p>
-              <p>Me quedé petrificado. Silvia se acercó con pasos suaves.</p>
-              <p>—Es la primera vez que menciona su nombre. Hasta hoy, solo dibujaba. Mire.</p>
-              <p>Me tendió un folio arrugado. Era un dibujo infantil: un hombre alto con chupa de cuero y el cuello subido, de la mano de un niño pequeño. Ambos llevaban la camiseta de la selección. Debajo, en letras grandes, torpes y decididas, una palabra que parecía gritar: PAPÁ.</p>
-              <p>Di la vuelta al papel con los dedos entumecidos y sentí que el corazón se me detenía. En el reverso, con caligrafía infantil temblorosa pero clara, había una dirección: Calle Peregrino, 28.</p>
-              <p>La casa de mi infancia. Ver esa dirección escrita por la mano de un niño me provocó un vértigo ajeno a la altura; era el pasado reclamando su sitio en un presente que ya no lo esperaba.</p>
-              <p>—No te preocupes, papá —susurró tan bajo que apenas logré captarlo—. <em>Todavía no ha pasado</em>.</p>
-              <p>Sonrió. Una sonrisa que no era del todo de niño, sino de alguien que vislumbra el final de un cuento y decide creer en él.</p>
-              <p>Fue entonces cuando lo sentí por primera vez. Un calor súbito en el antebrazo izquierdo. Agudo, localizado, como si alguien hubiera posado una brasa sobre la piel desnuda. Me miré sin pensar. Llevaba una manga de cuero negro, lisa. Nada visible. Pero el calor persistía, pulsando con un ritmo que no era el de mi corazón.</p>
-            </div>
-          </div>
-          <div class="bg-black/30 border-t border-white/10 px-6 md:px-10 py-4 flex flex-col sm:flex-row gap-3 items-center justify-between">
-            <a href="#cap2" class="inline-flex items-center gap-2 rounded-full bg-amber-300/15 border border-amber-300/30 px-4 py-2 text-sm text-amber-100 hover:bg-amber-300/25 transition-colors">Capítulo 2 →</a>
-            <a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-full bg-amber-300 px-5 py-2 text-sm font-semibold text-black hover:bg-amber-200 transition-colors">Comprar libro completo</a>
-          </div>
-        </article>
-
-        <article id="cap2" class="scroll-mt-24 rounded-[2rem] overflow-hidden border border-white/10 ring">
-          <div class="px-6 md:px-10 py-6 bg-gradient-to-r from-black/70 to-zinc-900/70 border-b border-white/10">
-            <span class="inline-flex rounded-full border border-amber-300/30 bg-amber-300/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-amber-200">Capítulo 2</span>
-            <h3 class="mt-3 text-2xl md:text-3xl font-semibold text-white">La Grieta</h3>
-            <p class="mt-2 loc">Lunes · 10:55 h · Colegio García Lorca</p>
-          </div>
-          <div class="bg-[#0d0d15] px-6 md:px-14 py-12 md:py-16">
-            <div class="max-w-2xl mx-auto chapter">
-              <p>Bajé las escaleras con el dibujo doblado en el bolsillo interior de la chaqueta de piel: una granada a punto de detonar. Cada crujido del papel contra el cuero era un recordatorio punzante: aquello no había salido de mi cabeza. Era real.</p>
-              <p>El niño —ese supuesto hijo mío, con mis ojos y mi remolino en el pelo— se había quedado dentro con la profesora. Me invadió una envidia sorda, un pinchazo en el pecho que me transportó a mis propios días de infancia: nadie me había secado las lágrimas con tanta ternura. Aprendí a tragármelas a solas, en el baño del instituto, mirando mi reflejo en el espejo empañado con la rabia suficiente para estallarlo.</p>
-              <p>El pasillo del García Lorca se abría ante mí como un túnel de hormigón. Fuera, en el patio, el griterío de los niños era un ruido lejano, un eco de juegos que yo ya no sabía descifrar. Mis zapas golpeaban las baldosas desgastadas con un ritmo seco, rompiendo el silencio. Arriba, un fluorescente agonizante parpadeaba con un zumbido eléctrico, rindiéndose poco a poco.</p>
-              <p>La docente me acompañó hasta la salida principal. Sus pasos se sincronizaban con los míos en un ritmo involuntario.</p>
-              <p>—Christian… —me llamó antes de que pusiera un pie fuera. Su voz me clavó en el sitio—. ¿De verdad no tienes idea de quién es?</p>
-              <p>Me giré y la miré; realmente la miré por primera vez. Bajo la luz tenue del vestíbulo, sus ojos marrones brillaban con una chispa de curiosidad que trascendía el mero deber profesional. Había algo eléctrico en el aire entre nosotros, un reconocimiento silencioso y profundo, como si el universo —ese gran titiritero caprichoso— hubiera decidido cruzarnos en este preciso momento para que algo se removiera en lo más hondo de mí.</p>
-              <p>—No tengo hijos. Te lo juro por lo que más quieras —respondí, aunque mi voz había perdido contundencia—. Mi vida, hasta hace una hora, consistía en gestionar zapatillas exclusivas, pasear a mi perra y evitar el vacío. Mi última relación terminó hace ocho meses con una discusión grabada a fuego. Lo último que esperaba hoy era un «mini yo» que me llamara papá.</p>
-              <p>Ella encajó las palabras sin retroceder. Al contrario, se acercó lo suficiente para que su perfume me envolviera: frescor terroso, como lluvia sobre tierra seca, mezclado con un toque delicado de vainilla.</p>
-              <p>—A veces los niños son canales para cosas ajenas a la comprensión adulta —dijo con esa sonrisa ladeada, llena de calidez malagueña—. No ha parado de repetir que «papá siempre viene cuando lo necesito». Y ese dibujo… Christian, captura hasta el detalle del cuello subido. Te ha dibujado por dentro antes de que tú mismo te miraras.</p>
-              <p>Sacó un post-it del bolsillo de sus jeans y buscó el bolígrafo que usaba para sujetarse la coleta, desenredándolo con un gesto experto. Se acercó para entregármelo, y el roce de sus dedos contra los míos fue deliberado, cálido, prolongado solo un instante, pero lo suficiente para que un pulso acelerado reverberara entre nosotros.</p>
-              <p>—Toma mi número personal. Por si el niño dice algo más… o por si necesitas hablar con alguien que no te tome por loco. O hablar, sin más —añadió antes de girarse.</p>
-              <p>Ese «sin más» resonó como una promesa velada. —Gracias —articulé con voz ronca—. Te avisaré si descifro esta broma cósmica.</p>
-              <p>Ella sonrió de nuevo, más lenta, más íntima. —Hazlo. Y cuídate, Christian. Pareces… perdido. Alguien que ha olvidado el camino de vuelta a sí mismo.</p>
-              <p>Salí a la calle. El sol calentaba mi piel, pero no lograba disipar el calor diferente que subía desde el estómago. Caminé de vuelta cruzando el puente de hierro hacia el Perchel.</p>
-              <div class="loc mt-6">Lunes · 12:00 h · Playa de Huelin</div>
-              <p>Enfilé hacia Huelin. La playa estaba casi vacía. Noa corría libre por la arena y yo la seguía con los ojos mientras el mar hacía su trabajo eterno. Observé a un hombre con su hijo cerca del paseo. El pequeño tendría seis años; se detuvo porque tenía el cordón desatado. El padre se agachó con gesto automático y el niño esperó con paciencia absoluta, con la confianza de quien sabe que hay una mano que siempre llega.</p>
-              <p>Me paré. Esa mañana, un niño al que nunca había visto me había abrazado las piernas con esa misma confianza.</p>
-              <div class="loc mt-6">Lunes · 11:30 h · Calle La Unión</div>
-              <p>Llegué al piso. Noa me recibió con ladridos y saltos. La abracé fuerte. Me dejé caer en el sofá. Saqué el dibujo y lo desplegué bajo la luz ámbar de la lámpara. El hombre era yo: cuello subido, postura encorvada para ocultar inquietud. Debajo, con letras torpes: «Papá». Detrás, esa dirección que me helaba la sangre.</p>
-              <p>Saqué el móvil. El post-it de Silvia seguía allí. Mis dedos dudaron. No escribí. Aún no. Pero guardé el contacto bajo «<strong>Silvia Tutora</strong>», como un paso irreversible hacia lo desconocido.</p>
-              <p>Noa apoyó la cabeza en mis pies. Málaga seguía bulliendo, pero yo estaba atrapado en un punto muerto: una calle Peregrino que ya no me pertenecía, un número de teléfono ardiente y el dibujo de un hijo imposible.</p>
-              <p>Por primera vez en mucho tiempo, no sentí vacío. Sentí algo peor.</p>
-              <p>Expectativa.</p>
-            </div>
-          </div>
-          <div class="bg-black/30 border-t border-white/10 px-6 md:px-10 py-4 flex flex-col sm:flex-row gap-3 items-center justify-between">
-            <div class="flex gap-3">
-              <a href="#cap1" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-zinc-300 hover:bg-white/8 transition-colors">← Cap. 1</a>
-              <a href="#cap3" class="inline-flex items-center gap-2 rounded-full bg-amber-300/15 border border-amber-300/30 px-4 py-2 text-sm text-amber-100 hover:bg-amber-300/25 transition-colors">Cap. 3 →</a>
-            </div>
-            <a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-full bg-amber-300 px-5 py-2 text-sm font-semibold text-black hover:bg-amber-200 transition-colors">Comprar libro completo</a>
-          </div>
-        </article>
-
-        <article id="cap3" class="scroll-mt-24 rounded-[2rem] overflow-hidden border border-white/10 ring">
-          <div class="px-6 md:px-10 py-6 bg-gradient-to-r from-black/70 to-zinc-900/70 border-b border-white/10">
-            <span class="inline-flex rounded-full border border-amber-300/30 bg-amber-300/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-amber-200">Capítulo 3</span>
-            <h3 class="mt-3 text-2xl md:text-3xl font-semibold text-white">El Código</h3>
-            <p class="mt-2 loc">Lunes · 18:30 h · Calle La Unión</p>
-          </div>
-          <div class="bg-[#0d0d15] px-6 md:px-14 py-12 md:py-16">
-            <div class="max-w-2xl mx-auto chapter">
-              <p>Me apoyé en la barandilla y dejé que el aire frío me golpeara la cara. El aislamiento del piso se me echaba encima como un bloque de hormigón. Tenía que hablar con alguien; no podía guardarme esto a solas. Marqué el número de mi madre. Vivía en Pedregalejo, en aquel piso con vistas al mar.</p>
-              <p>—¿Christian? ¿Todo bien, hijo?</p>
-              <p>—Hola, mamá… No, la verdad es que no. Ha pasado algo muy raro hoy. Fui al García Lorca tras un aviso del centro. Un niño de segundo de primaria… dice que soy su padre. Me abrazó, me llamó papá y conocía mi apodo, CC. Me enseñó un dibujo donde salgo yo y, en el reverso, la dirección de la calle Peregrino, 28.</p>
-              <p>Al otro lado, la línea quedó en suspenso. Mi madre soltó una risa nerviosa, apagada al instante.</p>
-              <p>—Dios mío… ¿Y qué te dijo exactamente?</p>
-              <p>—«Sabía que vendrías, papá». Y luego: «Todavía no ha pasado». Esa frase me ha dejado helado.</p>
-              <p>Tardó un segundo en responder. Su voz sonó más baja, como si buscara algo en la memoria.</p>
-              <p>—Tu padre siempre decía eso ante cualquier problema: «Todavía no ha pasado». Decía que, mientras no hubiera ocurrido del todo, todavía podíamos cambiar el final.</p>
-              <p>Cerré los ojos con fuerza mientras el aire se me atascaba en la garganta. Nadie conocía aquello fuera de la familia.</p>
-              <p>—Dijo llamarse como yo. Y llevaba la camiseta de la selección; la de 2010, como la que papá me regaló.</p>
-              <p>Mi madre soltó un suspiro tembloroso. —Esa camiseta… tu padre la guardaba como un amuleto. No fui capaz de tirarla. La metí en una de las cajas de tu piso nuevo; debería estar allí.</p>
-              <p>Colgué con las manos temblorosas. Fui al dormitorio y abrí el armario. Al fondo se acumulaban las cajas sin abrir. La encontré tras apartar dos cajas de zapatillas y una bolsa de ropa de invierno. Cartón marrón con la cinta americana reseca. Mi madre había escrito encima con rotulador negro: «Cosas de papá para Christian».</p>
-              <p>Al abrirla, el olor a naftalina inundó la habitación, mezclado con algo más: madera vieja, cuero y el rastro fantasma de su colonia. Dentro había una fotografía de los dos en el pabellón de Ciudad Jardín; él con la bufanda del Unicaja, yo con siete años y cara de no creerme lo que estaba pasando.</p>
-              <p>Junto a la foto, encontré el mechero Zippo grabado con sus iniciales y, debajo de todo, la camiseta de la selección española. Al desplegarla, un papel doblado y amarillento cayó al suelo. Lo recogí con los dedos temblando:</p>
-              <p class="italic text-zinc-200 border-l-2 border-amber-300/40 pl-4 my-4">Para mi Christianito. El futuro es una posibilidad. Recuerda: todavía no ha pasado.</p>
-              <p>—Papá —susurré.</p>
-              <p>Me senté en el suelo, con la espalda apoyada en la cama y la camiseta apretada contra el pecho. El dibujo del niño en el bolsillo; la nota de mi padre en mi mano. Un puente a través del tiempo que todavía no me atrevía a cruzar.</p>
-              <p>El móvil vibró sobre la moqueta.</p>
-              <p class="italic text-zinc-400 text-sm">Silvia Tutora · En línea — 20:14 — Hola, Christian. El niño se ha quedado mucho más tranquilo después de verte. Me ha preguntado si vas a venir mañana. Dice que «papá tiene que terminar de leer la nota». No sé a qué se refiere.</p>
-              <p>Miré la nota de mi padre otra vez. «Terminar de leer la nota». Le di la vuelta al papel. El reverso parecía estar en blanco.</p>
-              <p>Guardé el móvil sin contestar. Todavía no. Doblé la nota con cuidado y la metí junto al dibujo del niño en el bolsillo interior de la biker.</p>
-              <p>Mañana volvería al colegio. No por curiosidad, sino por la certeza de que ese niño conocía secretos imposibles. Y yo no podía mirar hacia otro lado.</p>
-              <p>A la luz ámbar de la lámpara, la piel de mi antebrazo brillaba con un tono azulado tenue, casi imperceptible, como tinta bajo la superficie. No era una quemadura. No era un sarpullido. Era el tatuaje que me había hecho años atrás —un trazo abstracto que siempre me había parecido solo eso, un trazo— latiendo vivo. Vivo. Recordando algo que yo había olvidado.</p>
-              <p>El tiempo dejaba de ser una línea recta.</p>
-            </div>
-          </div>
-          <div class="bg-black/30 border-t border-white/10 px-6 md:px-10 py-4 flex flex-col sm:flex-row gap-3 items-center justify-between">
-            <div class="flex gap-3">
-              <a href="#cap2" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-zinc-300 hover:bg-white/8 transition-colors">← Cap. 2</a>
-              <a href="#cap4" class="inline-flex items-center gap-2 rounded-full bg-amber-300/15 border border-amber-300/30 px-4 py-2 text-sm text-amber-100 hover:bg-amber-300/25 transition-colors">Cap. 4 →</a>
-            </div>
-            <a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-full bg-amber-300 px-5 py-2 text-sm font-semibold text-black hover:bg-amber-200 transition-colors">Comprar libro completo</a>
-          </div>
-        </article>
-
-        <article id="cap4" class="scroll-mt-24 rounded-[2rem] overflow-hidden border border-white/10 ring">
-          <div class="px-6 md:px-10 py-6 bg-gradient-to-r from-black/70 to-zinc-900/70 border-b border-white/10">
-            <span class="inline-flex rounded-full border border-amber-300/30 bg-amber-300/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-amber-200">Capítulo 4</span>
-            <h3 class="mt-3 text-2xl md:text-3xl font-semibold text-white">El Pulso del Pasado</h3>
-            <p class="mt-2 loc">Lunes · 20:57 h · Calle La Unión</p>
-          </div>
-          <div class="bg-[#0d0d15] px-6 md:px-14 py-12 md:py-16">
-            <div class="max-w-2xl mx-auto chapter">
-              <p>El tatuaje seguía picándome. Decidí llamar a Annette, mi tatuadora de <em>Ikigaink Experience</em>. Contestó rápido, con esa voz que no había cambiado en quince años. Le dije que necesitaba verla urgente. Fui al grano: mi tatuaje parecía tener vida. El silencio al otro lado duró dos segundos justos.</p>
-              <p>—Ven al estudio ahora mismo. No te entretengas. Aquí te espero.</p>
-              <p>Llegué a Ikigaink Experience. El neón violeta proyectaba destellos sobre la acera mojada. El aroma a tinta, desinfectante y el rastro de un perfume reconocido antes de ver a quién pertenecía me envolvió de golpe.</p>
-              <p>Annette no necesitaba que el espacio le diese la bienvenida; ella lo decidía. Mechón oscuro y rizado cayéndole sobre el hombro. Ojos grises claros, casi de agua; una mirada imposible de catalogar como bonita: llegaba primero como un desequilibrio y luego como una certeza. Se lanzó a mis brazos.</p>
-              <p>—Ven aquí, cuñao —dijo, abrazándome con fuerza de recolocar huesos—. Siempre serás mi cuñao aunque no estés con mi hermana. Sabía que hoy pasaría algo.</p>
-              <p>Pero junto a la camilla, con unos bocetos entre las manos y la espalda hacia la puerta, estaba ella. Iris. La hermana pequeña. Mi ex. Ocho meses sin hablar. Estaba preciosa. Metro setenta y ocho de elegancia natural. Cabello rubio atrapando la luz ámbar.</p>
-              <p>—Christian —dijo, y mi nombre en su boca sonó a herida abierta y a vendaje a la vez—. Sigues igual teniendo esa presencia perturbadora… ¿Qué te ha pasado en el brazo?</p>
-              <p>Annette me cogió el brazo con firmeza, inclinándolo bajo una lámpara de luz fría.</p>
-              <p>—El diseño es el mismo —susurró—. El que hizo tu padre.</p>
-              <p>El olor a tinta y metal me golpeó con una memoria inesperada. Recordé una tarde en el despacho de mi padre. Yo tendría veintiuno o veintidós años. Él soldaba escuchando a Triana, concentrado en construir algo que no debía existir todavía.</p>
-              <p>—Hay cosas que no se explican antes de tiempo —dijo sin mirarme—. Se activan cuando toca.</p>
-              <p>—Pero el pigmento… ha despertado —continuó Annette—. Esto está impreso en tu carne con la tinta especial que me trajo tu padre. Estaba obsesionado. Decía que la biología era el futuro del almacenamiento de datos. «Nada más seguro que un cuerpo», repetía.</p>
-              <p>Se levantó y buscó entre la estantería hasta dar con un objeto pequeño y plateado. Cilíndrico. Del tamaño de un rotulador fino. Tenía dos capuchones de seguridad sellados con un precinto rojo que parecía una advertencia de peligro biológico.</p>
-              <p>—Toma —dijo Annette, extendiendo la mano—. Si el tatuaje cambia a blanco… quitas el capuchón y lo apoyas en el antebrazo. Solo tienes que presionar.</p>
-              <p>—¿Qué es esto? —pregunté.</p>
-              <p>—El catalizador. Hay dos dosis, Christian. No más.</p>
-              <p>Iris palideció, mirando el inyector como si fuera la llave de mi propia tumba. La hermana mayor la miró con paciencia cansada.</p>
-              <p>—No es un juego. Esto estaba diseñado para permanecer dormido. Para despertarse bajo ciertas condiciones. No sé cuáles; no me las dijo.</p>
-              <p>Nos subimos al coche de Iris. El trayecto fue una cápsula sellada. Ella conducía con manos firmes; yo miraba el inyector notando cómo el tatuaje se apagaba despacio, como una brasa sin aire.</p>
-              <p>—¿Vas a hacerlo? —preguntó al fin—. Si se pone blanco, digo.</p>
-              <p>—Ya veremos si ocurre. No pienso meterme nada raro por deporte.</p>
-              <p>—Siempre fuiste un loco metódico —sonrió apenas—. Capaz de lanzarte de un puente, pero con casco.</p>
-              <p>—Y tú eras la que me empujaba.</p>
-              <p>Se detuvo ante el portal. Apagó la radio y el silencio nos cayó encima como una losa.</p>
-              <p>—Ocho meses —dijo sin girarse.</p>
-              <p>—Ocho meses —repetí.</p>
-              <p>Ahora sí me miró. Ojos azules en la penumbra. Se desabrochó el cinturón y me rodeó con los brazos. Un abrazo largo, de los que no tienen prisa, con la cara enterrada en mi cuello.</p>
-              <p>—Sabes que te quiero más de lo que crees —dijo al oído.</p>
-              <p>Se separó despacio. Tuve ganas de besarla; las noté subir con claridad y me las tragué.</p>
-              <p>—Cuídate, CC.</p>
-              <p>Arrancó el motor. Los faros se perdieron entre los edificios mientras yo seguía allí, clavado en la acera. Acabé en el sofá, todavía con la chaqueta puesta y Noa reclamando su sitio sobre mis pies.</p>
-              <p>El tatuaje estaba apagado. Pero la vibración seguía ahí, latente, bajo la piel.</p>
-            </div>
-          </div>
-          <div class="bg-black/30 border-t border-white/10 px-6 md:px-10 py-4 flex flex-col sm:flex-row gap-3 items-center justify-between">
-            <div class="flex gap-3">
-              <a href="#cap3" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-zinc-300 hover:bg-white/8 transition-colors">← Cap. 3</a>
-              <a href="#cap5" class="inline-flex items-center gap-2 rounded-full bg-amber-300/15 border border-amber-300/30 px-4 py-2 text-sm text-amber-100 hover:bg-amber-300/25 transition-colors">Cap. 5 →</a>
-            </div>
-            <a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-full bg-amber-300 px-5 py-2 text-sm font-semibold text-black hover:bg-amber-200 transition-colors">Comprar libro completo</a>
-          </div>
-        </article>
-
-        <article id="cap5" class="scroll-mt-24 rounded-[2rem] overflow-hidden border border-white/10 ring">
-          <div class="px-6 md:px-10 py-6 bg-gradient-to-r from-black/70 to-zinc-900/70 border-b border-white/10">
-            <span class="inline-flex rounded-full border border-amber-300/30 bg-amber-300/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-amber-200">Capítulo 5</span>
-            <h3 class="mt-3 text-2xl md:text-3xl font-semibold text-white">El Puente al Ayer</h3>
-            <p class="mt-2 loc">Martes · 08:00 h · Calle La Unión</p>
-          </div>
-          <div class="bg-[#0d0d15] px-6 md:px-14 py-12 md:py-16">
-            <div class="max-w-2xl mx-auto chapter">
-              <p>El martes amaneció con cielo eléctrico sobre Málaga, de esos grises que amenazan lluvia pero nunca cumplen. Puse la radio. Sonaba Sabina: <em>Peces de ciudad</em>. Siempre me había quedado grabada esa idea de que al lugar donde uno ha sido feliz no debiera volver nunca. Abrí el armario. Al fondo, colgada como reliquia sagrada, la réplica exacta de la cazadora roja de cuero que llevaba James Dean en <em>Rebel Without a Cause</em>. La conseguí en una puja histórica de eBay. Hoy tocaba rojo.</p>
-              <div class="loc mt-6">Martes · 09:00 h · Colegio García Lorca</div>
-              <p>Llegué al García Lorca antes de las nueve. Silvia estaba apoyada en el marco de la puerta, con una taza de café entre las manos. Hoy no llevaba blusa formal. Camiseta negra ajustada, vaqueros negros, cazadora de cuero negra. El pelo suelto, esa melena rizada y rubia, reacia a obedecer. Sus ojos marrones se iluminaron al verme. Se detuvieron un segundo largo en la cazadora roja.</p>
-              <p>—Vaya… hoy vienes hecho un incendio —dijo con la sonrisa iniciada por el lado izquierdo—. La cazadora roja a lo James Dean… te queda letal. ¿Preparado para quemarlo todo?</p>
-              <p>—O para que me quemen a mí —sonreí.</p>
-              <p>El niño —CC2— estaba en su sitio habitual, concentrado en un folio nuevo. Al verme, dejó la cera y se levantó con una parsimonia que no correspondía a su edad.</p>
-              <p>—Papá —dijo con voz plana y ojos brillantes—. Hoy es el día. La moto del abuelo suena mejor que nunca.</p>
-              <p>Antes de que pudiera responder, el fluorescente del techo empezó a parpadear. Un zumbido bajo subió desde las paredes, vibrando en el suelo, en mis huesos. El aire se espesó, cargado de electricidad estática. Silvia me agarró del brazo por instinto, sus dedos clavándose en el cuero rojo de la chupa, justo sobre el tatuaje que ahora brillaba con una intensidad sobrenatural.</p>
-              <p>El aula mutó delante de nuestros ojos. Las paredes se tiñeron de sepia y neón. Las mesas de fórmica se volvieron de madera noble con marcas de tiza antigua. El olor cambió: a goma quemada del patio, a tabaco lejano. Afuera, por la ventana, ya no se veía la calle Alemania con coches modernos. Pasó un SEAT 124 rojo. Un grupo de chavales con litronas y chaquetas de cuero.</p>
-              <p>Septiembre de 1986.</p>
-              <p>Mi padre —dieciocho años recién cumplidos, tupé rockabilly engominado, chupa de cuero negra, vaqueros pitillo— corría por el pasillo con libros bajo el brazo. Y ella: diecisiete años, pelo rubio claro en coleta alta, ojos verdes claros como el mar en verano, ese acento suave con deje alemán aún mantenido. Era Marie, recién llegada de Alemania. Tropezaron en el pasillo. Los libros cayeron al suelo con estrépito. Él se agachó a recogerlos y, al levantar la vista, sus ojos se encontraron con los de ella por primera vez.</p>
-              <p>—Perdona —dijo él con voz ronca y acento malagueño puro—. Llego tarde y… joder, qué torpe soy.</p>
-              <p>Ella sonrió, tímida pero con chispa. —No pasa nada. Soy Marie.</p>
-              <p>—Christian —respondió él—. No te había visto por aquí antes.</p>
-              <p>—Recién llegada de Múnich. Málaga es… muy soleada.</p>
-              <p>El pasillo comenzó a difuminarse. El sepia se calentó. Estábamos en una calle estrecha del centro histórico. Calle Beatas, principios de 1987. Un bar rockabilly de los que ya no existen: bombillas desnudas, mesas de madera rayadas por generaciones de vasos, pósteres de James Dean y Eddie Cochran. Olía a cerveza derramada, tabaco negro y cuero húmedo.</p>
-              <p>Mi padre y Marie ocupaban una esquina apartada. Los altavoces del pub escupieron una melodía: <em>Al calor del amor en un bar</em>, de Gabinete Caligari. Mi padre se inclinó sobre el tablero. Ella buscó su mano. Fue un beso decidido, profundo, con sabor a tequila y limón, envuelto en las voces de Gabinete que confirmaban que, desde ese instante, ya no habría más refugio que el uno en el otro.</p>
-              <p>Al separarse, mi padre le dijo al oído: —<em>Primero Love You</em>, Marie.</p>
-              <p>Ella sonrió con la mirada encendida. —<em>Primero Love You</em>. También.</p>
-              <p>El zumbido cesó de golpe. Luces estabilizadas. El sepia desapareció. Volvimos al aula de 2026.</p>
-              <p>CC2 nos observaba desde su silla. Silvia estaba pálida, pero sus ojos brillaban con lágrimas contenidas.</p>
-              <p>—Christian… ¿has visto lo mismo que yo?</p>
-              <p>—Ni que lo digas. Mi padre y mi madre. Septiembre del 86, el tropiezo. 1987, el Bar Santa. Allí se besaron por primera vez con <em>Al calor del amor en un bar</em> de fondo.</p>
-              <p>Silvia tragó saliva. —¿Y «Primero Love You»?</p>
-              <p>—Mi padre daba clases de francés. La primera vez que vio escrito «I Love You», interpretó la «I» como un uno. Lo leyó como «Primero Love You». Broma tonta. Pero al primer «te quiero» a Marie, lo usó así. Se convirtió en código privado. De ellos dos.</p>
-              <p>Nos giramos al unísono. CC2 permanecía inmóvil en su silla, con esos ojos verdes —espejos de una calma impropia de sus ocho años— observándonos.</p>
-              <p>—Aún no —susurró—. Déjalo. El abuelo dice que la paciencia es virtud de ganadores. Pero no tardéis mucho. La cena se enfría.</p>
-              <p>El brazo se apagó. Las luces recuperaron su pulso eléctrico. El espacio volvió a ser un aula corriente.</p>
-              <p>—Hasta mañana —dije.</p>
-              <p>Silvia tardó un segundo. —Hasta mañana —respondió.</p>
-              <p>Y salí al pasillo con el azul del tatuaje todavía latiendo como un metal recién sacado del fuego.</p>
-            </div>
-          </div>
-          <div class="bg-black/30 border-t border-white/10 px-6 md:px-10 py-4 flex flex-col sm:flex-row gap-3 items-center justify-between">
-            <div class="flex gap-3">
-              <a href="#cap4" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-zinc-300 hover:bg-white/8 transition-colors">← Cap. 4</a>
-              <a href="#cap6" class="inline-flex items-center gap-2 rounded-full bg-amber-300/15 border border-amber-300/30 px-4 py-2 text-sm text-amber-100 hover:bg-amber-300/25 transition-colors">Cap. 6 →</a>
-            </div>
-            <a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-full bg-amber-300 px-5 py-2 text-sm font-semibold text-black hover:bg-amber-200 transition-colors">Comprar libro completo</a>
-          </div>
-        </article>
-
-        <article id="cap6" class="scroll-mt-24 rounded-[2rem] overflow-hidden border border-white/10 ring">
-          <div class="px-6 md:px-10 py-6 bg-gradient-to-r from-black/70 to-zinc-900/70 border-b border-white/10">
-            <span class="inline-flex rounded-full border border-amber-300/30 bg-amber-300/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-amber-200">Capítulo 6</span>
-            <h3 class="mt-3 text-2xl md:text-3xl font-semibold text-white">En una hora</h3>
-            <p class="mt-2 loc">Martes · 12:30 h · GOfit Huelin</p>
-          </div>
-          <div class="bg-[#0d0d15] px-6 md:px-14 py-12 md:py-16">
-            <div class="max-w-2xl mx-auto chapter">
-              <p>Fui al GOfit Huelin. Me cambié en los vestuarios y encadené largos hasta que José Ángel, el monitor, apareció en el borde de la piscina.</p>
-              <p>—Vaya, Chris. Hoy vienes con ganas de ahogar las penas. Menuda camiseta, ¿es la de Alemania del 74?</p>
-              <p>—Me gusta lo que tiene historia. Estas tienen alma.</p>
-              <p>—Apunta lo que te digo —respondí mientras salía del agua—. Este verano, la segunda estrella para la Selección. Lo presiento.</p>
-              <p>Cuarenta minutos de brazadas no resuelven nada, pero ordenan el ruido. Era suficiente por ahora.</p>
-              <p>Saqué el móvil. La llamada perdida de Iris parpadeaba en la pantalla. Contestó al segundo tono. Sin drama. Sin reproche.</p>
-              <p>—Hola —dijo, sin más.</p>
-              <p>—Necesito verte. Hoy, si puedes.</p>
-              <p>—¿Estás bien?</p>
-              <p>—No lo sé. Hay cosas que contarte. Cosas increíbles que necesito decirte.</p>
-              <p>—A las 16:00 horas. El café de la esquina de Juan XXIII.</p>
-              <div class="loc mt-6">Martes · 16:00 h · Avenida Juan XXIII</div>
-              <p>El café tenía esa luz de tarde malagueña que entra sesgada por los ventanales y lo deja todo color miel. Iris ya estaba dentro cuando llegué, sentada en la mesa del rincón —nuestra mesa—, con un café con leche entre las manos y esa mirada azul siguiéndome desde que crucé la puerta.</p>
-              <p>—Tienes mala cara —dijo, sin preámbulos—. Pero diferente a la de antes. No es cansancio. Es otra cosa.</p>
-              <p>—Llevo dos días viviendo en otro mundo. No sé por dónde empezar.</p>
-              <p>—Empieza por el principio. Y no te saltes nada.</p>
-              <p>No omití detalle. Relaté todo en orden: la llamada del lunes del García Lorca, el niño de ojos verdes llamándome papá con una certeza impropia de sus ocho años, el dibujo de la cazadora de cuero y la dirección de la calle Peregrino, 28. Hablé de la caja en el dormitorio, la camiseta de la Selección, la nota de mi padre oculta en el tejido, el tatuaje ardiendo en el antebrazo. Y los flash backs: mis padres en el instituto en septiembre del 86, el bar Santa, el carrito de 1989.</p>
-              <p>Iris escuchaba sin interrumpir, con los ojos fijos en los míos.</p>
-              <p>—¿Y los viste de verdad? ¿No fue un sueño?</p>
-              <p>—Silvia los vio también —respondí.</p>
-              <p>Algo cambió en su respiración. Fue casi imperceptible, pero llevaba dieciséis años aprendiendo a leerla.</p>
-              <p>—¿Quién es Silvia?</p>
-              <p>—La tutora del niño. La mujer que me llamó el lunes.</p>
-              <p>Iris no respondió de inmediato. —¿Y qué tiene que ver ella en esto?</p>
-              <p>—El tatuaje reacciona con ella y con el niño cerca. Los tres formamos parte del mismo circuito. Cuando ambos están presentes, el tatuaje brilla y el tiempo se abre.</p>
-              <p>En la radio empezó a sonar Sabina: <em>Ruido</em>. Una canción sobre el exceso de palabras, sobre finales que llegan cuando ya no queda nada que salvar.</p>
-              <p>—¿Estás enamorado de ella? —preguntó.</p>
-              <p>Lo hizo sin acusación. Su valentía era una marea quieta que siempre me había desarmado.</p>
-              <p>—La he visto dos veces en mi vida —respondí.</p>
-              <p>—Eso no es lo que te he preguntado.</p>
-              <p>Iba a decir que no. La respuesta llegó automática, ensayada. Pero al escucharla en mi cabeza, supe que era falsa.</p>
-              <p>—No lo sé. Y eso me aterra. No debería ser posible; la he visto dos veces. Pero cerca de ella hay algo inexplicable.</p>
-              <p>—¿Y yo? —preguntó, con voz más quieta todavía.</p>
-              <p>—A ti te quiero —dije. Y era verdad—. Y eso es diferente. No menor. Diferente. Llevamos dieciséis años construyendo algo resistente a ocho meses de distancia. Pero lo de Silvia no es elección ni búsqueda. Me ha caído encima. Como el niño. Como el tatuaje.</p>
-              <p>Alargó la mano sobre la mesa y la posó sobre la mía. —Christian. Lo que cuentas de tus padres, el «Primero Love You»… no es casualidad. Tampoco que esa mujer aparezca ahora. Llevas años ignorando mensajes del universo.</p>
-              <p>Se levantó y recogió el bolso. Ya en la puerta, se giró un instante.</p>
-              <p>—CC… <em>Primero Love You</em>.</p>
-              <p>Lo dijo sin teatralidad. Su padre tenía razón en eso: las cosas que importan llegan cuando toca, no cuando uno las busca. Salió del café sin mirar atrás.</p>
-              <p>Me quedé frente a la taza, intacto. El móvil vibró sobre la mesa antes incluso de procesar su ausencia.</p>
-              <p class="italic text-zinc-400 text-sm">Silvia tutora · 17:43 — Christian. El niño preguntó algo hoy difícil de interpretar. Me miró y dijo: «Dile a papá que la nota todavía no está entera». ¿Sabes qué significa?</p>
-              <p class="italic text-zinc-400 text-sm">Silvia tutora · 17:44 — Llevo toda la tarde dándole vueltas. Hay algo más. Esta mañana dijo muy bajito: «Ya falta menos». No sé menos de qué.</p>
-              <p>Miré la pantalla durante un tiempo indefinible. La nota de mi padre, amarillenta y doblada, seguía en el bolsillo de la chupa. <em>El futuro es una posibilidad. Recuerda: todavía no ha pasado.</em></p>
-              <p>¿Falta menos para qué?</p>
-              <p>Dejé el teléfono boca abajo, como quien deposita algo frágil. El café estaba frío. Dejé un billete, me puse la chupa y salí a la tarde de Málaga sin responder.</p>
-              <p>El tatuaje pulsó una vez, sin urgencia, y quedó quieto bajo la piel.</p>
-            </div>
-          </div>
-          <div class="bg-black/30 border-t border-white/10 px-6 md:px-10 py-4 flex flex-col sm:flex-row gap-3 items-center justify-between">
-            <a href="#cap5" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-zinc-300 hover:bg-white/8 transition-colors">← Cap. 5</a>
-            <a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-full bg-amber-300 px-5 py-2 text-sm font-semibold text-black hover:bg-amber-200 transition-colors">Comprar libro completo</a>
-          </div>
-        </article>
-
-      </div>
-
-      <div class="mt-14 rounded-[2rem] border border-amber-300/20 bg-gradient-to-r from-amber-300/10 via-white/5 to-white/[0.03] p-6 md:p-8 ring">
-        <p class="text-[11px] tracking-[0.35em] uppercase text-amber-200/80 mb-3">¿Quieres seguir leyendo?</p>
-        <h3 class="text-2xl md:text-3xl font-semibold text-white">Si te está gustando la historia, llévate el libro completo</h3>
-        <p class="mt-3 text-zinc-300 max-w-3xl">Después de estos capítulos de muestra, puedes continuar la lectura completa comprando en Amazon o localizar un ejemplar físico en Málaga.</p>
-        <div class="mt-5 flex flex-col sm:flex-row gap-3">
-          <a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full bg-amber-300 px-6 py-3 font-semibold text-black hover:bg-amber-200 transition-colors"><span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-black text-[11px] font-black text-white">a</span> Comprar en Amazon</a>
-          <a href="#libreria-proteo" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/8 px-6 py-3 font-semibold text-white hover:bg-white/14 transition-colors"><span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-amber-200 text-[11px] font-black text-black">P</span> Ver compra física en Málaga</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="galeria" class="border-y border-white/10 bg-white/[0.03]">
-      <div class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
-        <p class="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">Galería</p>
-        <h2 class="text-3xl md:text-5xl font-semibold text-white leading-tight">Presentación del libro</h2>
-        <p class="mt-4 text-zinc-300 text-base md:text-lg leading-relaxed max-w-3xl">Fotos reales del evento de presentación.</p>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mt-12">
-          <a href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-1.jpg.jpeg?token=_AA8bIc9qyWqtz1loorZ7FA2ewOrI0EoV2lOzdPP_v4&exp=1783976268" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-1.jpg.jpeg?token=_AA8bIc9qyWqtz1loorZ7FA2ewOrI0EoV2lOzdPP_v4&exp=1783976268" alt="Presentación 1" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Presentación 1</span></div></a>
-          <a href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-2.jpg.jpg?token=z1L2M9_NvWNZw0OZMUbbL-BrEu4cAgck2As7Eb_CrlY&exp=1783976268" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-2.jpg.jpg?token=z1L2M9_NvWNZw0OZMUbbL-BrEu4cAgck2As7Eb_CrlY&exp=1783976268" alt="Presentación 2" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Presentación 2</span></div></a>
-          <a href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-3.jpg.jpg?token=-PkhQf97RFadgWE-HN30axp4hExWh6TQ-K9OXlh-lPM&exp=1783976268" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-3.jpg.jpg?token=-PkhQf97RFadgWE-HN30axp4hExWh6TQ-K9OXlh-lPM&exp=1783976268" alt="Presentación 3" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Presentación 3</span></div></a>
-          <a href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria4_.jpg.jpeg?token=9DCSSAI6ikPeb49iqciJeTsyVDP_onQ1C9sHf5-GUm8&exp=1783976268" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria4_.jpg.jpeg?token=9DCSSAI6ikPeb49iqciJeTsyVDP_onQ1C9sHf5-GUm8&exp=1783976268" alt="Presentación 4" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Presentación 4</span></div></a>
-          <a href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-5.jpg.jpeg?token=lfAXplnY7x1u6aRFWgn6_J2iuMZFbFHkog8ppCvNGc0&exp=1783976268" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-5.jpg.jpeg?token=lfAXplnY7x1u6aRFWgn6_J2iuMZFbFHkog8ppCvNGc0&exp=1783976268" alt="Presentación 5" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Presentación 5</span></div></a>
-          <a href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-6.jpg.jpg?token=H14OAOQOly6_7fnK_NGwHlJI80lA7-UXa23XkhM3zJM&exp=1783976268" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-6.jpg.jpg?token=H14OAOQOly6_7fnK_NGwHlJI80lA7-UXa23XkhM3zJM&exp=1783976268" alt="Presentación 6" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Presentación 6</span></div></a>
-          <a href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-7.jpg.jpeg?token=2X4-JvBUsQP3-P6rvZaG18VaYGRLCfnhO4NSZDINVo8&exp=1783976268" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_galeria-7.jpg.jpeg?token=2X4-JvBUsQP3-P6rvZaG18VaYGRLCfnhO4NSZDINVo8&exp=1783976268" alt="Presentación 7" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Presentación 7</span></div></a>
-        </div>
-      </div>
-    </section>
-
-    <section id="personajes" class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
-      <p class="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">Personajes imaginados</p>
-      <h2 class="text-3xl md:text-5xl font-semibold text-white leading-tight">Así podría verse el universo humano de la novela</h2>
-      <p class="mt-4 text-zinc-300 text-base md:text-lg leading-relaxed max-w-3xl">Una galería visual inspirada en los personajes de PRIMERO LOVE YOU.</p>
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mt-12">
-        <a href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-01.jpg?token=WIdghdbMvNsDeB8X8z6OnY3go1xndSrP2n1b9spMY8c&exp=1783976268" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-01.jpg?token=WIdghdbMvNsDeB8X8z6OnY3go1xndSrP2n1b9spMY8c&exp=1783976268" alt="Personaje 1" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 1</span></div></a>
-        <a href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-1.jpg.jpg?token=boDbleVxIx7iUBcWGf20J6XB8TTE3ynGJMwpIR_3nHU&exp=1783976268" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-1.jpg.jpg?token=boDbleVxIx7iUBcWGf20J6XB8TTE3ynGJMwpIR_3nHU&exp=1783976268" alt="Personaje 2" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 2</span></div></a>
-        <a href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-2.jpg.jpg?token=3cW-mjHt_2GhbBLGww51Molxiu2hkmoNsj4ujt1Vr60&exp=1783976268" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-2.jpg.jpg?token=3cW-mjHt_2GhbBLGww51Molxiu2hkmoNsj4ujt1Vr60&exp=1783976268" alt="Personaje 3" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 3</span></div></a>
-        <a href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-3.jpg.jpg?token=Km-MNgztR9T8T04QhZtz3eOZtksfa8fwW3oKAVwmZJM&exp=1783976268" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-3.jpg.jpg?token=Km-MNgztR9T8T04QhZtz3eOZtksfa8fwW3oKAVwmZJM&exp=1783976268" alt="Personaje 4" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 4</span></div></a>
-        <a href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-4.jpg.jpg?token=s9BkfuO8x_PZ6DvqdCMenuDW_S5BI0jyDY-Cofs9mFQ&exp=1783976268" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-4.jpg.jpg?token=s9BkfuO8x_PZ6DvqdCMenuDW_S5BI0jyDY-Cofs9mFQ&exp=1783976268" alt="Personaje 5" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 5</span></div></a>
-        <a href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-5.jpg.jpg?token=bplpPtZsyJbQ7bnzZkYWrgLKLWQE_Hh8PIAhfxw-U9w&exp=1783976268" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-5.jpg.jpg?token=bplpPtZsyJbQ7bnzZkYWrgLKLWQE_Hh8PIAhfxw-U9w&exp=1783976268" alt="Personaje 6" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 6</span></div></a>
-        <a href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-6.jpg.png?token=6BmOnGdNpmPhBj-PmWyEZ0GVmQ5QVt4ppoLz5DuGze4&exp=1783976268" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-6.jpg.png?token=6BmOnGdNpmPhBj-PmWyEZ0GVmQ5QVt4ppoLz5DuGze4&exp=1783976268" alt="Personaje 7" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 7</span></div></a>
-        <a href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-8.jpg.jpg?token=WL26hu0sPiwnIauGXs8-7RB7n_eP1SXLWrLEAE2n_XA&exp=1783976268" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-8.jpg.jpg?token=WL26hu0sPiwnIauGXs8-7RB7n_eP1SXLWrLEAE2n_XA&exp=1783976268" alt="Personaje 8" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 8</span></div></a>
-        <a href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-9.jpg.jpg?token=IWa7VJBppq4VeQrnCiLK8gD0_AZm4QaEIbSEWmml7Y0&exp=1783976268" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-9.jpg.jpg?token=IWa7VJBppq4VeQrnCiLK8gD0_AZm4QaEIbSEWmml7Y0&exp=1783976268" alt="Personaje 9" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 9</span></div></a>
-        <a href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-10.png?token=ozAEZWsBX5mxPeALAz-jSqZUxZtGWmaD_WNgJAL6GV8&exp=1783976268" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-10.png?token=ozAEZWsBX5mxPeALAz-jSqZUxZtGWmaD_WNgJAL6GV8&exp=1783976268" alt="Personaje 10" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 10</span></div></a>
-        <a href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-11.jpg?token=g_mzSWgM2unJcPWczx_lTGY8tiT4eL_ssszZ25mPuSk&exp=1783976268" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-11.jpg?token=g_mzSWgM2unJcPWczx_lTGY8tiT4eL_ssszZ25mPuSk&exp=1783976268" alt="Personaje 11" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 11</span></div></a>
-        <a href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-12.png?token=CnWzHb-6KIfLDVxyBae3B2yENjG25yFhcpZTO9gIr3k&exp=1783976268" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-12.png?token=CnWzHb-6KIfLDVxyBae3B2yENjG25yFhcpZTO9gIr3k&exp=1783976268" alt="Personaje 12" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 12</span></div></a>
-        <a href="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-13.png?token=VT_ZIS1yRO-BDFnzHBidCxstJhVTaWlWWrvDqVk8tTs&exp=1783976268" target="_blank" rel="noreferrer" class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5"><img src="https://cms.aikit.es/api/tools/threads/6a551cc0cf0f50d33f8c7814/file/6a551cc0cf0f50d33f8c7814_personaje-13.png?token=VT_ZIS1yRO-BDFnzHBidCxstJhVTaWlWWrvDqVk8tTs&exp=1783976268" alt="Personaje 13" class="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /><div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div><div class="absolute left-4 bottom-4"><span class="text-sm text-white font-medium">Personaje 13</span></div></a>
-      </div>
-    </section>
-
-    <section id="video" class="border-y border-white/10 bg-white/[0.03]">
-      <div class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
-        <p class="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">Vídeo</p>
-        <h2 class="text-3xl md:text-5xl font-semibold text-white leading-tight">Booktrailer / presentación</h2>
-        <p class="mt-4 text-zinc-300 text-base md:text-lg leading-relaxed max-w-3xl">Descubre el universo visual de PRIMERO LOVE YOU.</p>
-        <div class="mt-12 rounded-[2rem] overflow-hidden border border-white/10 bg-black/30 shadow-2xl shadow-black/30">
-          <div class="aspect-video w-full">
-            <iframe class="w-full h-full" src="https://www.youtube.com/embed/ADlNpdwBY0o" title="Vídeo PRIMERO LOVE YOU" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-        </div>
-        <div class="mt-5 flex justify-center">
-          <a href="https://youtube.com/shorts/ADlNpdwBY0o" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-5 py-3 text-sm font-medium text-white hover:bg-white/14 transition-colors">▶ Abrir vídeo en YouTube</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="comprar" class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
-      <div class="grid xl:grid-cols-[1.3fr,0.7fr] gap-10">
-        <div id="resenas">
-          <p class="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">Opiniones de lectores</p>
-          <h2 class="text-3xl md:text-5xl font-semibold text-white leading-tight">Lo que dicen quienes lo han leído</h2>
-          <p class="mt-4 text-zinc-300 text-base md:text-lg leading-relaxed max-w-3xl">Reseñas verificadas de Amazon.</p>
-          <div class="grid md:grid-cols-2 gap-4 mt-10">
-            <div class="rounded-3xl border border-white/10 bg-white/5 p-5"><div class="flex gap-0.5 mb-2">★★★★★</div><p class="text-amber-300 text-sm font-semibold">Jose Maria</p><p class="text-zinc-500 text-xs mb-2">4 jul 2026</p><p class="font-semibold text-white text-sm mb-1">¡Una joya de suspense y magnetismo!</p><p class="text-sm text-zinc-300 leading-relaxed">Adictivo de principio a fin. Una mezcla perfecta de misterio, intriga y romance que no te deja soltar el libro.</p></div>
-            <div class="rounded-3xl border border-white/10 bg-white/5 p-5"><div class="flex gap-0.5 mb-2">★★★★★</div><p class="text-amber-300 text-sm font-semibold">Alex</p><p class="text-zinc-500 text-xs mb-2">22 may 2026</p><p class="font-semibold text-white text-sm mb-1">Me ha sorprendido muchísimo</p><p class="text-sm text-zinc-300 leading-relaxed">La historia tiene misterio, drama y momentos que te dejan con ganas de seguir leyendo. Muy recomendable.</p></div>
-            <div class="rounded-3xl border border-white/10 bg-white/5 p-5"><div class="flex gap-0.5 mb-2">★★★★★</div><p class="text-amber-300 text-sm font-semibold">Lola Perez Chia</p><p class="text-zinc-500 text-xs mb-2">10 jun 2026</p><p class="font-semibold text-white text-sm mb-1">Capacidad de descripción</p><p class="text-sm text-zinc-300 leading-relaxed">Me ha sorprendido gratamente la narrativa tan peculiar de este nuevo escritor. Esperando segunda parte.</p></div>
-            <div class="rounded-3xl border border-white/10 bg-white/5 p-5"><div class="flex gap-0.5 mb-2">★★★★★</div><p class="text-amber-300 text-sm font-semibold">Noe</p><p class="text-zinc-500 text-xs mb-2">30 may 2026</p><p class="font-semibold text-white text-sm mb-1">Un gran libro de un gran amigo</p><p class="text-sm text-zinc-300 leading-relaxed">La historia comienza con fuerza, presentando personajes interesantes y una trama que despierta mucha curiosidad.</p></div>
-            <div class="rounded-3xl border border-white/10 bg-white/5 p-5"><div class="flex gap-0.5 mb-2">★★★★★</div><p class="text-amber-300 text-sm font-semibold">pepe</p><p class="text-zinc-500 text-xs mb-2">16 jun 2026</p><p class="font-semibold text-white text-sm mb-1">Engancha desde el primer capítulo</p><p class="text-sm text-zinc-300 leading-relaxed">Me ha encantado la historia y la forma en que está escrita. Lo he terminado en nada, deseando la segunda parte.</p></div>
-            <div class="rounded-3xl border border-white/10 bg-white/5 p-5"><div class="flex gap-0.5 mb-2">★★★★★</div><p class="text-amber-300 text-sm font-semibold">Mar Lanchazo</p><p class="text-zinc-500 text-xs mb-2">21 may 2026</p><p class="font-semibold text-white text-sm mb-1">Recomendable 100x100</p><p class="text-sm text-zinc-300 leading-relaxed">Una narrativa fresca que gira en torno a la ciudad de Málaga. La lectura es muy amena.</p></div>
-            <div class="rounded-3xl border border-white/10 bg-white/5 p-5"><div class="flex gap-0.5 mb-2">★★★★★</div><p class="text-amber-300 text-sm font-semibold">Pilar</p><p class="text-zinc-500 text-xs mb-2">17 may 2026</p><p class="font-semibold text-white text-sm mb-1">La ciudad de Málaga y el barrio de El Perchel le dan una ambientación muy especial</p><p class="text-sm text-zinc-300 leading-relaxed">Se lee con mucha facilidad, engancha desde la primera página. ¡Necesito ya el segundo libro!</p></div>
-            <div class="rounded-3xl border border-white/10 bg-white/5 p-5"><div class="flex gap-0.5 mb-2">★★★★★</div><p class="text-amber-300 text-sm font-semibold">Sergio</p><p class="text-zinc-500 text-xs mb-2">9 may 2026</p><p class="font-semibold text-white text-sm mb-1">Málaga y las cosas del corazón</p><p class="text-sm text-zinc-300 leading-relaxed">Me ha enganchado desde el primer momento. Ya es uno de mis libros preferidos. Me encanta Silvia.</p></div>
-            <div class="rounded-3xl border border-white/10 bg-white/5 p-5"><div class="flex gap-0.5 mb-2">★★★★★</div><p class="text-amber-300 text-sm font-semibold">Javier del Pozo</p><p class="text-zinc-500 text-xs mb-2">5 jul 2026</p><p class="font-semibold text-white text-sm mb-1">Libro ameno, divertido y con buena cultura musical</p><p class="text-sm text-zinc-300 leading-relaxed">Libro ameno y divertido, con un toque de ciencia ficción. Si fuese una película tendría una buena banda sonora.</p></div>
-            <div class="rounded-3xl border border-white/10 bg-white/5 p-5"><div class="flex gap-0.5 mb-2">★★★★★</div><p class="text-amber-300 text-sm font-semibold">Gaby</p><p class="text-zinc-500 text-xs mb-2">18 jun 2026</p><p class="font-semibold text-white text-sm mb-1">Sorprendente</p><p class="text-sm text-zinc-300 leading-relaxed">Es un libro muy interesante ya que desde que inicias la lectura te va enganchando. Lo recomiendo 100x100.</p></div>
-            <div class="rounded-3xl border border-white/10 bg-white/5 p-5"><div class="flex gap-0.5 mb-2">★★★★★</div><p class="text-amber-300 text-sm font-semibold">Felix</p><p class="text-zinc-500 text-xs mb-2">2 jul 2026</p><p class="font-semibold text-white text-sm mb-1">Lo recomiendo</p><p class="text-sm text-zinc-300 leading-relaxed">Muy buen libro. Una historia bien estructurada y una trama que te engancha desde el principio.</p></div>
-            <div class="rounded-3xl border border-white/10 bg-white/5 p-5"><div class="flex gap-0.5 mb-2">★★★★★</div><p class="text-amber-300 text-sm font-semibold">Cliente Amazon</p><p class="text-zinc-500 text-xs mb-2">21 may 2026</p><p class="font-semibold text-white text-sm mb-1">MISTERIO Y ROMANCE ENTRE MÁLAGA Y BERLÍN</p><p class="text-sm text-zinc-300 leading-relaxed">Si os gustan las historias donde el romance y el misterio van de la mano, este libro es para vosotros.</p></div>
-            <div class="rounded-3xl border border-white/10 bg-white/5 p-5 md:col-span-2"><div class="flex gap-0.5 mb-2">★★★★★</div><p class="text-amber-300 text-sm font-semibold">Cliente Amazon</p><p class="text-zinc-500 text-xs mb-2">30 may 2026</p><p class="font-semibold text-white text-sm mb-1">Muy buena historia</p><p class="text-sm text-zinc-300 leading-relaxed">Buena novela de ficción, intriga, romance y emoción contenida que te invita a seguir leyendo desde el primer capítulo. Lectura recomendada.</p></div>
-          </div>
-          <div class="mt-6 flex flex-col sm:flex-row gap-3">
-            <a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full bg-amber-300 px-6 py-3 font-semibold text-black hover:bg-amber-200 transition-colors"><span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-black text-[11px] font-black text-white">a</span> Comprar en Amazon</a>
-            <a href="#resenas" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/8 px-6 py-3 font-semibold text-white hover:bg-white/14 transition-colors">Ver todas las reseñas</a>
-          </div>
-        </div>
-        <aside id="libreria-proteo" class="rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/6 to-white/[0.03] p-6 md:p-8 h-fit ring">
-          <div class="inline-flex items-center gap-2 rounded-full border border-amber-300/30 bg-amber-300/10 px-4 py-1.5 text-[11px] uppercase tracking-[0.35em] text-amber-100"><span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-amber-200 text-[10px] font-black text-black">P</span> Compra física en Málaga</div>
-          <h3 class="mt-4 flex items-center gap-2 text-2xl font-semibold text-white"><span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-amber-200 text-[11px] font-black text-black">P</span> Librerías Proteo Prometeo</h3>
-          <p class="mt-2 text-sm text-zinc-300">Tu ejemplar también puede comprarse físicamente en uno de los puntos libreros más reconocidos de Málaga.</p>
-          <div class="mt-6 rounded-[1.5rem] border border-white/10 bg-gradient-to-br from-white/7 to-white/[0.03] p-5">
-            <p class="font-semibold text-white">Dirección</p>
-            <p class="text-sm text-zinc-300 mt-2 leading-relaxed">C. Prta Buenaventura, 3<br/>Distrito Centro, 29008 Málaga</p>
-            <p class="text-sm text-zinc-300 mt-3">Teléfono: <a href="tel:+34952219019" class="text-amber-300 hover:underline">952 21 90 19</a></p>
-          </div>
-          <div class="mt-5 flex flex-col gap-3">
-            <a href="https://www.google.com/maps/search/?api=1&query=Librerias+Proteo+Prometeo+Malaga" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-300 to-amber-200 px-5 py-3 font-semibold text-black hover:from-amber-200 hover:to-amber-100 transition-colors">📍 Ver en Google Maps</a>
-            <a href="tel:+34952219019" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/8 px-5 py-3 font-semibold text-white hover:bg-white/14 transition-colors">📞 Llamar ahora</a>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section id="contacto" class="border-t border-white/10 bg-black/20">
-      <div class="max-w-7xl mx-auto px-4 md:px-6 py-14">
-        <p class="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">Contacto y redes</p>
-        <h2 class="text-3xl md:text-5xl font-semibold text-white leading-tight">Christian C. D'Rosoy</h2>
-        <p class="mt-4 text-zinc-300 text-base md:text-lg leading-relaxed max-w-3xl">Correo y redes sociales oficiales del proyecto.</p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="mailto:christiancdrosoy@hotmail.com" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white hover:bg-white/8 transition-colors">✉ Correo</a>
-          <a href="https://www.instagram.com/primeroloveyou_libro?igsh=YTJhOWJ6M2Fkc2Ru&utm_source=qr" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white hover:bg-white/8 transition-colors">Instagram</a>
-          <a href="https://www.facebook.com/share/g/163orYLTEDm/?mibextid=wwXIfr" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white hover:bg-white/8 transition-colors">Facebook</a>
-          <a href="https://www.tiktok.com/@primeroloveyou_libro?_r=1&_t=ZN-97yLDwzYbXn" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white hover:bg-white/8 transition-colors">TikTok</a>
-          <a href="https://youtube.com/shorts/ADlNpdwBY0o" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white hover:bg-white/8 transition-colors">YouTube</a>
-        </div>
-        <div class="mt-10 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
-          <div>
-            <p class="font-semibold text-white">© 2026 Christian C. D'Rosoy</p>
-            <p class="text-sm text-zinc-400 mt-1">PRIMERO LOVE YOU · Libro I · Trilogía oficial · Ediciones 52.1 · Málaga, España</p>
-          </div>
-          <a href="#inicio" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white hover:bg-white/8 transition-colors">↑ Volver arriba</a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('img').forEach((img) => {
-        img.addEventListener('error', () => {
-          const label = img.alt ? img.alt.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') : 'Imagen no disponible';
-          img.src = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
-            <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
-              <defs>
-                <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
-                  <stop offset="0%" stop-color="#111827"/>
-                  <stop offset="100%" stop-color="#0b0b12"/>
-                </linearGradient>
-              </defs>
-              <rect width="1200" height="800" fill="url(#g)"/>
-              <circle cx="600" cy="300" r="92" fill="#fbbf24" fill-opacity="0.16"/>
-              <text x="600" y="430" fill="#fbbf24" font-family="Arial, Helvetica, sans-serif" font-size="44" text-anchor="middle" font-weight="700">${label}</text>
-              <text x="600" y="490" fill="#d4d4d8" font-family="Arial, Helvetica, sans-serif" font-size="24" text-anchor="middle">Imagen temporal no disponible</text>
-            </svg>
-          `);
-          img.classList.add('object-contain', 'p-8', 'bg-[#0b0b12]');
-        }, { once: true });
-      });
-      const places = [
-        { name: 'Cafetería Los Valle', zone: 'Perchel Sur', address: 'C. Cuarteles, 54', lat: 36.7130199, lon: -4.4290695, note: 'Desayunos, café y arranque de la historia.', approx: false },
-        { name: "Tano\'s", zone: 'Huelin', address: 'C. Río Rocío, 18', lat: 36.7037455, lon: -4.43365, note: 'Bar de barrio ligado al paisaje de Huelin.', approx: false },
-        { name: 'Le Grand Café Centro', zone: 'Perchel Norte', address: 'Pasillo Guimbarda', lat: 36.7205867, lon: -4.4257911, note: 'Refugio de la Guardia Pretoriana.', approx: false },
-        { name: 'Bar Indiana', zone: 'Centro Histórico', address: 'C. Nosquera, 12', lat: 36.7231608, lon: -4.4222651, note: 'Punto nocturno del centro.', approx: false },
-        { name: 'Colegio García Lorca', zone: 'Soho / Centro', address: 'C. Alemania, 14', lat: 36.7129362, lon: -4.4249044, note: 'El primer gran giro de la novela.', approx: false },
-        { name: 'Calle Peregrino', zone: 'El Perchel', address: 'Calle Peregrino', lat: 36.7145073, lon: -4.428058, note: 'Casa de infancia y nodo familiar.', approx: false },
-        { name: 'Calle La Unión', zone: 'Cruz de Humilladero', address: 'Calle La Unión', lat: 36.70979, lon: -4.4418457, note: 'La casa de Christian en 2026.', approx: false },
-        { name: 'Sacaba Beach', zone: 'Carretera de Cádiz', address: 'Sacaba Beach', lat: 36.6795841, lon: -4.4482431, note: 'Verano, costa y memoria.', approx: false },
-        { name: 'Playa de Huelin', zone: 'Huelin', address: 'Paseo Marítimo de Huelin', lat: 36.7010, lon: -4.4390, note: 'Paseo y reflexión frente al mar.', approx: true },
-        { name: 'GOfit Huelin', zone: 'Huelin', address: 'GOfit Huelin', lat: 36.7029, lon: -4.4368, note: 'Piscina y reset mental.', approx: true },
-        { name: 'Avenida Juan XXIII', zone: 'Perchel Norte', address: 'Avenida Juan XXIII', lat: 36.7180, lon: -4.4270, note: 'Café con Silvia.', approx: true },
-        { name: 'Ciudad Jardín', zone: 'Ciudad Jardín', address: 'Ciudad Jardín', lat: 36.7310, lon: -4.4270, note: 'Territorio de Curro y el taller.', approx: true },
-        { name: 'Bar Santa', zone: 'Beatas', address: 'Calle Beatas', lat: 36.7238, lon: -4.4200, note: 'Flashback ochentero.', approx: true },
-        { name: 'Ikigaink Experience', zone: 'La Malagueta / Centro', address: 'Estudio de tatuaje', lat: 36.7210, lon: -4.4125, note: 'Estudio de Annette. Ubicación aproximada.', approx: true }
+      const menuItems = [
+        { href: '#autor', label: 'Autor' },
+        { href: '#sinopsis', label: 'Sinopsis' },
+        { href: '#novela', label: 'La novela' },
+        { href: '#leer', label: 'Leer gratis' },
+        { href: '#galeria', label: 'Galería' },
+        { href: '#personajes', label: 'Personajes' },
+        { href: '#video', label: 'Vídeo' },
+        { href: '#resenas', label: 'Reseñas' },
+        { href: '#contacto', label: 'Contacto' },
       ];
 
-      const pinIcon = L.divIcon({
-        className: '',
-        iconSize: [30, 42],
-        iconAnchor: [15, 41],
-        popupAnchor: [0, -38],
-        html: `
-          <div style="position:relative;width:30px;height:42px;filter:drop-shadow(0 10px 18px rgba(0,0,0,.45));">
-            <svg viewBox="0 0 30 42" width="30" height="42" aria-hidden="true" style="display:block;">
-              <path d="M15 1C8.37 1 3 6.37 3 13c0 8.1 9.1 19.55 11.9 22.83.6.7 1.7.7 2.3 0C20.9 32.55 30 21.1 30 13 30 6.37 24.63 1 15 1Z" fill="#0f172a" stroke="rgba(251,191,36,.85)" stroke-width="1.3"/>
-              <circle cx="15" cy="13" r="4.6" fill="#fbbf24"/>
-              <circle cx="15" cy="13" r="2.15" fill="#111827"/>
-            </svg>
-          </div>
-        `
-      });
-      const map = L.map('malaga-map', { scrollWheelZoom: false, zoomControl: true, zoomSnap: 0.25 }).setView([36.7163, -4.4268], 13.2);
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        subdomains: 'abcd',
-        maxZoom: 19,
-        attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
-      }).addTo(map);
+      return (
+        <div className="min-h-screen bg-[#07070b] text-zinc-100 selection:bg-amber-300 selection:text-black">
+          <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#09090f]/85 backdrop-blur-xl">
+            <div className="max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between gap-4">
+              <a href="#inicio" className="flex items-center gap-3 shrink-0">
+                <div className="w-9 h-9 rounded-full border border-amber-300/35 bg-white/5 flex items-center justify-center text-amber-300 text-lg">✦</div>
+                <div className="hidden sm:block">
+                  <p className="text-sm font-semibold tracking-wide">PRIMERO LOVE YOU</p>
+                  <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-400">Trilogía oficial</p>
+                </div>
+              </a>
 
-      const markers = [];
-      const bounds = [];
-      places.forEach((place) => {
-        const marker = L.marker([place.lat, place.lon], { icon: pinIcon }).addTo(map);
-        markers.push(marker);
-        bounds.push([place.lat, place.lon]);
-        const approxBadge = place.approx ? '<span style="display:inline-block;padding:2px 8px;border-radius:999px;background:rgba(251,191,36,.15);color:#fcd34d;font-size:11px;letter-spacing:.12em;text-transform:uppercase;">Aprox.</span>' : '';
-        marker.bindPopup(`
-          <div style="min-width:220px;max-width:280px;font-family:Inter,system-ui,sans-serif;color:#111827;">
-            <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:8px;">
-              <strong style="font-size:14px;line-height:1.2;">${place.name}</strong>
-              ${approxBadge}
+              <nav className="hidden lg:flex items-center gap-4 text-sm text-zinc-300">
+                {menuItems.slice(0, 8).map((item) => (
+                  <a key={item.href} href={item.href} className="hover:text-white transition-colors">{item.label}</a>
+                ))}
+                <a href="#comprar" className="inline-flex items-center gap-1.5 rounded-full border border-amber-300/30 bg-amber-300/10 px-3 py-1.5 text-amber-100 hover:bg-amber-300/15 transition-colors">
+                  <MapPin className="w-4 h-4" /> Málaga físico
+                </a>
+              </nav>
+
+              <div className="flex items-center gap-3">
+                <a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" className="hidden md:inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-300 to-amber-200 px-4 py-2 text-sm font-semibold text-black hover:from-amber-200 hover:to-amber-100 transition-colors">
+                  Comprar
+                </a>
+                <button className="lg:hidden w-10 h-10 rounded-full border border-white/15 bg-white/5 flex items-center justify-center text-white" onClick={() => setMenuOpen((v) => !v)} aria-label="Abrir menú">
+                  {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                </button>
+              </div>
             </div>
-            <div style="font-size:12px;color:#374151;margin-bottom:4px;">${place.address} · ${place.zone}</div>
-            <div style="font-size:12px;color:#6b7280;line-height:1.4;">${place.note}</div>
-          </div>
-        `);
-      });
 
-      if (bounds.length) map.fitBounds(bounds, { padding: [40, 40] });
-
-      const list = document.getElementById('malaga-places');
-      const escapeHtml = (s) => String(s).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
-      list.innerHTML = places.map((place, i) => `
-        <button type="button" data-place-index="${i}" class="map-card text-left w-full rounded-2xl border border-white/10 bg-black/20 p-4 hover:border-amber-300/40 hover:bg-amber-300/8 transition-all">
-          <div class="flex items-start justify-between gap-3">
-            <div>
-              <p class="text-sm font-semibold text-white">${escapeHtml(place.name)}</p>
-              <p class="mt-1 text-xs uppercase tracking-[0.24em] text-amber-200/70">${escapeHtml(place.zone)}</p>
+            <div className={`mobile-menu lg:hidden flex-col border-t border-white/10 bg-[#09090f]/96 px-4 py-4 gap-3 text-sm text-zinc-300 ${menuOpen ? 'open' : ''}`}>
+              {menuItems.map((item) => (
+                <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)} className="hover:text-white">{item.label}</a>
+              ))}
             </div>
-            ${place.approx ? '<span class="inline-flex items-center rounded-full border border-amber-300/25 bg-amber-300/10 px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] text-amber-100">Aprox.</span>' : ''}
-          </div>
-          <p class="mt-3 text-sm text-zinc-300 leading-relaxed">${escapeHtml(place.address)}</p>
-          <p class="mt-2 text-sm text-zinc-400 leading-relaxed">${escapeHtml(place.note)}</p>
-        </button>
-      `).join('');
+          </header>
 
-      const cards = [...list.querySelectorAll('[data-place-index]')];
-      const activate = (idx) => {
-        const place = places[idx];
-        map.setView([place.lat, place.lon], Math.max(map.getZoom(), 15), { animate: true });
-        markers[idx].openPopup();
-        cards.forEach((el) => el.classList.remove('active'));
-        cards[idx]?.classList.add('active');
-      };
+          <main className="pt-16">
+            <section id="inicio" className="relative min-h-[100svh] flex items-end">
+              <img src={heroImg} alt="Portada PRIMERO LOVE YOU" className="absolute inset-0 h-full w-full object-cover" />
+              <div className="absolute inset-0 hero-mask" />
+              <div className="relative max-w-7xl mx-auto w-full px-4 md:px-6 py-20 md:py-24">
+                <div className="max-w-4xl">
+                  <p className="text-[11px] md:text-xs uppercase tracking-[0.4em] text-amber-200/85 mb-5">Web oficial · Libro I · Experiencia cinematográfica</p>
+                  <h1 className="text-4xl sm:text-5xl md:text-7xl font-semibold leading-[0.95] tracking-tight text-white">
+                    PRIMERO LOVE YOU
+                    <span className="block gold-text mt-2">El hijo del mañana</span>
+                  </h1>
+                  <div className="mt-7 max-w-3xl glass rounded-3xl border border-white/10 p-6 md:p-8 ring">
+                    <p className="text-xl md:text-3xl leading-tight text-white font-medium flex items-start gap-3">
+                      <Quote className="w-6 h-6 mt-1 text-amber-200 shrink-0" />
+                      <span>«Echar de menos a alguien que no conoces es una forma de locura que no tiene diagnóstico.»</span>
+                    </p>
+                  </div>
+                  <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                    <a href="#leer" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-black hover:bg-zinc-100 transition-colors">
+                      <BookOpen className="w-4 h-4" /> Leer capítulos gratis
+                    </a>
+                    <a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/8 px-6 py-3 font-semibold text-white hover:bg-white/14 transition-colors">
+                      Comprar en Amazon
+                    </a>
+                    <a href="#resenas" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 font-semibold text-zinc-100 hover:bg-white/10 transition-colors">
+                      <Star className="w-4 h-4 text-amber-300" /> Ver reseñas
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
 
-      cards.forEach((card) => card.addEventListener('click', () => activate(Number(card.dataset.placeIndex))));
-      if (cards[0]) cards[0].classList.add('active');
-    });
+            <section id="autor" className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
+              <div className="grid lg:grid-cols-[0.9fr,1.1fr] gap-10 md:gap-14 items-center">
+                <div className="img-card ring max-w-md mx-auto lg:mx-0">
+                  <img src={authorImg} alt="Christian C. D'Rosoy" loading="lazy" />
+                </div>
+                <div>
+                  <SectionTitle eyebrow="Sobre el autor" title="Christian C. D'Rosoy" subtitle="Una voz narrativa con identidad propia, sensibilidad contemporánea y una forma de contar que mezcla emoción, tensión, misterio y mirada cinematográfica." />
+                  <div className="grid sm:grid-cols-2 gap-4 mt-8">
+                    {[
+                      ['Romance emocional', 'Historias que conectan desde la herida.'],
+                      ['Mirada cinematográfica', 'Ritmo visual y escenas potentes.'],
+                      ['Málaga como latido', 'La ciudad forma parte del alma del relato.'],
+                      ['Proyecto en expansión', 'Web pensada para libro, vídeo, redes y nuevos lanzamientos.'],
+                    ].map(([title, text]) => (
+                      <div key={title} className="rounded-3xl border border-white/10 bg-white/5 p-5">
+                        <p className="font-semibold text-white">{title}</p>
+                        <p className="mt-2 text-sm text-zinc-300 leading-relaxed">{text}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="sinopsis" className="border-y border-white/10 bg-white/[0.03]">
+              <div className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
+                <SectionTitle eyebrow="Sinopsis" title="La historia comienza con una frase imposible" subtitle="Christian Herrmann vive una vida aparentemente normal hasta que un niño se presenta en su mundo llamándole papá y pronunciando una frase que lo cambia todo: «Todavía no ha pasado»." />
+                <div className="mt-10 grid md:grid-cols-2 gap-5 items-start">
+                  <figure className="img-card ring">
+                    <img src={synopsisLeft} alt="Málaga también es ficción" loading="eager" />
+                    <figcaption className="px-5 py-4 text-sm tracking-wide uppercase text-amber-200/90 border-t border-white/10 bg-black/35">Málaga también es ficción</figcaption>
+                  </figure>
+                  <figure className="img-card ring">
+                    <img src={synopsisRight} alt="¿Quién es CC2?" loading="eager" />
+                    <figcaption className="px-5 py-4 text-sm tracking-wide uppercase text-amber-200/90 border-t border-white/10 bg-black/35">¿Quién es CC2?</figcaption>
+                  </figure>
+                </div>
+                <div className="mt-8 rounded-[2.15rem] border border-amber-300/18 bg-[linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.03))] p-6 md:p-10 ring shadow-2xl shadow-black/20">
+                  <div className="mx-auto max-w-3xl chapter text-left text-zinc-300">
+                    <p className="text-xl md:text-2xl font-semibold leading-tight text-white mb-6">¿Qué harías si un niño desconocido te abrazara llorando... y te llamara papá?</p>
+                    <p className="text-xl md:text-2xl font-semibold leading-tight text-white mb-6">¿Y si supiera cosas sobre tu vida que todavía no han ocurrido?</p>
+                    <p className="text-xl md:text-2xl font-semibold leading-tight text-white mb-0">¿Y si el amor de tu vida ya hubiera vivido esta historia antes que tú?</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="novela" className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
+              <div className="grid lg:grid-cols-[0.9fr,1.1fr] gap-12 items-center">
+                <div className="img-card ring">
+                  <img src={bookImg} alt="Libro I" loading="lazy" />
+                </div>
+                <div>
+                  <SectionTitle eyebrow="La novela" title="Libro I — El hijo del mañana" subtitle="¿Qué harías si un niño apareciera en tu vida asegurando ser tu hijo… y lo más aterrador fuera descubrir que dice la verdad? PRIMERO LOVE YOU abre una historia donde el amor, el tiempo y lo imposible se miran de frente." />
+                  <div className="grid sm:grid-cols-2 gap-4 mt-8">
+                    {[
+                      ['Amor', 'El centro emocional de una historia intensa.'],
+                      ['Tiempo', 'Pasado, presente y futuro empujando en la misma dirección.'],
+                      ['Misterio', 'Nada es exactamente lo que parece.'],
+                      ['Málaga', 'Una atmósfera real y evocadora.'],
+                    ].map(([title, text]) => (
+                      <div key={title} className="rounded-3xl border border-white/10 bg-black/20 p-5">
+                        <p className="font-semibold text-white">{title}</p>
+                        <p className="mt-2 text-sm text-zinc-300">{text}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="leer" className="border-y border-white/10 bg-white/[0.03]">
+              <div className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
+                <SectionTitle eyebrow="Leer gratis" title="Dedicatoria, prólogo y capítulos de muestra" subtitle="Un recorrido breve por el arranque editorial de la novela." />
+                <div className="mt-10 rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-5 md:p-6 ring">
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {[
+                      ['dedicatoria', 'Dedicatoria'],
+                      ['prologo', 'Prólogo'],
+                      ['cap1', 'Capítulo 1 · Todavía no ha pasado'],
+                      ['cap2', 'Capítulo 2 · La grieta'],
+                      ['cap3', 'Capítulo 3 · El código'],
+                      ['cap4', 'Capítulo 4 · El pulso del pasado'],
+                    ].map(([id, label]) => (
+                      <button key={id} onClick={() => setTab(id)} className={`rounded-2xl border px-4 py-3 text-left text-sm transition-colors ${tab === id ? 'border-amber-300/40 bg-amber-300/10 text-amber-100' : 'border-white/10 bg-black/20 text-zinc-200 hover:bg-white/8'}`}>
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-8 rounded-[2rem] overflow-hidden border border-white/10 ring">
+                  <div className="px-6 md:px-10 py-6 bg-gradient-to-r from-black/70 to-zinc-900/70 border-b border-white/10">
+                    <span className="inline-flex rounded-full border border-amber-300/30 bg-amber-300/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-amber-200">Muestra editorial</span>
+                    <h3 className="mt-3 text-2xl md:text-3xl font-semibold text-white">
+                      {tab === 'dedicatoria' && 'Dedicatoria'}
+                      {tab === 'prologo' && 'Prólogo'}
+                      {tab === 'cap1' && 'Capítulo 1 — Todavía no ha pasado'}
+                      {tab === 'cap2' && 'Capítulo 2 — La grieta'}
+                      {tab === 'cap3' && 'Capítulo 3 — El código'}
+                      {tab === 'cap4' && 'Capítulo 4 — El pulso del pasado'}
+                    </h3>
+                    <p className="mt-2 loc">
+                      {tab === 'cap1' && 'Lunes · 08:15 h · Calle La Unión · Málaga · 2026'}
+                      {tab === 'cap2' && 'Lunes · 10:55 h · Colegio García Lorca'}
+                      {tab === 'cap3' && 'Lunes · 18:30 h · Calle La Unión'}
+                      {tab === 'cap4' && 'Lunes · 20:57 h · Calle La Unión'}
+                      {tab !== 'cap1' && tab !== 'cap2' && tab !== 'cap3' && tab !== 'cap4' && 'Apertura'}
+                    </p>
+                  </div>
+                  <div className="bg-[#0d0d15] px-6 md:px-14 py-10 md:py-14">
+                    <div className="max-w-2xl mx-auto chapter">
+                      {tab === 'dedicatoria' && (
+                        <>
+                          <p className="text-center italic">A la memoria de mi padre,</p>
+                          <p className="text-center italic">que me enseñó el valor del tiempo</p>
+                          <p className="text-center italic">antes de que yo entendiera que podía perderlo.</p>
+                        </>
+                      )}
+                      {tab === 'prologo' && (
+                        <>
+                          <p>«Echar de menos a alguien que no conoces es una forma de locura que no tiene diagnóstico». —CC</p>
+                          <p>Hay ausencias que no dejan fotografías. No tienen fecha ni entierro. Y, sin embargo, pesan más que los muertos con nombre.</p>
+                          <p>Durante años pensé que lo que me dolía era el pasado. Me equivoqué. Lo que me dolía era algo que aún no había ocurrido.</p>
+                        </>
+                      )}
+                      {tab === 'cap1' && (
+                        <>
+                          <p>Hay exactamente dos momentos en la vida de todo hombre en los que el tiempo se detiene de verdad: cuando alguien te dice que vas a ser padre y cuando te lo reclama un niño al que nunca has visto.</p>
+                          <p>El silencio en mi apartamento de la calle La Unión no era simple vacío. Era una entidad viva, pesada como el plomo fundido, instalada en cada rincón con la persistencia de un invitado no deseado.</p>
+                          <p>Al otro lado de la cristalera, Málaga se desperezaba bajo una luz pálida y cortante. La cafetera italiana, reliquia de mis días más optimistas, emitió su gorgoteo final. El café brotó negro como la brea. Espeso. Amargo. Sin azúcar.</p>
+                        </>
+                      )}
+                      {tab === 'cap2' && (
+                        <>
+                          <p>Bajé las escaleras con el dibujo doblado en el bolsillo interior de la chaqueta de piel: una granada a punto de detonar. Cada crujido del papel contra el cuero era un recordatorio punzante: aquello no había salido de mi cabeza.</p>
+                          <p>Silvia me miró con una calma inesperada. —A veces los niños son canales para cosas ajenas a la comprensión adulta —dijo con una sonrisa suave—. No ha parado de repetir que “papá siempre viene cuando lo necesito”.</p>
+                        </>
+                      )}
+                      {tab === 'cap3' && (
+                        <>
+                          <p>—¿Christian? ¿Todo bien, hijo? —preguntó mi madre al teléfono.</p>
+                          <p>—No, la verdad es que no. Ha pasado algo muy raro hoy. Un niño de segundo de primaria dice que soy su padre, me llamó papá y conocía mi apodo, CC.</p>
+                          <p>Al abrir la caja, el olor a naftalina inundó la habitación, mezclado con algo más: madera vieja, cuero y el rastro fantasma de la colonia de mi padre.</p>
+                        </>
+                      )}
+                      {tab === 'cap4' && (
+                        <>
+                          <p>El tatuaje seguía picándome. Decidí llamar a Annette, mi tatuadora de Ikigaink Experience. Contestó rápido, con esa voz que no había cambiado en quince años.</p>
+                          <p>—El diseño es el mismo —susurró—. El que hizo tu padre.</p>
+                          <p>—Hay cosas que no se explican antes de tiempo —recordé en voz baja—. Se activan cuando toca.</p>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="galeria" className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
+              <SectionTitle eyebrow="Galería" title="Presentación del libro" subtitle="Fotos reales del evento de presentación." />
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mt-12">
+                {gallery.map((img) => (
+                  <a key={img.src} href={img.src} target="_blank" rel="noreferrer" className="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5">
+                    <img src={img.src} alt={img.alt} className="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div>
+                    <div className="absolute left-4 bottom-4"><span className="text-sm text-white font-medium">{img.alt}</span></div>
+                  </a>
+                ))}
+              </div>
+            </section>
+
+            <section id="personajes" className="border-y border-white/10 bg-white/[0.03]">
+              <div className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
+                <SectionTitle eyebrow="Personajes imaginados" title="Así podría verse el universo humano de la novela" subtitle="Una galería visual inspirada en los personajes de PRIMERO LOVE YOU." />
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mt-12">
+                  {characters.map((img) => (
+                    <a key={img.src} href={img.src} target="_blank" rel="noreferrer" className="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5">
+                      <img src={img.src} alt={img.alt} className="h-56 md:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div>
+                      <div className="absolute left-4 bottom-4"><span className="text-sm text-white font-medium">{img.alt}</span></div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            <section id="video" className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
+              <SectionTitle eyebrow="Vídeo" title="Booktrailer / presentación" subtitle="Descubre el universo visual de PRIMERO LOVE YOU." />
+              <div className="mt-12 rounded-[2rem] overflow-hidden border border-white/10 bg-black/30 shadow-2xl shadow-black/30">
+                <div className="aspect-video w-full">
+                  <iframe className="w-full h-full" src="https://www.youtube.com/embed/ADlNpdwBY0o" title="Vídeo PRIMERO LOVE YOU" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                </div>
+              </div>
+              <div className="mt-5 flex flex-col sm:flex-row gap-3">
+                <a href="https://youtube.com/shorts/ADlNpdwBY0o" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/8 px-5 py-3 text-sm font-medium text-white hover:bg-white/14 transition-colors">
+                  <Play className="w-4 h-4" /> Abrir vídeo en YouTube
+                </a>
+              </div>
+            </section>
+
+            <section id="resenas" className="border-y border-white/10 bg-white/[0.03]">
+              <div className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
+                <div className="grid xl:grid-cols-[1.3fr,0.7fr] gap-10">
+                  <div>
+                    <SectionTitle eyebrow="Opiniones de lectores" title="Lo que dicen quienes lo han leído" subtitle="Reseñas verificadas de Amazon." />
+                    <div className="grid md:grid-cols-2 gap-4 mt-10">
+                      {[
+                        ['Jose Maria', '4 jul 2026', '¡Una joya de suspense y magnetismo!', 'Adictivo de principio a fin. Una mezcla perfecta de misterio, intriga y romance que no te deja soltar el libro.'],
+                        ['Alex', '22 may 2026', 'Me ha sorprendido muchísimo', 'La historia tiene misterio, drama y momentos que te dejan con ganas de seguir leyendo. Muy recomendable.'],
+                        ['Lola Perez Chia', '10 jun 2026', 'Capacidad de descripción', 'Me ha sorprendido gratamente la narrativa tan peculiar de este nuevo escritor. Esperando segunda parte.'],
+                        ['Noe', '30 may 2026', 'Un gran libro de un gran amigo', 'La historia comienza con fuerza, presentando personajes interesantes y una trama que despierta mucha curiosidad.'],
+                      ].map(([name, date, title, text]) => (
+                        <div key={`${name}-${date}`} className="rounded-3xl border border-white/10 bg-white/5 p-5">
+                          <div className="flex gap-0.5 mb-2 text-amber-300"><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /></div>
+                          <p className="text-amber-300 text-sm font-semibold">{name}</p>
+                          <p className="text-zinc-500 text-xs mb-2">{date}</p>
+                          <p className="font-semibold text-white text-sm mb-1">{title}</p>
+                          <p className="text-sm text-zinc-300 leading-relaxed">{text}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                      <a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-amber-300 px-6 py-3 font-semibold text-black hover:bg-amber-200 transition-colors">Comprar ahora en Amazon</a>
+                      <a href="https://www.amazon.es/dp/B0H12QX4HW" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/8 px-6 py-3 font-semibold text-white hover:bg-white/14 transition-colors">Ver todas las reseñas</a>
+                    </div>
+                  </div>
+                  <aside className="rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/6 to-white/[0.03] p-6 md:p-8 h-fit ring">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-amber-300/30 bg-amber-300/10 px-4 py-1.5 text-[11px] uppercase tracking-[0.35em] text-amber-100"><MapPin className="w-4 h-4" /> Compra física en Málaga</div>
+                    <h3 className="mt-4 text-2xl font-semibold text-white">Librerías Proteo Prometeo</h3>
+                    <p className="mt-2 text-sm text-zinc-300">Tu ejemplar también puede comprarse físicamente en uno de los puntos libreros más reconocidos de Málaga.</p>
+                    <div className="mt-6 rounded-[1.5rem] border border-white/10 bg-gradient-to-br from-white/7 to-white/[0.03] p-5">
+                      <p className="font-semibold text-white">Dirección</p>
+                      <p className="text-sm text-zinc-300 mt-2 leading-relaxed">C. Prta Buenaventura, 3<br/>Distrito Centro, 29008 Málaga</p>
+                      <p className="text-sm text-zinc-300 mt-3">Teléfono: <a href="tel:+34952219019" className="text-amber-300 hover:underline">952 21 90 19</a></p>
+                    </div>
+                    <div className="mt-5 flex flex-col gap-3">
+                      <a href="https://www.google.com/maps/search/?api=1&query=Librerias+Proteo+Prometeo+Malaga" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-300 to-amber-200 px-5 py-3 font-semibold text-black hover:from-amber-200 hover:to-amber-100 transition-colors">Ver en Google Maps</a>
+                      <a href="tel:+34952219019" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/8 px-5 py-3 font-semibold text-white hover:bg-white/14 transition-colors">Llamar ahora</a>
+                    </div>
+                  </aside>
+                </div>
+              </div>
+            </section>
+
+            <section id="contacto" className="border-t border-white/10 bg-black/20">
+              <div className="max-w-7xl mx-auto px-4 md:px-6 py-14">
+                <p className="text-[11px] tracking-[0.35em] uppercase text-amber-300/80 mb-3">Contacto y redes</p>
+                <h2 className="text-3xl md:text-5xl font-semibold text-white leading-tight">Christian C. D'Rosoy</h2>
+                <p className="mt-4 text-zinc-300 text-base md:text-lg leading-relaxed max-w-3xl">Correo y redes sociales oficiales del proyecto.</p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  {[
+                    ['mailto:christiancdrosoy@hotmail.com', 'Correo', Mail],
+                    ['https://www.instagram.com/primeroloveyou_libro?igsh=YTJhOWJ6M2Fkc2Ru&utm_source=qr', 'Instagram', Instagram],
+                    ['https://www.facebook.com/share/g/163orYLTEDm/?mibextid=wwXIfr', 'Facebook', Facebook],
+                    ['https://www.tiktok.com/@primeroloveyou_libro?_r=1&_t=ZN-97yLDwzYbXn', 'TikTok', Music2],
+                    ['https://youtube.com/shorts/ADlNpdwBY0o', 'YouTube', Youtube],
+                  ].map(([href, label, Icon]) => (
+                    <a key={label} href={href} target={href.startsWith('mailto:') ? undefined : '_blank'} rel={href.startsWith('mailto:') ? undefined : 'noreferrer'} className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white hover:bg-white/8 transition-colors">
+                      <Icon className="w-4 h-4" /> {label}
+                    </a>
+                  ))}
+                </div>
+                <div className="mt-10 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
+                  <div>
+                    <p className="font-semibold text-white">© 2026 Christian C. D'Rosoy</p>
+                    <p className="text-sm text-zinc-400 mt-1">PRIMERO LOVE YOU · Libro I · Trilogía oficial · Ediciones 52.1 · Málaga, España</p>
+                  </div>
+                  <a href="#inicio" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white hover:bg-white/8 transition-colors">
+                    <ArrowRight className="w-4 h-4 rotate-[-90deg]" /> Volver arriba
+                  </a>
+                </div>
+              </div>
+            </section>
+          </main>
+        </div>
+      );
+    }
+
+    createRoot(document.getElementById('root')).render(<App />);
   </script>
 </body>
 </html>
